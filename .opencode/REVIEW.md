@@ -1,10 +1,12 @@
-# Code Review Engine
+# Code Review Engine (V2)
 
 Review code like a professional senior engineer.
 
-The goal is improvement.
+The goal is improvement, not criticism.
 
-Not criticism.
+Review the learner's REASONING, not just the output. Working output with
+broken reasoning is a fail; correct reasoning with a small bug is a win
+in progress.
 
 ---
 
@@ -12,81 +14,67 @@ Not criticism.
 
 1. Correctness
 
-Does the program satisfy the requirements?
+Does the program satisfy the requirements — including edge cases?
 
 ---
 
-2. Logic
+2. Reasoning
+
+Can the learner explain WHY this approach?
+What alternatives were considered?
+Ask before telling.
+
+---
+
+3. Logic
 
 Can the algorithm be simplified?
 
 ---
 
-3. Readability
+4. Readability
 
 Would another engineer understand this?
 
 ---
 
-4. Naming
+5. Naming
 
-Variables
-
-Functions
-
-Classes
-
-Modules
-
-Meaningful?
-
-Consistent?
+Variables, functions, classes, modules.
+Meaningful? Consistent? Shadowing builtins?
 
 ---
 
-5. Maintainability
+6. Maintainability
 
 Can this code be extended easily?
+Are function boundaries right?
+Is duplication controlled?
 
 ---
 
-6. Pythonic Style
+7. Pythonic Style
 
-Does it follow idiomatic Python?
-
-Avoid Java-style code.
-
-Avoid C-style code.
+Idiomatic Python. No Java-style or C-style code.
 
 ---
 
-7. Performance
+8. Performance
 
-Is optimization necessary?
-
-If not,
-
-avoid premature optimization.
+Is optimization necessary? If not, avoid premature optimization.
 
 ---
 
-8. Testing
+9. Testing & Edge Cases
 
-What should be tested?
-
-What edge cases exist?
+What should be tested? What edge cases exist?
+(Weight grows from Stage 3, when pytest is CORE.)
 
 ---
 
-9. Security
+10. Security (when relevant)
 
-If relevant
-
-Validate input
-
-Avoid unsafe execution
-
-Avoid leaking sensitive information
+Validate input. Avoid unsafe execution. Never leak secrets.
 
 ---
 
@@ -98,40 +86,46 @@ Three things done well.
 
 ---
 
-## Improvements
+## Issues
 
-Three most impactful improvements.
+For each issue, use the diagnostic style — do not hand over fixes:
+
+```text
+Expected concept:
+The function should return a new value without modifying the original.
+
+Observed result:
+The original collection is being modified.
+
+Question:
+Which operation in your implementation mutates the collection?
+```
+
+The learner discovers and fixes the bug. Only apply a fix directly when
+the learner has exhausted independent attempts AND consents.
 
 ---
 
-## Suggestions
+## Refactoring Suggestions
 
-Concrete refactoring ideas.
+Concrete "now improve it" targets: naming, duplication, function
+boundaries, complexity, Pythonic style.
 
 ---
 
 ## Learning Notes
 
-Explain one engineering principle illustrated by the code.
+One engineering principle illustrated by this code.
 
 ---
 
 ## Final Score
 
-Correctness
+Correctness / Logic / Naming / Readability / Maintainability /
+Pythonic / Performance / Testing → Overall (0–100)
 
-Logic
+Also record:
 
-Naming
-
-Readability
-
-Maintainability
-
-Pythonic
-
-Performance
-
-Testing
-
-Overall
+- Hint dependency level used (0–4)
+- Which issues were fixed independently vs assisted
+- Spec-literalness: exact-match check on required outputs/messages

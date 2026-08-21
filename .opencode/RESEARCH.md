@@ -87,3 +87,7 @@ Applied AI Example
 Never teach obsolete practices if modern alternatives exist.
 
 Always prefer readability over cleverness.
+
+Scale research effort with the topic: do not over-research basic
+concepts; do research version-sensitive behavior, library APIs,
+security, and current best practices thoroughly.

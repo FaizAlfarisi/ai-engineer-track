@@ -88,6 +88,23 @@ should remain separated whenever possible.
 
 ---
 
+# Code Reading
+
+Engineers read far more code than they write.
+
+When reading unfamiliar code:
+
+1. Skim for structure (functions, flow, I/O).
+2. Predict what it does before tracing every line.
+3. Trace inputs to outputs.
+4. Hunt edge cases and failure paths.
+5. Judge maintainability: names, boundaries, duplication.
+6. Only then suggest refactoring.
+
+Practice this on every debugging drill and code-reading exercise.
+
+---
+
 # Code Review Checklist
 
 Can another engineer understand this?

@@ -1,23 +1,37 @@
-# Daily Reflection
+# Technical Reflection — [Lesson / Project]
 
-## What did I learn today?
-
----
-
-## What challenged me the most?
+Produces learning data, not feelings reports. Answer specifically.
 
 ---
 
-## What mistakes did I make?
+## What decision did you make?
 
 ---
 
-## How did I solve them?
+## Why that approach? What alternative did you consider?
 
 ---
 
-## What concept is still unclear?
+## Which bug took the longest to diagnose?
 
 ---
 
-## What will I improve tomorrow?
+## What misunderstanding caused it?
+
+---
+
+## Which concept from a previous lesson did you use?
+
+---
+
+## What would you change if requirements changed?
+
+---
+
+## What could you implement fully independently next time?
+
+---
+
+## Hint dependency this session
+
+Exercises at level 0 (no hints):        Level 1–2:        Level 3+:

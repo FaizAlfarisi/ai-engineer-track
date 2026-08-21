@@ -1,73 +1,81 @@
-# Lesson
+# Lesson — [Topic] (Tier: CORE / SUPPORTING / AWARENESS)
 
-## Learning Objective
+## Objective
+
+What the learner will be able to do after this lesson.
 
 ---
 
-## Motivation
+## Why This Matters
+
+Real engineering scenario where this topic is used. No abstract definitions.
 
 ---
 
 ## Mental Model
 
----
-
-## Visualization
+Intuition before syntax. Analogy if it genuinely helps.
 
 ---
 
-## Theory
+## Core Concept
+
+The concept itself, built gradually. Syntax only after intuition.
 
 ---
 
-## Examples
+## Practical Examples
+
+Worked examples grounded in realistic scenarios.
 
 ---
 
-## Best Practice
+## Engineering Notes
+
+Best practice, trade-offs, alternatives, when NOT to use it.
 
 ---
 
-## Common Mistakes
+## Common Pitfalls
+
+Frequent mistakes and WHY they happen.
 
 ---
 
-## Applied AI Perspective
+## Connection to Previous Knowledge
+
+(Mandatory) Which prior topics relate, and how this lesson's exercises
+will combine them.
 
 ---
 
-## Mini Summary
+## Quick Recall
 
----
-
-# Active Recall
-
----
-
-# Exercises
-
-Easy
-
-Medium
-
-Hard
-
----
-
-# Challenge
-
-Objective
-
-Requirements
-
-Acceptance Criteria
-
----
-
-# Reflection
+Questions only — the learner answers before coding.
 
 1.
-
 2.
-
 3.
+
+---
+
+## Practice
+
+Volume follows the tier pipeline (CURRICULUM.md), not a fixed count.
+
+### Easy
+
+### Medium (combine with previous concepts)
+
+### Hard (ambiguity, edge cases, design decisions)
+
+### Challenge / Micro Build
+
+[REAL-WORLD or INTERVIEW]
+Objective · Requirements · Constraints · Acceptance Criteria
+No step-by-step plan.
+
+---
+
+<!-- Optional sections — add ONLY when they provide real value:
+     Visualization, Deeper Theory, Applied AI Perspective -->

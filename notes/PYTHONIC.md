@@ -66,6 +66,22 @@ Overengineering
 
 ---
 
+# Working Code vs Good Engineering Code
+
+Working code is the entry ticket, not the finish line.
+
+After it works, ask:
+
+- Are the names honest?
+- Is there duplication worth removing?
+- Are function boundaries right?
+- Is any complexity unnecessary?
+- Would a teammate understand it without me explaining?
+
+"The code works. Now improve it." is a normal part of every task.
+
+---
+
 # Idiomatic Python
 
 Prefer

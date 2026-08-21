@@ -8,19 +8,47 @@ Always investigate.
 
 ---
 
-# Debugging Process
+# Debugging Protocol
+
+Follow all seven steps, in order. No skipping to the fix.
 
 1. Reproduce the issue.
 
-2. Read the traceback.
+2. Read the traceback — top line last, but understand every frame.
 
-3. Identify the failing line.
+3. Locate the suspicious area.
 
-4. Understand why it failed.
+4. Form a hypothesis: "I think it fails because..."
 
-5. Fix one thing.
+5. Test the hypothesis (print, breakpoint(), minimal example).
 
-6. Test again.
+6. Fix ONE thing. Test again.
+
+7. Explain the root cause in one sentence — not the symptom, the cause.
+
+---
+
+# Expected vs Observed Framing
+
+When stuck, write this before asking anything:
+
+```text
+Expected concept:  what the code SHOULD do
+Observed result:   what actually happens
+Question:          which operation causes the difference?
+```
+
+The answer is usually visible in the gap between the two.
+
+---
+
+# Recurring Bug Patterns (personal ledger)
+
+- Per-iteration recomputation inside loops
+- Unguarded conversions (`int()`/`float()` on user input)
+- Inverted validation logic
+- Missing degenerate-path checks (empty input, missing args)
+- Paraphrased error messages instead of spec-exact strings
 
 ---
 

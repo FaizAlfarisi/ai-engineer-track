@@ -87,8 +87,6 @@ Learning adapts continuously.
 # Repository Structure
 
 ```text
-python/
-
 lessons/
 projects/
 quizzes/
@@ -103,37 +101,73 @@ RULES.md
 PROGRESS.md
 DAILY_LOG.md
 LEARNING_OUTCOMES.md
+DSA_TRACK.md
 ```
+
+---
+
+# How Topics Are Learned
+
+Every topic carries a priority tier that sets its depth:
+
+- **CORE** — drilled to Level 4 (proficient: implement, debug, combine, decide)
+- **SUPPORTING** — Level 3 (independent, docs OK for syntax)
+- **AWARENESS** — Level 2 (mental model + recognition)
+- **PROJECT-DEPENDENT** — learned when a real project needs it
+
+Exercise volume adapts to tier and demonstrated mastery. New lessons
+always connect back to previous concepts, and old CORE concepts reappear
+unannounced in later work.
 
 ---
 
 # Learning Workflow
 
-Study
+Learn
 
 ↓
 
-Exercise
+Recall Previous Knowledge
 
 ↓
 
-Challenge
+Understand Current Concept
 
 ↓
 
-Code Review
+Apply Current Concept
 
 ↓
 
-Reflection
+Combine With Previous Concepts
 
 ↓
 
-Progress Update
+Debug / Diagnose
 
 ↓
 
-Next Lesson
+Build (Micro → Weekly Project → Stage Project)
+
+↓
+
+Review
+
+↓
+
+Assess (+ Quiz every ~3 lessons)
+
+↓
+
+Reflect
+
+↓
+
+Update Mastery
+
+↓
+
+Retrieve Later → Apply Again
 
 ---
 
@@ -143,15 +177,15 @@ By the end of this roadmap, the learner should be able to
 
 ✔ Read unfamiliar Python code
 
-✔ Design small software systems
+✔ Design small software systems and explain the decisions behind them
 
-✔ Debug independently
+✔ Debug independently with a repeatable protocol
 
-✔ Write clean and maintainable code
+✔ Write clean, maintainable, Pythonic code — and refactor working code into good code
 
-✔ Build CLI applications
+✔ Build CLI applications and multi-module programs from scratch
 
-✔ Understand professional Python codebases
+✔ Solve interview-format problems and explain complexity trade-offs
 
 ✔ Be fully prepared to study AI Engineering
 

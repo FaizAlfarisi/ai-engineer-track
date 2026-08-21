@@ -1,35 +1,50 @@
-# Quiz
+# Quiz — [Lessons Covered]
 
-## Multiple Choice
-
-5 Questions
+Run roughly every 3 related lessons. Result feeds the weak-concept report.
 
 ---
 
-## True / False
+## Concept Explanation
 
-5 Questions
+2–3 questions: "Explain X in your own words. When would you choose it?
+When not?"
 
 ---
 
-## Short Answer
+## Predict the Output
 
-5 Questions
+2–3 short code snippets — learner writes the exact output and why.
+
+---
+
+## Debug This
+
+1–2 snippets with a bug — learner identifies, explains root cause, fixes.
 
 ---
 
 ## Code Reading
 
-2 Questions
+1–2 unfamiliar snippets — what does it do, edge cases, maintainability
+issues.
 
 ---
 
-## Debugging
+## Apply
 
-1 Question
+1 small task combining quiz-covered topics with earlier CORE concepts.
 
 ---
 
-## Passing Score
+<!-- Multiple choice / true-false: sparingly, max 3 items total -->
 
-80%
+---
+
+## Weak-Concept Report (filled after grading)
+
+| Concept | Result | Action |
+|---------|--------|--------|
+|         |        | targeted practice / re-assess / closed |
+
+Passing bar: 80%. Below 80% on a concept ⇒ targeted practice before new
+lessons build on it.

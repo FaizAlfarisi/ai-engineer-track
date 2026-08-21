@@ -1,127 +1,135 @@
-# Standard Response Format
+# Standard Response Format (V2)
 
-Every response should follow this structure.
-
-Consistency is mandatory.
+Formats for each artifact type. Keep responses natural — a mentor
+speaking, not a form being filled.
 
 ---
 
 # Lesson
 
-## Learning Objective
+Follows the V2 structure (CURRICULUM.md):
 
----
+```text
+Objective
+Why This Matters
+Mental Model
+Core Concept
+Practical Examples
+Engineering Notes
+Common Pitfalls
+Connection to Previous Knowledge   (mandatory)
+Quick Recall                       (questions, not answers)
+Practice                           (tier-scaled volume)
+```
 
-## Motivation
-
-Why should the learner care?
-
----
-
-## Mental Model
-
-Explain intuition before syntax.
-
----
-
-## Visualization
-
-ASCII diagrams whenever useful.
-
----
-
-## Theory
-
-Explain concepts gradually.
-
----
-
-## Best Practice
-
-Modern Python recommendations.
-
----
-
-## Common Mistakes
-
-Explain WHY mistakes happen.
-
----
-
-## Applied AI Perspective
-
-Explain where the concept appears in AI Engineering.
-
----
-
-## Mini Summary
-
-Five to ten concise bullet points.
+Optional additions ONLY when valuable: visualization, deeper theory,
+Applied AI perspective.
 
 ---
 
 # Exercise
 
-Warm-up
+Each exercise states:
 
-Checkpoint
+```text
+[REAL-WORLD] or [INTERVIEW]
+Objective
+Rule / Input / Output format       (explicit, standing directive)
+Constraints
+Hints                              (conceptual only — no code in hints)
+```
 
-Challenge
-
-Debugging
-
-Refactoring
+Volume follows the topic's tier pipeline. Never a fixed 5/3/2 split.
 
 ---
 
-# Mini Project
+# Code Reading Drill
 
-Goal
+```text
+Unfamiliar code block
+Questions: what does it do / predict output / find bugs /
+           maintainability problems / refactor it / edge cases
+```
 
+---
+
+# Debugging Drill
+
+```text
+Buggy code + observed misbehavior
+Learner runs: Reproduce → Traceback → Locate → Hypothesis → Test → Fix → Explain root cause
+AI gives expected-vs-observed framing only, never the fix
+```
+
+---
+
+# Weekly Project Brief
+
+```text
+Problem (realistic scenario)
 Requirements
+Constraints
+Acceptance Criteria                (checkable)
+Stretch Goals                      (optional)
+Deliverables
+NO step-by-step implementation plan. NO starter code beyond blank files.
+```
 
-Acceptance Criteria
+---
 
-Stretch Goals
+# Stage Project Brief
+
+Same as weekly, plus:
+
+```text
+Design decisions the learner must make and justify
+Formal review gate at milestones
+```
+
+---
+
+# Quiz
+
+```text
+Mixed formats: explain · predict output · debug this · code reading · apply
+(Multiple choice sparingly)
+Then: weak-concept report → targeted practice plan
+```
 
 ---
 
 # Review
 
-Strengths
+Strengths (3)
 
-Issues
+Issues (diagnostic style: expected / observed / question — no handed-over fixes)
 
-Suggestions
+Refactoring Suggestions
 
-Engineering Insight
+Learning Notes (one engineering principle)
 
-Pythonic Suggestions
-
-Score
+Final Score + hint dependency level + independent-fix ratio
 
 ---
 
-# Reflection
+# Reflection Prompts
 
-What did you learn?
+Technical, not generic:
 
-What confused you?
-
-What will you improve tomorrow?
+- What decision did you make? Why? What alternative did you consider?
+- Which bug took longest to diagnose? What misunderstanding caused it?
+- Which concept from a previous lesson did you use?
+- What would you change if requirements changed?
+- What could you implement fully independently next time?
 
 ---
 
 # Progress Update
 
-Lessons Completed
+Topic table rows touched (mastery/hint dependency/last reviewed)
 
-Projects Completed
+Weekly project log / quiz log / DSA log entries if applicable
 
-Mastery Level
+Weak concepts needing targeted practice
 
-Average Score
-
-Weak Topics
-
-Next Objective
+Next objective

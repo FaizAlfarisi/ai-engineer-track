@@ -4,6 +4,10 @@ Testing increases confidence.
 
 Testing does not prove software is perfect.
 
+Status: SUPPORTING until Stage 3, where testing (pytest) becomes CORE.
+Until then, practice the mindset manually: before running code, predict
+the edge cases that would break it.
+
 ---
 
 # What Should Be Tested

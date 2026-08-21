@@ -1,20 +1,86 @@
-`# Progress
+# Progress
 
-Current Stage:
+V2 format: topics are tracked by priority tier with mastery evidence,
+independence, mistakes, and hint dependency.
 
-Stage 1 — Python Fundamentals
-
-Current Lesson:
-
-Lesson 7 — Modules
-
-Current Week:
-
-Week 1
+Completion ≠ mastery. This file tracks mastery.
 
 ---
 
-## Completed Lessons
+## Current Position
+
+```text
+Stage:        Stage 2 — Python Application
+Next Lesson:  Lesson 8 — Exception Handling (stage opener)
+Weekly Proj.: every 3–4 lessons (next after Lesson 10/11)
+Quizzes:      roughly every 3 lessons
+DSA Track:    1 session/week, interleaved (see DSA_TRACK.md)
+Git:          commit after every session from Stage 2 onward
+```
+
+---
+
+## Topic Mastery Table
+
+Legend — Mastery: 0 never seen · 1 familiar · 2 understands ·
+3 independent · 4 proficient/debug+refactor · 5 can teach.
+Independence: High = implements without AI-generated code.
+Hint Dependency: see scale below.
+
+Stage 1 values were migrated from V1 session evidence and are marked
+**provisional** until confirmed through natural retrieval in Stage 2.
+
+| Topic | Tier | Mastery | Independence | Common Mistakes | Hint Dep. | Project Application | Last Reviewed |
+|-------|------|---------|--------------|-----------------|-----------|---------------------|---------------|
+| Variables & references | CORE | 4 (prov.) | High | alias vs copy (`b = a` shares) — resolved via L6 drill | None | All challenges L1–L7 | 2026-08-13 |
+| Data types & conversion | CORE | 4 (prov.) | High | builtin shadowing (`min`/`max` as names, L5); `int()`/`float()` on user input needs try/except (L7) | None | L1, L5–L7 | 2026-08-13 |
+| Control flow (conditionals, match literals) | CORE | 4 (prov.) | High | validation logic inverted; `count < 1` check missing (L7 challenge) | None | L3, L7 | 2026-08-13 |
+| Loops | CORE | 4 (prov.) | High | per-iteration recomputation (seed-in-loop, low-stock comprehension inside loop) | None | L4–L7 | 2026-08-13 |
+| Functions | CORE | 4 (prov.) | High | mutable defaults (fixed L5); `return` vs `print` confusion (fixed L5) | None | L5–L7; all challenges function-decomposed | 2026-08-13 |
+| Collections (list/tuple/dict/set) | CORE | 4 (prov.) | Med-High | choosing type by habit not guarantees (closing: 8/8 drill); `min()` misused as filter-then-join (L6) | Conceptual ×1 (two-sum O(n) approach) | L6, L7 | 2026-08-13 |
+| Modules & imports | CORE | 4 (prov.) | High | star-import shadowing; missing `__main__` guard — all fixed in H1 sweep | None | L7 challenge | 2026-08-20 |
+| Strings & formatting | SUPPORTING | 3→4 | High | label drift / spec-literalness (trend improving) | None | L2, L6 | 2026-08-05 |
+| Operators & boolean logic | SUPPORTING | 4 (prov.) | High | none recent | None | L2, L3 | 2026-08-05 |
+| Console I/O | SUPPORTING | 3 | High | degenerate argv paths (`--seed` alone → IndexError, L7) | Specific ×1 (with consent) | L3, L7 | 2026-08-13 |
+| `match` beyond literal patterns | AWARENESS | 2 | — | deferred by design (JSON Stage 2, API Stage 4) | — | — | 2026-08-13 |
+
+---
+
+## Cross-Cutting Skills
+
+| Skill | Status | Evidence |
+|-------|--------|----------|
+| Debugging (one-pass bug hunts) | STRONG | H1 clean sweeps four sessions running (L4–L7) |
+| Error handling under edge cases | **WEAK — primary target** | Recurring challenge failure mode: L6 empty-inventory UnboundLocalError + ValueError on non-numeric price; L7 six spec failures (uncast `count`, inverted validation, missing `< 1`, paraphrased messages, `--seed` alone crash). Stage 2 opens with Exception Handling to attack this directly |
+| Spec-literalness (output-as-contract) | IMPROVING | 2 mild slips in L5, down from earlier sessions; L7 architecture byte-perfect, error strings still paraphrased |
+| Collection choice from guarantees | CLOSING | Follow-up drill 8/8 correct, guarantee-driven reasoning |
+| Computation/presentation separation | FORMING | `is_pass` printed True/False instead of pass/fail (L5) |
+
+---
+
+## Hint Dependency Scale
+
+Diagnostic only — never punishment.
+
+```text
+0 — No hint
+1 — Conceptual hint
+2 — Specific hint
+3 — Pseudo-code
+4 — Full solution
+```
+
+Current profile: mostly 0. One level-1 (two-sum optimal approach).
+Reviewer applied final fixes with learner consent twice (L6: two
+`none`-fallback lines; L7: try/except + usage message) — recorded as
+assisted level-2, learner fixed 4–5 of 6–7 issues independently each time.
+
+Repeated level-2+ dependency on a topic ⇒ that topic returns for targeted
+practice before moving forward.
+
+---
+
+## Completed Lessons (Archive)
 
 - [x] Lesson 1 — Variables & Data Types (93/100)
 - [x] Lesson 2 — Operators & Strings (90/100)
@@ -26,7 +92,7 @@ Week 1
 
 ---
 
-## Completed Projects
+## Completed Projects (Archive)
 
 - [x] Lesson 1 Challenge — Profile Builder CLI
 - [x] Lesson 2 Challenge — Text Processor CLI (case-insensitive, full report)
@@ -38,7 +104,7 @@ Week 1
 
 ---
 
-## Strong Topics
+## Strong Topics (Archive)
 
 - Variables as names bound to objects (tag, not box)
 - Core data types (`int`, `float`, `str`, `bool`, `None`) and `type()`
@@ -85,7 +151,7 @@ Week 1
 
 ---
 
-## Weak Topics
+## Weak Topics (Archive)
 
 - Spec-literalness: improving — only 2 mild slips in L5 (M2 `exacly 2` label,
   E1 extra greetings), down from 4 in L4 and 3 in L3. Output-as-contract
@@ -115,29 +181,43 @@ Week 1
 
 ---
 
-## Average Review Score
+## Scores & Hours
 
-90.4 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91)
+Average Review Score: 90.4 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91)
 
----
+Overall Mastery: Level 4 — debugging/refactoring independently
 
-## Mastery Level
-
-Level 4 — Debugging/refactoring independently (H1 clean sweep in one pass,
-fourth session running; challenge had full architecture correct on first
-submission but error handling didn't survive edge cases — fixed all 6 issues
-across two review rounds independently; conceptual questions 7/7 on modules;
-spec-literalness still the last mile)
+Total Study Hours: ~7 hours
 
 ---
 
-## Total Study Hours
+## Weekly Project Log
 
-~7 hours
+| # | Lessons Covered | Project | Result | Date |
+|---|-----------------|---------|--------|------|
+| — | — | (starts in Stage 2) | — | — |
 
 ---
 
-## Notes
+## Quiz Log
+
+| # | Lessons Covered | Score | Weak Concepts Identified | Targeted Practice Done |
+|---|-----------------|-------|--------------------------|------------------------|
+| — | — | — | (starts in Stage 2) | — |
+
+---
+
+## DSA Log
+
+See `DSA_TRACK.md` for the track definition.
+
+| Week | Problems | Pattern(s) | Approach Quality | Complexity Explained? |
+|------|----------|------------|------------------|----------------------|
+| — | — | (starts with Stage 2) | — | — |
+
+---
+
+## Notes (Archive)
 
 - Session 5 (2026-08-09): Lesson 5 complete (92/100) — best session yet,
   tied with L3. Functions: def/return/params/defaults/scope/docstrings/
@@ -179,3 +259,8 @@ spec-literalness still the last mile)
   spec-literal, and `--seed` alone crashed with IndexError. Learner fixed 4
   issues independently; reviewer applied the last two (try/except, usage
   message) with consent. Conceptual questions 7/7.
+- V2 migration (2026-08-21): system upgraded to V2 — priority tiers,
+  cumulative recall, weekly projects (every 3–4 lessons), operational
+  quizzes (~every 3 lessons), DSA track (weekly), technical reflection,
+  topic-based progress tracking. Stage 1 retro-classified as Python Core
+  (complete). Next: Lesson 8 — Exception Handling.
