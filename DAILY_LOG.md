@@ -448,3 +448,72 @@ handling)
 - Next: stopping here — this completes the fundamental milestone. The learner
   has notes for the next milestone; this teaching role ends at this boundary.
 - Confusing: nothing.
+
+---
+
+## Session 8 — 2026-08-21 → 2026-08-23
+
+### Lesson
+
+Lesson 8 — Exception Handling (Stage 2 opener, CORE)
+
+### Exercises
+
+- E1–E5, M1, M2, H2: exact contracts on first submission
+- M1 highlight: tuple unpacking used as implicit shape validation — one
+  ValueError funnels unpack, empty-name, and float failures
+- M3: functional but spec dict mutated into the result container;
+  rebuilt with a separate result dict same session
+- H1: four bugs found and fixed minimally; caught that `count_skipped`
+  had to return the formatted string since the driver couldn't change —
+  constraint-correct where even the AI reference solution wasn't
+- Hint dependency: level 0 across all exercises
+
+### Challenge
+
+Expense Entry Validator CLI — architecture correct on first submission,
+`out=print` injectable stretch goal done unprompted. Spec-literalness
+relapsed on ONE report line: colon spacing fixed round 1, trailing space
+caught in review round 2 → byte-perfect final. Other nine output blocks
+byte-exact first submission.
+
+### Mistakes
+
+- Spec-literalness relapse: matched the visible part, missed the invisible
+  tail — pattern named explicitly; watch byte-exact endings
+- Blueprint/output conflation: mutating spec instead of building result
+- Widened except to `(ValueError, TypeError)` without stating why — fine
+  for sensor `None` dropouts, but widening must be a conscious decision
+
+### Insights
+
+- try blocks stay small: one failure story per try
+- EAFP vs LBYL is a failure-frequency decision, not a moral one
+- raise at boundaries, handle where you can respond
+- finally always runs — cleanup lives there, not inside try
+- Clarification notes added to `notes/PYTHONIC.md`
+
+### Time Studied
+
+~2 hours across 3 sittings (~30 min / ~60 min / ~30 min)
+
+### Tomorrow Goal
+
+Read Lesson 9 — File Handling tonight, do the tasks tomorrow.
+Quiz window opens around L9/L10.
+
+---
+
+## Reflection — Lesson 8 (2026-08-23)
+
+- Difficult: how much code belongs inside try — resolved to "one failure
+  story per try". EAFP-vs-LBYL anxiety ("is it necessary? is plain LBYL
+  wrong?") — resolved: neither is wrong, pick by failure frequency.
+- H1 root causes narrated traceback-first: ZeroDivisionError → mean guard;
+  silent skip → missing counter increment; inverted condition → None;
+  bare except → specific types.
+- M3 honesty: mutated spec because "dict values can be mutated so it's
+  gonna be okay" — forgot the copy approach; review showed blueprint and
+  output should be separate objects.
+- Pacing commitment: lesson spread over 3 short sittings; next lesson
+  targeted for a single-session run.

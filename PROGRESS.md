@@ -90,6 +90,7 @@ practice before moving forward.
 - [x] Lesson 5 — Functions (92/100)
 - [x] Lesson 6 — Collections (90/100)
 - [x] Lesson 7 — Modules (91/100)
+- [x] Lesson 8 — Exception Handling (95/100)
 
 ---
 
@@ -102,6 +103,7 @@ practice before moving forward.
 - [x] Lesson 5 Challenge — Gradebook Analyzer refactored into functions (byte-identical output)
 - [x] Lesson 6 Challenge — Store Inventory CLI (dict-of-info, set categories, function-decomposed)
 - [x] Lesson 7 Challenge — Random Team Picker CLI (sys.argv, random.sample, seed flag, __main__ guard)
+- [x] Lesson 8 Challenge — Expense Entry Validator CLI (parse/format/main split, raise-at-boundary, injectable `out=print`, byte-perfect final output)
 
 ---
 
@@ -149,6 +151,15 @@ practice before moving forward.
 - `os.path` methods: join/basename/splitext/exists/getcwd
 - H1 clean sweep: five module bugs (star import, shadowing, from-import name
   gap, seed-in-loop, missing guard) — all fixed in one pass
+- try/except/else/finally semantics: else only on success, finally always runs
+- Specific exception types before broad; bare except never (KeyboardInterrupt/SystemExit)
+- raise at function boundary enforces the contract; caller owns the policy
+- Exception message as data carrier (`ValueError(f"failed {name}")` → `str(err)`)
+- Tuple-unpacking as implicit shape validation — one ValueError funnels shape
+  + conversion failures (M1)
+- Retry idiom: try/except inside the loop, skip-and-continue, raise after
+  exhaustion (M2)
+- H1 clean sweep #5 consecutive (L4–L8), root causes narrated per bug
 
 ---
 
@@ -179,16 +190,23 @@ practice before moving forward.
   contract — "invalid count: N" must be copied verbatim, not reworded
 - CLI validation: must try/except `int()` on user strings before comparing;
   must check argc before indexing for degenerate paths like `--seed` alone
+- L8 spec-literalness relapse: challenge report line fixed across two rounds
+  (colon spacing, then trailing space) — visible part matched, invisible tail
+  missed; the other nine output blocks were byte-exact first submission
+- M3 blueprint/output conflation: spec dict mutated into the result container;
+  rebuilt with a fresh result dict — keep blueprints read-only
+- Over-wide except without justification: `(ValueError, TypeError)` accepted
+  for `None` sensor dropouts, but widening must be stated, not defaulted
 
 ---
 
 ## Scores & Hours
 
-Average Review Score: 90.4 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91)
+Average Review Score: 91.0 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95)
 
 Overall Mastery: Level 4 — debugging/refactoring independently
 
-Total Study Hours: ~7 hours
+Total Study Hours: ~9 hours
 
 ---
 
@@ -265,3 +283,14 @@ See `DSA_TRACK.md` for the track definition.
   quizzes (~every 3 lessons), DSA track (weekly), technical reflection,
   topic-based progress tracking. Stage 1 retro-classified as Python Core
   (complete). Next: Lesson 8 — Exception Handling.
+- Session 8 (2026-08-21 → 23): Lesson 8 complete (95/100) — Stage 2 opener,
+  Exception Handling, spread over 3 sittings (~2h). Exercises exact on first
+  submission incl. M1 unpack-as-validation and H2 strict CSV parser; H1
+  sweep #5 consecutive. Challenge (Expense Entry Validator CLI):
+  architecture + `out=print` stretch goal unprompted; spec-literalness
+  relapsed on one report line, fixed in 2 rounds. M3 spec-mutation smell
+  fixed same day. Hint dependency level 0 throughout — strongest
+  independence profile yet. Edge-case error handling moved CLOSING.
+  Clarification notes (try-block scope, EAFP vs LBYL) added to
+  `notes/PYTHONIC.md`. Next: Lesson 9 — File Handling; quiz window opens
+  around L9/L10.

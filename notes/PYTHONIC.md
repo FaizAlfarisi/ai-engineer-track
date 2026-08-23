@@ -107,3 +107,45 @@ Prefer
 enumerate()
 
 instead of manually incrementing counters.
+
+---
+
+# Exceptions: Scope and Style (Lesson 8)
+
+## Keep try blocks small
+
+Only lines that can fail go inside try.
+
+One try = one failure story.
+
+Same exception type + same response → group them in one try.
+
+Different responses → separate try blocks.
+
+Use else for the success path that must not run when try failed.
+
+Letting tuple unpacking raise counts as validation:
+
+`name, amount = record.split(",")` guards the shape for free.
+
+## EAFP vs LBYL — the decision rule
+
+Neither is wrong. Pick by failure frequency.
+
+EAFP when failure is exceptional:
+
+parsing, dict lookups, file opens, API responses.
+
+Checking first re-implements the operation as a pre-check.
+
+LBYL when failure is the common case and the check is cheap:
+
+`if not line.strip(): continue` beats raising and catching in a hot loop.
+
+If your except fires more often than not,
+
+you wrote LBYL's job in EAFP syntax.
+
+Litmus test: write both.
+
+Whichever happy path reads like prose wins.

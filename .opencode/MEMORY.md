@@ -34,9 +34,14 @@ Current weekly goal / next weekly project / next quiz
 
 Track recurring mistakes as patterns, not one-offs. Current entries:
 
-- Spec-literalness: paraphrasing required output instead of exact match
+- Spec-literalness: paraphrasing required output instead of exact match —
+  RELAPSING: L8 challenge report line needed 2 rounds (colon, then trailing
+  space); pattern named: visible part matches, invisible tail missed. The
+  other nine output blocks were byte-exact first submission.
 - Error handling under edge cases: unguarded conversions, inverted
-  validation, missing degenerate-path checks (Stage 2 opener targets this)
+  validation, missing degenerate-path checks — CLOSING: L8 direct attack
+  succeeded (degenerate guards everywhere, H1 swept with root causes).
+  Close after one unannounced retrieval survives.
 - Per-iteration recomputation inside loops
 - Builtin shadowing (`min`, `max` as variable names)
 - Collection choice by habit instead of guarantees (closing)
@@ -56,6 +61,9 @@ Record per exercise set: level used per difficulty (0–4 scale).
 
 Rising or sustained level-2+ on a topic ⇒ that topic needs targeted
 practice before it closes. Never punish; diagnose.
+
+L8 (2026-08-23): level 0 across all difficulties — strongest independence
+profile yet.
 
 ---
 
