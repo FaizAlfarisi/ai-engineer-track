@@ -11,7 +11,7 @@ Completion ≠ mastery. This file tracks mastery.
 
 ```text
 Stage:        Stage 2 — Python Application
-Next Lesson:  Lesson 8 — Exception Handling (stage opener)
+Next Lesson:  Lesson 9 — File Handling
 Weekly Proj.: every 3–4 lessons (next after Lesson 10/11)
 Quizzes:      roughly every 3 lessons
 DSA Track:    1 session/week, interleaved (see DSA_TRACK.md)
@@ -39,6 +39,7 @@ Stage 1 values were migrated from V1 session evidence and are marked
 | Functions | CORE | 4 (prov.) | High | mutable defaults (fixed L5); `return` vs `print` confusion (fixed L5) | None | L5–L7; all challenges function-decomposed | 2026-08-13 |
 | Collections (list/tuple/dict/set) | CORE | 4 (prov.) | Med-High | choosing type by habit not guarantees (closing: 8/8 drill); `min()` misused as filter-then-join (L6) | Conceptual ×1 (two-sum O(n) approach) | L6, L7 | 2026-08-13 |
 | Modules & imports | CORE | 4 (prov.) | High | star-import shadowing; missing `__main__` guard — all fixed in H1 sweep | None | L7 challenge | 2026-08-20 |
+| Exception handling | CORE | 4 (prov.) | High | spec-literalness relapse on challenge report line (2 rounds); spec-dict mutated into result container (M3, fixed same day); over-wide except tuple without stated justification (H1) | None | L8 challenge seeds stage project; M1 unpack-validation idiom | 2026-08-23 |
 | Strings & formatting | SUPPORTING | 3→4 | High | label drift / spec-literalness (trend improving) | None | L2, L6 | 2026-08-05 |
 | Operators & boolean logic | SUPPORTING | 4 (prov.) | High | none recent | None | L2, L3 | 2026-08-05 |
 | Console I/O | SUPPORTING | 3 | High | degenerate argv paths (`--seed` alone → IndexError, L7) | Specific ×1 (with consent) | L3, L7 | 2026-08-13 |
@@ -51,8 +52,8 @@ Stage 1 values were migrated from V1 session evidence and are marked
 | Skill | Status | Evidence |
 |-------|--------|----------|
 | Debugging (one-pass bug hunts) | STRONG | H1 clean sweeps four sessions running (L4–L7) |
-| Error handling under edge cases | **WEAK — primary target** | Recurring challenge failure mode: L6 empty-inventory UnboundLocalError + ValueError on non-numeric price; L7 six spec failures (uncast `count`, inverted validation, missing `< 1`, paraphrased messages, `--seed` alone crash). Stage 2 opens with Exception Handling to attack this directly |
-| Spec-literalness (output-as-contract) | IMPROVING | 2 mild slips in L5, down from earlier sessions; L7 architecture byte-perfect, error strings still paraphrased |
+| Error handling under edge cases | CLOSING | L8 direct attack landed: degenerate guards everywhere (`mean([])`, empty rows, empty input), H1 debug drill swept with root causes narrated, retry-loop and boundary-validation idioms correct. Close after one unannounced retrieval survives |
+| Spec-literalness (output-as-contract) | IMPROVING | L8 relapse on ONE challenge line (`rejected:` colon R1, trailing space R2) while the other 9 output blocks were byte-exact first submission — visible-part-matches, invisible-tail-missed pattern named explicitly |
 | Collection choice from guarantees | CLOSING | Follow-up drill 8/8 correct, guarantee-driven reasoning |
 | Computation/presentation separation | FORMING | `is_pass` printed True/False instead of pass/fail (L5) |
 
