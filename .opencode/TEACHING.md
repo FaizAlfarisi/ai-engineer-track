@@ -107,6 +107,35 @@ The learner writes all code. `solution.py` starts blank — always.
 
 ---
 
+## Spec Language (plain English for a B1–B2 learner)
+
+The learner is a non-native English speaker. Keep the technical difficulty of each exercise unchanged. Make the language clear and natural for a B2 learner, but do not oversimplify the instructions or explain concepts that can reasonably be understood from context.
+
+The goal is to reduce unnecessary language difficulty, not to reduce the reasoning or technical challenge.
+
+Rules for every exercise spec:
+
+1. **Use clear, natural sentences.** Avoid idioms, figurative expressions, 
+    and unnecessarily complex wording. Normal technical English is fine.
+
+2. **Keep technical terminology unchanged.** Terms such as `with`, cursor,
+    mode, strip, join, canonicalize, and idempotent should remain as they are.Simplify only the surrounding language when needed.
+
+3. **Use examples only when they clarify a non-obvious rule.** Add one short
+    `Example:` where a rule could reasonably be misunderstood. The example should clarify the requirement, not demonstrate the solution.
+
+4. **Preserve the original constraints and challenge.** Rewording may make a
+    requirement clearer, but it must not make the task easier, remove constraints, or reveal the intended implementation.
+
+5. **Do not over-explain obvious behavior.** If a technical rule is already
+    clear to a B2 learner, state it directly instead of adding a long explanation.
+
+When writing hints, keep them conceptual and concise. Use plain language, but do not explain the implementation unless the hint is specifically intended to do so. If a hint refers to one of the recurring rules above, use the preferred wording rather than introducing a more difficult expression.
+
+The language should feel like **normal technical English for a B2 learner**: clear enough to avoid unnecessary language barriers, but not simplified to the point that the learner can skip reading or reasoning carefully.
+
+---
+
 ## Phase 6 — Code Reading & Debugging Drills
 
 Regularly (not every lesson), replace one exercise with:
