@@ -35,13 +35,19 @@ Current weekly goal / next weekly project / next quiz
 Track recurring mistakes as patterns, not one-offs. Current entries:
 
 - Spec-literalness: paraphrasing required output instead of exact match —
-  RELAPSING: L8 challenge report line needed 2 rounds (colon, then trailing
-  space); pattern named: visible part matches, invisible tail missed. The
-  other nine output blocks were byte-exact first submission.
+  IMPROVING / re-baselined at L9 (2026-08-28): all Output blocks matched after
+  the revision pass; the rushed FIRST pass drifted on an easy key (`bananas`
+  → `banana`) and left E2 briefly unexecuted. Root cause self-identified as
+  RUSHING, not language. Habit target set: read Constraints as a checklist
+  before coding. Re-baseline only, still open — closes after one unannounced
+  retrieval survives.
 - Error handling under edge cases: unguarded conversions, inverted
   validation, missing degenerate-path checks — CLOSING: L8 direct attack
   succeeded (degenerate guards everywhere, H1 swept with root causes).
   Close after one unannounced retrieval survives.
+- Loader return-type mixing: returning error STRINGS from loaders
+  (`f"file ... not found"`) instead of clean data or a raise — appearing at
+  L9; target a clean-data retrieval in L10 (Pathlib).
 - Per-iteration recomputation inside loops
 - Builtin shadowing (`min`, `max` as variable names)
 - Collection choice by habit instead of guarantees (closing)
@@ -64,6 +70,9 @@ practice before it closes. Never punish; diagnose.
 
 L8 (2026-08-23): level 0 across all difficulties — strongest independence
 profile yet.
+
+L9 (2026-08-28): level 1 conceptual only (M1 try-size guidance); independence
+high — fixes landed independently after reviewer notes.
 
 ---
 

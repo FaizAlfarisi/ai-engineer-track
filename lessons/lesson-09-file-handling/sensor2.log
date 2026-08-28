@@ -1,0 +1,5 @@
+INFO boot
+ERROR disk full
+INFO scan
+ERROR timeout
+INFO done

@@ -11,7 +11,7 @@ Completion ≠ mastery. This file tracks mastery.
 
 ```text
 Stage:        Stage 2 — Python Application
-Next Lesson:  Lesson 9 — File Handling
+Next Lesson:  Lesson 10 — Pathlib
 Weekly Proj.: every 3–4 lessons (next after Lesson 10/11)
 Quizzes:      roughly every 3 lessons
 DSA Track:    1 session/week, interleaved (see DSA_TRACK.md)
@@ -40,6 +40,7 @@ Stage 1 values were migrated from V1 session evidence and are marked
 | Collections (list/tuple/dict/set) | CORE | 4 (prov.) | Med-High | choosing type by habit not guarantees (closing: 8/8 drill); `min()` misused as filter-then-join (L6) | Conceptual ×1 (two-sum O(n) approach) | L6, L7 | 2026-08-13 |
 | Modules & imports | CORE | 4 (prov.) | High | star-import shadowing; missing `__main__` guard — all fixed in H1 sweep | None | L7 challenge | 2026-08-20 |
 | Exception handling | CORE | 4 (prov.) | High | spec-literalness relapse on challenge report line (2 rounds); spec-dict mutated into result container (M3, fixed same day); over-wide except tuple without stated justification (H1) | None | L8 challenge seeds stage project; M1 unpack-validation idiom | 2026-08-23 |
+| File handling | CORE | 4 (prov.) | High | error-string returns from loaders (type mixing, theme); rushed-pass spec drift (`bananas` key, E2 unexecuted one pass); H2 `readlines()` where two-pass iteration was the constraint | Conceptual ×1 (M1 try-size) | Challenge Expense Persistence CLI (load/save/merge canonical rewrite) | 2026-08-28 |
 | Strings & formatting | SUPPORTING | 3→4 | High | label drift / spec-literalness (trend improving) | None | L2, L6 | 2026-08-05 |
 | Operators & boolean logic | SUPPORTING | 4 (prov.) | High | none recent | None | L2, L3 | 2026-08-05 |
 | Console I/O | SUPPORTING | 3 | High | degenerate argv paths (`--seed` alone → IndexError, L7) | Specific ×1 (with consent) | L3, L7 | 2026-08-13 |
@@ -53,7 +54,7 @@ Stage 1 values were migrated from V1 session evidence and are marked
 |-------|--------|----------|
 | Debugging (one-pass bug hunts) | STRONG | H1 clean sweeps four sessions running (L4–L7) |
 | Error handling under edge cases | CLOSING | L8 direct attack landed: degenerate guards everywhere (`mean([])`, empty rows, empty input), H1 debug drill swept with root causes narrated, retry-loop and boundary-validation idioms correct. Close after one unannounced retrieval survives |
-| Spec-literalness (output-as-contract) | IMPROVING | L8 relapse on ONE challenge line (`rejected:` colon R1, trailing space R2) while the other 9 output blocks were byte-exact first submission — visible-part-matches, invisible-tail-missed pattern named explicitly |
+| Spec-literalness (output-as-contract) | IMPROVING | L8 relapse on ONE challenge line (`rejected:` colon R1, trailing space R2) while the other 9 output blocks were byte-exact first submission — visible-part-matches, invisible-tail-missed pattern named explicitly. L9: all Output blocks matched after the revision pass; rushed first pass drifted on the easy `bananas` key and left E2 briefly unexecuted. Root cause self-identified as RUSHING, not language — habit target set (read Constraints as a checklist before coding) |
 | Collection choice from guarantees | CLOSING | Follow-up drill 8/8 correct, guarantee-driven reasoning |
 | Computation/presentation separation | FORMING | `is_pass` printed True/False instead of pass/fail (L5) |
 
@@ -91,6 +92,7 @@ practice before moving forward.
 - [x] Lesson 6 — Collections (90/100)
 - [x] Lesson 7 — Modules (91/100)
 - [x] Lesson 8 — Exception Handling (95/100)
+- [x] Lesson 9 — File Handling (90/100)
 
 ---
 
@@ -104,6 +106,7 @@ practice before moving forward.
 - [x] Lesson 6 Challenge — Store Inventory CLI (dict-of-info, set categories, function-decomposed)
 - [x] Lesson 7 Challenge — Random Team Picker CLI (sys.argv, random.sample, seed flag, __main__ guard)
 - [x] Lesson 8 Challenge — Expense Entry Validator CLI (parse/format/main split, raise-at-boundary, injectable `out=print`, byte-perfect final output)
+- [x] Lesson 9 Challenge — Expense Persistence CLI (parse/load/save/merge split, missing-file first run → `loaded: 0`, canonical `.2f` rewrite, `out=print`, idempotent re-runs)
 
 ---
 
@@ -160,6 +163,14 @@ practice before moving forward.
 - Retry idiom: try/except inside the loop, skip-and-continue, raise after
   exhaustion (M2)
 - H1 clean sweep #5 consecutive (L4–L8), root causes narrated per bug
+- `with` context manager: guaranteed close = automated `finally`
+- File modes: `r`/`w`/`a` semantics — `w` truncates to zero, `a` parks the cursor at the end
+- Iterate-the-handle streaming (`for line in f`) vs `readlines()` hoarding the whole file
+- `.strip()` at the read boundary — the trailing `\n` rides along otherwise
+- Two handles in one `with`: `open(a) as x, open(b) as y:`
+- Explicit `encoding="utf-8"` on every open
+- Canonicalize at SAVE time (`.2f` rewrite normalizes `+2500.00` → `2500.00`); missing file = normal first run
+- Two-pass tail: count lines, then collect the last n while re-iterating
 
 ---
 
@@ -197,16 +208,23 @@ practice before moving forward.
   rebuilt with a fresh result dict — keep blueprints read-only
 - Over-wide except without justification: `(ValueError, TypeError)` accepted
   for `None` sensor dropouts, but widening must be stated, not defaulted
+- Error-string returns from loaders (L9): loaders returned `f"file {path} not found"`
+  strings instead of clean data or a raise — mixes the type contract; mostly cleaned
+  by revision, one instance left in E1 `load_text` (drivers only exercise success paths)
+- Rushed-pass spec drift (L9): `banana` vs `bananas` key mismatch on an easy E5;
+  E2 cell briefly left unexecuted — root cause self-identified as rushing, not language
+- H2 constraint miss (L9): used `readlines()` (whole file) where the two-pass streaming
+  iteration was the explicit constraint — output correct, constraint missed
 
 ---
 
 ## Scores & Hours
 
-Average Review Score: 91.0 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95)
+Average Review Score: 90.9 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90)
 
 Overall Mastery: Level 4 — debugging/refactoring independently
 
-Total Study Hours: ~9 hours
+Total Study Hours: ~11 hours
 
 ---
 
@@ -294,3 +312,14 @@ See `DSA_TRACK.md` for the track definition.
   Clarification notes (try-block scope, EAFP vs LBYL) added to
   `notes/PYTHONIC.md`. Next: Lesson 9 — File Handling; quiz window opens
   around L9/L10.
+- Session 9 (2026-08-28): Lesson 9 complete (90/100) — File Handling, Stage 2
+  second topic. Busy week: multiple short sittings (~2h total), rushed first
+  pass. All Output blocks matched after the revision round; Challenge (Expense
+  Persistence CLI) canonical `.2f` rewrite + `total: 2494.95` fixed
+  independently; missing-file first run and idempotent re-runs held. H1 debug
+  drill (five bugs) was the hardest mentally; learner self-diagnosed the early
+  spec-drift as RUSHING, not language, and set a habit: read Constraints as a
+  checklist before coding. Spec-literalness re-baselined to IMPROVING.
+  `notes/PYTHONIC.md` gained a File Handling subsection; `.opencode/TEACHING.md`
+  gained a permanent Spec Language rule (plain English, same difficulty) for
+  L10+ specs. Next: Lesson 10 — Pathlib; quiz window open.

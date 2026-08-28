@@ -517,3 +517,83 @@ Quiz window opens around L9/L10.
   output should be separate objects.
 - Pacing commitment: lesson spread over 3 short sittings; next lesson
   targeted for a single-session run.
+
+---
+
+## Session 9 — 2026-08-28
+
+### Lesson
+
+Lesson 9 — File Handling (Stage 2, CORE)
+
+### Exercises
+
+- E1–E3, E5 (easy): correct — round trip, append, iterate+accumulate,
+  report writer. E4 logic correct (saved output shows a re-run artifact:
+  `user-name.txt` already existed from a prior run, so both prints returned
+  `hello, Ada` — the FileNotFoundError fallback is right)
+- M1–M3 (medium): correct — transactions→summary, dual-handle filter+copy,
+  typed config loader
+  (M3 started EMPTY `{}` this time, honoring the blueprint-read-only rule)
+- H1 (hard): five-bug debug drill found and fixed (no with / wrong mode,
+  cursor consumed by `read()`, `errors` uninitialized, `.upper()`, missing
+  `.strip()`); final output `processed 5 entries / === errors === / disk full / timeout`
+- H2 (hard): two-pass tail implemented with streaming iteration — corrected
+  after the reviewer flagged `readlines()` as a constraint miss
+- Hint dependency: level 1 conceptual only (M1 try-size guidance);
+  self-diagnosed the early misses as rushing, not language
+
+### Challenge
+
+Expense Persistence CLI — `parse_entry` / `load_expenses` (missing file → `[]`)
+/
+`save_expenses` (canonical `.2f` rewrite) / `merge_and_report` (`out=print`,
+one try/except, report lines byte-exact). Output `loaded: 2 / accepted: 2 /
+rejected: 2 / saved: 4 / total: 2494.95`; file canonicalized
+(`salary,2500.00` no `+`); `total` bug fixed independently; idempotent
+re-run + cold-start (deleted file → `loaded: 0`) verified.
+
+### Mistakes
+
+- Easy-item spec drift (rushing): `banana` key instead of `bananas` in E5 —
+  missed first pass, caught in review
+- E2 cell briefly left unexecuted in the rushed pass (logic correct)
+- H2: `readlines()` where the two-pass streaming constraint was explicit —
+  output right, constraint missed
+- Error-string returns from loaders (`f"file ... not found"`) — type-mixing
+  theme; mostly cleaned by revision, one left in E1 `load_text`
+
+### Insights
+
+- `with` = guaranteed close = your `finally`, automated
+- `'w'` truncates to zero — read before you overwrite data worth keeping
+- Iterate the handle to stream; `readlines()` hoards the whole file
+- `.strip()` at the read boundary — the trailing `\n` rides along otherwise
+- Two handles, one `with`: `open(a) as x, open(b) as y:`
+- Explicit `encoding="utf-8"` on every open
+- Canonicalize at SAVE time (`.2f` rewrite normalizes `+2500.00` → `2500.00`);
+  a missing file is a normal first run, not an error
+
+### Time Studied
+
+~2 hours across several short sittings (busy week)
+
+### Tomorrow Goal
+
+Lesson 10 — Pathlib (now written in the plain-English spec style; read
+Constraints as a checklist before coding).
+
+---
+
+## Reflection — Lesson 9 (2026-08-28)
+
+- Surprised: returning error-strings from loaders surfaced again — a theme I
+  thought was closing came back because I rushed the first pass.
+- Difficult: H1 debug drill was the hardest to reason through — five nested
+  bugs to separate; one genuine stuck point where I had to step back and
+  re-read.
+- Improve: read the Constraint line as a checklist before coding, verify exact
+  keys/labels, and stop rushing the easy items — my misses were rushing, not
+  the language.
+- Confusing: nothing outstanding; the try-size question from M1 is now clear
+  (per-line validation legitimately fills the try block).

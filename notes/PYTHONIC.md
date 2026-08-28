@@ -149,3 +149,48 @@ you wrote LBYL's job in EAFP syntax.
 Litmus test: write both.
 
 Whichever happy path reads like prose wins.
+
+---
+
+# File Handling (Lesson 9)
+
+## with closes for you
+
+Open files with `with` — the handle is closed on success, exception,
+or early `return`.
+
+It is your `finally`, automated:
+
+`with open(path, "w", encoding="utf-8") as f: ...`
+
+## w truncates — read first
+
+Opening with `"w"` erases the file to zero immediately.
+
+If the data must survive until you have read it, read it before you
+reopen it for writing.
+
+## Iterate the handle to stream
+
+`for line in f` yields one line at a time (memory-friendly).
+
+`readlines()` loads the whole file into a list.
+
+Prefer iteration unless you truly need every line at once.
+
+## Strip at the read boundary
+
+A read line keeps its trailing `\n`.
+
+Strip before comparing or splitting cleanly.
+
+(And a second `read()` returns `""` — the cursor is already at the end.)
+
+## Loaders return data — never error strings
+
+A loader returns clean data, or raises, or returns a default.
+
+Do not return a formatted message like "file not found" from a loader —
+that mixes the type you promise the caller.
+
+Use `pathlib` for path work (next lesson).

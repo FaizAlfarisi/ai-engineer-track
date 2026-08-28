@@ -1,0 +1,3 @@
+apples: 12
+bananas: 0
+cherries: 7
