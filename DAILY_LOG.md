@@ -597,3 +597,76 @@ Constraints as a checklist before coding).
   the language.
 - Confusing: nothing outstanding; the try-size question from M1 is now clear
   (per-line validation legitimately fills the try block).
+
+---
+
+## Session 11 — 2026-08-30
+
+### Lesson
+
+Lesson 10 — Pathlib (Stage 2, CORE) — 92/100
+
+### Exercises
+
+- E1–E5 (easy): all correct — describe, join with `/`, `.exists()`, list `.txt`,
+  read_text/write_text round trip
+- M1–M3 (medium): all correct — read_text summary, organize by extension
+  (mkdir + rename), typed loader rewired to Path (kept clean-data contract)
+- H2 (hard): correct — count files by extension
+- H1 (hard): three-bug drill resolved — suffix filter case, uppercased names,
+  missing `.is_dir()` guard (folder `data.py` counted as a file). Fixed in the
+  notebook with inline comments.
+- Challenge: correct — Folder Reporter (count_by_ext / largest / write_report),
+  sorted extension summary + largest file, trailing-newline report,
+  empty-folder → `None`
+
+### Challenge
+
+Folder Reporter — `count_by_ext` / `largest` (empty folder → `None`) /
+`write_report` (builds the summary, writes with `Path.write_text`, returns the
+same string the file holds, trailing `\n`). All output bytes matched.
+
+### Mistakes
+
+- I caught a process error myself: the H1 bug-report write-in in `solution.py`
+  had been pre-filled by the reviewer at build time, so the "expected vs
+  observed / root cause" narrative was already written. I flagged it and still
+  did the actual code fix independently — but that section of the drill wasn't
+  a real test of my analysis.
+- No exercise/challenge output drift this lesson — the Constraints-checklist
+  habit held.
+
+### Insights
+
+- `/` joins path parts and inserts the OS separator — no more string gluing
+- `.name` / `.stem` / `.suffix` / `.parent` read a path's parts
+- `.exists()` is a cheap guard; it does NOT mean "is a file" — a folder exists
+  too, so use `.is_file()` when only files count
+- `.iterdir()` returns every child — folders are children too; guard with
+  `.is_dir()`
+- `read_text`/`write_text` are whole-file; `Path.open()` gives the L9 handle
+  for line-by-line work
+- suffix comparisons are case-sensitive: `.py` ≠ `.PY`
+
+### Time Studied
+
+~1 hour (focused single sitting; prior-hand recall was solid)
+
+### Tomorrow Goal
+
+Lesson 11 — JSON (CORE); weekly-project window now open.
+
+---
+
+## Reflection — Lesson 10 (2026-08-30)
+
+- Surprised: the loader-cleanliness rule from Lesson 9 (return data, never
+  error-strings) carried straight into the Pathlib loader without prompting —
+  it has sunk in.
+- Difficult: nothing blocked me this time; the recall refinements (iterdir
+  yields folders; exists ≠ is_file) were the genuinely new mental models.
+- Improve: on my side — nothing new to add on the material; I want JSON to be
+  as drift-free as this one. On the process side, I'll keep flagging reviewer
+  mistakes early, as I did with the pre-filled H1 answers.
+- Confusing: none — the case-sensitivity of suffix filters was the only thing
+  I had to consciously recheck.

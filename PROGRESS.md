@@ -11,8 +11,8 @@ Completion ≠ mastery. This file tracks mastery.
 
 ```text
 Stage:        Stage 2 — Python Application
-Next Lesson:  Lesson 10 — Pathlib
-Weekly Proj.: every 3–4 lessons (next after Lesson 10/11)
+Next Lesson:  Lesson 11 — JSON (CORE)
+Weekly Proj.: every 3–4 lessons (window now open — after L11/12)
 Quizzes:      roughly every 3 lessons
 DSA Track:    1 session/week, interleaved (see DSA_TRACK.md)
 Git:          commit after every session from Stage 2 onward
@@ -41,6 +41,7 @@ Stage 1 values were migrated from V1 session evidence and are marked
 | Modules & imports | CORE | 4 (prov.) | High | star-import shadowing; missing `__main__` guard — all fixed in H1 sweep | None | L7 challenge | 2026-08-20 |
 | Exception handling | CORE | 4 (prov.) | High | spec-literalness relapse on challenge report line (2 rounds); spec-dict mutated into result container (M3, fixed same day); over-wide except tuple without stated justification (H1) | None | L8 challenge seeds stage project; M1 unpack-validation idiom | 2026-08-23 |
 | File handling | CORE | 4 (prov.) | High | error-string returns from loaders (type mixing, theme); rushed-pass spec drift (`bananas` key, E2 unexecuted one pass); H2 `readlines()` where two-pass iteration was the constraint | Conceptual ×1 (M1 try-size) | Challenge Expense Persistence CLI (load/save/merge canonical rewrite) | 2026-08-28 |
+| Pathlib | CORE | 4 | High | .iterdir() yields folders too (H1 bug 3 — resolved with is_dir guard); suffix filters are case-sensitive; .exists() ≠ “is a file” | None for exercises/challenge; H1 narrative leaked by reviewer build bug (learner flagged) | Challenge Folder Reporter (count_by_ext/largest/write_report); M3 typed loader rewired to Path | 2026-08-30 |
 | Strings & formatting | SUPPORTING | 3→4 | High | label drift / spec-literalness (trend improving) | None | L2, L6 | 2026-08-05 |
 | Operators & boolean logic | SUPPORTING | 4 (prov.) | High | none recent | None | L2, L3 | 2026-08-05 |
 | Console I/O | SUPPORTING | 3 | High | degenerate argv paths (`--seed` alone → IndexError, L7) | Specific ×1 (with consent) | L3, L7 | 2026-08-13 |
@@ -52,9 +53,9 @@ Stage 1 values were migrated from V1 session evidence and are marked
 
 | Skill | Status | Evidence |
 |-------|--------|----------|
-| Debugging (one-pass bug hunts) | STRONG | H1 clean sweeps four sessions running (L4–L7) |
+| Debugging (one-pass bug hunts) | STRONG | H1 clean sweeps five sessions running (L4–L8); L10 three-bug drill resolved independently (suffix case, uppercased names, folder-as-file) — narrative write-in leaked by a reviewer build bug, flagged proactively by learner |
 | Error handling under edge cases | CLOSING | L8 direct attack landed: degenerate guards everywhere (`mean([])`, empty rows, empty input), H1 debug drill swept with root causes narrated, retry-loop and boundary-validation idioms correct. Close after one unannounced retrieval survives |
-| Spec-literalness (output-as-contract) | IMPROVING | L8 relapse on ONE challenge line (`rejected:` colon R1, trailing space R2) while the other 9 output blocks were byte-exact first submission — visible-part-matches, invisible-tail-missed pattern named explicitly. L9: all Output blocks matched after the revision pass; rushed first pass drifted on the easy `bananas` key and left E2 briefly unexecuted. Root cause self-identified as RUSHING, not language — habit target set (read Constraints as a checklist before coding) |
+| Spec-literalness (output-as-contract) | IMPROVING | L8 relapse on ONE challenge line (`rejected:` colon R1, trailing space R2) while the other 9 output blocks were byte-exact first submission — visible-part-matches, invisible-tail-missed pattern named explicitly. L9: all Output blocks matched after the revision pass; rushed first pass drifted on the easy `bananas` key and left E2 briefly unexecuted. Root cause self-identified as RUSHING, not language — habit target set (read Constraints as a checklist before coding). L10: all 10 Output blocks byte-exact, no drift; habit held |
 | Collection choice from guarantees | CLOSING | Follow-up drill 8/8 correct, guarantee-driven reasoning |
 | Computation/presentation separation | FORMING | `is_pass` printed True/False instead of pass/fail (L5) |
 
@@ -93,6 +94,7 @@ practice before moving forward.
 - [x] Lesson 7 — Modules (91/100)
 - [x] Lesson 8 — Exception Handling (95/100)
 - [x] Lesson 9 — File Handling (90/100)
+- [x] Lesson 10 — Pathlib (92/100)
 
 ---
 
@@ -107,6 +109,7 @@ practice before moving forward.
 - [x] Lesson 7 Challenge — Random Team Picker CLI (sys.argv, random.sample, seed flag, __main__ guard)
 - [x] Lesson 8 Challenge — Expense Entry Validator CLI (parse/format/main split, raise-at-boundary, injectable `out=print`, byte-perfect final output)
 - [x] Lesson 9 Challenge — Expense Persistence CLI (parse/load/save/merge split, missing-file first run → `loaded: 0`, canonical `.2f` rewrite, `out=print`, idempotent re-runs)
+- [x] Lesson 10 Challenge — Folder Reporter (count_by_ext / largest / write_report, sorted extension summary + largest file, trailing-newline report, empty-folder → `None`)
 
 ---
 
@@ -171,6 +174,14 @@ practice before moving forward.
 - Explicit `encoding="utf-8"` on every open
 - Canonicalize at SAVE time (`.2f` rewrite normalizes `+2500.00` → `2500.00`); missing file = normal first run
 - Two-pass tail: count lines, then collect the last n while re-iterating
+- `Path` object vs string gluing: join parts with `/`, OS-safe separator (Pathlib)
+- Path parts: `.name` / `.stem` / `.suffix` / `.parent` (Pathlib)
+- `.exists()` guard (LBYL) before read/rename; `.is_file()` when only a file counts (Pathlib)
+- `Path.iterdir()` lists children — files AND folders; guard with `.is_dir()` (Pathlib)
+- `read_text`/`write_text` whole-file; `write_text` rewrites like `"w"`, no mode arg (Pathlib)
+- `Path.open()` gives the same L9 handle for line-by-line / big-file work (Pathlib retrieval)
+- Suffix filters are case-sensitive — compare `.suffix == ".py"` exactly (Pathlib)
+- Folder Reporter: build report string, write with Path.write_text, close with trailing `\n` (Pathlib)
 
 ---
 
@@ -220,11 +231,11 @@ practice before moving forward.
 
 ## Scores & Hours
 
-Average Review Score: 90.9 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90)
+Average Review Score: 91.0 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90, L10: 92)
 
 Overall Mastery: Level 4 — debugging/refactoring independently
 
-Total Study Hours: ~11 hours
+Total Study Hours: ~12 hours
 
 ---
 
@@ -323,3 +334,13 @@ See `DSA_TRACK.md` for the track definition.
   `notes/PYTHONIC.md` gained a File Handling subsection; `.opencode/TEACHING.md`
   gained a permanent Spec Language rule (plain English, same difficulty) for
   L10+ specs. Next: Lesson 10 — Pathlib; quiz window open.
+- Session 11 (2026-08-30): Lesson 10 complete (92/100) — Pathlib, Stage 2 third
+  topic, first written in the plain-English spec style. Strong recall (6/6,
+  with two edge-case refinements: iterdir yields folders, exists≠is_file). All
+  exercises + Challenge byte-exact; M3 loader rewired to Path retrieved the L9
+  clean-loaders rule. H1 three-bug drill resolved independently in the notebook
+  (suffix case, uppercased names, missing is_dir guard) with inline comments.
+  Process note: the solution.py H1 bug-report write-in was mistakenly pre-filled
+  by the reviewer at build time — learner flagged it (good metacognition), fixed
+  the bug code independently anyway; narrative leak recorded, no penalty. Next:
+  Lesson 11 — JSON (CORE); weekly-project window now open.

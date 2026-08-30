@@ -1,0 +1,5 @@
+Extension summary:
+.csv: 2
+.log: 1
+.txt: 1
+Largest file: bb.txt

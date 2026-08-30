@@ -40,14 +40,17 @@ Track recurring mistakes as patterns, not one-offs. Current entries:
   → `banana`) and left E2 briefly unexecuted. Root cause self-identified as
   RUSHING, not language. Habit target set: read Constraints as a checklist
   before coding. Re-baseline only, still open — closes after one unannounced
-  retrieval survives.
+  retrieval survives. L10 (2026-08-30): watched, not yet closed — all 10 Output
+  blocks byte-exact, habit held.
 - Error handling under edge cases: unguarded conversions, inverted
   validation, missing degenerate-path checks — CLOSING: L8 direct attack
   succeeded (degenerate guards everywhere, H1 swept with root causes).
   Close after one unannounced retrieval survives.
 - Loader return-type mixing: returning error STRINGS from loaders
-  (`f"file ... not found"`) instead of clean data or a raise — appearing at
-  L9; target a clean-data retrieval in L10 (Pathlib).
+  (`f"file ... not found"`) instead of clean data or a raise — appeared at
+  L9; CLOSED at L10 (2026-08-30): the Pathlib typed loader (M3) returned clean
+  data and raised on bad values with no error-string slips, surviving the
+  unannounced retrieval.
 - Per-iteration recomputation inside loops
 - Builtin shadowing (`min`, `max` as variable names)
 - Collection choice by habit instead of guarantees (closing)
@@ -73,6 +76,14 @@ profile yet.
 
 L9 (2026-08-28): level 1 conceptual only (M1 try-size guidance); independence
 high — fixes landed independently after reviewer notes.
+
+L10 (2026-08-30): level 0 across exercises and Challenge — all byte-exact.
+H1 code fixed independently (three bugs). PROCESS NOTE: the `solution.py` H1
+bug-report write-in was accidentally pre-filled by the reviewer at build time
+(a binding violation — see Learner Directives). The learner flagged it
+proactively and still did the code fix themselves; the narrative part is
+recorded as leaked, no penalty assessed. Go-forward: H1 stubs must be blank
+write-ins, never filled.
 
 ---
 
@@ -128,6 +139,9 @@ Learner-mandated rules. These are absolute; never violate them.
 - NEVER pre-fill `solution.py` (or any key file) with answers before the
   learner has solved the exercises. Answers arrive only AFTER the
   learner completes them. Pre-filled keys destroy natural practice.
+  This includes "write-in" scaffolds like an H1 bug report: fill the slot
+  labels, never the answers under them (a breach occurred at L10 build —
+  see Hint Dependency Tracking).
 - Exercises must state rule, output format, and constraints explicitly.
 - Per-lesson folder structure `lessons/lesson-NN-topic/` with
   md + ipynb + solution.py; Jupyter-notebook workflow approved.
