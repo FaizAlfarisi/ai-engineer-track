@@ -1,0 +1,17 @@
+[
+  {
+    "category": "food",
+    "amount": 12.5,
+    "kind": "expense"
+  },
+  {
+    "category": "travel",
+    "amount": 40.0,
+    "kind": "expense"
+  },
+  {
+    "category": "salary",
+    "amount": 2000.0,
+    "kind": "income"
+  }
+]

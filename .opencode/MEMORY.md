@@ -41,7 +41,9 @@ Track recurring mistakes as patterns, not one-offs. Current entries:
   RUSHING, not language. Habit target set: read Constraints as a checklist
   before coding. Re-baseline only, still open — closes after one unannounced
   retrieval survives. L10 (2026-08-30): watched, not yet closed — all 10 Output
-  blocks byte-exact, habit held.
+  blocks byte-exact, habit held. L11 (2026-08-30): watched again — all 12 Output
+  blocks byte-exact first submission, habit held; still open pending one more
+  unannounced retrieval.
 - Error handling under edge cases: unguarded conversions, inverted
   validation, missing degenerate-path checks — CLOSING: L8 direct attack
   succeeded (degenerate guards everywhere, H1 swept with root causes).
@@ -51,6 +53,13 @@ Track recurring mistakes as patterns, not one-offs. Current entries:
   L9; CLOSED at L10 (2026-08-30): the Pathlib typed loader (M3) returned clean
   data and raised on bad values with no error-string slips, surviving the
   unannounced retrieval.
+- Latent bug — passes the sample, misses the requirement (L11, 2026-08-30):
+  `summarize` used `result[cat] = categorize(spend)` which OVERWRITES instead of
+  accumulating; it "passed" only because the sample categories were unique.
+  Lesson internalized: a function that passes the sample but doesn't implement
+  the stated requirement ("signed total", "accumulate") is a latent bug. Fixed
+  with `.get(cat, 0.0) + categorize(spend)`. NEW entry — watch for sample-only
+  success on future accumulate/reduce tasks.
 - Per-iteration recomputation inside loops
 - Builtin shadowing (`min`, `max` as variable names)
 - Collection choice by habit instead of guarantees (closing)
@@ -85,6 +94,12 @@ proactively and still did the code fix themselves; the narrative part is
 recorded as leaked, no penalty assessed. Go-forward: H1 stubs must be blank
 write-ins, never filled.
 
+L11 (2026-08-30): level 0 across all exercises and Challenge — all 12 Output
+blocks byte-exact first submission. H1 four-bug drill resolved independently in
+the notebook. PROCESS NOTE: the go-forward directive was honored — H1 write-in
+slots were BLANK this build, and the learner filled the expected/observed/
+root-cause narrative for all four bugs themselves. No leak recurrence.
+
 ---
 
 # Weak Topics
@@ -97,6 +112,12 @@ Signals:
 - Fails retrieval when the topic reappears unannounced
 
 Action: targeted practice, then re-assess. Weave into future exercises.
+
+Quiz 01 exception-detail (D2) — `raise ... from None` + `str.partition`
+no-delimiter edge: half-grasped at Q1 (2026-08-30). RE-ASSESSED via L11
+retrieval (2026-08-30): learner wrote `from None` correctly in M3 and hardened
+`load_typed` to `partition` + blank-line skip on their own — appears retrieved/
+closed. Hold for final confirmation at Quiz 02 before marking fully closed.
 
 ---
 

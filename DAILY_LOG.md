@@ -670,3 +670,122 @@ Lesson 11 — JSON (CORE); weekly-project window now open.
   mistakes early, as I did with the pre-filled H1 answers.
 - Confusing: none — the case-sensitivity of suffix filters was the only thing
   I had to consciously recheck.
+
+---
+
+## Quiz 01 — L8–L10 (2026-08-30)
+
+### Scope
+
+First Stage 2 operational quiz: Exception Handling (L8), File Handling (L9),
+Pathlib (L10). Formats: concept explanation, predict-output, debug-this,
+code reading, one combined apply task, three T/F.
+
+### Result: 96.4% (13.5/14) — PASS (bar 80%)
+
+- A (concept): 3/3 — EAFP/LBYL + example, why `Path.open()`, exists vs is_file
+- B (predict): 3/3 — silent error-string (`NOT FOUND`), `"world\n"` truncation,
+  `8` with hidden `\n`
+- C (debug): 2/2 — suffix-case + is_file guard (H1-style), bare-except
+- D (code reading): 1.5/2 — D1 (return vs print) full; D2 partial
+- E (apply): 1/1 — `report()` met all 8 spec points, ran correctly
+- F (T/F): 3/3
+
+### Weak concept
+
+Exception detail (D2): intent of `raise ... from None` (clean one-message
+traceback) and the `str.partition` no-delimiter edge were half-grasped.
+Action: one small retrieval woven into L11, then re-assess.
+
+### Tomorrow Goal
+
+Lesson 11 — JSON (CORE). Weave in one exception-detail retrieval (D2).
+
+---
+
+## Session 12 — 2026-08-30
+
+### Lesson
+
+Lesson 11 — JSON (Stage 2, CORE) — 93/100
+
+### Exercises
+
+- E1–E5 (easy): all correct — round trip (dumps/loads), file save/load,
+  iterate a loaded list (sum + list comp), indent vs compact, JSON type mapping.
+  Note: E1/E3/E4/E5 were rebuilt mid-lesson to function-form by the reviewer
+  after I flagged that the original drivers printed the answer themselves;
+  this lesson's E1 is blank-coded again, E3/E4 drivers call my functions.
+- M1–M3 (medium): all correct — safe loader (LBYL `.exists()` + EAFP
+  `JSONDecodeError`), pretty round trip, typed loader with a clean
+  `raise ... from None` re-raise + `match` mapping pattern route.
+  M3 uses `partition` (D2 retrieval) and skips blank lines.
+- H2 (hard): correct — `count_by` with `"missing"` sentinel, `None` skipped,
+  first-seen insertion order preserved
+- H1 (hard): four-bug drill resolved independently in the notebook — suffix
+  case, folder-read crash (I hit `Permission denied: 'conf\config.json'` on
+  Windows — a folder, not a file), wrong result shape (list vs merged dict),
+  and the merge behavior. Full expected/observed/root-cause write-up kept in
+  `solution.py` for all four.
+- Hint dependency: level 0 across all exercises + Challenge
+
+### Challenge
+
+Expense JSON seed — `load` (missing/broken/not-a-list → `[]`) /
+`categorize` (`match`: income → +amt, expense → -amt, else 0.0) /
+`summarize` (category → signed total) / `save` (`json.dumps(indent=2)` via
+`write_text`). Pathlib reads/writes with `encoding="utf-8"`, no raw `open`,
+no error-string returns. All output bytes matched.
+
+### Mistakes
+
+- Latent bug in `summarize` (reviewer-spotted): `result[cat] = categorize(spend)`
+  OVERWRITES instead of accumulating — it passed only because the test
+  categories were unique. Still satisfy the "signed total" requirement with
+  `.get(cat, 0.0) + categorize(spend)`.
+- `load_typed` used `split("=")` which crashes on a blank or no-`=` line
+  ("not enough values to unpack"); switched to `partition` + strip.
+- No output drift this lesson — all 12 Output blocks byte-exact first
+  submission; the Constraints-checklist habit held.
+
+### Insights
+
+- `json.dumps` = value → JSON string; `json.loads` = string → value; the file
+  versions are `dump`/`load`
+- JSON type mapping: `true`→`True`, `false`→`False`, `null`→`None`
+- `indent=2` makes it readable; `separators=(",", ":")` makes it compact
+- `JSONDecodeError` is a `ValueError` → a safe loader returns `{}`/`[]`, never
+  crashes, never returns an error string
+- `raise ... from None` gives the caller a clean single-message traceback
+  (no chained wall) — the D2 concept finally clicked
+- `match` mapping patterns route records by shape, not by `if` chains
+- Accumulate, don't overwrite: `dict.get(category, 0.0) + value` — a function
+  that passes the sample but doesn't implement the requirement is a latent bug
+
+### Time Studied
+
+~1 hour (focused single sitting)
+
+### Tomorrow Goal
+
+Lesson 12 — CSV (CORE); weekly-project window open (weekly project due soon).
+
+---
+
+## Reflection — Lesson 11 (2026-08-30)
+
+- Surprised: the D2 weak point from Quiz 01 (`raise ... from None` + `partition`)
+  came back naturally through the M3/Challenge specs, and this time it stuck —
+  I wrote `from None` correctly on my own.
+- Difficult: the latent `summarize` overwrite — it passed, so I thought it was
+  done; the reviewer showing me the duplicate-category case made me see that a
+  passing sample isn't the same as a correct implementation.
+- Improve: read the requirement as a guarantee (`signed total`, `accumulate`)
+  even when the sample data can't fail; and prefer `partition` for `key=value`
+  lines so a malformed line is a clean error, not a crash.
+- Confusing: none — the H1 folder-crash symptom was different on Windows
+  (`Permission denied`) than I expected, but the root cause (missing `is_file`
+  guard) was the same as L10's.
+- Process: I appreciated the reviewer catching that E1/E3/E4/E5 handed over
+  answers and rebuilding them as function-form — and that the H1 write-in slots
+  stayed blank this time; my analysis was a real test.

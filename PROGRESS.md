@@ -11,9 +11,9 @@ Completion ≠ mastery. This file tracks mastery.
 
 ```text
 Stage:        Stage 2 — Python Application
-Next Lesson:  Lesson 11 — JSON (CORE)
-Weekly Proj.: every 3–4 lessons (window now open — after L11/12)
-Quizzes:      roughly every 3 lessons
+Next Lesson:  Lesson 12 — CSV (CORE)
+Weekly Proj.: every 3–4 lessons (window now open — weekly project due soon)
+Quizzes:      roughly every 3 lessons (next window opens after L12/L13)
 DSA Track:    1 session/week, interleaved (see DSA_TRACK.md)
 Git:          commit after every session from Stage 2 onward
 ```
@@ -42,6 +42,7 @@ Stage 1 values were migrated from V1 session evidence and are marked
 | Exception handling | CORE | 4 (prov.) | High | spec-literalness relapse on challenge report line (2 rounds); spec-dict mutated into result container (M3, fixed same day); over-wide except tuple without stated justification (H1) | None | L8 challenge seeds stage project; M1 unpack-validation idiom | 2026-08-23 |
 | File handling | CORE | 4 (prov.) | High | error-string returns from loaders (type mixing, theme); rushed-pass spec drift (`bananas` key, E2 unexecuted one pass); H2 `readlines()` where two-pass iteration was the constraint | Conceptual ×1 (M1 try-size) | Challenge Expense Persistence CLI (load/save/merge canonical rewrite) | 2026-08-28 |
 | Pathlib | CORE | 4 | High | .iterdir() yields folders too (H1 bug 3 — resolved with is_dir guard); suffix filters are case-sensitive; .exists() ≠ “is a file” | None for exercises/challenge; H1 narrative leaked by reviewer build bug (learner flagged) | Challenge Folder Reporter (count_by_ext/largest/write_report); M3 typed loader rewired to Path | 2026-08-30 |
+| JSON | CORE | 4 | High | latent summarize overwrite — passed only on unique categories, fixed to accumulate (reviewer-spotted); load_typed split("=") fragile, hardened to partition; reading a folder as a file crashes on Windows (PermissionError, not IsADirectoryError) | 0 | Challenge Expense JSON seed (load/categorize/summarize/save); M3 & Challenge use match mapping patterns | 2026-08-30 |
 | Strings & formatting | SUPPORTING | 3→4 | High | label drift / spec-literalness (trend improving) | None | L2, L6 | 2026-08-05 |
 | Operators & boolean logic | SUPPORTING | 4 (prov.) | High | none recent | None | L2, L3 | 2026-08-05 |
 | Console I/O | SUPPORTING | 3 | High | degenerate argv paths (`--seed` alone → IndexError, L7) | Specific ×1 (with consent) | L3, L7 | 2026-08-13 |
@@ -53,10 +54,9 @@ Stage 1 values were migrated from V1 session evidence and are marked
 
 | Skill | Status | Evidence |
 |-------|--------|----------|
-| Debugging (one-pass bug hunts) | STRONG | H1 clean sweeps five sessions running (L4–L8); L10 three-bug drill resolved independently (suffix case, uppercased names, folder-as-file) — narrative write-in leaked by a reviewer build bug, flagged proactively by learner |
+| Debugging (one-pass bug hunts) | STRONG | H1 clean sweeps five sessions running (L4–L8); L10 three-bug drill resolved independently (suffix case, uppercased names, folder-as-file) — narrative write-in leaked by a reviewer build bug, flagged proactively by learner; L11 four-bug drill (suffix case, folder-read crash, wrong shape, merge) resolved independently in the notebook with a full expected/observed/root-cause write-up for all four — narrative slots this time were blank write-ins |
 | Error handling under edge cases | CLOSING | L8 direct attack landed: degenerate guards everywhere (`mean([])`, empty rows, empty input), H1 debug drill swept with root causes narrated, retry-loop and boundary-validation idioms correct. Close after one unannounced retrieval survives |
-| Spec-literalness (output-as-contract) | IMPROVING | L8 relapse on ONE challenge line (`rejected:` colon R1, trailing space R2) while the other 9 output blocks were byte-exact first submission — visible-part-matches, invisible-tail-missed pattern named explicitly. L9: all Output blocks matched after the revision pass; rushed first pass drifted on the easy `bananas` key and left E2 briefly unexecuted. Root cause self-identified as RUSHING, not language — habit target set (read Constraints as a checklist before coding). L10: all 10 Output blocks byte-exact, no drift; habit held |
-| Collection choice from guarantees | CLOSING | Follow-up drill 8/8 correct, guarantee-driven reasoning |
+| Spec-literalness (output-as-contract) | IMPROVING | L8 relapse on ONE challenge line (`rejected:` colon R1, trailing space R2) while the other 9 output blocks were byte-exact first submission — visible-part-matches, invisible-tail-missed pattern named explicitly. L9: all Output blocks matched after the revision pass; rushed first pass drifted on the easy `bananas` key and left E2 briefly unexecuted. Root cause self-identified as RUSHING, not language — habit target set (read Constraints as a checklist before coding). L10: all 10 Output blocks byte-exact, no drift; habit held. L11: all 12 Output blocks byte-exact first submission, habit held || Collection choice from guarantees | CLOSING | Follow-up drill 8/8 correct, guarantee-driven reasoning |
 | Computation/presentation separation | FORMING | `is_pass` printed True/False instead of pass/fail (L5) |
 
 ---
@@ -95,6 +95,7 @@ practice before moving forward.
 - [x] Lesson 8 — Exception Handling (95/100)
 - [x] Lesson 9 — File Handling (90/100)
 - [x] Lesson 10 — Pathlib (92/100)
+- [x] Lesson 11 — JSON (93/100)
 
 ---
 
@@ -110,6 +111,7 @@ practice before moving forward.
 - [x] Lesson 8 Challenge — Expense Entry Validator CLI (parse/format/main split, raise-at-boundary, injectable `out=print`, byte-perfect final output)
 - [x] Lesson 9 Challenge — Expense Persistence CLI (parse/load/save/merge split, missing-file first run → `loaded: 0`, canonical `.2f` rewrite, `out=print`, idempotent re-runs)
 - [x] Lesson 10 Challenge — Folder Reporter (count_by_ext / largest / write_report, sorted extension summary + largest file, trailing-newline report, empty-folder → `None`)
+- [x] Lesson 11 Challenge — Expense JSON seed (load / categorize / summarize / save; pathlib JSON I/O, match mapping routing, no error-string returns, signed category totals)
 
 ---
 
@@ -182,6 +184,15 @@ practice before moving forward.
 - `Path.open()` gives the same L9 handle for line-by-line / big-file work (Pathlib retrieval)
 - Suffix filters are case-sensitive — compare `.suffix == ".py"` exactly (Pathlib)
 - Folder Reporter: build report string, write with Path.write_text, close with trailing `\n` (Pathlib)
+- JSON dumps/loads round trip; `json.dumps` value→string, `json.loads` string→value (JSON)
+- JSON type mapping: `true`→`True`, `false`→`False`, `null`→`None`; numbers→int/float (JSON)
+- dumps options: `indent=2` (readable, multi-line) vs `separators=(",", ":")` (compact, no spaces) (JSON)
+- `json.JSONDecodeError` is a `ValueError` subclass — EAFP catch for broken files in safe loaders (JSON)
+- `raise ... from None`: clean single-message re-raise, no chained traceback wall — Quiz 01 D2, now used correctly in M3 (JSON)
+- `str.partition` parses `key=value` without crashing on a missing delimiter (D2 retrieval, hardened in load_typed) (JSON)
+- `match` mapping patterns route records by shape: `{"kind":"income",...}` vs `{"kind":"expense",...}` (JSON)
+- `dict.get(category, 0.0) + categorize(spend)`: the proper accumulate-for-signed-totals summarize pattern (JSON)
+- pathlib JSON I/O: `read_text`/`write_text` with `encoding="utf-8"`, never raw `open` — L9/L10 rule retrieved (JSON)
 
 ---
 
@@ -226,16 +237,24 @@ practice before moving forward.
   E2 cell briefly left unexecuted — root cause self-identified as rushing, not language
 - H2 constraint miss (L9): used `readlines()` (whole file) where the two-pass streaming
   iteration was the explicit constraint — output correct, constraint missed
+- Latent summarize non-accumulation (L11): `result[cat] = categorize(spend)` overwrote
+  instead of adding; passed only because the test categories were unique. Lesson: a
+  function that passes the sample but doesn't implement the stated requirement
+  ("signed total", "start each at 0.0") is a latent bug. Hardened to
+  `.get(cat, 0.0) + categorize(spend)`.
+- load_typed `split("=")` fragility (L11): crashed on empty or no-`=` lines
+  ("not enough values to unpack"); switched to `partition` + blank-line skip +
+  strip — same D2 edge as Quiz 01, now hard-won.
 
 ---
 
 ## Scores & Hours
 
-Average Review Score: 91.0 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90, L10: 92)
+Average Review Score: 91.2 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90, L10: 92, L11: 93)
 
 Overall Mastery: Level 4 — debugging/refactoring independently
 
-Total Study Hours: ~12 hours
+Total Study Hours: ~13 hours
 
 ---
 
@@ -251,7 +270,7 @@ Total Study Hours: ~12 hours
 
 | # | Lessons Covered | Score | Weak Concepts Identified | Targeted Practice Done |
 |---|-----------------|-------|--------------------------|------------------------|
-| — | — | — | (starts in Stage 2) | — |
+| 1 | L8–L10 | 96.4% | exception detail: chained traceback / `raise ... from None` intent, `str.partition` no-delimiter edge (D2) | weave one small exception-detail retrieval into L11 (JSON), then re-assess |
 
 ---
 
@@ -342,5 +361,27 @@ See `DSA_TRACK.md` for the track definition.
   (suffix case, uppercased names, missing is_dir guard) with inline comments.
   Process note: the solution.py H1 bug-report write-in was mistakenly pre-filled
   by the reviewer at build time — learner flagged it (good metacognition), fixed
-  the bug code independently anyway; narrative leak recorded, no penalty. Next:
+  the bug code independently anyway;   narrative leak recorded, no penalty. Next:
   Lesson 11 — JSON (CORE); weekly-project window now open.
+- Quiz 01 (2026-08-30): first Stage 2 quiz over L8–L10 — 96.4% (pass, bar 80%).
+  All concepts closed except one exception-detail point (D2): the intent of
+  `raise ... from None` (clean single-message traceback) and the
+  `partition` no-delimiter edge were only half-grasped. Targeted practice:
+  one small retrieval woven into L11, then re-assess. Quiz 01 file:
+  `quizzes/quiz-01-l08-l10.md`.
+- Session 12 (2026-08-30): Lesson 11 complete (93/100) — JSON, Stage 2 fourth topic,
+  plain-English spec style. Learner built the full Expense JSON seed
+  (load/categorize/summarize/save). The Quiz 01 D2 weak point (`raise ... from None`
+  + `partition`) was woven into M3 and the Challenge specs; the learner used
+  `from None` correctly and, when the latent `split("=")` fragility surfaced, hardened
+  to `partition` — D2 appears retrieved/closed (final confirm at Quiz 02). All 12
+  Output blocks byte-exact first submission; H1 four-bug drill resolved independently
+  in the notebook with a full expected/observed/root-cause write-up for all four
+  (including the Windows `PermissionError` when reading a folder as a file). Reviewer
+  flagged two latent-robustness gaps (summarize overwrite on duplicate categories;
+  `split("=")` crash on no-`=` lines) — learner hardened both. Process revert honored:
+  the H1 solution.py slots were BLANK write-ins this time — no recurrence of the L10
+  leak. E1/E3/E4/E5 rebuilt mid-lesson to function-form so their drivers no longer
+  hand over answers (learner flagged the earlier inline cheat); M2 Output widened to
+  show the full pretty-printed file. Next: Lesson 12 — CSV (CORE); weekly-project
+  window open (weekly project due soon).
