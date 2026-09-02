@@ -19,10 +19,8 @@ and what evidence closes it.
 | AWARENESS | Level 2 — Understands | Know the mental model, recognize it in code, know why it exists and when it may be useful; read basic examples |
 | PROJECT-DEPENDENT | Learned on demand | Not drilled upfront. When a real project needs it: Need → Learn → Apply → Review |
 
-Completion is evidence-based, not time-based. There are no duration estimates.
-
-See `CURRICULUM.md` for the per-tier learning pipeline and `RULES.md`
-for the per-tier completion definitions.
+Completion is evidence-based, not time-based. See `CURRICULUM.md` for
+the per-tier learning pipeline and `RULES.md` for completion definitions.
 
 ---
 

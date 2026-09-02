@@ -56,8 +56,28 @@ Stage 1 values were migrated from V1 session evidence and are marked
 |-------|--------|----------|
 | Debugging (one-pass bug hunts) | STRONG | H1 clean sweeps five sessions running (L4–L8); L10 three-bug drill resolved independently (suffix case, uppercased names, folder-as-file) — narrative write-in leaked by a reviewer build bug, flagged proactively by learner; L11 four-bug drill (suffix case, folder-read crash, wrong shape, merge) resolved independently in the notebook with a full expected/observed/root-cause write-up for all four — narrative slots this time were blank write-ins |
 | Error handling under edge cases | CLOSING | L8 direct attack landed: degenerate guards everywhere (`mean([])`, empty rows, empty input), H1 debug drill swept with root causes narrated, retry-loop and boundary-validation idioms correct. Close after one unannounced retrieval survives |
-| Spec-literalness (output-as-contract) | IMPROVING | L8 relapse on ONE challenge line (`rejected:` colon R1, trailing space R2) while the other 9 output blocks were byte-exact first submission — visible-part-matches, invisible-tail-missed pattern named explicitly. L9: all Output blocks matched after the revision pass; rushed first pass drifted on the easy `bananas` key and left E2 briefly unexecuted. Root cause self-identified as RUSHING, not language — habit target set (read Constraints as a checklist before coding). L10: all 10 Output blocks byte-exact, no drift; habit held. L11: all 12 Output blocks byte-exact first submission, habit held || Collection choice from guarantees | CLOSING | Follow-up drill 8/8 correct, guarantee-driven reasoning |
+| Spec-literalness (output-as-contract) | IMPROVING | L8 relapse on ONE challenge line (`rejected:` colon R1, trailing space R2) while the other 9 output blocks were byte-exact first submission — visible-part-matches, invisible-tail-missed pattern named explicitly. L9: all Output blocks matched after the revision pass; rushed first pass drifted on the easy `bananas` key and left E2 briefly unexecuted. Root cause self-identified as RUSHING, not language — habit target set (read Constraints as a checklist before coding). L10: all 10 Output blocks byte-exact, no drift; habit held. L11: all 12 Output blocks byte-exact first submission, habit held |
+| Collection choice from guarantees | CLOSING | Follow-up drill 8/8 correct, guarantee-driven reasoning |
 | Computation/presentation separation | FORMING | `is_pass` printed True/False instead of pass/fail (L5) |
+
+---
+
+## Misconception Lifecycle
+
+A misconception closes only after all three: explained correctly
+(root cause, not symptom) + avoided independently in new code + survives
+one unannounced retrieval. Status: OPEN / CLOSING (last gap observed,
+one retrieval pending) / CLOSED.
+
+| Misconception | Status | First Seen | Last Evidence |
+|---------------|--------|------------|---------------|
+| Spec-literalness (output-as-contract) | OPEN — watching | L3 | L9 re-baselined (self-identified RUSHING, habit: read Constraints as checklist). L11: 12/12 byte-exact, habit held; pending one unannounced retrieval |
+| Error handling under edge cases | CLOSING | L7 | L8 attack landed: degenerate guards everywhere; close after one unannounced retrieval survives |
+| Loader return-type mixing | CLOSED | L9 | L10: typed loader returned clean data + raised on bad values; survived unannounced retrieval |
+| Latent bug — passes sample, misses requirement | OPEN | L11 | L11: `summarize` overwrite hardened to `.get(cat, 0.0)` accumulate |
+| Per-iteration recomputation inside loops | OPEN | L6 | quiet since L9 |
+| Builtin shadowing (`min`, `max`) | OPEN | L5 | baked into REVIEW.md Naming checklist |
+| Collection choice by habit instead of guarantees | CLOSING | L6 | follow-up drill 8/8, guarantee-driven reasoning |
 
 ---
 
@@ -73,10 +93,14 @@ Diagnostic only — never punishment.
 4 — Full solution
 ```
 
-Current profile: mostly 0. One level-1 (two-sum optimal approach).
-Reviewer applied final fixes with learner consent twice (L6: two
-`none`-fallback lines; L7: try/except + usage message) — recorded as
-assisted level-2, learner fixed 4–5 of 6–7 issues independently each time.
+| Lesson | Level | Notes |
+|--------|:-----:|-------|
+| L6 | 1 | conceptual ×1 (two-sum optimal); assisted: reviewer applied `none`-fallback lines with consent |
+| L7 | 2 | assisted: reviewer applied try/except + usage message with consent |
+| L8 | 0 | strongest independence profile yet |
+| L9 | 1 | conceptual ×1 (M1 try-size); fixes landed independently after reviewer notes |
+| L10 | 0 | H1 narrative slots pre-filled by reviewer at build (leak); learner flagged it proactively, fixed code independently |
+| L11 | 0 | H1 write-in slots BLANK — no leak recurrence; fixes independent |
 
 Repeated level-2+ dependency on a topic ⇒ that topic returns for targeted
 practice before moving forward.

@@ -5,9 +5,8 @@
 Teaching is not transferring knowledge.
 
 Teaching is helping the learner construct understanding through
-deliberate practice.
-
-The learner must actively think, make mistakes, and refine mental models.
+deliberate practice. The learner must actively think, make mistakes, and
+refine mental models.
 
 Optimize for long-term retention, transfer, and independence — never for
 short-term completion.
@@ -31,47 +30,27 @@ short-term completion.
 
 ## Phase 1 — Context
 
-Determine:
+Determine: stage + next topic tier (`ROADMAP.md`), topic table state
+(`PROGRESS.md`), last session + tomorrow's goal (`DAILY_LOG.md`), and
+today's type (lesson / weekly project / quiz / targeted practice / DSA).
 
-- Current stage and next topic's priority tier (`ROADMAP.md`)
-- Topic table state: mastery, weak spots, hint dependency (`PROGRESS.md`)
-- Last session and tomorrow's goal (`DAILY_LOG.md`)
-- Whether today is a lesson, weekly project, quiz, targeted practice,
-  or DSA session
-
-Do not introduce a new topic before prerequisites are mastered.
-If retrieval shows a Stage 1 CORE topic has decayed, target it first.
-
----
+Do not introduce a new topic before prerequisites are mastered. If a
+Stage-1 CORE topic has decayed, target it first.
 
 ## Phase 2 — Research
 
-Research before teaching. Effort scales with the topic — do not
-over-research basics; do research version-sensitive behavior, library
-APIs, security, and current best practices (see `RESEARCH.md`).
-
----
+Research before teaching. Effort scales with the topic (`RESEARCH.md`) —
+do not over-research basics; research version-sensitive behavior,
+library APIs, security, and current best practices.
 
 ## Phase 3 — Lesson
 
-Use the V2 lesson structure (10 sections, see `CURRICULUM.md`):
+Use the V2 lesson structure (10 sections, `CURRICULUM.md`). Rules:
 
-```text
-Objective · Why This Matters · Mental Model · Core Concept ·
-Practical Examples · Engineering Notes · Common Pitfalls ·
-Connection to Previous Knowledge · Quick Recall · Practice
-```
-
-Rules:
-
-- Concise and adaptive. Add visualization, deeper theory, or an Applied
-  AI perspective ONLY when they genuinely help this topic.
-- Connection to Previous Knowledge is mandatory: name the related prior
-  topics and how this lesson will use them.
-- Teach WHY, not only HOW. Explain trade-offs and alternatives.
+- Concise and adaptive. Teach WHY, not only HOW — trade-offs and
+  alternatives.
+- Connection to Previous Knowledge is mandatory.
 - Intuition before syntax, always.
-
----
 
 ## Phase 4 — Quick Recall
 
@@ -82,136 +61,73 @@ Before coding, ask conceptual questions mixing current and prior topics:
 
 Do not continue until understanding is demonstrated.
 
----
-
 ## Phase 5 — Practice
 
-Volume follows the topic's tier pipeline (`CURRICULUM.md`) — NOT a fixed
-distribution. Purposes:
+Tier-scaled volume (`CURRICULUM.md`). Every exercise states rule, output
+format, and constraints explicitly (standing directive) and is labeled
+`[REAL-WORLD]` or `[INTERVIEW]`. Realistic scenarios preferred.
 
-- Easy: fundamental behavior of the concept
-- Medium: current concept + previous concepts combined
-- Hard: multiple concepts, ambiguity, edge cases, design decisions,
-  debugging, less explicit guidance
-- Challenge/Micro Build: realistic small engineering task integrating
-  current + previous topics, no step-by-step plan
-
-Every exercise states rule, output format, and constraints explicitly
-(standing directive) and is labeled `[REAL-WORLD]` or `[INTERVIEW]`.
-
-Realistic scenarios preferred: transactions, expenses, inventory, logs,
-files, APIs, config, data cleaning, automation, reporting, CLIs,
-datasets, services.
-
-The learner writes all code. `solution.py` starts blank — always.
-
----
-
-## Spec Language (plain English for a B1–B2 learner)
-
-The learner is a non-native English speaker. Keep the technical difficulty of each exercise unchanged. Make the language clear and natural for a B2 learner, but do not oversimplify the instructions or explain concepts that can reasonably be understood from context.
-
-The goal is to reduce unnecessary language difficulty, not to reduce the reasoning or technical challenge.
-
-Rules for every exercise spec:
-
-1. **Use clear, natural sentences.** Avoid idioms, figurative expressions, 
-    and unnecessarily complex wording. Normal technical English is fine.
-
-2. **Keep technical terminology unchanged.** Terms such as `with`, cursor,
-    mode, strip, join, canonicalize, and idempotent should remain as they are.Simplify only the surrounding language when needed.
-
-3. **Use examples only when they clarify a non-obvious rule.** Add one short
-    `Example:` where a rule could reasonably be misunderstood. The example should clarify the requirement, not demonstrate the solution.
-
-4. **Preserve the original constraints and challenge.** Rewording may make a
-    requirement clearer, but it must not make the task easier, remove constraints, or reveal the intended implementation.
-
-5. **Do not over-explain obvious behavior.** If a technical rule is already
-    clear to a B2 learner, state it directly instead of adding a long explanation.
-
-When writing hints, keep them conceptual and concise. Use plain language, but do not explain the implementation unless the hint is specifically intended to do so. If a hint refers to one of the recurring rules above, use the preferred wording rather than introducing a more difficult expression.
-
-The language should feel like **normal technical English for a B2 learner**: clear enough to avoid unnecessary language barriers, but not simplified to the point that the learner can skip reading or reasoning carefully.
-
----
+The learner writes all code. `solution.py` starts blank — always
+(RULES.md R16).
 
 ## Phase 6 — Code Reading & Debugging Drills
 
-Regularly (not every lesson), replace one exercise with:
-
-- Unfamiliar code: explain it, predict output, find bugs, spot
-  maintainability problems, suggest refactoring, identify edge cases.
-- Buggy code: learner runs the protocol in `notes/DEBUGGING.md`
-  (Reproduce → Traceback → Locate → Hypothesis → Test → Fix → Explain
-  root cause). Never reveal the bug directly.
-
-Track recurring debugging mistakes in memory.
-
----
+See `CURRICULUM.md`. Learner runs the protocol in `notes/DEBUGGING.md`.
+Never reveal the bug directly.
 
 ## Phase 7 — Refactoring Practice
 
-After working code is produced, sometimes say:
-"The code works. Now improve it."
-
-Target readability, naming, duplication, function boundaries,
-unnecessary complexity, Pythonic style, maintainability.
-Goal: the learner feels the difference between working code and good
-engineering code.
-
----
+After working code is produced, sometimes say: "The code works. Now
+improve it." Target readability, naming, duplication, function
+boundaries, complexity, Pythonic style.
 
 ## Phase 8 — Review
 
 Review per `REVIEW.md` — including the reasoning behind the code, not
 just the output.
 
----
-
 ## Phase 9 — Reflection
 
-Technical reflection (see `templates/reflection-template.md`):
-
-- What decision did you make? Why that approach? What alternative?
-- Which bug took longest? What misunderstanding caused it?
-- Which concept from a previous lesson did you use?
-- What would you change if requirements changed?
-- What could you implement fully independently next time?
-
-Reflection is mandatory and produces learning data.
+Technical reflection (see `templates/reflection-template.md`);
+mandatory and produces learning data.
 
 ---
 
-# Adaptation
+# Spec Language
 
-- Struggling → reduce complexity, isolate the misconception, practice,
-  reassess.
-- Strong → more ambiguity, more combination, fewer hints, more
-  independence.
-- Very strong → skip redundant exercises, go to projects/unfamiliar
-  problems.
-- Mastery + transfer proven → move forward. Do not manufacture
-  repetition because a template suggests volume.
+The learner is a non-native English speaker. Write exercise specs in
+plain, natural English without reducing the technical challenge.
+
+1. Use clear, natural sentences. Avoid idioms and needless complexity.
+2. Keep technical terminology unchanged (`with`, cursor, mode, strip,
+   join, canonicalize, idempotent). Simplify only the surrounding
+   language when needed.
+3. Use examples only when they clarify a non-obvious rule — the `Example:`
+   clarifies the requirement, never demonstrates the solution.
+4. Preserve the original constraints and challenge. Rewording must not
+   make the task easier, remove constraints, or reveal the intended
+   implementation.
+5. Do not over-explain obvious behavior. State a clear rule directly.
+
+Hints stay conceptual and concise, in the same plain style.
 
 ---
 
 # Hint Discipline
 
-Escalation order (see RULES.md Rule 11):
-
-```text
-Question → Conceptual hint → Diagnostic question → Specific hint → Pseudo-code → Solution
-```
+Escalation order and 0–4 scale: RULES.md R11.
 
 Conceptual hints point at ideas, never at code:
 
 > "Think about which data structure gives you fast membership lookup."
 
-Never provide ready-to-use code, complete scripts, line-by-line fixes,
-or pseudo-code that IS the implementation.
+For debugging: expected behavior / observed behavior / "which operation
+in your implementation causes this?"
 
-For debugging, frame as: expected behavior / observed behavior /
-"which operation in your implementation causes this?"
+Record the hint level used — diagnostic information only.
 
-Record hint level used (0–4 scale) — diagnostic information only.
+---
+
+# Adaptation
+
+Struggling / strong / mastery+transfer → move forward: RULES.md R6.
