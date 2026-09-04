@@ -26,3 +26,8 @@ decision log:
 - refactor add data:
 1. add validation for argv and empty title & author in add function; the argv still can accept spaces string;.
 2. custom error "ErrorBadRequest" to catch error/invalid input requested by user; specify the error from user and error from system; alternative using ValueError but its gonna bloated.
+
+- search and show data:
+1. search data: list comprehension for the matching data; it is fast to build list of result; classic for loops
+2. search data: reuse the build_list for show_list to get the result clean and easy to read
+3. show list: create list_builder and count_by_genre return the list of its; it is reusable (for search data);

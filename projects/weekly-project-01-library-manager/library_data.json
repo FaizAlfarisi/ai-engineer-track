@@ -1,23 +1,23 @@
 [
   {
-    "title": "Atomic Habit",
-    "author": "James Clear",
-    "year": 2015,
-    "genre": "Self Development",
-    "search_index": "James Clear | Atomic Habit"
+    "title": "The Fellowship of the Ring",
+    "author": "Tolkien",
+    "year": 1954,
+    "genre": "Fantasy",
+    "search_index": "Tolkien | The Fellowship of the Ring"
   },
   {
-    "title": "Great Sporadic",
-    "author": "Semaj Ambiguous",
-    "year": 2002,
-    "genre": "Self Destruction",
-    "search_index": "Semaj Ambiguous | Great Sporadic"
+    "title": "The Return of the King",
+    "author": "Tolkien",
+    "year": 1954,
+    "genre": "Fantasy",
+    "search_index": "Tolkien | The Return of the King"
   },
   {
-    "title": "Hilang Satu",
-    "author": "Wowo",
-    "year": 1999,
-    "genre": "Biography",
-    "search_index": "Wowo | Hilang Satu"
+    "title": "The Two Towers",
+    "author": "Tolkien",
+    "year": 1954,
+    "genre": "Fantasy",
+    "search_index": "Tolkien | The Two Towers"
   }
 ]

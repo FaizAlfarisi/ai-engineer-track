@@ -15,7 +15,7 @@ def map_action(action, data):
         case "search":
             search(data)
         case "list":
-            show_list(data)
+            print(show_list())
         case _:
             raise ErrorBadRequest("action invalid")
 
@@ -88,11 +88,47 @@ def remove(raw):
         data.remove(data_found)
         return write_json(FILE_PATH, data)
 
-def search(data):
-    return
+def search(raw):
+    search_text = raw[0].lower().strip()
 
-def show_list(data):
-    return
+    data = load_json(FILE_PATH)
+
+    data_found = [book for book in data if book["title"].lower() == search_text or book["author"].lower() == search_text]
+
+    if not data_found:
+        raise ErrorBadRequest(f"no books found")
+    else:
+        result = list_builder(data_found)
+        return print("\n".join(result))
+        
+
+def show_list():
+    data = load_json(FILE_PATH)
+    
+    books = list_builder(data)
+    genres = count_by_genre(data)
+    result = books + genres
+    
+    return "\n".join(result)
+
+def list_builder(data):
+    result = [f"Books ({len(data)}):"]
+    for i, book in enumerate(data, start=1):
+        result.append(f"{i}. {book["title"]} — {book["author"]} ({book["year"]}) [{book["genre"]}]")
+    return result
+
+def count_by_genre(data):
+    genre_count = {}
+    
+    for book in data:
+        key = book["genre"]
+        genre_count[key] = genre_count.get(key, 0) + 1
+    
+    result = [f"Genres ({len(genre_count)}):"]
+    for i, (genre, count) in enumerate(sorted(genre_count.items()), start=1):
+        result.append(f"{i}. {genre}: {count}")
+        
+    return result
 
 def load_json(path: Path):
     if not path.exists():
@@ -123,7 +159,7 @@ def main():
     except ErrorCorruptData as err:
         print(f"corrupt data:\nfailed to load existing data | {err}")
         sys.exit(1)
-    except:
+    except Exception as err:
         print(f"Unexpected error:\n{err}")
         sys.exit(1)
         
