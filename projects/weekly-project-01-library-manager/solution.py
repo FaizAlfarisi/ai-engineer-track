@@ -2,15 +2,6 @@ import sys
 import json
 from pathlib import Path
 
-'''
-my analysis
-request -> validate argv -> map action -> (each action):  parse data -> load data -> action
-- add data: search by title -> reject if exist -> append existing data -> re-write file
-- remove data: search by title -> remove if exist -> re-write file
-- search data: search by title and author -> combine both -> show data
-- list data: return formatted data
-'''
-
 def map_action(action, data):
     match action:
         case "add":
@@ -68,8 +59,23 @@ def add(raw):
     
     return write_json(FILE_PATH, sorted(data, key=get_title))
 
-def remove(data):
-    return
+def remove(raw):
+    title = raw[0].lower().strip()
+    
+    data_found = None
+
+    data = load_json(FILE_PATH)
+
+    for book in data:
+        if book["title"].lower() == title:
+            data_found = book
+            break
+    
+    if data_found is None:
+        raise ValueError(f"remove data failed: title {title} not found")
+    else:
+        data.remove(data_found)
+        return write_json(FILE_PATH, data)
 
 def search(data):
     return
@@ -92,12 +98,10 @@ def write_json(path: Path, data):
 def main():
     args = sys.argv
     
-    if len(args) < 5:
-        print("bad request: input format invalid")
-        print("usage: python soluton.py <action> <title> <author> <year> <genre(optional)>")
-        print("usage: enclose more than one word in quotation marks")
+    if len(args) < 2:
+        print(f"bad request: need action")
         sys.exit(1)
-        
+    
     action = args[1]
     data = args[2:]
     
