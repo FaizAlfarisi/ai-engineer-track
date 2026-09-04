@@ -5,6 +5,7 @@ import service_add as add
 import service_remove as remove
 import service_search as search
 import service_show_list as show
+import service_count_genres as count
 
 def map_action(action, path, data):
     match action:
@@ -16,6 +17,8 @@ def map_action(action, path, data):
             search.search_book(data, path)
         case "list":
             print(show.show_book_list(path))
+        case "genres":
+            print(count.count_book_genres(path))
         case _:
             raise ErrorBadRequest("action invalid")
 
@@ -27,10 +30,9 @@ def main(path):
         sys.exit(1)
     
     action = args[1]
-    data = args[2:]
     
     try:
-        map_action(action, path, data)
+        map_action(action, path, args)
     except ErrorBadRequest as err:
         print(f"bad request:\n{err}")
     except ErrorCorruptData as err:

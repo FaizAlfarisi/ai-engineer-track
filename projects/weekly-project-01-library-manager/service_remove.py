@@ -2,7 +2,7 @@ from custom_error import ErrorBadRequest
 from helper import load_json, write_json
 
 def remove_book(raw, path):
-    title = raw[0].lower().strip()
+    title = raw[2].lower().strip()
     
     data_found = None
 
