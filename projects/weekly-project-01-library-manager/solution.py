@@ -2,6 +2,10 @@ import sys
 import json
 from pathlib import Path
 
+class ErrorBadRequest(Exception):
+    """ Custom exception for handling invalid user input """
+    pass
+
 def map_action(action, data):
     match action:
         case "add":
@@ -13,22 +17,22 @@ def map_action(action, data):
         case "list":
             show_list(data)
         case _:
-            raise ValueError("action invalid")
+            raise ErrorBadRequest("action invalid")
 
 # === ADD helper ===
 class ErrorCorruptData(Exception):
     """ Custom exception for handling JSONDecodeError """
-    pass            
+    pass     
 
 def parse_year(text_year):
     try:
         year = int(text_year)
     except ValueError:
-        raise ValueError("invalid year: format is not supported")
+        raise ErrorBadRequest("invalid year: format is not supported")
     
     # assuming only accept book released after industry revolution
     if year < 1800 or year > 2026: 
-        raise ValueError("invalid year: year out of range") from None
+        raise ErrorBadRequest("invalid year: year out of range") from None
     
     return year
 
@@ -37,8 +41,15 @@ def get_title(data):
 # === ADD helper ===
 
 def add(raw):
+    if len(raw) < 3 or len(raw) > 4:
+        raise ErrorBadRequest(f"invalid add args: usage 'python soluton.py add <title> <author> <year> <genre(optional)>'\nenclose more than one word in quotation marks")
+    
     # parsed = parse_data(raw)
-    title, author, year = raw[:3]
+    title, author, year = [r.strip() for r in raw[:3]]
+    
+    if not title or not author:
+        raise ErrorBadRequest(f"empty input: title or author can't be empty")
+    
     # default romance since it is the most popular book genre
     genre = raw[3] if len(raw) > 3 else "Romance" 
     
@@ -46,7 +57,7 @@ def add(raw):
     existing_title = {d["title"] for d in data}
     
     if title in existing_title:
-        raise ValueError(f"duplicate title: title '{title}' already exist")
+        raise ErrorBadRequest(f"duplicate title: title '{title}' already exist")
     
     new_data = {}
     new_data["title"] = title
@@ -72,7 +83,7 @@ def remove(raw):
             break
     
     if data_found is None:
-        raise ValueError(f"remove data failed: title {title} not found")
+        raise ErrorBadRequest(f"remove data failed: title '{title}' not found")
     else:
         data.remove(data_found)
         return write_json(FILE_PATH, data)
@@ -107,11 +118,13 @@ def main():
     
     try:
         map_action(action, data)
-    except ValueError as err:
-        print(f"bad request: {err}")
-        sys.exit(1)
+    except ErrorBadRequest as err:
+        print(f"bad request:\n{err}")
     except ErrorCorruptData as err:
-        print(f"corrupt data: failed to load existing data | {err}")
+        print(f"corrupt data:\nfailed to load existing data | {err}")
+        sys.exit(1)
+    except:
+        print(f"Unexpected error:\n{err}")
         sys.exit(1)
         
 if __name__ == "__main__":

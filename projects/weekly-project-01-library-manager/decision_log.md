@@ -22,3 +22,7 @@ decision log:
 - feature remove data:
 1. refactor main args validation; the usage of each action has a different length of args;.
 2. remove function: normalizing request with lower and strip, declare data_found None, loop through existing data to get the target data, lower the title, if found set the book dict to data_found; with this approach i can know if the data found or not so the system can report to user; alternative using list comprehension, but it is complicated to set the not found case.
+
+- refactor add data:
+1. add validation for argv and empty title & author in add function; the argv still can accept spaces string;.
+2. custom error "ErrorBadRequest" to catch error/invalid input requested by user; specify the error from user and error from system; alternative using ValueError but its gonna bloated.
