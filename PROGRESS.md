@@ -12,9 +12,9 @@ Completion ≠ mastery. This file tracks mastery.
 ```text
 Stage:        Stage 2 — Python Application
 Next Lesson:  Lesson 12 — CSV (CORE)
-Weekly Proj.: every 3–4 lessons (window now open — weekly project due soon)
+Weekly Proj.: WP1 done (85/100 second pass); next window opens after L14/L15
 Quizzes:      roughly every 3 lessons (next window opens after L12/L13)
-DSA Track:    1 session/week, interleaved (see DSA_TRACK.md)
+DSA Track:    1 session/week, interleaved (see DSA_TRACK.md) — DUE
 Git:          commit after every session from Stage 2 onward
 ```
 
@@ -274,11 +274,11 @@ practice before moving forward.
 
 ## Scores & Hours
 
-Average Review Score: 91.2 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90, L10: 92, L11: 93)
+Average Review Score: 90.5 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90, L10: 92, L11: 93, WP1: 85)
 
 Overall Mastery: Level 4 — debugging/refactoring independently
 
-Total Study Hours: ~13 hours
+Total Study Hours: ~14.5 hours
 
 ---
 
@@ -286,7 +286,7 @@ Total Study Hours: ~13 hours
 
 | # | Lessons Covered | Project | Result | Date |
 |---|-----------------|---------|--------|------|
-| — | — | (starts in Stage 2) | — | — |
+| 1 | L8–L11 | Library Manager CLI (multi-module) | 85/100 | 2026-09-02 |
 
 ---
 
@@ -408,4 +408,18 @@ See `DSA_TRACK.md` for the track definition.
   leak. E1/E3/E4/E5 rebuilt mid-lesson to function-form so their drivers no longer
   hand over answers (learner flagged the earlier inline cheat); M2 Output widened to
   show the full pretty-printed file. Next: Lesson 12 — CSV (CORE); weekly-project
-  window open (weekly project due soon).
+   window open (weekly project due soon).
+- Weekly Project 1 (2026-09-02): Library Manager CLI — 85/100 (second pass).
+  Multi-module architecture (solution + 4 service modules + helper +
+  custom_error), 7 clean commits, decision log with reasoning. Core
+  functionality (add/remove/search/list/genres) implemented end-to-end
+  with JSON persistence via pathlib. All 9 first-pass issues fixed
+  independently: search wired to search_index with `in`, list output
+  matches spec block (genres is separate command), is_file() parens,
+  case-consistent duplicate check, circular import broken, IndexError
+  caught, no-results prints directly, explicit return removed. Key
+  learning: same class of bug repeats across files (is_file parens, case
+  sensitivity). Self-review pass before shipping is the new habit.
+  Spec-literalness held at exercise level but slipped at project level;
+  the fix was a new command, not mutated output. DSA track still due.
+  Next: Lesson 12 — CSV (CORE).

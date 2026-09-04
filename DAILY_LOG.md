@@ -787,5 +787,109 @@ Lesson 12 — CSV (CORE); weekly-project window open (weekly project due soon).
   (`Permission denied`) than I expected, but the root cause (missing `is_file`
   guard) was the same as L10's.
 - Process: I appreciated the reviewer catching that E1/E3/E4/E5 handed over
-  answers and rebuilding them as function-form — and that the H1 write-in slots
-  stayed blank this time; my analysis was a real test.
+   answers and rebuilding them as function-form — and that the H1 write-in slots
+   stayed blank this time; my analysis was a real test.
+
+---
+
+## Session 13 — 2026-09-02
+
+### Lesson
+
+Weekly Project 1 — Library Manager CLI (L8–L11 integration) — 70/100
+
+### Exercises
+
+- Multi-module project: `solution.py` (dispatcher) + `service_add.py` +
+  `service_remove.py` + `service_search.py` + `service_show_list.py` +
+  `helper.py` (load_json, write_json, parse_year, list_builder, count_by_genre) +
+  `custom_error.py` (ErrorBadRequest, ErrorCorruptData).
+- All four commands implemented: add, remove, search, list.
+- JSON persistence via pathlib with `encoding="utf-8"`. Loaders raise on
+  corrupt data, return `[]` on missing file.
+- Decision log filled: data shape, module split, error policy, match dispatch,
+  set-based duplicate check.
+
+### Mistakes
+
+- Search uses `==` instead of `in` — brief says "contains," not "exact match."
+- `list` output appends `count_by_genre` — extra lines not in the spec block.
+  Spec-literalness slipped at project level after holding for L10/L11 exercises.
+- `path.is_file` without parentheses in `helper.py:40` — same bug as L10 H1.
+  Method reference is truthy, guard never triggers.
+- `add` duplicate check is case-sensitive (`title in existing_title`) but
+  `remove` uses `.lower()` — the two commands disagree on what "same title" means.
+- `service_add.py` imports `ErrorBadRequest` from `solution.py` (circular import)
+  instead of `custom_error.py` like the other service modules.
+- `remove` and `search` crash with `IndexError` when no title arg is given —
+  `raw[0]` on empty list, not validated like `add` does.
+- `search` raises `ErrorBadRequest("no books found")` — legitimate search result
+  framed as a bad request. Misleading error prefix.
+- `search_index` field written to every book record but never read — dead data.
+- Explicit `return` at end of `write_json` — unnecessary.
+
+### Insights
+
+- Module separation is a genuine engineering decision, not just file splitting.
+  The decision log proved the reasoning behind each split.
+- Custom exceptions (user input vs data corruption) are the right abstraction —
+  the L11 loader contract works at project scale.
+- Set-based duplicate check is the right data structure choice — O(1) lookup.
+- The same class of bug repeats across files: `is_file` without parens (L10 → WP1),
+  case sensitivity inconsistency (L3 pattern). Self-review pass needed before
+  shipping.
+- Spec-literalness holds at exercise level but slips at project level — different
+  failure mode, same root cause (scope too wide for one mental pass).
+
+### Time Studied
+
+~1.5 hours
+
+### Tomorrow Goal
+
+Fix 9 issues from review. Then Lesson 12 — CSV (CORE).
+
+---
+
+## Session 14 — 2026-09-02
+
+### Lesson
+
+Weekly Project 1 — Library Manager CLI (second pass) — 85/100
+
+### Exercises
+
+- All 9 first-pass issues fixed independently:
+  1. search: `==` → `in` via `search_index` (stored lowered)
+  2. list: `genres` separated into its own command; `list` matches spec
+     block
+  3. `path.is_file()` with parens
+  4. case-consistent duplicate check (both sides `.lower()`)
+  5. circular import broken (service_add imports from `custom_error`)
+  6. IndexError caught in `solution.py:41-42`; empty-input checks in
+     remove/search
+  7. no-results prints directly, no exception
+  8. search_index kept and wired up
+  9. explicit `return` removed from `write_json`
+
+### Mistakes
+
+- None in second pass — all fixes applied correctly on first attempt.
+
+### Insights
+
+- Same class of bug repeats across files: self-review pass before
+  shipping catches this.
+- Spec-literalness at project level: new behavior = new command, not
+  mutated existing output.
+- Decision to keep search_index was good engineering judgment — it
+  simplified search to a one-liner and the stored-lowered approach
+  handles case insensitivity cleanly.
+
+### Time Studied
+
+~0.5 hours (fix pass)
+
+### Tomorrow Goal
+
+Lesson 12 — CSV (CORE).
