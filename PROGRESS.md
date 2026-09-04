@@ -12,7 +12,7 @@ Completion ≠ mastery. This file tracks mastery.
 ```text
 Stage:        Stage 2 — Python Application
 Next Lesson:  Lesson 12 — CSV (CORE)
-Weekly Proj.: WP1 done (70/100); next window opens after L14/L15
+Weekly Proj.: WP1 done (85/100 second pass); next window opens after L14/L15
 Quizzes:      roughly every 3 lessons (next window opens after L12/L13)
 DSA Track:    1 session/week, interleaved (see DSA_TRACK.md) — DUE
 Git:          commit after every session from Stage 2 onward
@@ -274,7 +274,7 @@ practice before moving forward.
 
 ## Scores & Hours
 
-Average Review Score: 89.4 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90, L10: 92, L11: 93, WP1: 70)
+Average Review Score: 90.5 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90, L10: 92, L11: 93, WP1: 85)
 
 Overall Mastery: Level 4 — debugging/refactoring independently
 
@@ -286,7 +286,7 @@ Total Study Hours: ~14.5 hours
 
 | # | Lessons Covered | Project | Result | Date |
 |---|-----------------|---------|--------|------|
-| 1 | L8–L11 | Library Manager CLI (multi-module) | 70/100 | 2026-09-02 |
+| 1 | L8–L11 | Library Manager CLI (multi-module) | 85/100 | 2026-09-02 |
 
 ---
 
@@ -409,20 +409,17 @@ See `DSA_TRACK.md` for the track definition.
   hand over answers (learner flagged the earlier inline cheat); M2 Output widened to
   show the full pretty-printed file. Next: Lesson 12 — CSV (CORE); weekly-project
    window open (weekly project due soon).
-- Weekly Project 1 (2026-09-02): Library Manager CLI — 70/100. Multi-module
-  architecture (solution + 4 service modules + helper + custom_error), 7 clean
-  commits, decision log with reasoning. Core functionality (add/remove/search/list)
-  implemented end-to-end with JSON persistence via pathlib. Strengths: module
-  separation, custom exception abstraction, set-based duplicate check, decision
-  log quality. Issues: (1) search uses `==` not `in` — brief says "contains";
-  (2) list output appends count_by_genre — fails byte-exact spec block;
-  (3) `path.is_file` without parens — same L10 H1 bug; (4) case-sensitive
-  duplicate check inconsistent with case-insensitive remove; (5) circular
-  import from solution.py in service_add; (6) IndexError on missing args to
-  remove/search; (7) ErrorBadRequest misused for "no books found"; (8) dead
-  search_index field; (9) explicit return in write_json. No code hints during
-  build — all 9 issues found by reviewer. Key learning: the same class of bug
-  repeats across files (is_file parens, case sensitivity). Need a self-review
-  pass before shipping. Spec-literalness held at exercise level (L10/L11) but
-  slipped at project level. DSA track still due. Next: fix 9 issues, then
-  Lesson 12 — CSV (CORE).
+- Weekly Project 1 (2026-09-02): Library Manager CLI — 85/100 (second pass).
+  Multi-module architecture (solution + 4 service modules + helper +
+  custom_error), 7 clean commits, decision log with reasoning. Core
+  functionality (add/remove/search/list/genres) implemented end-to-end
+  with JSON persistence via pathlib. All 9 first-pass issues fixed
+  independently: search wired to search_index with `in`, list output
+  matches spec block (genres is separate command), is_file() parens,
+  case-consistent duplicate check, circular import broken, IndexError
+  caught, no-results prints directly, explicit return removed. Key
+  learning: same class of bug repeats across files (is_file parens, case
+  sensitivity). Self-review pass before shipping is the new habit.
+  Spec-literalness held at exercise level but slipped at project level;
+  the fix was a new command, not mutated output. DSA track still due.
+  Next: Lesson 12 — CSV (CORE).

@@ -38,6 +38,8 @@ def main(path):
     except ErrorCorruptData as err:
         print(f"corrupt data:\nfailed to load existing data | {err}")
         sys.exit(1)
+    except IndexError as err:
+        print(f"internal error:\n{err}")
     except Exception as err:
         print(f"Unexpected error:\n{err}")
         sys.exit(1)

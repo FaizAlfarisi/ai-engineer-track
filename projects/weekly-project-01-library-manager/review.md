@@ -244,3 +244,44 @@ before the code leaves your hands.
 appended). Search output uses `==` instead of `in` (correctness miss,
 not just format). The L10/L11 byte-exact streak slipped at project
 scale.
+
+---
+
+## Second-Pass Verification (2026-09-02)
+
+| # | Issue | Status | Fix |
+|---|-------|--------|-----|
+| 1 | search `==` → `in` | ✅ | Uses `search_index` with `in`; stored lowered |
+| 2 | list spec-literalness | ✅ | `genres` is a separate command; `list` matches spec block |
+| 3 | `is_file()` parens | ✅ | `path.is_file()` with call |
+| 4 | case-sensitive duplicate | ✅ | Both sides `.lower()` in add; consistent with remove |
+| 5 | circular import | ✅ | `service_add.py` imports from `custom_error` |
+| 6 | IndexError on missing args | ✅ | Dedicated `except IndexError` in `solution.py:41-42`; empty-input checks in remove/search |
+| 7 | no-results error framing | ✅ | Prints directly, no exception |
+| 8 | search_index | ✅ | Kept and wired up; stored lowered; used in search |
+| 9 | explicit return | ✅ | Removed entirely |
+
+**All nine issues resolved.**
+
+### Updated Score
+
+The fixes addressed two correctness bugs (search `==`, spec block), two
+consistency issues (case sensitivity, circular import), one silent
+failure (`is_file`), one error-handling gap (IndexError), one error
+framing issue (no-results), and one dead-data decision (search_index →
+kept and used). Each fix was independent and targeted.
+
+| Dimension       | First Pass | Second Pass |
+|-----------------|------------|-------------|
+| Correctness     | 16/25      | 23/25       |
+| Logic           | 15/20      | 18/20       |
+| Readability     | 13/15      | 14/15       |
+| Naming          | 8/10       | 9/10        |
+| Maintainability | 7/10       | 9/10        |
+| Pythonic Style  | 7/10       | 8/10        |
+| Performance     | 4/5        | 4/5         |
+| Testing         | 0/5        | 0/5         |
+| **Overall**     | **70/100** | **85/100**  |
+
+**Independent fix ratio:** 9/9 fixes applied independently by the
+learner after reviewer guidance.

@@ -46,4 +46,3 @@ def load_json(path: Path):
 
 def write_json(path: Path, data):
     path.write_text(json.dumps(data, indent=2), encoding="utf-8")
-    return True

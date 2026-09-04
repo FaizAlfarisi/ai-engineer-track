@@ -848,3 +848,48 @@ Weekly Project 1 — Library Manager CLI (L8–L11 integration) — 70/100
 ### Tomorrow Goal
 
 Fix 9 issues from review. Then Lesson 12 — CSV (CORE).
+
+---
+
+## Session 14 — 2026-09-02
+
+### Lesson
+
+Weekly Project 1 — Library Manager CLI (second pass) — 85/100
+
+### Exercises
+
+- All 9 first-pass issues fixed independently:
+  1. search: `==` → `in` via `search_index` (stored lowered)
+  2. list: `genres` separated into its own command; `list` matches spec
+     block
+  3. `path.is_file()` with parens
+  4. case-consistent duplicate check (both sides `.lower()`)
+  5. circular import broken (service_add imports from `custom_error`)
+  6. IndexError caught in `solution.py:41-42`; empty-input checks in
+     remove/search
+  7. no-results prints directly, no exception
+  8. search_index kept and wired up
+  9. explicit `return` removed from `write_json`
+
+### Mistakes
+
+- None in second pass — all fixes applied correctly on first attempt.
+
+### Insights
+
+- Same class of bug repeats across files: self-review pass before
+  shipping catches this.
+- Spec-literalness at project level: new behavior = new command, not
+  mutated existing output.
+- Decision to keep search_index was good engineering judgment — it
+  simplified search to a one-liner and the stored-lowered approach
+  handles case insensitivity cleanly.
+
+### Time Studied
+
+~0.5 hours (fix pass)
+
+### Tomorrow Goal
+
+Lesson 12 — CSV (CORE).

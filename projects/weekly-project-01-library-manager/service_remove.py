@@ -3,6 +3,9 @@ from helper import load_json, write_json
 
 def remove_book(raw, path):
     title = raw[2].lower().strip()
+    if not title:
+        raise ErrorBadRequest(f"empty input: title can't be empty")
+    
     
     data_found = None
 

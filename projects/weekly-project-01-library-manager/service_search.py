@@ -1,7 +1,10 @@
+from custom_error import ErrorBadRequest
 from helper import load_json, list_builder
 
 def search_book(raw, path):
     search_text = raw[2].lower().strip()
+    if not search_text:
+        raise ErrorBadRequest(f"empty input: search can't be empty")
 
     data = load_json(path)
 
