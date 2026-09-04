@@ -893,3 +893,28 @@ Weekly Project 1 — Library Manager CLI (second pass) — 85/100
 ### Tomorrow Goal
 
 Lesson 12 — CSV (CORE).
+
+---
+
+## Session 15 — 2026-09-04
+
+### Lesson
+
+Lesson 12 — CSV (SUPPORTING) — lesson materials prepared. Exercises
+E1 (read), E2 (write), E3 (safe loader), Challenge (CSV Grade Book).
+Data files: students.csv (E1), grades.csv (Challenge). Notebook ready.
+
+### Notes
+
+- CSV is SUPPORTING tier (not CORE) — shorter exercise set (2 Easy +
+  1 Medium + 1 Challenge).
+- Key teaching point: `newline=""` required in `open()`. All values are
+  strings — type conversion is manual.
+- CSV vs JSON decision: flat tables → CSV, nested/typed → JSON.
+- Challenge is standalone (grade book), not integrated into Library
+  Manager.
+- Quiz 02 window opens after L12/L13. DSA track still due.
+
+### Tomorrow Goal
+
+Complete Lesson 12 exercises (E1–E3 + Challenge).
