@@ -918,3 +918,62 @@ Data files: students.csv (E1), grades.csv (Challenge). Notebook ready.
 ### Tomorrow Goal
 
 Complete Lesson 12 exercises (E1–E3 + Challenge).
+
+---
+
+## Session 16 — 2026-09-04
+
+### Lesson
+
+Lesson 12 — CSV (SUPPORTING) — exercise + review pass — **92/100** (final,
+re-reviewed)
+
+### Exercises
+
+- E1 (read + print), E2 (write CSV), E3 (safe loader returning data,
+  never error-string), Challenge (CSV Grade Book decomposed into
+  read_csv / grades_stat_builder / write_csv / main).
+- Loader contract carried over hard: missing file → `[]`/raise, never
+  error-string; `newline=""` + `encoding="utf-8"` everywhere.
+- `DictWriter.fieldnames` derived from `data[0].keys()` independently.
+
+### Mistakes (first draft → fixed on re-submit)
+
+- Hardcoded `"Summary (3 students):"` + `i == 3: break` — real data
+  yields 5 students. Conceded reviewer-fault: the original spec had no
+  driver/Output block, so byte-for-byte was unanswerable. Fixed with
+  true `len()` + sorted.
+- Swallowed skipped-row warning (`# print(err)`) — fixed to a consistent
+  quoted format with row number.
+- `grades_stat_builder` returned unread `stats` — removed; returns only
+  the summaries used.
+- Earlier review (74/100) was mistakenly graded against a stale
+  `solution.py` draft; the fresh file already contained all fixes.
+  Re-review of the actual file corrected the score to 92/100.
+- Exercise run mutated the `students.csv` fixture (Alice→92.4, Dan→abc);
+  reviewer restored it to original spec data.
+
+### Insights
+
+- Reviewer process failure logged: L12 specs broke the L11 format —
+  no Driver + Output: block per cell. Correction carried into Lesson 13:
+  every exercise gets a pinned driver + exact Output block.
+- "Computed but unread" is a real smell to self-check before finish
+  (misconception now CLOSED — fixed independently and survives).
+- SUPPORTING tier = Level 3 bar: independent implementation reached;
+  transferred loader contract + decomposition into a new format.
+
+### Review Score
+
+92/100. Hint dependency 0. 24/25 correctness, 19/20 logic. Verified by
+running against the provided `grades.csv`: `Summary (5 students)` with
+all averages/statuses correct and the skipped-row warning shown.
+
+### Time Studied
+
+~1.5 hours (lesson + exercises + review + re-review)
+
+### Tomorrow Goal
+
+Lesson 13 — Packages & Multi-Module Structure (CORE) — with corrected
+spec format (Driver + Output blocks) and Quiz 02 + DSA slot due.

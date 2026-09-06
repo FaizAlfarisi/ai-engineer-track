@@ -11,10 +11,11 @@ Completion ≠ mastery. This file tracks mastery.
 
 ```text
 Stage:        Stage 2 — Python Application
-Current:      Lesson 12 — CSV (SUPPORTING) — IN PROGRESS
+Current:      Lesson 12 — CSV (SUPPORTING) COMPLETE — Level 3
+Next:         Lesson 13 — Packages & Multi-Module Structure (CORE)
 Weekly Proj.: WP1 done (85/100 second pass); next window opens after L14/L15
-Quizzes:      roughly every 3 lessons (next window opens after L12/L13)
-DSA Track:    1 session/week, interleaved (see DSA_TRACK.md) — DUE
+Quizzes:      Quiz 02 window open (after L12/L13) — DUE
+DSA Track:    1 session/week, interleaved (see DSA_TRACK.md) — OVERDUE
 Git:          commit after every session from Stage 2 onward
 ```
 
@@ -43,7 +44,7 @@ Stage 1 values were migrated from V1 session evidence and are marked
 | File handling | CORE | 4 (prov.) | High | error-string returns from loaders (type mixing, theme); rushed-pass spec drift (`bananas` key, E2 unexecuted one pass); H2 `readlines()` where two-pass iteration was the constraint | Conceptual ×1 (M1 try-size) | Challenge Expense Persistence CLI (load/save/merge canonical rewrite) | 2026-08-28 |
 | Pathlib | CORE | 4 | High | .iterdir() yields folders too (H1 bug 3 — resolved with is_dir guard); suffix filters are case-sensitive; .exists() ≠ “is a file” | None for exercises/challenge; H1 narrative leaked by reviewer build bug (learner flagged) | Challenge Folder Reporter (count_by_ext/largest/write_report); M3 typed loader rewired to Path | 2026-08-30 |
 | JSON | CORE | 4 | High | latent summarize overwrite — passed only on unique categories, fixed to accumulate (reviewer-spotted); load_typed split("=") fragile, hardened to partition; reading a folder as a file crashes on Windows (PermissionError, not IsADirectoryError) | 0 | Challenge Expense JSON seed (load/categorize/summarize/save); M3 & Challenge use match mapping patterns | 2026-08-30 |
-| CSV | SUPPORTING | — | — | — | — | — | 2026-09-04 |
+| CSV | SUPPORTING | 3 | High | first draft hardcoded summary count (`i==3: break`) — spec-ambiguous (reviewer provided no driver/Output block), conceded reviewer-fault; fixed to true len() + sorted + un-swallowed skipped-row warning + dropped dead `stats` return (re-review 92/100). Residual process note: exercise run mutated `students.csv` fixture (restored) | 0 | Challenge CSV Grade Book (read/parse/summarize/write/print decomposed) | 2026-09-04 |
 | Strings & formatting | SUPPORTING | 3→4 | High | label drift / spec-literalness (trend improving) | None | L2, L6 | 2026-08-05 |
 | Operators & boolean logic | SUPPORTING | 4 (prov.) | High | none recent | None | L2, L3 | 2026-08-05 |
 | Console I/O | SUPPORTING | 3 | High | degenerate argv paths (`--seed` alone → IndexError, L7) | Specific ×1 (with consent) | L3, L7 | 2026-08-13 |
@@ -79,6 +80,7 @@ one retrieval pending) / CLOSED.
 | Per-iteration recomputation inside loops | OPEN | L6 | quiet since L9 |
 | Builtin shadowing (`min`, `max`) | OPEN | L5 | baked into REVIEW.md Naming checklist |
 | Collection choice by habit instead of guarantees | CLOSING | L6 | follow-up drill 8/8, guarantee-driven reasoning |
+| Computed-but-unread / band-aid patch (returned value never used; hardcoded count + `break`) | CLOSED | L12 | L12 re-review: dead `stats` return removed, hardcoded `i==3: break` replaced with true `len()` + sorted; avoids independently and survives unannounced retrieval |
 
 ---
 
@@ -275,11 +277,11 @@ practice before moving forward.
 
 ## Scores & Hours
 
-Average Review Score: 90.5 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90, L10: 92, L11: 93, WP1: 85)
+Average Review Score: 90.6 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90, L10: 92, L11: 93, WP1: 85, L12: 92)
 
 Overall Mastery: Level 4 — debugging/refactoring independently
 
-Total Study Hours: ~14.5 hours
+Total Study Hours: ~16 hours
 
 ---
 
@@ -424,3 +426,19 @@ See `DSA_TRACK.md` for the track definition.
   Spec-literalness held at exercise level but slipped at project level;
   the fix was a new command, not mutated output. DSA track still due.
   Next: Lesson 12 — CSV (CORE).
+- Lesson 12 (2026-09-04): CSV (SUPPORTING) — 92/100 (re-reviewed), Level 3
+  reached. Loader contract transferred cleanly into a new format; Challenge
+  decomposed into single-responsibility functions. First draft had a
+  hardcoded summary count (`i==3: break`) that missed the true 5 students
+  on the provided data — this was spec-ambiguous and CONCEDED reviewer-fault
+  (no Driver + Output: block in the original spec). Learner re-fixed and
+  re-submitted: true `len()` count, sorted by name, un-swallowed skipped-row
+  warning, dead `stats` return removed. Re-review ran the provided data:
+  `Summary (5 students)` all correct. PROCESS FAILURE (reviewer): L12
+  exercise specs broke the established L11 format — no Driver + Output:
+  block per cell. Logged as a hard correction for Lesson 13: every exercise
+  gets a pinned driver + exact Output block. Also: an exercise run mutated
+  the `students.csv` fixture; reviewer restored it. Fix for future: build
+  notebook fixtures inline (L11 style) so exercise code cannot corrupt
+  shared data files. Next: Lesson 13 — Packages & Multi-Module Structure
+  (CORE). Quiz 02 window + DSA slot both overdue.
