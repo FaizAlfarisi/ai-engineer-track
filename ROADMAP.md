@@ -31,16 +31,20 @@ functions, problem solving, modules, basic CLI development.
 
 | Topic | Tier |
 |-------|------|
-| Control flow (conditionals, match, loops) | CORE |
-| Collections (list, tuple, dict, set) | CORE |
+| Variables & references | CORE |
+| Data types & conversion | CORE |
+| Control flow (conditionals, match literals) | CORE |
+| Loops | CORE |
 | Functions | CORE |
-| Problem solving / data manipulation | CORE |
+| Collections (list, tuple, dict, set) | CORE |
 | Modules & imports | CORE |
-| Variables, references, data types | CORE |
 | Strings & formatting | SUPPORTING |
 | Operators & boolean logic | SUPPORTING |
 | Console I/O | SUPPORTING |
 | `match` beyond literal patterns | AWARENESS (deferred — JSON in Stage 2, API responses in Stage 4) |
+
+Problem solving / data manipulation is cross-cutting — evidenced by the
+challenge CLI in every lesson, not tracked as a topic row in `PROGRESS.md`.
 
 Stage project: Student / Inventory / Transaction CLI — an independent build
 where the learner makes the implementation decisions.
@@ -56,32 +60,38 @@ consolidation build may be scheduled if later retrieval exposes gaps.
 Focus: turning scripts into applications — persistence, robustness,
 multi-file structure, and professional workflow.
 
-Teaching sequence (adaptive, not rigid):
+Teaching sequence (adaptive, not rigid). `✅` = completed; remaining work
+is listed in priority order:
 
 ```text
-Exception Handling → File Handling → Pathlib → JSON → CSV
-→ Packages & Multi-Module Structure → Typing Basics
-→ OOP (practical) → Dataclasses → Environment & Dependency Management
+✅ Exception Handling → ✅ File Handling → ✅ Pathlib → ✅ JSON → ✅ CSV
+→ Packages & Multi-Module Structure
+→ Basic Typing → OOP (practical) → Dataclass
+→ Environment & Dependency Management (can defer until a project needs it)
 ```
 
-Git is used continuously from the first session of this stage
-(commit after every session).
+Packages & Multi-Module Structure also covers "functions across multiple
+modules" — splitting code into modules necessarily means writing and
+importing functions across files, so it is not a separate topic.
 
-| Topic | Tier |
-|-------|------|
-| Exception handling & debugging habits | CORE |
-| File handling | CORE |
-| JSON | CORE |
-| Pathlib | CORE |
-| Modules & packages across multiple files | CORE |
-| Functions applied across multiple modules | CORE (Stage 1 reinforcement) |
-| Basic typing | CORE |
-| OOP — classes, instances, attributes, methods, composition, inheritance basics, when OOP helps and when it is unnecessary | SUPPORTING (practical, not syntax-drilled) |
-| Dataclass | SUPPORTING |
-| CSV | SUPPORTING |
-| Environment & dependency management (venv, pip) | SUPPORTING |
-| Git basics (init, add, commit, log, diff, .gitignore) | SUPPORTING (applied daily) |
-| Enum | AWARENESS |
+Git is used continuously from the first session of this stage.
+Git basics (init, add, commit, log, diff, .gitignore) are applied daily
+and are already satisfied in practice — not a standalone future lesson.
+
+| Topic | Tier | Priority |
+|-------|------|----------|
+| Exception handling & debugging habits | CORE | ✅ done (L8) |
+| File handling | CORE | ✅ done (L9) |
+| Pathlib | CORE | ✅ done (L10) |
+| JSON | CORE | ✅ done (L11) |
+| CSV | SUPPORTING | ✅ done (L12) |
+| Packages & Multi-Module Structure | CORE | NEXT |
+| Basic typing | CORE | after Packages |
+| OOP — classes, instances, attributes, methods, composition, inheritance basics, when OOP helps and when it is unnecessary | SUPPORTING (practical, not syntax-drilled) | after typing |
+| Dataclass | SUPPORTING | after OOP |
+| Environment & dependency management (venv, pip) | SUPPORTING | can defer until a real project needs it |
+| Enum | AWARENESS | fold into typing/OOP; not a standalone lesson |
+| Git basics (init, add, commit, log, diff, .gitignore) | SUPPORTING (applied daily) | ✅ in continuous use, not a lesson |
 
 Stage project: **Expense / Transaction Manager** — must integrate modular
 structure, persistence, JSON/CSV, validation, exceptions, typing, Git,
