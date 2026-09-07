@@ -977,3 +977,72 @@ all averages/statuses correct and the skipped-row warning shown.
 
 Lesson 13 — Packages & Multi-Module Structure (CORE) — with corrected
 spec format (Driver + Output blocks) and Quiz 02 + DSA slot due.
+
+---
+
+## Session 17 — 2026-09-07
+
+### Lesson
+
+Lesson 13 — Packages & Multi-Module Structure (CORE) — exercise + review
+pass — **92/100**, Level 4.
+
+### Exercises
+
+- E1 (module = file, `greet.py`), E2 (`words.py` + `report.py`, one
+  imports the other), E3 (`textstats` package with `__init__.py`), M1
+  (relative import `from .words import count_words`) — all byte-exact
+  first pass.
+- H1 debug drill — three planted bugs (side effect on import, relative
+  import in a root script, module-vs-function) fixed independently;
+  chose the `__init__.py` re-export route (`from .greet import greet`)
+  so `from greeter import greet` yields the function. Renamed root
+  script to `main_greet.py` to avoid a `main.py` collision with the
+  Challenge (reviewer spec collision — sensible call, spec patched to
+  match). Verified: rc 0, stdout `Hello, ada!`, stderr `''`.
+- Challenge — `report_tool` package (load/compute/write) + `main.py`:
+  first draft of `write_summary` wrote raw floats (`60.0`); fixed to
+  `sorted(totals.items())` + `f"{total:.2f}"` in one independent round.
+  `main` trimmed to load → summarize → write → print. Driver byte-exact.
+- Specs now LEAN per learner directive: Task / File tree / Interface
+  contract / Constraints / Driver+Output; clues are bridge-only. Hint
+  dependency 0.
+
+### Mistakes
+
+- Challenge first draft: `write_summary` skipped the two-decimals
+  contract → `60.0`/`153.6`/`56.0` instead of `60.00`/`153.60`/`56.00`.
+  Caught on review, fixed independently (spec-literalness slip, pattern
+  continues IMPROVING: 1 slip, 1-round fix).
+- Design note raised + resolved: sorting/formatting moved into
+  `write_summary` so it owns ordering regardless of caller; `compute`
+  returns an unsorted total dict.
+
+### Insights
+
+- A package is a folder with `__init__.py`; importing it runs the file.
+- `import package.module` runs `__init__.py` first, then the module top
+  to bottom — top-level statements fire at import (the H1 side-effect
+  bug).
+- Relative imports (leading dot) exist only inside a package; a file run
+  as a script has no parent package, so the dot has nothing to anchor to.
+- `sys.modules` caches modules — re-import does not re-run the file.
+- Find-before-load order: built-ins → `sys.path` folders → else
+  `ModuleNotFoundError`; `sys.path[0]` is the launch folder.
+- Main file imports absolutely; submodules may use relative imports.
+
+### Review Score
+
+92/100. Hint dependency 0. Correctness 25/25 (byte-exact after one
+round), logic 19/20, format 19/20, engineering 21/20 (H1 fix choice +
+rename + resilience), commentary 8/10 (reflection pending). Verified by
+running all six drivers against the real files in a temp copy.
+
+### Time Studied
+
+~1.5 hours
+
+### Tomorrow Goal
+
+Quiz 02 (L08–L12) — then the overdue DSA slot. Learner reflection on L13
+pending.

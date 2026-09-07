@@ -87,6 +87,12 @@ Learner-mandated rules. These are absolute; never violate them.
   This includes "write-in" scaffolds like an H1 bug report: fill the
   slot labels, never the answers under them.
 - Exercises must state rule, output format, and constraints explicitly.
+- Exercise specs stay LEAN: instruction, constraints, and expected
+  result (Driver + Output). No step-by-step recipe sections and no
+  enumerated bug fixes. Clues are conceptual and vague — given only
+  when a bridge to the intended point is needed, never a specific clue
+  (especially not for bugs or steps). Bug drills plant bugs and state
+  how many + the expected result; the learner finds and fixes them.
 - Per-lesson folder structure `lessons/lesson-NN-topic/` with
   md + ipynb + solution.py; Jupyter-notebook workflow approved.
 - Learner writes all code — always.

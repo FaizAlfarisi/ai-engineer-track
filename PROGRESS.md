@@ -11,8 +11,8 @@ Completion ≠ mastery. This file tracks mastery.
 
 ```text
 Stage:        Stage 2 — Python Application
-Current:      Lesson 12 — CSV (SUPPORTING) COMPLETE — Level 3
-Next:         Lesson 13 — Packages & Multi-Module Structure (CORE)
+Current:      Lesson 13 — Packages & Multi-Module Structure (CORE) COMPLETE — Level 4
+Next:         Quiz 02 (L08–L12) → L14 Basic Typing → L15 OOP → DSA → L16 Dataclass → WP2
 Weekly Proj.: WP1 done (85/100 second pass); next window opens after L14/L15
 Quizzes:      Quiz 02 window open (after L12/L13) — DUE
 DSA Track:    1 session/week, interleaved (see DSA_TRACK.md) — OVERDUE
@@ -40,6 +40,7 @@ Stage 1 values were migrated from V1 session evidence and are marked
 | Functions | CORE | 4 (prov.) | High | mutable defaults (fixed L5); `return` vs `print` confusion (fixed L5) | None | L5–L7; all challenges function-decomposed | 2026-08-13 |
 | Collections (list/tuple/dict/set) | CORE | 4 (prov.) | Med-High | choosing type by habit not guarantees (closing: 8/8 drill); `min()` misused as filter-then-join (L6) | Conceptual ×1 (two-sum O(n) approach) | L6, L7 | 2026-08-13 |
 | Modules & imports | CORE | 4 (prov.) | High | star-import shadowing; missing `__main__` guard — all fixed in H1 sweep | None | L7 challenge | 2026-08-20 |
+| Packages & multi-module structure | CORE | 4 | High | Challenge `write_summary` skipped two-decimals formatting (60.0 vs 60.00) on first draft — fixed independently; solution.py monolith kept as scratchpad while real deliverables split into files | 0 | Challenge report_tool package (load/compute/write + main.py) | 2026-09-07 |
 | Exception handling | CORE | 4 (prov.) | High | spec-literalness relapse on challenge report line (2 rounds); spec-dict mutated into result container (M3, fixed same day); over-wide except tuple without stated justification (H1) | None | L8 challenge seeds stage project; M1 unpack-validation idiom | 2026-08-23 |
 | File handling | CORE | 4 (prov.) | High | error-string returns from loaders (type mixing, theme); rushed-pass spec drift (`bananas` key, E2 unexecuted one pass); H2 `readlines()` where two-pass iteration was the constraint | Conceptual ×1 (M1 try-size) | Challenge Expense Persistence CLI (load/save/merge canonical rewrite) | 2026-08-28 |
 | Pathlib | CORE | 4 | High | .iterdir() yields folders too (H1 bug 3 — resolved with is_dir guard); suffix filters are case-sensitive; .exists() ≠ “is a file” | None for exercises/challenge; H1 narrative leaked by reviewer build bug (learner flagged) | Challenge Folder Reporter (count_by_ext/largest/write_report); M3 typed loader rewired to Path | 2026-08-30 |
@@ -58,7 +59,7 @@ Stage 1 values were migrated from V1 session evidence and are marked
 |-------|--------|----------|
 | Debugging (one-pass bug hunts) | STRONG | H1 clean sweeps five sessions running (L4–L8); L10 three-bug drill resolved independently (suffix case, uppercased names, folder-as-file) — narrative write-in leaked by a reviewer build bug, flagged proactively by learner; L11 four-bug drill (suffix case, folder-read crash, wrong shape, merge) resolved independently in the notebook with a full expected/observed/root-cause write-up for all four — narrative slots this time were blank write-ins |
 | Error handling under edge cases | CLOSING | L8 direct attack landed: degenerate guards everywhere (`mean([])`, empty rows, empty input), H1 debug drill swept with root causes narrated, retry-loop and boundary-validation idioms correct. Close after one unannounced retrieval survives |
-| Spec-literalness (output-as-contract) | IMPROVING | L8 relapse on ONE challenge line (`rejected:` colon R1, trailing space R2) while the other 9 output blocks were byte-exact first submission — visible-part-matches, invisible-tail-missed pattern named explicitly. L9: all Output blocks matched after the revision pass; rushed first pass drifted on the easy `bananas` key and left E2 briefly unexecuted. Root cause self-identified as RUSHING, not language — habit target set (read Constraints as a checklist before coding). L10: all 10 Output blocks byte-exact, no drift; habit held. L11: all 12 Output blocks byte-exact first submission, habit held |
+| Spec-literalness (output-as-contract) | IMPROVING | L8 relapse on ONE challenge line (`rejected:` colon R1, trailing space R2) while the other 9 output blocks were byte-exact first submission — visible-part-matches, invisible-tail-missed pattern named explicitly. L9: all Output blocks matched after the revision pass; rushed first pass drifted on the easy `bananas` key and left E2 briefly unexecuted. Root cause self-identified as RUSHING, not language — habit target set (read Constraints as a checklist before coding). L10: all 10 Output blocks byte-exact, no drift; habit held. L11: all 12 Output blocks byte-exact first submission, habit held. L13: one Challenge slip — contract said totals with two decimals, first draft wrote raw floats; caught on review, fixed independently, line held at `sorted` + two-decimals formatting in `write_summary` |
 | Collection choice from guarantees | CLOSING | Follow-up drill 8/8 correct, guarantee-driven reasoning |
 | Computation/presentation separation | FORMING | `is_pass` printed True/False instead of pass/fail (L5) |
 
@@ -104,6 +105,7 @@ Diagnostic only — never punishment.
 | L9 | 1 | conceptual ×1 (M1 try-size); fixes landed independently after reviewer notes |
 | L10 | 0 | H1 narrative slots pre-filled by reviewer at build (leak); learner flagged it proactively, fixed code independently |
 | L11 | 0 | H1 write-in slots BLANK — no leak recurrence; fixes independent |
+| L13 | 0 | clue-free throughout; H1 three-bug drill fixed independently (chose `__init__.py` re-export over patching main only); Challenge fix round independent |
 
 Repeated level-2+ dependency on a topic ⇒ that topic returns for targeted
 practice before moving forward.
@@ -123,6 +125,8 @@ practice before moving forward.
 - [x] Lesson 9 — File Handling (90/100)
 - [x] Lesson 10 — Pathlib (92/100)
 - [x] Lesson 11 — JSON (93/100)
+- [x] Lesson 12 — CSV (92/100)
+- [x] Lesson 13 — Packages & Multi-Module Structure (92/100)
 
 ---
 
@@ -139,6 +143,7 @@ practice before moving forward.
 - [x] Lesson 9 Challenge — Expense Persistence CLI (parse/load/save/merge split, missing-file first run → `loaded: 0`, canonical `.2f` rewrite, `out=print`, idempotent re-runs)
 - [x] Lesson 10 Challenge — Folder Reporter (count_by_ext / largest / write_report, sorted extension summary + largest file, trailing-newline report, empty-folder → `None`)
 - [x] Lesson 11 Challenge — Expense JSON seed (load / categorize / summarize / save; pathlib JSON I/O, match mapping routing, no error-string returns, signed category totals)
+- [x] Lesson 13 Challenge — report_tool package (load / compute / write + main.py → summary.csv; relative imports inside the package, absolute imports in main)
 
 ---
 
@@ -277,11 +282,11 @@ practice before moving forward.
 
 ## Scores & Hours
 
-Average Review Score: 90.6 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90, L10: 92, L11: 93, WP1: 85, L12: 92)
+Average Review Score: 90.9 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90, L10: 92, L11: 93, WP1: 85, L12: 92, L13: 92)
 
 Overall Mastery: Level 4 — debugging/refactoring independently
 
-Total Study Hours: ~16 hours
+Total Study Hours: ~17.5 hours
 
 ---
 
@@ -442,3 +447,21 @@ See `DSA_TRACK.md` for the track definition.
   notebook fixtures inline (L11 style) so exercise code cannot corrupt
   shared data files. Next: Lesson 13 — Packages & Multi-Module Structure
   (CORE). Quiz 02 window + DSA slot both overdue.
+- Lesson 13 (2026-09-07): Packages & Multi-Module Structure (CORE) — 92/100,
+  Level 4. Learner did all six exercises (E1/E2/E3/M1/H1/Challenge) with
+  clue-free independence (hint dependency 0 — per learner directive, specs
+  now lean: Task/File tree/Interface contract/Constraints/Output, clues only
+  as bridges). E1–E3 and M1 byte-exact first pass. H1 three-bug drill
+  (import-time side effect, relative import in a root script, module-vs-
+  function) traced end-to-end; learner chose the cleaner `__init__.py`
+  re-export fix (`from .greet import greet` + `from greeter import greet`)
+  over patching main only, and renamed the root script to `main_greet.py` to
+  dodge a `main.py` collision with the Challenge — good design judgment on a
+  reviewer spec collision (noted, spec patched to match). Challenge:
+  first draft of `write_summary` wrote raw floats (60.0 not 60.00) — spec-
+  literalness slip, fixed independently in one round; `sorted` + two-decimals
+  formatting moved
+  into `write.py` so it owns ordering and formatting regardless of caller;
+  `main` trimmed to load → summarize → write → print. All six drivers
+  byte-exact verified in a temp copy. Next: Quiz 02 (L08–L12),
+  then the DSA slot (still overdue).
