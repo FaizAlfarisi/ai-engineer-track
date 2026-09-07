@@ -11,11 +11,11 @@ Completion ≠ mastery. This file tracks mastery.
 
 ```text
 Stage:        Stage 2 — Python Application
-Current:      Lesson 13 — Packages & Multi-Module Structure (CORE) COMPLETE — Level 4
-Next:         Quiz 02 (L08–L12) → L14 Basic Typing → L15 OOP → DSA → L16 Dataclass → WP2
-Weekly Proj.: WP1 done (85/100 second pass); next window opens after L14/L15
-Quizzes:      Quiz 02 window open (after L12/L13) — DUE
-DSA Track:    1 session/week, interleaved (see DSA_TRACK.md) — OVERDUE
+Current:      Quiz 02 (L08–L12) COMPLETE — 84.7% pass
+Next:         Lesson 14 — Basic Typing (CORE)
+Weekly Proj.: WP1 done (85/100 second pass); WP2 window opens after L14/L15
+Quizzes:      Quiz 02 done (84.7%); next quiz window ~L17
+DSA Track:    1 session/week, interleaved (see DSA_TRACK.md) — OVERDUE (slot after L15)
 Git:          commit after every session from Stage 2 onward
 ```
 
@@ -303,6 +303,7 @@ Total Study Hours: ~17.5 hours
 | # | Lessons Covered | Score | Weak Concepts Identified | Targeted Practice Done |
 |---|-----------------|-------|--------------------------|------------------------|
 | 1 | L8–L10 | 96.4% | exception detail: chained traceback / `raise ... from None` intent, `str.partition` no-delimiter edge (D2) | weave one small exception-detail retrieval into L11 (JSON), then re-assess |
+| 2 | L8–L12 | 84.7% | loader default must stay data-shaped (`{}`/`[]` still crash `main`); `partition` no-`=` lines DO surface (not silent); byte-parity slips on case + output strings | 30-second retrieval pair at L14 opening (loader default + partition edge), then re-assess |
 
 ---
 
@@ -465,3 +466,14 @@ See `DSA_TRACK.md` for the track definition.
   `main` trimmed to load → summarize → write → print. All six drivers
   byte-exact verified in a temp copy. Next: Quiz 02 (L08–L12),
   then the DSA slot (still overdue).
+- Quiz 02 (2026-09-07): L08–L12 — 84.7% (15.25/18), pass (bar 80%).
+  Strong: JSON compact separators + type mapping, accumulate-vs-overwrite
+  (B3 + E both correct — latent-bug misconception CLOSED), `from None`
+  intent (A3 + D1 — Quiz 01 D2 hold item CLOSED), CSV newline + writer
+  idiom, match routing with missing-key fallback. Weak: loader default
+  must stay data-shaped (C1 fix `return`/`[]` still crashed `main`),
+  `partition` no-`=` lines actually surface (D1 half-traced), byte-parity
+  slips (`alice` vs `Alice`; `skiped:` typo — spec-literalness still OPEN,
+  IMPROVING). Targeted practice: 30-second retrieval pair at L14 opening
+  (loader default + partition edge), then re-assess. Next: Lesson 14 —
+  Basic Typing (CORE).

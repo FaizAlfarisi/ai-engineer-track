@@ -65,9 +65,9 @@ is listed in priority order:
 
 ```text
 ✅ Exception Handling → ✅ File Handling → ✅ Pathlib → ✅ JSON → ✅ CSV
-→ Packages & Multi-Module Structure
-→ Basic Typing → OOP (practical) → Dataclass
-→ Environment & Dependency Management (can defer until a project needs it)
+→ ✅ Packages & Multi-Module Structure → ✅ Quiz 02 (L08–L12, 84.7%)
+→ Basic Typing (L14) → OOP (L15, enum folded in) → DSA slot
+→ Dataclass (L16) → Weekly Project 2 (kickoff includes Environment & Dependency)
 ```
 
 Packages & Multi-Module Structure also covers "functions across multiple
@@ -85,11 +85,11 @@ and are already satisfied in practice — not a standalone future lesson.
 | Pathlib | CORE | ✅ done (L10) |
 | JSON | CORE | ✅ done (L11) |
 | CSV | SUPPORTING | ✅ done (L12) |
-| Packages & Multi-Module Structure | CORE | NEXT |
-| Basic typing | CORE | after Packages |
-| OOP — classes, instances, attributes, methods, composition, inheritance basics, when OOP helps and when it is unnecessary | SUPPORTING (practical, not syntax-drilled) | after typing |
-| Dataclass | SUPPORTING | after OOP |
-| Environment & dependency management (venv, pip) | SUPPORTING | can defer until a real project needs it |
+| Packages & Multi-Module Structure | CORE | ✅ done (L13) |
+| Basic typing | CORE | NEXT (L14) |
+| OOP — classes, instances, attributes, methods, composition, inheritance basics, when OOP helps and when it is unnecessary | SUPPORTING (practical, not syntax-drilled) | after typing (L15); Enum folds in here |
+| Dataclass | SUPPORTING | after OOP (L16), with further Enum practice |
+| Environment & dependency management (venv, pip) | SUPPORTING | folded into Weekly Project 2 kickoff |
 | Enum | AWARENESS | fold into typing/OOP; not a standalone lesson |
 | Git basics (init, add, commit, log, diff, .gitignore) | SUPPORTING (applied daily) | ✅ in continuous use, not a lesson |
 
