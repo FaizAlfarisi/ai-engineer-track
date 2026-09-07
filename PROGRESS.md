@@ -303,7 +303,7 @@ Total Study Hours: ~17.5 hours
 | # | Lessons Covered | Score | Weak Concepts Identified | Targeted Practice Done |
 |---|-----------------|-------|--------------------------|------------------------|
 | 1 | L8–L10 | 96.4% | exception detail: chained traceback / `raise ... from None` intent, `str.partition` no-delimiter edge (D2) | weave one small exception-detail retrieval into L11 (JSON), then re-assess |
-| 2 | L8–L12 | 84.7% | loader default must stay data-shaped (`{}`/`[]` still crash `main`); `partition` no-`=` lines DO surface (not silent); byte-parity slips on case + output strings | 30-second retrieval pair at L14 opening (loader default + partition edge), then re-assess |
+| 2 | L8–L12 | 84.7% | loader default must stay data-shaped (`{}`/`[]` still crash `main`); `partition` no-`=` lines DO surface (not silent); byte-parity slips on case + output strings | 30-second retrieval pair at L14 opening (loader default + partition edge) — both CLOSED (2026-09-08) |
 
 ---
 
@@ -477,3 +477,9 @@ See `DSA_TRACK.md` for the track definition.
   IMPROVING). Targeted practice: 30-second retrieval pair at L14 opening
   (loader default + partition edge), then re-assess. Next: Lesson 14 —
   Basic Typing (CORE).
+- Quiz 02 retrieval re-assessment (2026-09-08, L14 opening): loader
+  default stays data-shaped — learner: "return dict type, guarantee
+  empty dict discovery" — CLOSED. `partition` no-`=` edge — called it as
+  `int("")` raising cleanly (not silently skipped, not unpack crash) —
+  CLOSED. Both Quiz 02 holds re-verified at the L14 opening targeted
+  pair; spec-literalness (byte-parity) remains the one OPEN thread.

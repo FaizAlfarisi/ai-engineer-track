@@ -1046,3 +1046,60 @@ running all six drivers against the real files in a temp copy.
 
 Quiz 02 (L08–L12) — then the overdue DSA slot. Learner reflection on L13
 pending.
+
+## Session 18 — 2026-09-08
+
+### Lesson
+
+Lesson 14 — Basic Typing (CORE) — Session 1: opening targeted practice,
+Quick Recall, exercises E1–E5.
+
+### Preparation (pack expansion)
+
+Per learner directive ("just expand, don't change any other contract"),
+L14 was expanded from under-contract to the full CORE shape
+**5E / 3M / 2H + Challenge**. Rebuilt `exercises.ipynb` to 23 cells:
+- E1 `greet.py`, E2 `stats.py` (`list[int]`/`dict[str,int]`/`tuple[str,int]`),
+  E3 `tips.py` (new: `float` params, `-> None`, `list[tuple[str,float]]`),
+  E4 `warn.py` (new trap: annotations never enforce),
+  E5 `retro.py` (annotate recalled `count_words`).
+- M1 `find.py` (`dict[str,int] | None`, was E3), M2 `score_tool` package
+  (was M1), M3 `report.py` (new: `safe_float -> float | None` +
+  `total_scoreable(rows: list[dict[str,str]]) -> float`).
+- H1 `treats` debug drill (kept), H2 `export.py` (new [INTERVIEW]:
+  `normalize(list[dict[str,object]]) -> list[dict[str,str|float]]` + edges).
+- Challenge `budget_tool` package + `main.py` (kept; stretch = `pip
+  install mypy` → `mypy main.py` clean — learner's first pip install,
+  ask before running).
+Also: `lesson.md` Practice table → 12 rows; `solution.py` scaffold
+headers for every exercise.
+
+Caught and fixed during validation: E4's original premise was factually
+wrong (`"5" + 1` crashes, so `51` can't print) — reworked honestly: float
+slips through the annotation (`4.0`), string hits Python's `+` → the
+driver holds a `try/except TypeError`. One JSON-escaping defect in an md
+cell repaired. All 11 cell drivers byte-match their Output blocks in real
+subprocess runs; the Challenge `monthly.csv`/`categories.csv` side files
+match exactly.
+
+### Targeted practice (Quiz 02 holds, L14 opening)
+
+- Loader data-shaped default — learner: "return dict type, it is
+  guarantee an empty dict" — both the return type and the never-raises
+  guarantee correct. HOLD CLOSED.
+- `partition` no-`=` edge — learner picked (c): value becomes `""` so
+  `int("")` raises cleanly (not silently skipped, not unpack crash).
+  HOLD CLOSED.
+
+Both Quiz 02 holds re-verified. Only OPEN thread: spec-literalness
+(byte-parity).
+
+### Quick Recall
+
+(raised to learner in-session — E1–E5 follow in the notebook.)
+
+### Tomorrow Goal
+
+L14 Basic Typing — finish E1–E5 work in the notebook, then M1–M3 / H1–H2
+/ Challenge as pacing allows. DSA slot still overdue (after L15). L13
+reflection pending.
