@@ -66,7 +66,7 @@ is listed in priority order:
 ```text
 ✅ Exception Handling → ✅ File Handling → ✅ Pathlib → ✅ JSON → ✅ CSV
 → ✅ Packages & Multi-Module Structure → ✅ Quiz 02 (L08–L12, 84.7%)
-→ Basic Typing (L14) → OOP (L15, enum folded in) → DSA slot
+→ ✅ Basic Typing (L14) → OOP (L15, enum folded in) → DSA slot
 → Dataclass (L16) → Weekly Project 2 (kickoff includes Environment & Dependency)
 ```
 
@@ -86,8 +86,8 @@ and are already satisfied in practice — not a standalone future lesson.
 | JSON | CORE | ✅ done (L11) |
 | CSV | SUPPORTING | ✅ done (L12) |
 | Packages & Multi-Module Structure | CORE | ✅ done (L13) |
-| Basic typing | CORE | NEXT (L14) |
-| OOP — classes, instances, attributes, methods, composition, inheritance basics, when OOP helps and when it is unnecessary | SUPPORTING (practical, not syntax-drilled) | after typing (L15); Enum folds in here |
+| Basic typing | CORE | ✅ done (L14) |
+| OOP — classes, instances, attributes, methods, composition, inheritance basics, when OOP helps and when it is unnecessary | SUPPORTING (practical, not syntax-drilled) | NEXT (L15); Enum folds in here |
 | Dataclass | SUPPORTING | after OOP (L16), with further Enum practice |
 | Environment & dependency management (venv, pip) | SUPPORTING | folded into Weekly Project 2 kickoff |
 | Enum | AWARENESS | fold into typing/OOP; not a standalone lesson |

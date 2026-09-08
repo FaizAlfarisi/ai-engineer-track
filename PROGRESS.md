@@ -11,8 +11,8 @@ Completion ≠ mastery. This file tracks mastery.
 
 ```text
 Stage:        Stage 2 — Python Application
-Current:      Quiz 02 (L08–L12) COMPLETE — 84.7% pass
-Next:         Lesson 14 — Basic Typing (CORE)
+Current:      Lesson 14 — Basic Typing (CORE) COMPLETE — 92/100
+Next:         Lesson 15 — OOP (CORE; enum folds in)
 Weekly Proj.: WP1 done (85/100 second pass); WP2 window opens after L14/L15
 Quizzes:      Quiz 02 done (84.7%); next quiz window ~L17
 DSA Track:    1 session/week, interleaved (see DSA_TRACK.md) — OVERDUE (slot after L15)
@@ -41,6 +41,7 @@ Stage 1 values were migrated from V1 session evidence and are marked
 | Collections (list/tuple/dict/set) | CORE | 4 (prov.) | Med-High | choosing type by habit not guarantees (closing: 8/8 drill); `min()` misused as filter-then-join (L6) | Conceptual ×1 (two-sum O(n) approach) | L6, L7 | 2026-08-13 |
 | Modules & imports | CORE | 4 (prov.) | High | star-import shadowing; missing `__main__` guard — all fixed in H1 sweep | None | L7 challenge | 2026-08-20 |
 | Packages & multi-module structure | CORE | 4 | High | Challenge `write_summary` skipped two-decimals formatting (60.0 vs 60.00) on first draft — fixed independently; solution.py monolith kept as scratchpad while real deliverables split into files | 0 | Challenge report_tool package (load/compute/write + main.py) | 2026-09-07 |
+| Basic typing | CORE | 4 | High | M2 passing returned scores not names (values vs keys); H1 annotation lies survived the runtime fixes (silent by nature); minimum interface drift (`int | None = None` vs `int = 60`) reverted to spec | 0 | Challenge budget_tool package (load/compute/write → monthly.csv + categories.csv, fully annotated + `mypy main.py` clean); H2 ragged-data normalizer | 2026-09-08 |
 | Exception handling | CORE | 4 (prov.) | High | spec-literalness relapse on challenge report line (2 rounds); spec-dict mutated into result container (M3, fixed same day); over-wide except tuple without stated justification (H1) | None | L8 challenge seeds stage project; M1 unpack-validation idiom | 2026-08-23 |
 | File handling | CORE | 4 (prov.) | High | error-string returns from loaders (type mixing, theme); rushed-pass spec drift (`bananas` key, E2 unexecuted one pass); H2 `readlines()` where two-pass iteration was the constraint | Conceptual ×1 (M1 try-size) | Challenge Expense Persistence CLI (load/save/merge canonical rewrite) | 2026-08-28 |
 | Pathlib | CORE | 4 | High | .iterdir() yields folders too (H1 bug 3 — resolved with is_dir guard); suffix filters are case-sensitive; .exists() ≠ “is a file” | None for exercises/challenge; H1 narrative leaked by reviewer build bug (learner flagged) | Challenge Folder Reporter (count_by_ext/largest/write_report); M3 typed loader rewired to Path | 2026-08-30 |
@@ -59,7 +60,7 @@ Stage 1 values were migrated from V1 session evidence and are marked
 |-------|--------|----------|
 | Debugging (one-pass bug hunts) | STRONG | H1 clean sweeps five sessions running (L4–L8); L10 three-bug drill resolved independently (suffix case, uppercased names, folder-as-file) — narrative write-in leaked by a reviewer build bug, flagged proactively by learner; L11 four-bug drill (suffix case, folder-read crash, wrong shape, merge) resolved independently in the notebook with a full expected/observed/root-cause write-up for all four — narrative slots this time were blank write-ins |
 | Error handling under edge cases | CLOSING | L8 direct attack landed: degenerate guards everywhere (`mean([])`, empty rows, empty input), H1 debug drill swept with root causes narrated, retry-loop and boundary-validation idioms correct. Close after one unannounced retrieval survives |
-| Spec-literalness (output-as-contract) | IMPROVING | L8 relapse on ONE challenge line (`rejected:` colon R1, trailing space R2) while the other 9 output blocks were byte-exact first submission — visible-part-matches, invisible-tail-missed pattern named explicitly. L9: all Output blocks matched after the revision pass; rushed first pass drifted on the easy `bananas` key and left E2 briefly unexecuted. Root cause self-identified as RUSHING, not language — habit target set (read Constraints as a checklist before coding). L10: all 10 Output blocks byte-exact, no drift; habit held. L11: all 12 Output blocks byte-exact first submission, habit held. L13: one Challenge slip — contract said totals with two decimals, first draft wrote raw floats; caught on review, fixed independently, line held at `sorted` + two-decimals formatting in `write_summary` |
+| Spec-literalness (output-as-contract) | IMPROVING | L8 relapse on ONE challenge line (`rejected:` colon R1, trailing space R2) while the other 9 output blocks were byte-exact first submission — visible-part-matches, invisible-tail-missed pattern named explicitly. L9: all Output blocks matched after the revision pass; rushed first pass drifted on the easy `bananas` key and left E2 briefly unexecuted. Root cause self-identified as RUSHING, not language — habit target set (read Constraints as a checklist before coding). L10: all 10 Output blocks byte-exact, no drift; habit held. L11: all 12 Output blocks byte-exact first submission, habit held. L13: one Challenge slip — contract said totals with two decimals, first draft wrote raw floats; caught on review, fixed independently, line held at `sorted` + two-decimals formatting in `write_summary`. L14: all 11 Output blocks byte-exact after one review round (M2 `passing` output not compared, H1 annotation lies); habit target refined to a 3-second output-compare after each driver run |
 | Collection choice from guarantees | CLOSING | Follow-up drill 8/8 correct, guarantee-driven reasoning |
 | Computation/presentation separation | FORMING | `is_pass` printed True/False instead of pass/fail (L5) |
 
@@ -127,6 +128,7 @@ practice before moving forward.
 - [x] Lesson 11 — JSON (93/100)
 - [x] Lesson 12 — CSV (92/100)
 - [x] Lesson 13 — Packages & Multi-Module Structure (92/100)
+- [x] Lesson 14 — Basic Typing (92/100)
 
 ---
 
@@ -144,6 +146,7 @@ practice before moving forward.
 - [x] Lesson 10 Challenge — Folder Reporter (count_by_ext / largest / write_report, sorted extension summary + largest file, trailing-newline report, empty-folder → `None`)
 - [x] Lesson 11 Challenge — Expense JSON seed (load / categorize / summarize / save; pathlib JSON I/O, match mapping routing, no error-string returns, signed category totals)
 - [x] Lesson 13 Challenge — report_tool package (load / compute / write + main.py → summary.csv; relative imports inside the package, absolute imports in main)
+- [x] Lesson 14 Challenge — budget_tool package (load/compute/write + transactions.json → monthly.csv + categories.csv; signed net_by_month/net_by_category; fully annotated; `mypy main.py` clean)
 
 ---
 
@@ -483,3 +486,12 @@ See `DSA_TRACK.md` for the track definition.
   `int("")` raising cleanly (not silently skipped, not unpack crash) —
   CLOSED. Both Quiz 02 holds re-verified at the L14 opening targeted
   pair; spec-literalness (byte-parity) remains the one OPEN thread.
+- Lesson 14 (2026-09-08): Basic Typing (CORE) — 92/100, Level 4, hint
+  dependency 0. Pack expanded to the CORE shape 5E/3M/2H + Challenge
+  (learner directive). All 11 drivers byte-exact in a temp copy; Challenge
+  `mypy main.py` clean (first pip install). H2 rugged normalizer and the
+  Challenge budget_tool package passed first try. Review misses, both fixed
+  by learner: M2 `passing` returned scores instead of names; H1 two planted
+  annotation lies survived the runtime fixes. Left intentionally out of
+  scope: 7 full-tree mypy nits (annotation-honesty of locals/Nones).
+  Next: Lesson 15 — OOP (CORE; enum folds in). DSA slot still overdue.

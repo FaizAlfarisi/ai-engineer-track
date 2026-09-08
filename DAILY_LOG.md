@@ -1051,8 +1051,10 @@ pending.
 
 ### Lesson
 
-Lesson 14 — Basic Typing (CORE) — Session 1: opening targeted practice,
-Quick Recall, exercises E1–E5.
+Lesson 14 — Basic Typing (CORE) — completed in one session: opening
+targeted practice (Quiz 02 holds), Quick Recall, exercises E1–E5 plus
+M1–M3, H1–H2 and the Challenge — all 11 drivers byte-exact; one review
+round closed the two misses; 92/100.
 
 ### Preparation (pack expansion)
 
@@ -1096,10 +1098,58 @@ Both Quiz 02 holds re-verified. Only OPEN thread: spec-literalness
 
 ### Quick Recall
 
-(raised to learner in-session — E1–E5 follow in the notebook.)
+5/5 on the retrieval items; open-book lesson recall strong (6 items, one
+precision: `x: str = None` lies about its default — the annotation says
+`str` while the value is `None`; the honest form is `str | None = None`).
+
+### Exercise Results
+
+- E1 `greet.py`, E2 `stats.py`, E3 `tips.py`, E4 `warn.py`, E5 `retro.py`,
+  M1 `find.py`, M3 `report.py`, H2 `export.py`, M2 `score_tool` package,
+  H1 `treats` drill, Challenge `budget_tool` package — all 11 drivers
+  byte-exact in a temp-copy run.
+- H2 ragged normalizer and the Challenge package passed untouched first
+  try; `mypy main.py` clean (learner's first pip install).
+
+### Mistakes
+
+- M2 `passing` returned sorted scores `[88, 92]` instead of names
+  `['ada', 'carol']` — collected values instead of keys; caught on
+  review, fixed independently.
+- H1: the two runtime bugs were fixed, but the two planted annotation
+  lies (load.py `list[dict[str, int]]`; monthly.py untyped param +
+  `dict[str, int]` return) survived until review.
+- `average` briefly re-annotated to `dict[str, float]` during the M2 fix
+  (a regression that would have broken the hints line) — reverted to
+  `dict[str, int]` per the Output block.
+- Left intentionally: 7 full-tree mypy annotation-honesty nits.
+
+### Review Score
+
+92/100. Hint dependency 0. Correctness 25/25 (all 11 drivers byte-exact
+after one review round), logic 19/20, format 19/20, engineering 21/20
+(H1 bug report, LBYL guard, `main_h1.py` rename), commentary 8/10
+(reflection below).
+
+### Time Studied
+
+~2.5 hours
 
 ### Tomorrow Goal
 
-L14 Basic Typing — finish E1–E5 work in the notebook, then M1–M3 / H1–H2
-/ Challenge as pacing allows. DSA slot still overdue (after L15). L13
-reflection pending.
+Lesson 15 — OOP (CORE; enum folds in). DSA slot still overdue (after
+L15). L13 reflection on Lesson 13 still pending.
+
+## Reflection — Lesson 14 (2026-09-08)
+
+- Decision: I built the LBYL habit on my own — check the path exists
+  before acting — and reflected on it as I went.
+- Independence: almost everything; for the few stuck points I used
+  internet / AI to verify my code, never to write it for me from zero.
+- Miss: I didn't re-check my `passing` answer against the driver output —
+  it just skipped past me. There was plenty of wrong logic behind my
+  first drafts; I retried fixing from my own head, and went to the
+  internet only when truly stuck.
+- Next: compare my output to the Output block after every run (3-second
+  check) — that single habit would have caught the `passing` bug
+  instantly.
