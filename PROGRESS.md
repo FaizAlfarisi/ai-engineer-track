@@ -319,7 +319,7 @@ See `DSA_TRACK.md` for the track definition.
 
 | Week | Problems | Pattern(s) | Approach Quality | Complexity Explained? |
 |------|----------|------------|------------------|----------------------|
-| — | — | (starts with Stage 2) | — | — |
+| 1 | most-total spending category (payments log of (category, total) pairs) | hash map — single-pass accumulate + argmax | correct 2-phase plan (group in dict → `max(items(), key=...)`); first attempt compared single payments only — counterexample (8×15 food beats 100 salary) exposed "largest single amount ≠ highest total"; edge cases: empty→`None` contract (no error-string returns), single entry, first-seen ties; single-pass running-max optimization noted (strict `>` keeps first-seen) | yes — O(n) build + O(k) scan ≈ O(n); O(k) space; argued O(n) is a lower bound (must read every payment) at senior review |
 
 ---
 

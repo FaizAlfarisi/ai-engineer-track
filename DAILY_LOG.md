@@ -1265,3 +1265,34 @@ Dataclass (SUPPORTING; further Enum practice). L13 reflection on Lesson
 - Next: get used to analysing things with multi-layer behaviour —
   inheritance + collection data + composition — tracing one object's
   method calls through the objects it holds.
+
+## DSA Session #1 — 2026-09-09
+
+### Problem
+
+Find the category with the highest total spent, from a payments log of
+`(category, total)` pairs; return `(category, total)` — first DSA track
+session (Week 1; slot was overdue after L15).
+
+### Session notes
+
+- First plan compared single payments against a running max — solves
+  "largest single amount", not "highest total". Counterexample
+  (8 × 15.0 food vs 100.0 salary) surfaced it: `("food", 120.0)` wins.
+- Corrected 2-phase plan: group `category → total` in a dict
+  (`result[cat] = result.get(cat, 0.0) + amount`), then
+  `max(result.items(), key=lambda pair: pair[1])`.
+- `max(result.values())` returns the total without the category;
+  `max(result, key=result.get)` returns the category without the total —
+  both discussed before settling on items + key.
+- Edge cases: empty log → decided `None` return (no error-string mixing,
+  per L9 loader habit); single entry fine; ties first-seen (dict
+  insertion order, preserved by strict `>` in the one-pass variant).
+- Complexity: O(n) build + O(k) scan ≈ O(n); O(k) space. Learner probed
+  "is there anything better than O(n)?" — answer: no, reading every
+  payment is a lower bound; the only win is constant-factor (single-pass
+  running max). `max()` is O(k), not O(1) — misconception corrected.
+- Nice final solution, one contract nit: annotation said `int` but the
+  amounts were floats — annotate the real data (`tuple[str, float]`).
+- Difficulty: intermediate (the "group first" insight was the crux).
+- Logged in `PROGRESS.md` → DSA Log Row 1 (Week 1).
