@@ -11,11 +11,11 @@ Completion ≠ mastery. This file tracks mastery.
 
 ```text
 Stage:        Stage 2 — Python Application
-Current:      Lesson 14 — Basic Typing (CORE) COMPLETE — 92/100
-Next:         Lesson 15 — OOP (CORE; enum folds in)
-Weekly Proj.: WP1 done (85/100 second pass); WP2 window opens after L14/L15
+Current:      Lesson 15 — OOP (SUPPORTING) COMPLETE — 92/100
+Next:         DSA slot (overdue) → Lesson 16 — Dataclass (SUPPORTING; further Enum practice)
+Weekly Proj.: WP1 done (85/100 second pass); WP2 window opens after L16
 Quizzes:      Quiz 02 done (84.7%); next quiz window ~L17
-DSA Track:    1 session/week, interleaved (see DSA_TRACK.md) — OVERDUE (slot after L15)
+DSA Track:    1 session/week, interleaved (see DSA_TRACK.md) — OVERDUE (next session)
 Git:          commit after every session from Stage 2 onward
 ```
 
@@ -42,6 +42,7 @@ Stage 1 values were migrated from V1 session evidence and are marked
 | Modules & imports | CORE | 4 (prov.) | High | star-import shadowing; missing `__main__` guard — all fixed in H1 sweep | None | L7 challenge | 2026-08-20 |
 | Packages & multi-module structure | CORE | 4 | High | Challenge `write_summary` skipped two-decimals formatting (60.0 vs 60.00) on first draft — fixed independently; solution.py monolith kept as scratchpad while real deliverables split into files | 0 | Challenge report_tool package (load/compute/write + main.py) | 2026-09-07 |
 | Basic typing | CORE | 4 | High | M2 passing returned scores not names (values vs keys); H1 annotation lies survived the runtime fixes (silent by nature); minimum interface drift (`int | None = None` vs `int = 60`) reverted to spec | 0 | Challenge budget_tool package (load/compute/write → monthly.csv + categories.csv, fully annotated + `mypy main.py` clean); H2 ragged-data normalizer | 2026-09-08 |
+| OOP — classes, instances, attributes, methods, composition, inheritance basics, when OOP helps and when it is unnecessary | SUPPORTING | 3→4 | High | H1 `records: list[dict[str, object]]` — vaguer than required `str | float` (drivers pass, mypy breaks; fixed at review); `__repr__`/`main()` `-> None` gaps first pass; composed-method reuse (Session.add delegation) → one external look-up; mypy only ever run on `main.py`, not the H1 entry point | 0 | Challenge class-based expense core (expense/{load,compute,write} + main.py → monthly.csv + categories.csv; E1 Transaction model reused across package; `mypy main.py` + `main_h1.py` clean) | 2026-09-09 |
 | Exception handling | CORE | 4 (prov.) | High | spec-literalness relapse on challenge report line (2 rounds); spec-dict mutated into result container (M3, fixed same day); over-wide except tuple without stated justification (H1) | None | L8 challenge seeds stage project; M1 unpack-validation idiom | 2026-08-23 |
 | File handling | CORE | 4 (prov.) | High | error-string returns from loaders (type mixing, theme); rushed-pass spec drift (`bananas` key, E2 unexecuted one pass); H2 `readlines()` where two-pass iteration was the constraint | Conceptual ×1 (M1 try-size) | Challenge Expense Persistence CLI (load/save/merge canonical rewrite) | 2026-08-28 |
 | Pathlib | CORE | 4 | High | .iterdir() yields folders too (H1 bug 3 — resolved with is_dir guard); suffix filters are case-sensitive; .exists() ≠ “is a file” | None for exercises/challenge; H1 narrative leaked by reviewer build bug (learner flagged) | Challenge Folder Reporter (count_by_ext/largest/write_report); M3 typed loader rewired to Path | 2026-08-30 |
@@ -129,6 +130,7 @@ practice before moving forward.
 - [x] Lesson 12 — CSV (92/100)
 - [x] Lesson 13 — Packages & Multi-Module Structure (92/100)
 - [x] Lesson 14 — Basic Typing (92/100)
+- [x] Lesson 15 — OOP (92/100)
 
 ---
 
@@ -147,6 +149,7 @@ practice before moving forward.
 - [x] Lesson 11 Challenge — Expense JSON seed (load / categorize / summarize / save; pathlib JSON I/O, match mapping routing, no error-string returns, signed category totals)
 - [x] Lesson 13 Challenge — report_tool package (load / compute / write + main.py → summary.csv; relative imports inside the package, absolute imports in main)
 - [x] Lesson 14 Challenge — budget_tool package (load/compute/write + transactions.json → monthly.csv + categories.csv; signed net_by_month/net_by_category; fully annotated; `mypy main.py` clean)
+- [x] Lesson 15 Challenge — class-based expense core (expense/{load,compute,write} + main.py → monthly.csv + categories.csv; E1 Transaction model reused across package; composition + delegation; prints from the CSVs it writes; `mypy main.py` + `main_h1.py` clean)
 
 ---
 
@@ -495,3 +498,17 @@ See `DSA_TRACK.md` for the track definition.
   annotation lies survived the runtime fixes. Left intentionally out of
   scope: 7 full-tree mypy nits (annotation-honesty of locals/Nones).
   Next: Lesson 15 — OOP (CORE; enum folds in). DSA slot still overdue.
+- Lesson 15 (2026-09-09): OOP (SUPPORTING) — 92/100, Level 3→4, hint
+  dependency 0. Pack personalized to a single session: 4E/2M/1H +
+  Challenge, Expense/Transaction theme (seeds WP2), Enum folded in as
+  AWARENESS. All 8 drivers byte-exact in a temp copy; Challenge
+  `mypy main.py` clean; `mypy main_h1.py` clean after the H1 annotation
+  fix. Opening holds: Path-is-a-class CLOSED; signature-read-both-sides
+  re-surfaced (H1 used `list[dict[str, object]]` instead of the exact
+  `str | float` — passes drivers, breaks mypy; fixed at review).
+  Composition + delegation landed (get_date named sort key, main prints
+  the CSVs it wrote — senior choices). Review fixes: `__repr__ -> str`,
+  `main() -> None`, H1 `str | float` + `totals` annotation. One external
+  look-up on composed-method reuse (noted for watch). DSA slot still
+  overdue. Next: DSA slot → Lesson 16 — Dataclass (SUPPORTING; further
+  Enum practice).

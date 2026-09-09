@@ -1153,3 +1153,115 @@ L15). L13 reflection on Lesson 13 still pending.
 - Next: compare my output to the Output block after every run (3-second
   check) — that single habit would have caught the `passing` bug
   instantly.
+
+## Session 19 — 2026-09-09
+
+### Lesson
+
+Lesson 15 — OOP: Classes & Objects (SUPPORTING) — completed in one
+session: opening targeted practice, Quick Recall, exercises E1–E4,
+M1–M2, H1 (debug drill) and the Challenge — all 8 drivers byte-exact;
+one review round closed the three misses; 92/100.
+
+### Preparation (personalized pack)
+
+Per learner directive ("if it can be rushed or learn a lot at a time ...
+then do it"), L15 was researched and shipped as a compact-but-real
+SUPPORTING pack **4E / 2M / 1H + Challenge**, single-session, in the
+Expense/Transaction domain (seeds WP2):
+- E1 `transaction.py` (define a class from a spec), E2 `account.py`
+  (independent instance state), E3 `display.py` (`__repr__`/`__str__`),
+  E4 `kind.py` (Enum AWARENESS fold).
+- M1 `ledger.py` (composition: Ledger holds Transactions), M2
+  `session.py` (composition + delegation + JSON save).
+- H1 `summary.py` + `main_h1.py` debug drill (2 lying annotations:
+  `list[dict[str, int]]`, `-> list[str]`; 2 runtime bugs: totals
+  overwrite, missing `self`).
+- Challenge class-based expense core (`expense/{load,compute,write}` +
+  `main.py`; stretch = `mypy main.py` clean; second stretch = switch
+  kind to the E4 Enum).
+Regular review verdict for the pack: all 8 drivers byte-exact; H1 planted
+bugs confirmed (buggy state crashes with `TypeError ... takes 0
+positional arguments but 1 was given`); fixed state byte-exact.
+
+### Targeted practice (L15 opening)
+
+- Signature contract — learner read the *return* side correctly
+  (`dict[str, float]`) but skipped the *parameter* side
+  (`list[dict[str, str | float]]`) — PARTIAL-CLOSED with a
+  read-both-sides reminder; re-surfaced later as the H1 `object` miss.
+- `partition` no-`=` edge re-verified — CLOSED (unchanged).
+- Path-is-a-class: learner realized unprompted that `from pathlib import
+  Path` imports a *class* and `Path("...")` creates instances —
+  CLOSED.
+
+### Quick Recall
+
+All 6 answered correctly. 1. `self` = this particular object, passed
+automatically as first arg (`Class.method(instance, ...)`) — stated the
+mechanism fully. 2. Instance independence — concept correct, asked for
+the memory-level explanation (each `Account(...)` builds a fresh object,
+`self.balance` stamped onto that object; class is only the template). 3.
+`self.x` vs class-body `x` — instance vs shared class attribute,
+correct. 4. Stateless pipeline stays functions — correct. 5.
+Composition "has-a": `Ledger` holds `Transaction`s — correct. 6. Enum =
+fixed member set, typo-proof — correct.
+
+### Exercise Results
+
+All 8 drivers PASS byte-exact against the real files (temp-copy run).
+Challenge: `mypy main.py` clean — stretch met. `mypy main_h1.py` clean
+only *after* the review fix (learner never ran it during the lesson —
+their own miss). Audit notes: `get_date` named sort key, `csv.DictWriter`
+in write.py, main.py printing from the CSVs it wrote; `kind: Kind`
+compared with `is`. M2 produces `session_out.json` (driver artifact,
+deleted before commit).
+
+### Mistakes
+
+- H1 `records: list[dict[str, object]]` — vaguer than the required exact
+  `str | float`; drivers pass, `mypy` breaks on `object`-not-indexable
+  and `totals = {}` needs an annotation. Fixed at review to
+  `list[dict[str, str | float]]` + `totals: dict[str, float] = {}`
+  (mypy main_h1.py then clean). Same spec-literalness thread as L14
+  `passing` — the parameter side of the contract slipped this time.
+- `display.__repr__` and `main_h1.main()` missing `-> None` on first
+  pass (both required by specs) — fixed.
+- Mypy coverage: only ever ran on `main.py`, never the H1 entry point —
+  the planted annotation lies went unnoticed until review.
+- One external look-up: navigating the composed-method reuse
+  (`Session.add` delegating to `ledger.add`) — learner went to Google
+  for the approach. Boundary noted: check logic, don't fetch it.
+
+### Review Score
+
+92/100. Hint dependency 0. Correctness 25/25 (all 8 drivers byte-exact),
+logic 20/20, format 19/20 (annotation gaps + `object` drift), engineering
+20/20 (composition/delegation, mypy clean both entry points, elegant
+main data flow), commentary 8/10 (one external look-up, mypy-skip,
+honest reflection below).
+
+### Time Studied
+
+~3 hours
+
+### Tomorrow Goal
+
+DSA slot #1 (overdue — next session, separate commit). Then Lesson 16 —
+Dataclass (SUPPORTING; further Enum practice). L13 reflection on Lesson
+13 still pending. WP2 window opens after L16.
+
+## Reflection — Lesson 15 (2026-09-09)
+
+- Decision: the hardest part was reusing the class method through
+  composition (delegating via `Session` → `ledger.add`); I went to
+  Google to find the solution.
+- Independence: almost everything except that one composed-method
+  reuse — I should verify, not fetch; a one-off on a new pattern, but I
+  want it on my watch list.
+- Miss: I skipped running `mypy` on `main_h1.py`, my bad — the H1
+  annotation lies would have surfaced immediately if I had checked the
+  whole entry-point set instead of just `main.py`.
+- Next: get used to analysing things with multi-layer behaviour —
+  inheritance + collection data + composition — tracing one object's
+  method calls through the objects it holds.
