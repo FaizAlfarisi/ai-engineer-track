@@ -1296,3 +1296,45 @@ session (Week 1; slot was overdue after L15).
   amounts were floats — annotate the real data (`tuple[str, float]`).
 - Difficulty: intermediate (the "group first" insight was the crux).
 - Logged in `PROGRESS.md` → DSA Log Row 1 (Week 1).
+
+## Session 20 — 2026-09-11
+
+Lesson 16 — Dataclass (SUPPORTING) — 92/100
+
+Session ran under the learner's emergency-duty day; exercises were
+solved without hints and verified by the reviewer in a temp copy.
+
+### Session notes
+
+- Quick Recall 6/6 — `@dataclass` auto `__init__`/`__repr__`/`__eq__`;
+  `default_factory` for mutable defaults (shared-object aliasing);
+  frozen ⇒ immutable ⇒ hashable; plain `dict` for one-off bags; JSON
+  encoder needs a custom `default=` helper returning `enum.value`;
+  `Ledger.net()` tracing through composed layers.
+- Pack 3E/2M/1H + Challenge, Expense/Transaction theme (seeds WP2),
+  L15 review lessons folded in: mypy on **both** entry points from the
+  start, "the annotated fields ARE the spec."
+- H1 four-bug drill — all four caught and correctly attributed in one
+  pass: shared mutable default (`field(default_factory=list)`),
+  `amount: str` lie, frozen-record mutation (`FrozenInstanceError`),
+  `kind == "income"` never True (net −120.50 vs 79.50).
+- Challenge: L15 `expense/` package refactored onto the frozen dataclass
+  + `Kind` model — same interfaces, byte-exact output, `mypy` clean.
+- H1 write-up left blank (duty); worked model bug report provided in
+  `review/lesson-16-review.md` for transcription.
+- DSA #1 was checked in for Week 1 logging; Week 2 session now due.
+
+### Reflection — Lesson 16 (2026-09-11)
+
+- Decision: the hardest moments were the **purpose of a dataclass**,
+  **solving the enum problem**, and the **frozen constraint**. A legit
+  new concept — so much fresh info.
+- Independence: reread the lesson again and again, searched Google, and
+  only then asked AI to explain the concepts. All four H1 bugs were my
+  own catch. (Wean note from review: lesson + reviewer before GenAI next
+  time.)
+- Miss: the debug write-up under emergency duty; and I leaned on AI for
+  concept explanation where "what is this for" was the question.
+- Next: transcribe the worked bug report in my own words; WP2 kickoff
+  (Environment & Dependency folds in); L13 reflection still owed; DSA
+  #2.

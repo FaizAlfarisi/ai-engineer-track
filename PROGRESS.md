@@ -11,11 +11,11 @@ Completion ≠ mastery. This file tracks mastery.
 
 ```text
 Stage:        Stage 2 — Python Application
-Current:      Lesson 15 — OOP (SUPPORTING) COMPLETE — 92/100
-Next:         DSA slot (overdue) → Lesson 16 — Dataclass (SUPPORTING; further Enum practice)
-Weekly Proj.: WP1 done (85/100 second pass); WP2 window opens after L16
+Current:      Lesson 16 — Dataclass (SUPPORTING) COMPLETE — 92/100
+Next:         WP2 kickoff (Environment & Dependency folds in; venv/pip) — L13 reflection still owed; DSA #2 (Weekly) scheduled
+Weekly Proj.: WP1 done (85/100 second pass); WP2 kickoff on next session
 Quizzes:      Quiz 02 done (84.7%); next quiz window ~L17
-DSA Track:    1 session/week, interleaved (see DSA_TRACK.md) — OVERDUE (next session)
+DSA Track:    1 session/week, interleaved (see DSA_TRACK.md) — Week 2 session due
 Git:          commit after every session from Stage 2 onward
 ```
 
@@ -51,6 +51,7 @@ Stage 1 values were migrated from V1 session evidence and are marked
 | Strings & formatting | SUPPORTING | 3→4 | High | label drift / spec-literalness (trend improving) | None | L2, L6 | 2026-08-05 |
 | Operators & boolean logic | SUPPORTING | 4 (prov.) | High | none recent | None | L2, L3 | 2026-08-05 |
 | Console I/O | SUPPORTING | 3 | High | degenerate argv paths (`--seed` alone → IndexError, L7) | Specific ×1 (with consent) | L3, L7 | 2026-08-13 |
+| Dataclass | SUPPORTING | 3 | High | H1: all 4 planted bugs caught (shared-mutable-default ValueError, amount:str lie, frozen mutation, `== "income"` never True); new-concept study required GenAI explanation for dataclass purpose / enum solving / frozen constraint (disclosed; wean target set); H1 write-up blank under duty → worked model in review | None | Challenge: L15 expense package refactored onto frozen dataclass + Kind model, interfaces preserved, byte-exact; `mypy` clean on both entry points | 2026-09-11 |
 | `match` beyond literal patterns | AWARENESS | 2 | — | deferred by design (JSON Stage 2, API Stage 4) | — | — | 2026-08-13 |
 
 ---
@@ -59,7 +60,7 @@ Stage 1 values were migrated from V1 session evidence and are marked
 
 | Skill | Status | Evidence |
 |-------|--------|----------|
-| Debugging (one-pass bug hunts) | STRONG | H1 clean sweeps five sessions running (L4–L8); L10 three-bug drill resolved independently (suffix case, uppercased names, folder-as-file) — narrative write-in leaked by a reviewer build bug, flagged proactively by learner; L11 four-bug drill (suffix case, folder-read crash, wrong shape, merge) resolved independently in the notebook with a full expected/observed/root-cause write-up for all four — narrative slots this time were blank write-ins |
+| Debugging (one-pass bug hunts) | STRONG | H1 clean sweeps five sessions running (L4–L8); L10 three-bug drill resolved independently (suffix case, uppercased names, folder-as-file) — narrative write-in leaked by a reviewer build bug, flagged proactively by learner; L11 four-bug drill (suffix case, folder-read crash, wrong shape, merge) resolved independently in the notebook with a full expected/observed/root-cause write-up for all four — narrative slots this time were blank write-ins; L16 four-bug drill caught + attributed correctly in one duty-compressed pass (write-up modeled in review) |
 | Error handling under edge cases | CLOSING | L8 direct attack landed: degenerate guards everywhere (`mean([])`, empty rows, empty input), H1 debug drill swept with root causes narrated, retry-loop and boundary-validation idioms correct. Close after one unannounced retrieval survives |
 | Spec-literalness (output-as-contract) | IMPROVING | L8 relapse on ONE challenge line (`rejected:` colon R1, trailing space R2) while the other 9 output blocks were byte-exact first submission — visible-part-matches, invisible-tail-missed pattern named explicitly. L9: all Output blocks matched after the revision pass; rushed first pass drifted on the easy `bananas` key and left E2 briefly unexecuted. Root cause self-identified as RUSHING, not language — habit target set (read Constraints as a checklist before coding). L10: all 10 Output blocks byte-exact, no drift; habit held. L11: all 12 Output blocks byte-exact first submission, habit held. L13: one Challenge slip — contract said totals with two decimals, first draft wrote raw floats; caught on review, fixed independently, line held at `sorted` + two-decimals formatting in `write_summary`. L14: all 11 Output blocks byte-exact after one review round (M2 `passing` output not compared, H1 annotation lies); habit target refined to a 3-second output-compare after each driver run |
 | Collection choice from guarantees | CLOSING | Follow-up drill 8/8 correct, guarantee-driven reasoning |
@@ -131,6 +132,7 @@ practice before moving forward.
 - [x] Lesson 13 — Packages & Multi-Module Structure (92/100)
 - [x] Lesson 14 — Basic Typing (92/100)
 - [x] Lesson 15 — OOP (92/100)
+- [x] Lesson 16 — Dataclass (92/100)
 
 ---
 
@@ -150,6 +152,7 @@ practice before moving forward.
 - [x] Lesson 13 Challenge — report_tool package (load / compute / write + main.py → summary.csv; relative imports inside the package, absolute imports in main)
 - [x] Lesson 14 Challenge — budget_tool package (load/compute/write + transactions.json → monthly.csv + categories.csv; signed net_by_month/net_by_category; fully annotated; `mypy main.py` clean)
 - [x] Lesson 15 Challenge — class-based expense core (expense/{load,compute,write} + main.py → monthly.csv + categories.csv; E1 Transaction model reused across package; composition + delegation; prints from the CSVs it writes; `mypy main.py` + `main_h1.py` clean)
+- [x] Lesson 16 Challenge — dataclass expense core (same expense/{load,compute,write} + main.py interfaces as L15, refactored onto the frozen `kind.Transaction` model; `Kind(record["kind"])` on load, `signed_amount()` sign rule; byte-exact output; `mypy main.py` + `main_h1.py` clean)
 
 ---
 
@@ -512,3 +515,19 @@ See `DSA_TRACK.md` for the track definition.
   look-up on composed-method reuse (noted for watch). DSA slot still
   overdue. Next: DSA slot → Lesson 16 — Dataclass (SUPPORTING; further
   Enum practice).
+- Lesson 16 (2026-09-11): Dataclass (SUPPORTING) — 92/100, mastery 3,
+  hint dependency 0. Pack 3E/2M/1H + Challenge, Expense/Transaction
+  theme, lessons from review 15 packed in (mypy on BOTH entry points,
+  "the fields ARE the spec"). Quick Recall 6/6 incl. why default_factory
+  and why frozen⇒hashable. All 7 drivers byte-exact in a temp copy;
+  `mypy main.py` + `mypy main_h1.py` clean and run BY the learner both
+  times. H1: all 4 bugs caught + correctly attributed in one pass —
+  shared-mutable-default ValueError, amount:str lie, frozen mutation,
+  `== "income"` never True (net -120.50 vs 79.50). Challenge: L15
+  package refactored onto frozen dataclass + Kind model, interfaces
+  preserved. Duty-compressed day: H1 write-up blank → worked model
+  report provided in review/lesson-16-review.md; new-concept study
+  leaned on Google then GenAI for concept explanation (disclosed; wean
+  target: lesson/reviewer before GenAI). Enum solving named by learner
+  as the hardest problem. Next: WP2 kickoff (Environment & Dependency
+  folds in; venv/pip); L13 reflection still owed; DSA #2 (Week 2) due.

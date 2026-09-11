@@ -88,7 +88,7 @@ and are already satisfied in practice — not a standalone future lesson.
 | Packages & Multi-Module Structure | CORE | ✅ done (L13) |
 | Basic typing | CORE | ✅ done (L14) |
 | OOP — classes, instances, attributes, methods, composition, inheritance basics, when OOP helps and when it is unnecessary | SUPPORTING (practical, not syntax-drilled) | ✅ done (L15); Enum folds in here |
-| Dataclass | SUPPORTING | NEXT (L16), with further Enum practice |
+| Dataclass | SUPPORTING | ✅ done (L16), with further Enum practice |
 | Environment & dependency management (venv, pip) | SUPPORTING | folded into Weekly Project 2 kickoff |
 | Enum | AWARENESS | fold into typing/OOP; not a standalone lesson |
 | Git basics (init, add, commit, log, diff, .gitignore) | SUPPORTING (applied daily) | ✅ in continuous use, not a lesson |
