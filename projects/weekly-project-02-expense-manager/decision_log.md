@@ -140,3 +140,18 @@ if __name__ == "__main__":
 ##### Alternative Considered
 - FILE_PATH set in the guard block like wp1 project, but it will cost us the pass and call file_path in each func.
 - Set the formatter directly in the list service since it is just use once
+
+
+### feat: Add:
+##### Decision
+- validate data passed to add function by its lenght, unpack, parse & validate
+- new utils validators to validate data, in this implementation validate date format
+- serialize and encode enum before dumps json
+- set the error message more verbose (not exactly following byte by byte from brief) (just add either 'bad request' or 'corrupt data' or 'unexpected error')
+##### Why 
+- because of the add action is strictly have the exact 4 args, it is easier to check the length first, then unpack it, and then parse & validate
+- create utils because it can be reusable through the entire project, moreover it is an independent helper.
+- the dataclass is need to be serialized asdict first and then encode the kind enum so its get the value, it would be raising an error if we skip this flow.
+- clearer error message scope
+##### Alternative Considered
+- set the validation directly through service, for this scope it just used once tho. so it is unnecessary to create new utils.

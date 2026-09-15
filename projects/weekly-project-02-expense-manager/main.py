@@ -3,34 +3,34 @@ import services.transaction_service as service
 from scripts.seed import seeder
 from utils.exceptions import ErrorBadRequest, ErrorCorruptData
 
-def router_report(sub_command: list[str] | None) -> str:
+def router_report(sub_command: list[str] | None) -> str | None:
     if sub_command is None:
         raise ErrorBadRequest("empty type of report")
     report_type = sub_command[0]
     match report_type:
         case "weekly":
-            service.report_weekly()
+            return service.report_weekly()
         case "monthly":
-            service.report_monthly()
+            return service.report_monthly()
         case "categories":
-            service.report_categories()
+            return service.report_categories()
         case "summary":
-            service.report_summary()
+            return service.report_summary()
         case _:
             raise ErrorBadRequest("unknown type of report")
         
-def router(command: str, sub_command: list[str]) -> str | None:
+def router(command: str, sub_command: list[str] | None) -> str | None:
     match command:
         case "--seed":
-            seeder()
+            return seeder()
         case "list":
-            print(service.list_data())
+            return print(service.list_data())
         case "add":
-            service.add(sub_command)
+            return print(service.add(sub_command))
         case "report":
-             router_report(sub_command)
+            return router_report(sub_command)
         case _:
-            raise ErrorBadRequest("unknown type of action")
+            raise ErrorBadRequest(f"unknown command '{command}'")
 
 def main() -> None:
     args = sys.argv[1:]
@@ -49,7 +49,7 @@ def main() -> None:
     except ErrorCorruptData as err:
         print(f"corrupt data:\nfailed to load existing data | {err}")
     except Exception as err:
-        print(f"unexpecter error:\n{err}")
+        print(f"unexpected error:\n{err}")
 
 
 if __name__ == "__main__":
