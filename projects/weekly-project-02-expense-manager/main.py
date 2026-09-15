@@ -24,7 +24,7 @@ def router(command: str, sub_command: list[str]) -> str | None:
         case "--seed":
             seeder()
         case "list":
-            service.list_data()
+            print(service.list_data())
         case "add":
             service.add(sub_command)
         case "report":

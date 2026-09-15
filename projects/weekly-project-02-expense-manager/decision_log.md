@@ -118,10 +118,25 @@ if __name__ == "__main__":
 ##### Decision
 - change the dict action-func approach to match-case 
 - create helper function for the report action to delegate the report type requested to its function
-- 
 ##### Why 
 - the match-case approach is cleaner for this project case since each of the action func (beside the report) can be handled specifictly for the positional argument.
 - helper function to make the main match-case keep simple and clean
 ##### Alternative Considered
 - keep dict action-func but add a conditional (`if service.__name__`) but it is need way more logical and code instead of match-case approach
 - direct nested report match-case
+
+### feat: List:
+##### Decision
+- create configurations/config.py to set the FILE_PATH
+- set the repositories to a single file transactions_repo as the Transaction class mediator to data source (json, csv)
+- use object_hook to decode json into Transaction object
+- create formatter for transaction service, sort it by date by simply set the key of sorting with the value of date (without using datetime)
+##### Why 
+- FILE_PATH not passed through every function from main.py, instead the service can import it from configurations.config. So that the main and the service func are not passing the same file_path over and over again for each of it.
+- the merge of the proposed json_repo.py and csv_repo.py is for keep the repo simple and easier for maintenance, since the action to the data source of Transactions is gathered in one place.
+- set the record in transactions.json to be an object of Transaction class to get the method signed_amount for the next implementation
+- create a reusable Transactions formatter and separate it from the transaction_service module to make it clean
+- the result of sorted string could represent the order date by oldest
+##### Alternative Considered
+- FILE_PATH set in the guard block like wp1 project, but it will cost us the pass and call file_path in each func.
+- Set the formatter directly in the list service since it is just use once
