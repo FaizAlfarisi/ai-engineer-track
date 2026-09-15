@@ -3,7 +3,7 @@ import services.transaction_service as service
 from scripts.seed import seeder
 from utils.exceptions import ErrorBadRequest, ErrorCorruptData
 
-def router_report(sub_command):
+def router_report(sub_command: list[str] | None) -> str:
     if sub_command is None:
         raise ErrorBadRequest("empty type of report")
     report_type = sub_command[0]
@@ -19,7 +19,7 @@ def router_report(sub_command):
         case _:
             raise ErrorBadRequest("unknown type of report")
         
-def router(command, sub_command):
+def router(command: str, sub_command: list[str]) -> str | None:
     match command:
         case "--seed":
             seeder()
