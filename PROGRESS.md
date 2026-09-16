@@ -12,7 +12,7 @@ Completion ≠ mastery. This file tracks mastery.
 ```text
 Stage:        Stage 2 — Python Application (COMPLETE)
 Current:      Weekly Project 2 — Expense/Transaction Manager DONE — 88/100 (Stage 2 evidence banked)
-Next:         Lesson 17 — Testing (pytest) opens Stage 3; L13 reflection still owed; DSA #2 (Week 2) due
+Next:         Lesson 17 — Testing (pytest) opens Stage 3; DSA #2 (Week 2) due
 Weekly Proj.: WP1 85/100; WP2 88/100 — Stage 2 complete
 Quizzes:      Quiz 02 done (84.7%); next quiz window after L17
 DSA Track:    1 session/week, interleaved — Week 2 session due
@@ -553,5 +553,6 @@ See `DSA_TRACK.md` for the track definition.
   BOM) and CLI output lacks a trailing `\n`. Reflection written into the
   project decision log (datetime struggle, object_hook decode idea,
   ~2h design analysis). `review-2.md` locks the score; `review.md` kept
-  intact per learner request. Next: L17 Testing (pytest) opens Stage 3;
-  L13 reflection + DSA #2 still due.
+  intact per learner request. L13 reflection recorded 2026-09-16
+  (DAILY_LOG). Next: L17 Testing (pytest) opens Stage 3; DSA #2 (Week 2)
+  due.

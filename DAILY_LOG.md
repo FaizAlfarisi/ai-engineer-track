@@ -1045,7 +1045,23 @@ running all six drivers against the real files in a temp copy.
 ### Tomorrow Goal
 
 Quiz 02 (L08–L12) — then the overdue DSA slot. Learner reflection on L13
-pending.
+pending → written below (2026-09-16).
+
+## Reflection — Lesson 13 (2026-09-07; written 2026-09-16)
+
+- Followed the lesson flawlessly — nothing I couldn't do. Flawless doesn't
+  mean nothing new: the module-vs-package line is clearer now (module = a
+  file; package = a directory of modules).
+- Import-runs-once has a name I can state from memory: importing a module
+  executes it once, so anything that should only run when launched goes
+  behind `if __name__ == "__main__":` — the H1 import-time-side-effect bug
+  in my own words.
+- Follow-up from WP2: I researched whether we still need `__init__.py` on
+  Python 3.3+ (PEP 420 namespace packages — you can import a directory
+  without it). Resolution kept: regular packages keep an `__init__.py`;
+  empty is the right shape for internal layers (my WP2), re-exports are for
+  a package exposing a public API, and namespace packages only matter when
+  one name spans multiple `sys.path` directories. I'm not skipping it.
 
 ## Session 18 — 2026-09-08
 
