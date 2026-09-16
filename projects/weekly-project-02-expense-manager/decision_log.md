@@ -176,3 +176,15 @@ if __name__ == "__main__":
 ##### Alternative Considered
 - the extract_year_week can convert by itself since the recorded data has a low chance of invalid date
 - dict.get method to set the summary, but it need to count net inside the loop
+
+
+
+### Reflection:
+##### Struggle:
+- I found struggle in implementing the datetime, since i barely used it on my own before, moreover haven't taught in this lessonOS
+- I think a lot for the json decoder to the Transaction class, since i need the method for the next operation, i have to convert the json to Transaction, but looping it over after load the json feel redundant. fortunately i found a better approach for this case
+- the project design, i spent almost 2 days (approximately 2 hours in total) to analyze and planning the proposed project design.
+##### Solving:
+- i read a lot of tutorial and using gen ai to teach me about datetime spesificly in this usage domain
+- i found it on the internet for auto decode the json to classes, then when im implement it, it is work, but i forget to validate the data
+- i reflect through my go lang project and the internet about the python project structure, then fit it to this project scope and case

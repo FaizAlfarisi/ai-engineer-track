@@ -16,7 +16,7 @@ def transaction_decoder(dtc: dict[str, Any]) -> Transaction | dict[str, Any]:
             raise ErrorCorruptData(f"Invalid date format: '{date_val}'. Expected YYYY-MM-DD")
         
         category_val = dtc.get('category')
-        if not isinstance(category_val, str) and not category_val:
+        if not isinstance(category_val, str) or not category_val.strip():
             raise ErrorCorruptData(f"Invalid category: '{category_val}'. Expected non empty string")
         
         kind_val = dtc.get('kind')
@@ -35,7 +35,7 @@ def transaction_decoder(dtc: dict[str, Any]) -> Transaction | dict[str, Any]:
         
         return Transaction(
             date=str(date_str),
-            category=category_val,
+            category=category_val.strip(),
             kind=kind,
             amount=amount,
         )
