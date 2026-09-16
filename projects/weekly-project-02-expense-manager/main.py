@@ -17,7 +17,7 @@ def router_report(sub_command: list[str] | None) -> str | None:
         case "summary":
             return service.report_summary()
         case _:
-            raise ErrorBadRequest("unknown type of report")
+            raise ErrorBadRequest("Error: unknown type of report")
         
 def router(command: str, sub_command: list[str] | None) -> str | None:
     match command:
