@@ -160,29 +160,39 @@ transport,-10000.00
 
 Run against the seed fixture unless stated otherwise. A clean result is
 an exit and output identical to the expected column; an "error" case is
-a clean message on **one** line with no traceback.
+the two-line scoped message on **stderr** with **exit code 1** and no
+traceback.
+
+Error contract (reconciled with the build's chosen design):
+`bad request:` for bad input, `corrupt data:\nfailed to load existing
+data | <detail>` for unreadable/shape-invalid data, `unexpected error:`
+for anything else (should stay rare). The detail line states the
+problem plainly (no embedded severity token — the prefix already says
+it). Errors go to **stderr**; happy-path output goes to **stdout**.
 
 | # | Command / setup | Expect |
 |---|-----------------|--------|
 | T1 | `list` | The `list` block above, byte-exact |
-| T2 | `add 2026-09-12 lunch expense 25000` then `list` | `Added:` block above; then `Transactions (7):` with the lunch row as item 7 (`2026-09-12 lunch expense -25000.00`), sorted into place |
+| T2 | `add 2026-09-12 lunch expense 25000` then `list` | `Added:` block above; then `Transactions (7):` with the lunch row as item 7 (`2026-09-12 lunch      expense    -25000.00`), sorted into place |
 | T3 | `report monthly` / `report categories` | Both write-print blocks above; CSV files byte-exact |
 | T4 | No data file (delete `transactions.json`) | `list` → `Transactions (0):` (no crash); `report monthly` → `Wrote monthly.csv` + only the header row in the file and print |
 | T5 | `add 2026-09-12 lunch expense 25000` with no data file | `Added:` block; `transactions.json` is created |
-| T6 | `add 2026-13-40 food expense 10000` | `Error: invalid date '2026-13-40' (use YYYY-MM-DD)` |
-| T7 | `add 2026-09-12 food credit 10000` | `Error: unknown kind 'credit' (use income or expense)` |
-| T8 | `add 2026-09-12 food expense abc` | `Error: invalid amount 'abc' (must be a positive number)` |
-| T9 | `add 2026-09-12 food expense -5000` | `Error: amount must be greater than 0` |
-| T10 | `add 2026-09-12 "" expense 10000` | `Error: category cannot be empty` |
-| T11 | `add` with no arguments | `Error: usage: add DATE CATEGORY KIND AMOUNT` |
-| T12 | Overwrite `transactions.json` with the literal text `{bad json` then `list` | `Error: data file is corrupt (could not parse transactions.json)` — clean exit, no traceback |
-| T13 | `bananas` (unknown command) | `Error: unknown command 'bananas'` followed by a one-line usage hint |
-| T14 | `python -m mypy main.py` | `Success: no issues found in 1 source file` |
-| T15 | `git status` after setup | `.venv` NOT tracked; `requirements.txt` IS tracked |
+| T6 | (no arguments) | stderr, exit 1: `bad request: empty input` |
+| T7 | `add 2026-13-40 food expense 10000` | stderr, exit 1: `bad request:\ninvalid date '2026-13-40' (use YYYY-MM-DD)` |
+| T8 | `add 2026-09-12 food credit 10000` | stderr, exit 1: `bad request:\nunknown kind 'credit' (use income or expense)` |
+| T9 | `add 2026-09-12 food expense abc` | stderr, exit 1: `bad request:\ninvalid amount 'abc' (must be a positive number)` |
+| T10 | `add 2026-09-12 food expense -5000` | stderr, exit 1: `bad request:\namount must be greater than 0` |
+| T11 | `add 2026-09-12 " " expense 10000` (a whitespace-only category — the shell strips `""` before `sys.argv`, use `" "` instead) | stderr, exit 1: `bad request:\ncategory cannot be empty` |
+| T12 | `add` with no arguments | stderr, exit 1: `bad request:\nusage: add DATE CATEGORY KIND AMOUNT` |
+| T13 | Overwrite `transactions.json` with the literal text `{bad json` then `list` | stderr, exit 1: `corrupt data:\nfailed to load existing data | Expecting value: ...` (detail = the JSON parser message), no traceback |
+| T14 | `add 2026-9-1 food expense 100` | **Must be rejected** (`invalid date '2026-9-1' (use YYYY-MM-DD)`): only the canonical zero-padded form may be stored, so string sorting stays chronological |
+| T15 | `bananas` (unknown command) | stderr, exit 1: `bad request:\nunknown command 'bananas'` |
+| T16 | `python -m mypy main.py` | `Success: no issues found in 1 source file` |
+| T17 | `git status` after setup | `.venv` and `data/*.csv` NOT tracked; `requirements.txt` and `data/transactions.json` ARE tracked |
 
-Error wording is part of the spec: keep the exact strings above. If you
-prefer a different message, change it in the brief first (a spec you
-can defend beats one you can't).
+Contract rule: the wording above IS the spec. If you deliberately change
+a message, update this matrix in the same commit — a spec you own beats
+a spec you silently drift from.
 
 ## Acceptance Criteria
 

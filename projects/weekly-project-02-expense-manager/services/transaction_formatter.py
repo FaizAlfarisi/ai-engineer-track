@@ -9,10 +9,7 @@ def list_formatter(transactions: list[Transaction]) -> str:
     sorted_txns = sorted(transactions, key=get_date)
     
     for i, txn in enumerate(sorted_txns, start=1):
-        try:
-            lines.append(f"{i}. {txn.date} {txn.category:<10} {txn.kind.value:<8} {txn.signed_amount():>11.2f}")
-        except Exception as err:
-            print(f"format error: {err}")
+        lines.append(f"{i}. {txn.date} {txn.category:<10} {txn.kind.value:<8} {txn.signed_amount():>11.2f}")
     return '\n'.join(lines)
 
 def report_formatter(data: list[dict[str, str]], filename: str, colname: str) -> str:

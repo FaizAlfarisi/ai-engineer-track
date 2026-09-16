@@ -1,13 +1,18 @@
 from datetime import datetime
 
-def validate_date(date_string: str, date_format: str = "%Y-%m-%d") -> tuple[bool, datetime | None]:
+def parse_date(date_string: str, date_format: str = "%Y-%m-%d") -> tuple[str | None, datetime | None]:
     try:
-        date = datetime.strptime(date_string, date_format)
-        return True, date
+        date_obj = datetime.strptime(date_string, date_format)
+        canonical_str = date_obj.strftime(date_format)
+        
+        if date_string != canonical_str:
+            return None, None
+        
+        return canonical_str, date_obj
     except ValueError:
-        return False, None
+        return None, None
     
 def extract_year_week(date: datetime) -> str:
     iso_calendar = date.isocalendar()
-    year_week = f"{iso_calendar[0]}-W{iso_calendar[1]}"
+    year_week = f"{iso_calendar.year}-W{iso_calendar.week:02d}"
     return year_week

@@ -4,15 +4,40 @@ from typing import Any
 from pathlib import Path
 from models.transactions import Transaction, Kind
 from utils.exceptions import ErrorCorruptData
+from utils.datetime_helper import parse_date
 from dataclasses import asdict
 
 def transaction_decoder(dtc: dict[str, Any]) -> Transaction | dict[str, Any]:
     if 'date' in dtc and 'category' in dtc and 'kind' in dtc and 'amount' in dtc:
+        
+        date_val = dtc.get('date')
+        date_str, _ = parse_date(str(date_val))
+        if date_str is None:
+            raise ErrorCorruptData(f"Invalid date format: '{date_val}'. Expected YYYY-MM-DD")
+        
+        category_val = dtc.get('category')
+        if not isinstance(category_val, str) and not category_val:
+            raise ErrorCorruptData(f"Invalid category: '{category_val}'. Expected non empty string")
+        
+        kind_val = dtc.get('kind')
+        try:
+            kind = Kind(kind_val)
+        except (ValueError, TypeError):
+            raise ErrorCorruptData(f"Invalid kind '{kind_val}'. Expected 'income' or 'expense'")
+        
+        amount_val = dtc.get('amount')
+        try:
+            amount = float(str(amount_val))
+        except ValueError:
+            raise ErrorCorruptData(f"Invalid amount '{amount_val}'. Expected a positive number")
+        if amount <= 0.0:
+            raise ErrorCorruptData(f"Invalid amount '{amount_val}'. Expected to be greater than 0")
+        
         return Transaction(
-            date=dtc['date'],
-            category=dtc['category'],
-            kind=Kind(dtc['kind']),
-            amount=dtc['amount'],
+            date=str(date_str),
+            category=category_val,
+            kind=kind,
+            amount=amount,
         )
     
     return dtc

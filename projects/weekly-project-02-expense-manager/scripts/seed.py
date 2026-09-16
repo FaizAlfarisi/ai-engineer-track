@@ -1,2 +1,0 @@
-def seeder():
-    print("seed")

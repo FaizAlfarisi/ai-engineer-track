@@ -3,40 +3,40 @@ from repositories.transaction_repo import load_json, write_json, write_csv, load
 from services.transaction_formatter import list_formatter, report_formatter, summary_formatter
 from configurations.config import DATA_PATH, JSON_PATH
 from utils.exceptions import ErrorBadRequest
-from utils.datetime_helper import validate_date, extract_year_week
+from utils.datetime_helper import parse_date, extract_year_week
 
 def add(raw_data: list[str] | None) -> str:
     # request parsing and validation
     if raw_data is None or len(raw_data) != 4:
-        raise ErrorBadRequest("Error: usage: add DATE CATEGORY KIND AMOUNT")
+        raise ErrorBadRequest("usage: add DATE CATEGORY KIND AMOUNT")
     
     raw_date, raw_category, raw_kind, raw_amount = raw_data
     
     category = raw_category.strip()
     if not category:
-        raise ErrorBadRequest(f"Error: category cannot be empty")
+        raise ErrorBadRequest(f"category cannot be empty")
     
     date = raw_date.strip()
-    is_valid_date, _ = validate_date(date)
-    if not is_valid_date:
-        raise ErrorBadRequest(f"Error: invalid date '{raw_date}' (use YYYY-MM-DD)")
+    date_str, _ = parse_date(date)
+    if date_str is None:
+        raise ErrorBadRequest(f"invalid date '{raw_date}' (use YYYY-MM-DD)")
     
     try: 
         kind = Kind(raw_kind.strip())
     except ValueError:
-        raise ErrorBadRequest(f"Error: unknown kind '{raw_kind}' (use income or expense)")
+        raise ErrorBadRequest(f"unknown kind '{raw_kind}' (use income or expense)")
     
     try:
         amount = float(raw_amount.strip())
     except ValueError:
-        raise ErrorBadRequest(f"Error: invalid amount '{raw_amount}' (must be a positive number)")
+        raise ErrorBadRequest(f"invalid amount '{raw_amount}' (must be a positive number)")
     
     if amount <= 0.0:
-        raise ErrorBadRequest(f"Error: amount must be greater than 0")
+        raise ErrorBadRequest(f"amount must be greater than 0")
     
     # new records
     new_txn = Transaction(
-        date=date,
+        date=str(date_str),
         category=category,
         kind=kind,
         amount=amount
@@ -47,7 +47,7 @@ def add(raw_data: list[str] | None) -> str:
     
     write_json(path=JSON_PATH, transactions=records)
     
-    return f"Added: {date} {category} {kind.value} {amount}"
+    return f"Added: {date_str} {category} {kind.value} {amount:.2f}"
 
 def list_data() -> str:
     return list_formatter(load_json(path=JSON_PATH))
@@ -58,7 +58,7 @@ def report_weekly() -> str:
     weekly_net: dict[str, float] = {}
     
     for txn in records:
-        _, date = validate_date(txn.date)
+        _, date = parse_date(txn.date)
         if date is None:
             raise ValueError("invalid record's date format")
         year_week = extract_year_week(date=date)
@@ -111,7 +111,7 @@ def report_categories() -> str:
     
     return report_formatter(data=reports, filename=category_path.name, colname=colname)
         
-def report_summary():
+def report_summary() -> str:
     records = load_json(path=JSON_PATH)
     
     total_income = 0.0
