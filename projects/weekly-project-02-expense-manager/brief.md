@@ -177,7 +177,7 @@ it). Errors go to **stderr**; happy-path output goes to **stdout**.
 | T3 | `report monthly` / `report categories` | Both write-print blocks above; CSV files byte-exact |
 | T4 | No data file (delete `transactions.json`) | `list` → `Transactions (0):` (no crash); `report monthly` → `Wrote monthly.csv` + only the header row in the file and print |
 | T5 | `add 2026-09-12 lunch expense 25000` with no data file | `Added:` block; `transactions.json` is created |
-| T6 | (no arguments) | stderr, exit 1: `bad request: empty input` |
+| T6 | (no arguments) | stderr, exit 1: `bad request:\nempty input` |
 | T7 | `add 2026-13-40 food expense 10000` | stderr, exit 1: `bad request:\ninvalid date '2026-13-40' (use YYYY-MM-DD)` |
 | T8 | `add 2026-09-12 food credit 10000` | stderr, exit 1: `bad request:\nunknown kind 'credit' (use income or expense)` |
 | T9 | `add 2026-09-12 food expense abc` | stderr, exit 1: `bad request:\ninvalid amount 'abc' (must be a positive number)` |
