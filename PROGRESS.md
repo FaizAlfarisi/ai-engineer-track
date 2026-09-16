@@ -10,12 +10,12 @@ Completion ≠ mastery. This file tracks mastery.
 ## Current Position
 
 ```text
-Stage:        Stage 2 — Python Application
-Current:      Lesson 16 — Dataclass (SUPPORTING) COMPLETE — 92/100
-Next:         WP2 kickoff (Environment & Dependency folds in; venv/pip) — L13 reflection still owed; DSA #2 (Weekly) scheduled
-Weekly Proj.: WP1 done (85/100 second pass); WP2 kickoff on next session
-Quizzes:      Quiz 02 done (84.7%); next quiz window ~L17
-DSA Track:    1 session/week, interleaved (see DSA_TRACK.md) — Week 2 session due
+Stage:        Stage 2 — Python Application (COMPLETE)
+Current:      Weekly Project 2 — Expense/Transaction Manager DONE — 88/100 (Stage 2 evidence banked)
+Next:         Lesson 17 — Testing (pytest) opens Stage 3; L13 reflection still owed; DSA #2 (Week 2) due
+Weekly Proj.: WP1 85/100; WP2 88/100 — Stage 2 complete
+Quizzes:      Quiz 02 done (84.7%); next quiz window after L17
+DSA Track:    1 session/week, interleaved — Week 2 session due
 Git:          commit after every session from Stage 2 onward
 ```
 
@@ -47,7 +47,9 @@ Stage 1 values were migrated from V1 session evidence and are marked
 | File handling | CORE | 4 (prov.) | High | error-string returns from loaders (type mixing, theme); rushed-pass spec drift (`bananas` key, E2 unexecuted one pass); H2 `readlines()` where two-pass iteration was the constraint | Conceptual ×1 (M1 try-size) | Challenge Expense Persistence CLI (load/save/merge canonical rewrite) | 2026-08-28 |
 | Pathlib | CORE | 4 | High | .iterdir() yields folders too (H1 bug 3 — resolved with is_dir guard); suffix filters are case-sensitive; .exists() ≠ “is a file” | None for exercises/challenge; H1 narrative leaked by reviewer build bug (learner flagged) | Challenge Folder Reporter (count_by_ext/largest/write_report); M3 typed loader rewired to Path | 2026-08-30 |
 | JSON | CORE | 4 | High | latent summarize overwrite — passed only on unique categories, fixed to accumulate (reviewer-spotted); load_typed split("=") fragile, hardened to partition; reading a folder as a file crashes on Windows (PermissionError, not IsADirectoryError) | 0 | Challenge Expense JSON seed (load/categorize/summarize/save); M3 & Challenge use match mapping patterns | 2026-08-30 |
-| CSV | SUPPORTING | 3 | High | first draft hardcoded summary count (`i==3: break`) — spec-ambiguous (reviewer provided no driver/Output block), conceded reviewer-fault; fixed to true len() + sorted + un-swallowed skipped-row warning + dropped dead `stats` return (re-review 92/100). Residual process note: exercise run mutated `students.csv` fixture (restored) | 0 | Challenge CSV Grade Book (read/parse/summarize/write/print decomposed) | 2026-09-04 |
+| Dataclass | SUPPORTING | 3→4 | High | H1: all 4 planted bugs caught (shared-mutable-default ValueError, amount:str lie, frozen mutation, `== "income"` never True); new-concept study required GenAI explanation for dataclass purpose / enum solving / frozen constraint (disclosed; wean target set); H1 write-up blank under duty → worked model in review. WP2 lifted it to Level 4: frozen model end-to-end (asdict save + `object_hook` decode + `signed_amount`) | 0 | Challenge: L15 expense package refactored onto frozen dataclass + Kind model, interfaces preserved, byte-exact; WP2 whole app on the frozen model | 2026-09-16 |
+| Environment & dependency management (venv, pip, freeze) | SUPPORTING | 3 | High | `requirements.txt` slipped to the GLOBAL env freeze (278 transitive pkgs incl. tensorflow/torch + a UTF-8 BOM) — clean-.venv refreeze noted as deferred debt in review-2; everything else (venv, mypy gate, `.gitignore`) handled independently | 0 | Folded into WP2 kickoff: `.venv`, `pip install mypy`, `freeze > requirements.txt`, `.gitignore` | 2026-09-16 |
+| CSV | SUPPORTING | 3→4 | High | first draft hardcoded summary count (`i==3: break`) — spec-ambiguous (reviewer provided no driver/Output block), conceded reviewer-fault; fixed to true len() + sorted + un-swallowed skipped-row warning + dropped dead `stats` return (re-review 92/100). Residual process note: exercise run mutated `students.csv` fixture (restored). WP2 used both DictWriter + DictReader with print-from-file readback → Level 4 | 0 | Challenge CSV Grade Book (read/parse/summarize/write/print decomposed); WP2 write_csv/report readback | 2026-09-16 |
 | Strings & formatting | SUPPORTING | 3→4 | High | label drift / spec-literalness (trend improving) | None | L2, L6 | 2026-08-05 |
 | Operators & boolean logic | SUPPORTING | 4 (prov.) | High | none recent | None | L2, L3 | 2026-08-05 |
 | Console I/O | SUPPORTING | 3 | High | degenerate argv paths (`--seed` alone → IndexError, L7) | Specific ×1 (with consent) | L3, L7 | 2026-08-13 |
@@ -85,6 +87,7 @@ one retrieval pending) / CLOSED.
 | Builtin shadowing (`min`, `max`) | OPEN | L5 | baked into REVIEW.md Naming checklist |
 | Collection choice by habit instead of guarantees | CLOSING | L6 | follow-up drill 8/8, guarantee-driven reasoning |
 | Computed-but-unread / band-aid patch (returned value never used; hardcoded count + `break`) | CLOSED | L12 | L12 re-review: dead `stats` return removed, hardcoded `i==3: break` replaced with true `len()` + sorted; avoids independently and survives unannounced retrieval |
+| Guard-condition operator logic (`and`/`or` under negation + truthiness) | OPEN | WP2 | `if not isinstance(cat, str) and not cat:` — `and` lets `""` AND non-str truthy values through validation; caught in round-2 read, fixed to `or ... .strip()` in the same fix round, verified live; watching for one more occurrence |
 
 ---
 
@@ -153,6 +156,7 @@ practice before moving forward.
 - [x] Lesson 14 Challenge — budget_tool package (load/compute/write + transactions.json → monthly.csv + categories.csv; signed net_by_month/net_by_category; fully annotated; `mypy main.py` clean)
 - [x] Lesson 15 Challenge — class-based expense core (expense/{load,compute,write} + main.py → monthly.csv + categories.csv; E1 Transaction model reused across package; composition + delegation; prints from the CSVs it writes; `mypy main.py` + `main_h1.py` clean)
 - [x] Lesson 16 Challenge — dataclass expense core (same expense/{load,compute,write} + main.py interfaces as L15, refactored onto the frozen `kind.Transaction` model; `Kind(record["kind"])` on load, `signed_amount()` sign rule; byte-exact output; `mypy main.py` + `main_h1.py` clean)
+- [x] Weekly Project 2 — Expense/Transaction Manager CLI (Stage 2 capstone; layered configurations/models/repositories/services/utils + main.py router; frozen L16 model end-to-end; add/list/report monthly/report categories + SG1 summary + SG3 weekly; scoped error prefixes on stderr + exit 1; corrupt-data guard; `mypy main.py` clean; T1–T17 matrix 25/25 green in a temp copy; 88/100)
 
 ---
 
@@ -234,6 +238,10 @@ practice before moving forward.
 - `match` mapping patterns route records by shape: `{"kind":"income",...}` vs `{"kind":"expense",...}` (JSON)
 - `dict.get(category, 0.0) + categorize(spend)`: the proper accumulate-for-signed-totals summarize pattern (JSON)
 - pathlib JSON I/O: `read_text`/`write_text` with `encoding="utf-8"`, never raw `open` — L9/L10 rule retrieved (JSON)
+- `json.loads(object_hook=...)`: validate with an object-hook decoder at the data-gate, then the whole pipeline sees clean typed objects (WP2)
+- Report prints re-read the file just written — printed values can never disagree with the CSV (WP2 readback)
+- Reject-don't-normalize dates: a canonical round-trip check in the date parser makes string sort + `date[:7]` month-slicing safe by construction (WP2)
+- Scoped CLI error contract: `bad request:` / `corrupt data:` / `unexpected error:` prefixes, detail line on the next line, stderr + exit 1, no embedded severity token (WP2)
 
 ---
 
@@ -291,11 +299,11 @@ practice before moving forward.
 
 ## Scores & Hours
 
-Average Review Score: 90.9 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90, L10: 92, L11: 93, WP1: 85, L12: 92, L13: 92)
+Average Review Score: 90.9 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90, L10: 92, L11: 93, WP1: 85, L12: 92, L13: 92, L14: 92, L15: 92, L16: 92, WP2: 88)
 
 Overall Mastery: Level 4 — debugging/refactoring independently
 
-Total Study Hours: ~17.5 hours
+Total Study Hours: ~31 hours (L14 2.5h, L15 3h, L16 1.5h, DSA#1 1h, WP2 ~6h added since the ~17.5h count)
 
 ---
 
@@ -304,6 +312,7 @@ Total Study Hours: ~17.5 hours
 | # | Lessons Covered | Project | Result | Date |
 |---|-----------------|---------|--------|------|
 | 1 | L8–L11 | Library Manager CLI (multi-module) | 85/100 | 2026-09-02 |
+| 2 | L12–L16 | Expense/Transaction Manager CLI (layered package, frozen model) | 88/100 | 2026-09-16 |
 
 ---
 
@@ -531,3 +540,18 @@ See `DSA_TRACK.md` for the track definition.
   target: lesson/reviewer before GenAI). Enum solving named by learner
   as the hardest problem. Next: WP2 kickoff (Environment & Dependency
   folds in; venv/pip); L13 reflection still owed; DSA #2 (Week 2) due.
+- Session 21 (2026-09-16): Weekly Project 2 complete — 88/100 LOCKED,
+  Stage 2 evidence banked. Layered package built independently
+  (configurations/models/repositories/services/utils + router);
+  skipped SG2 `--seed` deliberately; finished SG1 summary + SG3 weekly.
+  Round-1 review (73/100 draft, `review.md`) → 11 issues → all fixed
+  by learner in two commits. Round-2 full matrix re-verification in a
+  temp copy: 25/25 green in one run (T1–T17 + mypy + both SG checks).
+  New regression caught in round-2 read (decoder guard `and`→`or` under
+  negation) traced + fixed before the run — lifecycle row added. Two
+  deferred notes: requirements.txt is the global-env freeze (278 pkgs,
+  BOM) and CLI output lacks a trailing `\n`. Reflection written into the
+  project decision log (datetime struggle, object_hook decode idea,
+  ~2h design analysis). `review-2.md` locks the score; `review.md` kept
+  intact per learner request. Next: L17 Testing (pytest) opens Stage 3;
+  L13 reflection + DSA #2 still due.

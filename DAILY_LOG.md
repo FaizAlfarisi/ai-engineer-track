@@ -1338,3 +1338,55 @@ solved without hints and verified by the reviewer in a temp copy.
 - Next: transcribe the worked bug report in my own words; WP2 kickoff
   (Environment & Dependency folds in); L13 reflection still owed; DSA
   #2.
+
+## Session 21 — 2026-09-11 → 2026-09-16
+
+### Lesson
+
+Weekly Project 2 — Expense / Transaction Manager CLI (Stage 2 capstone,
+mandatory evidence) — **88/100 LOCKED** (round-1 draft 73/100; final
+score set in `projects/weekly-project-02-expense-manager/review-2.md`).
+
+### Session notes
+
+- Kickoff: brief written with the four commands (`add` / `list` /
+  `report monthly` / `report categories`), three detailed stretches
+  (summary / `--seed` / weekly), and frozen output blocks (byte-exact
+  contract). Environment & Dependency folded in and done entirely by
+  yourself: `.venv`, `pip install mypy`, `requirements.txt`,
+  `.gitignore`.
+- You consciously skipped SG2 (`--seed`) — deterministic core behavior
+  over a random data generator; documented why in the decision log.
+- Built the layered package yourself: `configurations/ models/
+  repositories/ services/ utils/` + a `main.py` router; frozen L16
+  `Transaction` + `Kind` used end-to-end; every report is printed by
+  re-reading the CSV just written (one source of truth). Also finished
+  SG1 `report summary` and SG3 `report weekly` — both byte-exact.
+- Round-1 review (73/100 draft): 11 issues — `Added:` missing `.2f`;
+  load path trusting bad JSON; lenient `strptime`; error drift + exit 0;
+  `--seed` stub printing a literal `None`; unpadded ISO week; errors on
+  stdout; swallowed formatter failures; missing `-> str`; UTF-16
+  requirements; tracked CSVs. Matrix reconciled to the scoped-prefix
+  contract (T1–T17: errors on stderr, exit 1). `review.md` kept intact.
+- Round-2 (this file): full matrix re-verified in a **temp copy** —
+  **25/25 green in one run**, including `mypy main.py`, T14 canonical
+  date rejection, T13 corrupt-data message, and SG1/SG3. A new
+  regression in the decoder guard (`and` vs `or`) was caught in the
+  round-2 read and fixed by you before the run — the test suite now
+  proves it.
+- Your decision-log reflection (written at the end of the fix round):
+  datetime was the genuine struggle (barely used before; new concept),
+  the json→`Transaction` decode took real thought (auto-decode via
+  `object_hook` beat looping), and the project design took ~2h of
+  analysis. Solving: tutorials + GenAI as *teacher* for datetime,
+  internet for the decoder idea, and your Go-project structure as the
+  package-shape reference.
+
+### Time Studied
+
+~6 hours total (planning ~2h + build sessions + review-fix rounds)
+
+### Tomorrow Goal
+
+Stage 3 opens with Lesson 17 — Testing (pytest). L13 reflection still
+owed; DSA #2 (Week 2) due.

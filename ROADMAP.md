@@ -55,7 +55,7 @@ consolidation build may be scheduled if later retrieval exposes gaps.
 
 ---
 
-# Stage 2 — Python Application ← CURRENT
+# Stage 2 — Python Application ✅ COMPLETE
 
 Focus: turning scripts into applications — persistence, robustness,
 multi-file structure, and professional workflow.
@@ -66,8 +66,8 @@ is listed in priority order:
 ```text
 ✅ Exception Handling → ✅ File Handling → ✅ Pathlib → ✅ JSON → ✅ CSV
 → ✅ Packages & Multi-Module Structure → ✅ Quiz 02 (L08–L12, 84.7%)
-→ ✅ Basic Typing (L14) → ✅ OOP (L15, enum folded in) → DSA slot
-→ Dataclass (L16) → Weekly Project 2 (kickoff includes Environment & Dependency)
+→ ✅ Basic Typing (L14) → ✅ OOP (L15, enum folded in)
+→ ✅ Dataclass (L16) → ✅ Weekly Project 2 (88/100; Environment & Dependency folded in)
 ```
 
 Packages & Multi-Module Structure also covers "functions across multiple
@@ -89,7 +89,7 @@ and are already satisfied in practice — not a standalone future lesson.
 | Basic typing | CORE | ✅ done (L14) |
 | OOP — classes, instances, attributes, methods, composition, inheritance basics, when OOP helps and when it is unnecessary | SUPPORTING (practical, not syntax-drilled) | ✅ done (L15); Enum folds in here |
 | Dataclass | SUPPORTING | ✅ done (L16), with further Enum practice |
-| Environment & dependency management (venv, pip) | SUPPORTING | folded into Weekly Project 2 kickoff |
+| Environment & dependency management (venv, pip) | SUPPORTING | ✅ done (folded into WP2 kickoff, 2026-09-16) |
 | Enum | AWARENESS | fold into typing/OOP; not a standalone lesson |
 | Git basics (init, add, commit, log, diff, .gitignore) | SUPPORTING (applied daily) | ✅ in continuous use, not a lesson |
 
@@ -97,11 +97,16 @@ Stage project: **Expense / Transaction Manager** — must integrate modular
 structure, persistence, JSON/CSV, validation, exceptions, typing, Git,
 and readable architecture. Mandatory evidence for stage completion.
 
+Status: completed 2026-09-16 — Weekly Project 2 (Expense / Transaction
+Manager CLI) scored 88/100; T1–T17 matrix verified green (errors on
+stderr + exit 1, byte-exact frozen blocks, `mypy main.py` clean).
+Stage 2 CLOSED; tracking continues in `PROGRESS.md`.
+
 Weekly projects: one every 3–4 lessons (schedule-independent).
 
 ---
 
-# Stage 3 — Python Engineering
+# Stage 3 — Python Engineering ← NEXT
 
 Focus: engineering-grade Python — testing, logging, HTTP, structure,
 and the language machinery behind frameworks.
