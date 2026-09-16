@@ -1,4 +1,5 @@
 import json
+import csv
 from typing import Any
 from pathlib import Path
 from models.transactions import Transaction, Kind
@@ -35,3 +36,23 @@ def write_json(path: Path, transactions: list[Transaction]) -> None:
     json_string = json.dumps(lines, indent=2, default=kind_encoder)
     path.write_text(json_string, encoding="utf-8")
     
+def write_csv(path: Path, data: dict[str, float], colname: str) -> None:
+    field_names = [colname, "net"]
+    with path.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f=f, fieldnames=field_names)
+        writer.writeheader()
+        
+        for key in sorted(data.keys()):
+            v = data[key]
+            
+            writer.writerow({
+                colname: key,
+                "net": f"{v:.2f}"
+            })
+        
+def load_csv(path: Path) -> list[dict[str, str]]:
+    if not path.exists():
+        return []
+
+    with path.open(encoding="utf-8", newline="") as f:
+        return list(csv.DictReader(f))

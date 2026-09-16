@@ -14,3 +14,10 @@ def list_formatter(transactions: list[Transaction]) -> str:
         except Exception as err:
             print(f"format error: {err}")
     return '\n'.join(lines)
+
+def report_formatter(data: list[dict[str, str]], filename: str, colname: str) -> str:
+    lines = [f"Wrote {filename}", f"{colname},net"]
+    for d in data:
+        lines.append(f"{d[colname]},{d['net']}")
+    return '\n'.join(lines)
+    

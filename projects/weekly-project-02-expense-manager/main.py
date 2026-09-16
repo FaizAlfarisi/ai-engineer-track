@@ -28,7 +28,7 @@ def router(command: str, sub_command: list[str] | None) -> str | None:
         case "add":
             return print(service.add(sub_command))
         case "report":
-            return router_report(sub_command)
+            return print(router_report(sub_command))
         case _:
             raise ErrorBadRequest(f"unknown command '{command}'")
 

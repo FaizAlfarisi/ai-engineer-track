@@ -1,14 +1,13 @@
 # Expense Manager
 
 
-### Commit:
+### commit:
 ##### Decision
-- 
+-
 ##### Why 
 - 
 ##### Alternative Considered
 - 
-
 
 ### Init Project:
 ##### Decision
@@ -19,7 +18,6 @@
 ##### Alternative Considered
 - 
 
-
 ### Project Structure:
 ##### Decision
 - Proposed folder structure is following the clean separation of concern (clean architecture - Go)
@@ -28,7 +26,6 @@
 - Develop easily with each module has its own concern
 ##### Alternative Considered
 - In small project (like this wp2), it is unnecessary to make it as clean as proposed. It could be written in simpler structure or even without module (use direct name.py). Because it can lead to overengineering (a single action need to access 3 to 5 module) and confusion.
-
 
 ### Command route:
 #### first decision
@@ -141,7 +138,6 @@ if __name__ == "__main__":
 - FILE_PATH set in the guard block like wp1 project, but it will cost us the pass and call file_path in each func.
 - Set the formatter directly in the list service since it is just use once
 
-
 ### feat: Add:
 ##### Decision
 - validate data passed to add function by its lenght, unpack, parse & validate
@@ -155,3 +151,15 @@ if __name__ == "__main__":
 - clearer error message scope
 ##### Alternative Considered
 - set the validation directly through service, for this scope it just used once tho. so it is unnecessary to create new utils.
+
+### feat: Report Monthly, Report Categories:
+##### Decision
+- change config var, set DATA_PATH as the dir of data, change FILE_PATH to JSON_PATH
+- new repo write and load csv, exclusively for Transaction model
+- report formatter for monthly and categories report on Transaction domain
+##### Why 
+- it is more flexible reusable for the records service since its need to create new csv file 
+- write and load csv reusable in Transaciton domain since it is a transaction repo
+- reusable report formatter since it is used in two func 
+##### Alternative Considered
+- direct set the csv path in the service, but it is need from pathlib import Path which is not the scope of service, it should be on consistent on config

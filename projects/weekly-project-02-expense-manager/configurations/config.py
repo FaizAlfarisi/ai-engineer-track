@@ -1,3 +1,4 @@
 from pathlib import Path
 
-FILE_PATH = Path("data") / "transactions.json"
+DATA_PATH = Path("data")
+JSON_PATH = DATA_PATH / "transactions.json"
