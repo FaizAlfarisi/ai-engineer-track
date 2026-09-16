@@ -24,11 +24,11 @@ def router(command: str, sub_command: list[str] | None) -> str | None:
         case "--seed":
             return seeder()
         case "list":
-            return print(service.list_data())
+            return service.list_data()
         case "add":
-            return print(service.add(sub_command))
+            return service.add(sub_command)
         case "report":
-            return print(router_report(sub_command))
+            return router_report(sub_command)
         case _:
             raise ErrorBadRequest(f"unknown command '{command}'")
 
@@ -43,7 +43,7 @@ def main() -> None:
     sub_command = args[1:] if len(args) > 1 else None
     
     try:
-        router(command, sub_command)
+        print(router(command, sub_command))
     except ErrorBadRequest as err:
         print(f"bad request:\n{err}")
     except ErrorCorruptData as err:

@@ -21,3 +21,9 @@ def report_formatter(data: list[dict[str, str]], filename: str, colname: str) ->
         lines.append(f"{d[colname]},{d['net']}")
     return '\n'.join(lines)
     
+def summary_formatter(data: dict[str, float]) -> str:
+    lines = ["Summary:"]
+    for key, val in data.items():
+        lines.append(f"{f"{key}:":<8} {val:>8.2f}")
+        
+    return '\n'.join(lines)

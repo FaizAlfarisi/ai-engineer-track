@@ -163,3 +163,16 @@ if __name__ == "__main__":
 - reusable report formatter since it is used in two func 
 ##### Alternative Considered
 - direct set the csv path in the service, but it is need from pathlib import Path which is not the scope of service, it should be on consistent on config
+
+### feat: report weekly and summary:
+##### Decision
+- change utils/validators.py to utils/datetime_helper.py, add more helper related to datetime
+- refactor validate_date to return converted datetime
+- summary counted manualy outside the dict first before construct it to dict
+##### Why 
+- weekly report need datetime helper, moreover this project doesnt need more validators
+- it can be reuse in weekly report service since the extract year week need the datetime object to get the desired format (year and week)
+- count total net easier and build the summary dict with the expected sequence (income then expense then net)
+##### Alternative Considered
+- the extract_year_week can convert by itself since the recorded data has a low chance of invalid date
+- dict.get method to set the summary, but it need to count net inside the loop
