@@ -1466,5 +1466,32 @@ Lesson 17 — Testing with pytest (CORE, Stage 3 opener) — **98/100**
 
 ### Tomorrow Goal
 
-DSA #2 (Week 2, due) — never mixed into stage lessons. L13 reflection
-recorded 2026-09-16. Next lesson: L18 (Stage 3 continues).
+Lesson 18 (learner's choice: L18 first). DSA #2 (Week 2, due) stays owed
+and queues after L18 per stage-lesson isolation. L13 reflection recorded
+2026-09-16.
+
+### Coach Feedback — Session 22 review (learner → mentor)
+
+The learner reviewed this session before moving on. Standing calibration
+for L18 and all future targets.
+
+1. Lesson coverage: exercises used mechanisms the lesson never taught —
+   `lambda`, `isinstance`, `str.splitlines()`/membership. lesson.md has
+   zero mentions; they appear in budget.py:11, price_utils.py:51,69,
+   test_print.py:12, test_report_cases.py:19,28. The learner asked GenAI
+   for the *intent* of almost every exercise.
+   → Action: coverage audit gate at lesson build (every exercised
+     construct taught with ≥1 worked example, or declared "provided").
+2. Exercise intent not delivered: specs gave command/expected/constraints
+   but not the mechanism-intent, so instructions felt absent.
+   → Action: mechanism-intent lines in specs and lessons.
+3. Drilling approved; disappointment targets teaching completeness only.
+4. Tagging bug: notebook spec Type = `medium` for E5 (table: Easy) and
+   H1 (table/curriculum: Hard). E/M/H is a contract.
+   → Action: spec Type == practice-table tier, enforced at build.
+5. Scoring too loose: 98 was holistic, skipped SCORING.md buckets
+   (Correctness 25·Logic 20·Readability 15·Naming 10·Maintainability
+   10·Pythonic 10·Testing 5·Performance 5), rewarded assisted fixes too
+   cheaply. The learner's ~90s instinct was right.
+   → Action: bucket-derived scores, adjusted for hint dependency and
+     independent-fix ratio, from L18 onward.

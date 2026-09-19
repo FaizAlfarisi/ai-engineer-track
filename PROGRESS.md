@@ -573,3 +573,9 @@ See `DSA_TRACK.md` for the track definition.
   carry-forward note in review. `solution.py` stays blank per R16 (this
   lesson is test-authoring, not module-writing). Review:
   `review/lesson-17-review.md`. Next: DSA #2 (Week 2, due) then L18.
+Session 22 ended with learner coach-feedback (coverage gate for exercised
+constructs, mechanism-intent in specs, tag contract spec Type == table
+tier, bucket scoring). Applied to L18 FIRST (learner's choice); DSA #2
+(Week 2) remains owed, queued after L18 per stage-lesson isolation. L17
+scores untouched per learner instruction. Full block: DAILY_LOG Session
+22 "Coach Feedback".
