@@ -556,3 +556,20 @@ See `DSA_TRACK.md` for the track definition.
   intact per learner request. L13 reflection recorded 2026-09-16
   (DAILY_LOG). Next: L17 Testing (pytest) opens Stage 3; DSA #2 (Week 2)
   due.
+- Lesson 17 (2026-09-20): Testing with pytest (CORE, Stage 3 opener) —
+  98/100, mastery 3, hint dependency ~1–2 (external theory research on
+  ids/built-ins; three review-guided fix rounds). Quick Recall 6/6 incl.
+  ScopeMismatch reasoning + vacuous-pass danger. All 52 tests green,
+  read-only verified (caches off). Review ran three rounds; core lesson:
+  three "green for the wrong reason" tests — vacuous CSV loader test,
+  `returns_float` asserting `== 0.0`, and a `for` loop inside a test.
+  The honest `isinstance` fix surfaced the real trap (`sum([])` is `int
+  0`): the test now carries its own non-empty input. Misconception
+  lifecycle: "green ≠ proven" CLOSED via reframe, not coloring. H1
+  bug-report cell written into the notebook (live evidence). Learner
+  feedback: why-`ids` + built-ins (`splitlines`/`isinstance`/`float()`)
+  and `lambda` (provided in `budget.py` top_spend) were untaught →
+  re-learned via internet/GenAI; why-ids line patched into E5 spec;
+  carry-forward note in review. `solution.py` stays blank per R16 (this
+  lesson is test-authoring, not module-writing). Review:
+  `review/lesson-17-review.md`. Next: DSA #2 (Week 2, due) then L18.

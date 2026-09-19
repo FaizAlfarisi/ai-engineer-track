@@ -1406,3 +1406,65 @@ score set in `projects/weekly-project-02-expense-manager/review-2.md`).
 
 Stage 3 opens with Lesson 17 — Testing (pytest). L13 reflection still
 owed; DSA #2 (Week 2) due.
+
+## Session 22 — 2026-09-20
+
+### Lesson
+
+Lesson 17 — Testing with pytest (CORE, Stage 3 opener) — **98/100**
+(draft round-1 92/100; closed after round-3 fixes), **52/52 tests green**.
+
+### Session notes
+
+- Quick Recall 6/6 before the exercises: tmp_path/loader contract,
+  `test_*` naming, a no-assertion test proves nothing, ScopeMismatch
+  (a wider fixture may never request a narrower one), parametrize
+  `ids=` localizes a failing row, capsys/tmp_path/test-suite roles.
+- Built E1–E5, M1–M3, H1, H2 + the 4-file Challenge; fixture moved into
+  `conftest.py`, `monkeypatch` seam proof, `-0.0 -> "zero"`, byte-exact
+  report tests. Full suite 52/52 green (read-only verified, caches off).
+- Review ran three rounds:
+  - R1 (92/100): three "green for the wrong reason" tests flagged —
+    vacuous CSV loader test, `returns_float` asserting `== 0.0`, and a
+    `for` loop inside a test; plus cosmetics.
+  - R2: the honest `isinstance` fix exposed the trap — `total_spend([])`
+    is `sum([])` = `int 0`, so the empty fixture fights the assertion.
+  - R3: the test carries its own `[1.5, 2.5]` input, the loop is gone,
+    suite green.
+- Notebook aligned with the shipped solution: E5 re-pinned 6→7
+  (`test_signed` added), spec text rewritten, ANSI outputs normalized,
+  the learner's H1 bug-report cell preserved.
+- Learner feedback: why-`ids`, built-in methods (`splitlines`,
+  `isinstance`, `float()`), and `lambda` were untaught → re-learned via
+  internet + GenAI. Why-ids line patched into the E5 spec; carry-forward
+  note placed in `review/lesson-17-review.md` (pre-teach or declare
+  `lambda`; keep built-ins explicit in specs).
+
+### Reflection — Lesson 17 (2026-09-20)
+
+- Decision: reframed the loader test to honestly claim CSV rows are junk
+  to the number loader, and removed the redundant loop test. Re-learned
+  a lot of theory through the internet + GenAI (why `ids=`, built-in
+  method usage) — theory the lesson and exercises did not explain.
+- Hardest to debug: `test_total_spend_returns_float` — it took the
+  longest because I did not get the *intent* of fixing that test case;
+  the honest `isinstance` check then revealed `sum([])` is an int, not a
+  float.
+- Concepts reused: the Path concept, `lambda` (not officially learned in
+  this Learning OS), and type methods (`splitlines`, `isinstance`).
+- Next: solve the buggy/unsatisfying parts independently instead of
+  waiting through my mentor's 2–3 review rounds.
+- Skipped per learner: the alternative-considered prompt and the
+  change-if-requirements prompt. Hint dependency (reviewer-assigned):
+  level 0 for exercise solving — E1–M3, H1 (all four bugs) and the
+  Challenge done unaided; level 1–2 during the three review-fix rounds,
+  where the "green ≠ proven" findings guided the test-intent fixes.
+
+### Time Studied
+
+~2 hours total (learner estimate)
+
+### Tomorrow Goal
+
+DSA #2 (Week 2, due) — never mixed into stage lessons. L13 reflection
+recorded 2026-09-16. Next lesson: L18 (Stage 3 continues).
