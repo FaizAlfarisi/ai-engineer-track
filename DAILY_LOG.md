@@ -1495,3 +1495,90 @@ for L18 and all future targets.
    cheaply. The learner's ~90s instinct was right.
    → Action: bucket-derived scores, adjusted for hint dependency and
      independent-fix ratio, from L18 onward.
+
+## Session 23 — 2026-09-22
+
+### Lesson
+
+Lesson 18 — HTTP & API Concepts (CORE, Stage 3) — **93/100**,
+mastery 3→4, hint dependency 0. First bucket-scored lesson (Coach
+Feedback #5 applied).
+
+### Session notes
+
+- Quick Recall 6/6 before the exercises, including the two non-obvious
+  ones: `HTTPError` must be caught before `URLError` (subtype), and the
+  response body must be read once then decoded once.
+- Built E1–E5, M1–M3, H1, H2 + the Challenge. All 9 suites green,
+  read-only verified in the lesson folder (caches off): H1 `4 passed`,
+  H2 `3 passed`, Challenge `2 passed`.
+- H1 debug drill: all four planted bugs fixed traceback-driven, each
+  mapping to a lesson.md "common mistakes" entry (double read →
+  JSONDecodeError; wrong dict key after decode; missing `urlencode` for
+  the space in "new york"; `except URLError` before `except HTTPError`).
+- H2 is genuine engineering: `StoreAPI` context manager, daemon serving
+  thread, per-instance `ITEMS`/`NEXT_ID` reset, and `_safe()` sweeping
+  `ConnectionResetError`/`BrokenPipeError` seen during live runs — real
+  operability work, not theory.
+- Challenge merge logic correct and pinned: `fresh = len(network)`,
+  `kept = len(cached − network)`, network overrides cache, output sorted
+  by id. Pin `Cache: 5 items (fresh 4, cached 1)` exact; missing
+  `--refresh` now exits 1 with usage on stderr.
+- Review findings + independent fixes: M1 broad `except Exception` →
+  `json.JSONDecodeError`; `status_family` gets `case _: return "?"`;
+  `--refresh` guard; `timeout=` on clients; dead `# resp.read()` removed;
+  import lines split (incl. the one-line fix in `client_basics.py` this
+  session). 7/8 findings fixed unaided — independent-fix ratio strong.
+- **Deliberate spec deviation (kept by learner decision):** H2 exercise
+  contract calls `store_server.start(port=0)`; learner's module exports
+  the `StoreAPI` class instead. Behavior fully correct and pinned by the
+  learner's own `test_store.py`. Consequence applied: interface-criterion
+  deduction only (~2 pts), BEFORE scoring out of 100. Contract-faithful
+  reference delivered as `store_server_ref.py` + `test_store_ref.py`
+  (trust the l18bld temp model, not the earlier pasted draft); both H2
+  suites pass side-by-side (6 passed) — proves class-based and
+  factory-based server designs are drop-in compatible with the same
+  `store_client.py`.
+- Notebook: 24 cells valid (spec + drivers), all driver cells executed,
+  H1 bug-report slots filled by the learner in-session.
+- Housekeeping: stray `cache.json`, `cache.csv`, `.pytest_cache/`,
+  `__pycache__/` removed from the lesson folder; re-verification run
+  green (12 passed) after cleanup.
+- Review: `review/lesson-18-review.md` (bucket table 23/20/14/10/8/8/5/5).
+
+### Reflection — Lesson 18 (2026-09-22)
+
+- What decision did you make? I created a new local_api that was
+  unnecessary — but I learned from that: first, I have to read the
+  instructions more carefully; second, I can read the code behind the
+  provided local_api and reproduce it (even though it was mostly just
+  mirroring it). For the Challenge merge function I used set and dict
+  for efficient computation.
+- Why that approach? What alternative did you consider? The set/dict
+  approach is one of the behaviors I want to build, so I took time to
+  think and research. The alternative was using a list and looping.
+- Which bug took the longest to diagnose? No hard bug — it was kind of
+  obvious.
+- What misunderstanding caused it? Not reading carefully, and the
+  instruction did not show the flow clearly. I lack English skill.
+- Which concept from a previous lesson did you use? A lot — type hints,
+  pathlib, json, csv, try/except, the `__main__` guard, etc.
+- What would you change if requirements changed? I don't know yet —
+  because my process is: decide the problem first, then build the
+  solution at the higher level, then build it at the lower level. So a
+  requirements change would re-trigger the problem-first decision, then
+  the high-level design, then the low-level build.
+- What could you implement fully independently next time? I want to
+  build the behavior of computing as efficiently as possible, using
+  things like set and dict, based on my own knowledge.
+- Hint dependency this session — exercises level 0; review-fix loop
+  level: (reviewer-assigned: level 1 diagnostic → learner implemented).
+
+### Time Studied
+
+~2.5 hours total (learner estimate)
+
+### Tomorrow Goal
+
+DSA #2 (Week 2, due) then Lesson 19 — Requests (CORE). L13 reflection
+recorded 2026-09-16. L18 reflection pending above.

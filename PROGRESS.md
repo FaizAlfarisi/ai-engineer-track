@@ -10,11 +10,11 @@ Completion ≠ mastery. This file tracks mastery.
 ## Current Position
 
 ```text
-Stage:        Stage 2 — Python Application (COMPLETE)
-Current:      Weekly Project 2 — Expense/Transaction Manager DONE — 88/100 (Stage 2 evidence banked)
-Next:         Lesson 17 — Testing (pytest) opens Stage 3; DSA #2 (Week 2) due
-Weekly Proj.: WP1 85/100; WP2 88/100 — Stage 2 complete
-Quizzes:      Quiz 02 done (84.7%); next quiz window after L17
+Stage:        Stage 3 — Python Engineering (in progress)
+Current:      Lesson 18 — HTTP & API concepts DONE — 93/100 (bucket-scored); H1+H2+Challenge green
+Next:         DSA #2 (Week 2, due) then Lesson 19 — Requests (CORE)
+Weekly Proj.: WP1 85/100; WP2 88/100 — Stage 2 complete; next weekly project opens ~3 lessons into Stage 3
+Quizzes:      Quiz 02 done (84.7%); next quiz window ~3 lessons into Stage 3
 DSA Track:    1 session/week, interleaved — Week 2 session due
 Git:          commit after every session from Stage 2 onward
 ```
@@ -54,6 +54,8 @@ Stage 1 values were migrated from V1 session evidence and are marked
 | Operators & boolean logic | SUPPORTING | 4 (prov.) | High | none recent | None | L2, L3 | 2026-08-05 |
 | Console I/O | SUPPORTING | 3 | High | degenerate argv paths (`--seed` alone → IndexError, L7) | Specific ×1 (with consent) | L3, L7 | 2026-08-13 |
 | Dataclass | SUPPORTING | 3 | High | H1: all 4 planted bugs caught (shared-mutable-default ValueError, amount:str lie, frozen mutation, `== "income"` never True); new-concept study required GenAI explanation for dataclass purpose / enum solving / frozen constraint (disclosed; wean target set); H1 write-up blank under duty → worked model in review | None | Challenge: L15 expense package refactored onto frozen dataclass + Kind model, interfaces preserved, byte-exact; `mypy` clean on both entry points | 2026-09-11 |
+| Testing with pytest (fixtures, parametrize, tmp_path/capsys/monkeypatch, vacuous-pass trap) | CORE | 3→4 | High | three "green for the wrong reason" tests (vacuous CSV loader test; `returns_float` asserting `== 0.0`; a `for` loop inside a test) — closed via the honest `isinstance` reframe, not coloring; `sum([])` is `int 0`. Carry-forward: `lambda`/`ids=`/built-ins pre-teach or declare | ~1–2 | L17 Challenge + WP2 regression tests; L18 tests spin the real local server in a fixture | 2026-09-22 |
+| HTTP & API concepts (urllib, status codes, error classes, client/server patterns) | CORE | 3→4 | High | H2 spec-literalness deviation kept BY DECISION: module exports `StoreAPI` class instead of `start(port=0)` — behavior correct, contract symbol absent; consequence stated (+ reference model delivered, deduction applied). Nits: bare `except Exception` in post/search clients retained | 0 (review loop level 1) | L18 Challenge caching CLI (network+disk merge); reference pair proves class-based vs factory server drop-in compatible | 2026-09-22 |
 | `match` beyond literal patterns | AWARENESS | 2 | — | deferred by design (JSON Stage 2, API Stage 4) | — | — | 2026-08-13 |
 
 ---
@@ -112,6 +114,8 @@ Diagnostic only — never punishment.
 | L10 | 0 | H1 narrative slots pre-filled by reviewer at build (leak); learner flagged it proactively, fixed code independently |
 | L11 | 0 | H1 write-in slots BLANK — no leak recurrence; fixes independent |
 | L13 | 0 | clue-free throughout; H1 three-bug drill fixed independently (chose `__init__.py` re-export over patching main only); Challenge fix round independent |
+| L17 | 1–2 | exercise solving level 0 (incl. H1 all four bugs); review-guided test-intent fixes were level 1–2 across three rounds |
+| L18 | 0 | Quick Recall 6/6 unaided; E1–M3, H1, H2, Challenge solved independently; review-fix loop level 1 (diagnostic findings → learner implements) |
 
 Repeated level-2+ dependency on a topic ⇒ that topic returns for targeted
 practice before moving forward.
@@ -136,6 +140,8 @@ practice before moving forward.
 - [x] Lesson 14 — Basic Typing (92/100)
 - [x] Lesson 15 — OOP (92/100)
 - [x] Lesson 16 — Dataclass (92/100)
+- [x] Lesson 17 — Testing with pytest (98/100)
+- [x] Lesson 18 — HTTP & API Concepts (93/100)
 
 ---
 
@@ -156,6 +162,8 @@ practice before moving forward.
 - [x] Lesson 14 Challenge — budget_tool package (load/compute/write + transactions.json → monthly.csv + categories.csv; signed net_by_month/net_by_category; fully annotated; `mypy main.py` clean)
 - [x] Lesson 15 Challenge — class-based expense core (expense/{load,compute,write} + main.py → monthly.csv + categories.csv; E1 Transaction model reused across package; composition + delegation; prints from the CSVs it writes; `mypy main.py` + `main_h1.py` clean)
 - [x] Lesson 16 Challenge — dataclass expense core (same expense/{load,compute,write} + main.py interfaces as L15, refactored onto the frozen `kind.Transaction` model; `Kind(record["kind"])` on load, `signed_amount()` sign rule; byte-exact output; `mypy main.py` + `main_h1.py` clean)
+- [x] Lesson 17 Challenge — four-file pytest suite (test_budget / test_loaders / test_formatting / test_report_cases); fixtures in `conftest.py`; 52/52 green
+- [x] Lesson 18 Challenge — cache_cli.py (local_api server + network fetch + cache.json/cache.csv read/write + merge override semantics; pin `Cache: 5 items (fresh 4, cached 1)`; GUARD: missing `--refresh` now exits 1 with usage on stderr)
 - [x] Weekly Project 2 — Expense/Transaction Manager CLI (Stage 2 capstone; layered configurations/models/repositories/services/utils + main.py router; frozen L16 model end-to-end; add/list/report monthly/report categories + SG1 summary + SG3 weekly; scoped error prefixes on stderr + exit 1; corrupt-data guard; `mypy main.py` clean; T1–T17 matrix 25/25 green in a temp copy; 88/100)
 
 ---
@@ -579,3 +587,27 @@ tier, bucket scoring). Applied to L18 FIRST (learner's choice); DSA #2
 (Week 2) remains owed, queued after L18 per stage-lesson isolation. L17
 scores untouched per learner instruction. Full block: DAILY_LOG Session
 22 "Coach Feedback".
+- Lesson 18 (2026-09-22): HTTP & API Concepts (CORE, Stage 3) — 93/100,
+  mastery 3→4, hint dependency 0 (review-fix loop level 1). This lesson
+  was the FIRST bucket-scored target (Coach Feedback #5): Correctness 23
+  (H2 exported interface), Logic 20, Readability 14, Naming 10,
+  Maintainability 8, Pythonic 8, Testing 5, Performance 5 = 93. Quick
+  Recall 6/6 incl. HTTPError-before-URLError ordering + read-once body
+  trap. All 9 suites green, read-only verified (H1 4, H2 3, Challenge 2),
+  plus the reference pair (12 passed). H1 four bugs fixed traceback-
+  driven, each mapping to lesson.md's "common mistakes". H2 is real
+  engineering: context-manager server, daemon thread, instance-state
+  reset, `_safe()` connection-reset sweeps. DELIBERATE spec deviation
+  surfaced and kept: `StoreAPI` class instead of `start(port=0)` — full
+  consequence stated; contract-faithful reference delivered as
+  `store_server_ref.py` + `test_store_ref.py` without touching learner
+  work; both H2 suites green side-by-side (drop-in compatible client).
+  Challenge merge semantics correct (fresh=len(network),
+  kept=cached−network, network overrides, sorted; pin exact). Review:
+  `review/lesson-18-review.md`. Housekeeping: stray cache artifacts
+  removed. Next: DSA #2 (Week 2, due) then L19 Requests (CORE). Learner
+  reflection names an engineering-process stance worth keeping: design
+  problem-first → high-level solution → low-level build; efficiency
+  via set/dict is an explicitly desired behavior. English is a
+  self-identified constraint on instruction reading — mentor should
+  confirm spec-as-intended rather than assume.
