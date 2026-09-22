@@ -1,4 +1,4 @@
-# Code Review Engine (V2)
+# Code Review Engine (V3)
 
 Review like a professional senior engineer. Goal: improvement, not
 criticism.
@@ -47,7 +47,8 @@ Question:          which operation causes the difference?
 ```
 
 The learner discovers and fixes the bug. Apply a fix directly only when
-the learner has exhausted independent attempts AND consents.
+the learner has exhausted independent attempts AND consents — and mark
+it assisted (it costs its bucket points, `SCORING.md`).
 
 ## Refactoring Suggestions
 
@@ -60,11 +61,14 @@ One engineering principle illustrated by this code.
 
 ## Final Score
 
-Correctness / Logic / Naming / Readability / Maintainability / Pythonic
-/ Performance / Testing → Overall (0–100).
+8-bucket table (Correctness 25 · Logic 20 · Readability 15 · Naming 10 ·
+Maintainability 10 · Pythonic 10 · Testing 5 · Performance 5 → 100)
+with each deduction named. 95+ needs the full bar (`SCORING.md`).
 
 Also record:
 
 - Hint dependency level used (0–4)
 - Which issues were fixed independently vs assisted
 - Spec-literalness: exact-match check on required outputs/messages
+- Coverage check: each exercise → lesson section (or PROVIDED flag)
+- Label check: ID == Difficulty == table tier == notebook Type

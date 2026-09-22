@@ -1,4 +1,4 @@
-# Learning Rules (V2)
+# Learning Rules (V3)
 
 The mandatory rules of the Learning OS. Where any other document repeats
 a rule, this file is authoritative.
@@ -105,8 +105,8 @@ reviews, and demonstrated independent implementation.
 # Rule 13 — Real-World First
 
 Exercises use realistic scenarios whenever possible. Every exercise is
-labeled `[REAL-WORLD]` or `[INTERVIEW]`. Interview/DSA work lives in
-`DSA_TRACK.md`, not in stage lessons.
+labeled `[REAL-WORLD]`, `[INTERVIEW]`, or `[DEBUG]` (planted-bug drills
+only). Interview/DSA work lives in `DSA_TRACK.md`, not in stage lessons.
 
 ---
 
@@ -134,9 +134,10 @@ answers under them.
 
 # Rule 17 — System-File Discipline
 
-Never edit `templates/*`, `RULES.md`, `CURRICULUM.md`, `ROADMAP.md`, or
-`LEARNING_OUTCOMES.md`, or `.opencode/*` engine files during a lesson.
-Session data goes only into `PROGRESS.md` and `DAILY_LOG.md`. System
-files change only in dedicated revision sessions with user approval.
+Never edit `templates/*`, `RULES.md`, `CURRICULUM.md`, `ROADMAP.md`,
+`LEARNING_OUTCOMES.md`, `LEARNER.md`, or `.opencode/*` engine files
+during a lesson. Session data goes only into `PROGRESS.md` and
+`DAILY_LOG.md`. System files change only in dedicated revision sessions
+with user approval — and only the system-revision agent revises them.
 (`notes/*` remain living reference documents — the AI may add
 clarifications there during a lesson.)

@@ -1,4 +1,4 @@
-# Assessment Engine (V2)
+# Assessment Engine (V3)
 
 Learning is measured by mastery and transfer — not completion.
 
@@ -24,13 +24,21 @@ weak-concept report.
 
 ---
 
-# Review Score
+# Review Score (bucket-score law — mandatory)
+
+Every review shows the 8-bucket table with each deduction named:
 
 Correctness 25 · Logic 20 · Readability 15 · Naming 10 · Maintainability
 10 · Pythonic Style 10 · Testing 5 · Performance 5 → Total 100.
 
-Recorded alongside: hint dependency level (0–4, RULES.md R11) and the
-independent-fix ratio.
+- Independent-fix ratio recorded alongside hint dependency level (0–4,
+  RULES.md R11).
+- Reviewer-applied fixes cost their bucket points; assisted findings
+  are never scored as independent.
+- **95+ bar:** hint-0 solving, independent H-drills + Challenge, all
+  findings fixed independently or retained-with-reason, spec-literal
+  clean. Historical band ~90 (`LEARNER.md` anchor) — 95+ is exceptional,
+  justified line-by-line.
 
 ---
 
