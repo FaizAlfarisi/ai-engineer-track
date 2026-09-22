@@ -1,0 +1,6 @@
+coffee,-3.50
+salary,+2500.00
+rent:bad
+
+-12
+snacks,+4.20

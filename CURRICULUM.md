@@ -1,10 +1,8 @@
 # Curriculum (V2)
 
-Lessons are not isolated units. Every new lesson connects to previous
-lessons wherever a meaningful relationship exists.
-
-The curriculum defines HOW topics are learned — depth is set by the
-topic's priority tier in `ROADMAP.md`.
+Depth is set by the topic's priority tier (`ROADMAP.md`). Adaptation and
+volume follow RULES.md R6. Lessons connect to previous knowledge — never
+isolated units (RULES.md R14).
 
 ---
 
@@ -20,214 +18,94 @@ Every lesson contains:
 5.  Practical Examples
 6.  Engineering Notes
 7.  Common Pitfalls
-8.  Connection to Previous Knowledge
+8.  Connection to Previous Knowledge  (mandatory)
 9.  Quick Recall
 10. Practice
 ```
 
 Rules:
 
-- Sections are concise and adaptive, never padded.
-- Visualization, deeper theory, or an Applied AI perspective are added
-  ONLY when they provide real value for that specific topic.
+- Concise and adaptive, never padded.
+- Visualization, deeper theory, or an Applied-AI perspective appear ONLY
+  when they genuinely help this topic.
 - No section exists merely because the template lists it.
-- Section 8 (Connection to Previous Knowledge) is mandatory for every lesson.
 
 ---
 
 # Learning Pipelines by Priority Tier
 
-Do not force every topic through the same pipeline.
-
 ## CORE
 
 ```text
-Concept
-↓
-Basic implementation
-↓
-Multiple easy exercises
-↓
-Combined medium exercises (current + previous concepts)
-↓
-Complex hard exercises (ambiguity, edge cases, design decisions)
-↓
-Debugging drill
-↓
-Refactoring pass
-↓
-Project integration
-↓
-Later retrieval (unannounced)
+Concept → Basic implementation → Multiple easy exercises →
+Combined medium (current + previous) → Complex hard (ambiguity, edge
+cases, design decisions) → Debugging drill → Refactoring pass →
+Project integration → Later unannounced retrieval
 ```
 
 ## SUPPORTING
 
 ```text
-Concept
-↓
-Basic implementation
-↓
-1–3 practical exercises
-↓
-Integration exercise
-↓
-Assessment
+Concept → Basic implementation → 1–3 practical exercises →
+Integration exercise → Assessment
 ```
 
 ## AWARENESS
 
 ```text
-Concept
-↓
-Mental model
-↓
-Example
-↓
-Small implementation or code reading
-↓
-Move on
+Concept → Mental model → Example → Small implementation or code reading
+→ Move on
 ```
 
 ## PROJECT-DEPENDENT
 
 ```text
-Introduce when the project needs it
-↓
-Learn enough to proceed
-↓
-Apply
-↓
-Review
+Introduce when a project needs it → Learn enough to proceed →
+Apply → Review
 ```
 
 ---
 
-# Exercise Progression
+# Exercise Difficulty Purposes
 
-Exercise volume is NOT fixed. It depends on topic tier and demonstrated
-mastery. The old universal distribution (5 Easy / 3 Medium / 2 Hard) is
-retired.
-
-Each difficulty has a distinct purpose:
-
-## Easy
-
-Tests: can the learner correctly implement the fundamental behavior of
-the concept?
-
-Using a method, implementing a basic operation, demonstrating a
-characteristic, transforming simple data. Easy does NOT mean trivial
-copy-paste syntax.
-
-## Medium
-
-Combines current lesson + previous concepts meaningfully.
-
-Example: current topic is JSON; previous topics include functions,
-collections, modules → medium exercises require those combined.
-
-## Hard
-
-Multiple concepts, more ambiguous requirements, edge cases, design
-decisions, debugging, less explicit guidance. The learner must reason
-before coding.
-
-## Challenge / Micro Build
-
-Integrates current topic + multiple previous topics + a realistic
-requirement. No step-by-step implementation plan is provided. It should
-resemble a small real-world engineering task.
-
----
-
-# Cumulative Recall (Mandatory)
-
-Every new lesson inspects relevant previous topics and weaves them into
-exercises — selectively, based on meaningful relationships, never
-mechanically.
-
-Example — current topic File Handling:
-
-Relevant previous: functions, collections, modules, error handling.
-
-Weak exercise: "Write code to open a file."
-Strong exercise: "Build a function that reads transaction data from a file
-and returns a summarized dictionary."
-
-High-priority skills (functions, collections, control flow) must keep
-reappearing in later lessons and projects without being announced as
-reviews. Implicit retrieval, not labeled revision.
-
----
-
-# Real-World Use Cases (Mandatory)
-
-Whenever reasonably possible, exercises use realistic scenarios:
-
-transaction processing, expense tracking, inventory, log analysis, file
-processing, API clients, configuration management, data cleaning,
-automation, reporting, CLI utilities, dataset processing, backend
-services, AI-related preparation.
-
-Avoid artificial exercises whose only purpose is demonstrating syntax.
-
-Interview/algorithmic exercises are allowed when they provide meaningful
-interview preparation — but every exercise MUST be explicitly labeled:
-
-```text
-[REAL-WORLD]   engineering scenario
-[INTERVIEW]    algorithmic / DSA practice
-```
+- Easy: fundamental behavior of the concept (not trivial copy-paste).
+- Medium: current concept + previous concepts combined meaningfully.
+- Hard: multiple concepts, ambiguity, edge cases, design decisions,
+  debugging, less explicit guidance — reason before coding.
+- Challenge / Micro Build: current + multiple previous topics + a
+  realistic requirement, no step-by-step plan — a small real engineering
+  task.
 
 ---
 
 # Code Reading & Debugging Drills
 
-Regularly (not every lesson) the learner receives unfamiliar code and must:
+Regularly (not every lesson) replace one exercise with:
 
-- explain what it does
-- predict output
-- identify bugs
-- identify maintainability problems
-- suggest refactoring
-- identify edge cases
+- Unfamiliar code: explain it, predict output, find bugs, spot
+  maintainability problems, suggest refactoring, identify edge cases.
+- Buggy code: learner runs the protocol in `notes/DEBUGGING.md`
+  (Reproduce → Traceback → Locate → Hypothesis → Test → Fix → Explain
+  root cause). The AI never reveals the bug directly.
 
-Sometimes intentionally buggy code is provided. The learner follows the
-debugging protocol in `notes/DEBUGGING.md`:
-Reproduce → Read traceback → Locate suspicious area → Hypothesis →
-Test hypothesis → Fix → Explain root cause.
-The AI never reveals the bug directly.
-
-After working code is produced, sometimes: "The code works. Now improve it."
-(Refactoring practice — see `notes/PYTHONIC.md`.)
+After working code, sometimes: "The code works. Now improve it."
+(Refactoring practice — `notes/PYTHONIC.md`.)
 
 ---
 
 # Quizzes
 
-Operational, selective — not after every lesson.
-
-Schedule: roughly every 3 related lessons, plus optional stage midpoints.
-
-```text
-Several related lessons
-↓
-Quiz
-↓
-Identify weak concepts
-↓
-Targeted practice
-```
-
-Quiz formats: conceptual explanation, code reading, predict-the-output,
-debug-this, practical application. Multiple-choice is used sparingly.
+Roughly every 3 related lessons (RULES.md R15), plus optional stage
+midpoints. Formats: conceptual explanation, code reading,
+predict-the-output, debug-this, practical application. Multiple choice
+sparingly. Result: weak-concept report → targeted practice.
 
 ---
 
 # Projects
 
-Three levels, all real parts of the workflow:
+Three levels, all real parts of the workflow (independence rule:
+RULES.md R7):
 
 | Level | When | Purpose |
 |-------|------|---------|
@@ -235,10 +113,11 @@ Three levels, all real parts of the workflow:
 | Weekly Project | every 3–4 lessons | combine concepts + make decisions + build something useful |
 | Stage Project | end of each stage | demonstrate independent engineering ability |
 
-The AI provides problem, requirements, constraints, acceptance criteria,
-and optional stretch goals — never a full implementation or a
-step-by-step plan. For stage projects the learner designs substantial
-parts independently; the AI clarifies requirements and reviews.
+Briefs (see `templates/project-template.md`): problem, requirements,
+constraints, acceptance criteria, optional stretch goals — never a full
+implementation or step-by-step plan. Stage projects: the learner designs
+substantial parts independently; the AI clarifies requirements and
+reviews.
 
 ---
 
@@ -246,18 +125,3 @@ parts independently; the AI clarifies requirements and reviews.
 
 Knowledge → Understanding → Application → Debugging → Refactoring →
 Project Building → Teaching Others
-
----
-
-# Adaptation Rules
-
-- Struggling → reduce complexity, target the specific misconception,
-  practice, reassess.
-- Consistently strong → increase ambiguity, combine more concepts,
-  reduce hints, increase independence.
-- Extremely strong → skip redundant exercises, move toward projects and
-  unfamiliar problems.
-- If understanding, independent implementation, successful debugging,
-  and transfer are all demonstrated — STOP generating repetitive
-  exercises and move forward. Depth comes from meaningful repetition,
-  not repetition for its own sake.

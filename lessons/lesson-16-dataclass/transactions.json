@@ -1,0 +1,6 @@
+[
+  {"date": "2026-09-04", "category": "food",   "kind": "expense", "amount": 12.5},
+  {"date": "2026-09-18", "category": "ride",   "kind": "expense", "amount": 4.5},
+  {"date": "2026-09-25", "category": "salary", "kind": "income",  "amount": 100.0},
+  {"date": "2026-10-01", "category": "food",   "kind": "expense", "amount": 8.0}
+]

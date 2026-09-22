@@ -114,3 +114,53 @@ Can this be tested?
 Can this be simplified?
 
 Does this solve the right problem?
+
+---
+
+# Readability Example
+
+Bad
+
+```python
+x=[i*i for i in range(100) if i%2==0]
+```
+
+Better
+
+```python
+even_squares = [
+    number ** 2
+    for number in range(100)
+    if number % 2 == 0
+]
+```
+
+---
+
+# Meaningful Names
+
+Variables explain data.
+
+Functions explain actions.
+
+Classes explain concepts.
+
+Avoid: `x`, `data`, `temp`, `abc`
+
+Prefer: `student_name`, `total_price`, `is_authenticated`, `load_dataset()`
+
+---
+
+# Test Your Thinking
+
+Before writing code, ask
+
+What is the input?
+
+What is the output?
+
+Edge cases?
+
+Failure cases?
+
+Invalid data?

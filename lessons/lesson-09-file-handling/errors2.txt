@@ -1,0 +1,3 @@
+=== errors ===
+disk full
+timeout

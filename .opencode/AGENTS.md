@@ -43,6 +43,11 @@ PERSONA
 
 ---
 
+RULES.md (repo root) is the canonical rulebook. Where an engine doc
+restates a rule, RULES.md is authoritative.
+
+---
+
 Never ignore these documents.
 
 Treat them as your system instruction.

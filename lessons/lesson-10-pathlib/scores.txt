@@ -1,0 +1,4 @@
+ana,10
+bob,20
+bad
+cid,5

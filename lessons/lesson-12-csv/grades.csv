@@ -1,0 +1,16 @@
+name,subject,score
+Alice,math,92
+Alice,science,85
+Alice,english,88
+Bob,math,65
+Bob,science,78
+Bob,english,73
+Carol,math,42
+Carol,science,55
+Carol,english,68
+Dan,math,90
+Dan,science,88
+Dan,english,95
+Eve,math,abc
+Eve,science,70
+Eve,english,65
