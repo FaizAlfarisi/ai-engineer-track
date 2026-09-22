@@ -11,11 +11,11 @@ Completion ≠ mastery. This file tracks mastery.
 
 ```text
 Stage:        Stage 3 — Python Engineering (in progress)
-Current:      Lesson 18 — HTTP & API concepts DONE — 93/100 (bucket-scored); H1+H2+Challenge green
-Next:         DSA #2 (Week 2, due) then Lesson 19 — Requests (CORE)
+Current:      Lesson 18 — HTTP & API concepts DONE — 93/100 (bucket-scored); DSA #2 (two pointers) DONE
+Next:         Lesson 19 — Requests (CORE)
 Weekly Proj.: WP1 85/100; WP2 88/100 — Stage 2 complete; next weekly project opens ~3 lessons into Stage 3
 Quizzes:      Quiz 02 done (84.7%); next quiz window ~3 lessons into Stage 3
-DSA Track:    1 session/week, interleaved — Week 2 session due
+DSA Track:    1 session/week, interleaved — Week 3 session due next week
 Git:          commit after every session from Stage 2 onward
 ```
 
@@ -307,11 +307,11 @@ practice before moving forward.
 
 ## Scores & Hours
 
-Average Review Score: 90.9 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90, L10: 92, L11: 93, WP1: 85, L12: 92, L13: 92, L14: 92, L15: 92, L16: 92, WP2: 88)
+Average Review Score: 91.3 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90, L10: 92, L11: 93, WP1: 85, L12: 92, L13: 92, L14: 92, L15: 92, L16: 92, WP2: 88, L17: 98, L18: 93)
 
 Overall Mastery: Level 4 — debugging/refactoring independently
 
-Total Study Hours: ~31 hours (L14 2.5h, L15 3h, L16 1.5h, DSA#1 1h, WP2 ~6h added since the ~17.5h count)
+Total Study Hours: ~34.5 hours (L14 2.5h, L15 3h, L16 1.5h, DSA#1 1h, WP2 ~6h, L17 2h, L18 2.5h, DSA#2 ~1h added since the ~17.5h count)
 
 ---
 
@@ -340,6 +340,7 @@ See `DSA_TRACK.md` for the track definition.
 | Week | Problems | Pattern(s) | Approach Quality | Complexity Explained? |
 |------|----------|------------|------------------|----------------------|
 | 1 | most-total spending category (payments log of (category, total) pairs) | hash map — single-pass accumulate + argmax | correct 2-phase plan (group in dict → `max(items(), key=...)`); first attempt compared single payments only — counterexample (8×15 food beats 100 salary) exposed "largest single amount ≠ highest total"; edge cases: empty→`None` contract (no error-string returns), single entry, first-seen ties; single-pass running-max optimization noted (strict `>` keeps first-seen) | yes — O(n) build + O(k) scan ≈ O(n); O(k) space; argued O(n) is a lower bound (must read every payment) at senior review |
+| 2 | earliest first-coincidence between two sorted (minute, city) logs | two pointers — merged walk, advance smaller minute; tie → compare city, advance both | skipped brute force (O(n·m)) leapfrog named and corrected at drill; set-comprehension first version (O(n+m)/O(n)) traded to two-pointer (O(n+m)/O(1)) *via sorted-contract reasoning* — learner independently chose two-pointer order of operations; correct tie-both-advance justified by strictly-ascending minutes; edge cases: empty either side → `None`, tie-different-city → `None`, same city twice in one log → unaffected | yes — O(n+m) time, O(1) space vs set O(n) space; interview explanation hit invariant + tie-case + first-found-is-earliest + complexity; IDE-absent NameError (`data[i]` for `data_a[i]`) caught by read-the-error discipline |
 
 ---
 

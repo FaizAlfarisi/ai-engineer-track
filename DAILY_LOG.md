@@ -1582,3 +1582,37 @@ Feedback #5 applied).
 
 DSA #2 (Week 2, due) then Lesson 19 — Requests (CORE). L13 reflection
 recorded 2026-09-16. L18 reflection pending above.
+
+## DSA Session #2 (Week 2) — 2026-09-22
+
+### Problem
+
+Find the earliest minute at which two trucks are in the same city at the
+same time, from two sorted-by-minute `(minute, city)` logs; return
+`int | None`. Pattern: **two pointers** (first time applied in practice).
+~1h.
+
+### Session notes
+
+- Drill opened with a flawed example (I shipped a coincidence that didn't
+  exist) — the learner spotted it, not me.
+- Brute force (O(n·m)) leapfrogged by the learner on instinct; the skip
+  was named at the drill gate, not punished.
+- First solution was a dict/set comprehension from one log: O(n+m) time,
+  O(n) space, sortedness unused. Learner then reasoned: "if the data
+  contract says sorted, two-pointer is worth it; if not, set is better" —
+  the decision is now explicitly contract-driven.
+- Two-pointer: tie → compare city, advance **both** (justified by
+  strictly-ascending minutes: each minute appears once per list, so a
+  non-matching tie can never match anything later); first-found-is-
+  earliest by sortedness. O(n+m) time, O(1) space.
+- **Authentic review catch:** implemented in notepad, no IDE — `data[i]`
+  instead of `data_a[i]` (NameError). Fixed by reading the traceback;
+  the fail-fast error did its job (L8 idiom held under pressure).
+- Verified 6/6 read-only: coincidence at 8, no-coincidence → None,
+  tie-different-city → None, empty-a / empty-b → None, same-city-twice
+  in one log → returns the later minute (20) with no special casing.
+- Interview verbal explanation delivered; graded on invariant, tie-case,
+  earliest-correctness, complexity — all four hit.
+- Logged: `PROGRESS.md` DSA Log Row 2; average score moved to 91.3.
+- Next: Lesson 19 — Requests (CORE). Week 3 DSA due next week.
