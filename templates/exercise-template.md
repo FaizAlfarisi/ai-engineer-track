@@ -1,8 +1,18 @@
 # Exercise [ID] — [Topic]
 
+ID prefix == Difficulty below == practice-table tier == notebook Type.
+E=Easy, M=Medium, H=Hard, Challenge separate. No exceptions.
+
+## Intent
+
+One line: what to build + the mechanism/why. The main intent must
+survive skimming.
+
+---
+
 ## Type
 
-[REAL-WORLD] or [INTERVIEW]
+[REAL-WORLD] or [INTERVIEW] or [DEBUG] (planted-bug drills only)
 
 ---
 
@@ -24,11 +34,20 @@ Purpose:
 ## Rule / Input / Output Format
 
 (Explicit and unambiguous — standing directive. The spec is a contract;
-required outputs and error messages are stated verbatim.)
+required outputs and error messages are stated verbatim. **Bold the
+critical constraints.** Short sentences for critical rules.)
 
 ---
 
 ## Constraints
+
+---
+
+## Coverage
+
+(Required constructs → lesson section each, or PROVIDED flag.
+Coverage Contract: `CURRICULUM.md`. Never silently require an untaught
+tool — check `LEARNER.md` Tool Sync.)
 
 ---
 

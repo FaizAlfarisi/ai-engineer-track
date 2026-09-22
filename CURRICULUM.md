@@ -1,4 +1,4 @@
-# Curriculum (V2)
+# Curriculum (V3)
 
 Depth is set by the topic's priority tier (`ROADMAP.md`). Adaptation and
 volume follow RULES.md R6. Lessons connect to previous knowledge — never
@@ -6,7 +6,7 @@ isolated units (RULES.md R14).
 
 ---
 
-# Lesson Structure (V2)
+# Lesson Structure (V3)
 
 Every lesson contains:
 
@@ -34,23 +34,27 @@ Rules:
 
 # Learning Pipelines by Priority Tier
 
-## CORE
+Practice-table shape follows the tier. CORE uses the full form;
+SUPPORTING and AWARENESS use the reduced forms below — never a fixed
+count for every lesson.
+
+## CORE (full form)
 
 ```text
-Concept → Basic implementation → Multiple easy exercises →
-Combined medium (current + previous) → Complex hard (ambiguity, edge
-cases, design decisions) → Debugging drill → Refactoring pass →
-Project integration → Later unannounced retrieval
+Concept → Basic implementation → Multiple easy exercises (E1–E5) →
+Combined medium (M1–M3, current + previous) → Hard drill (H1, debug) →
+Hard build (H2, engineering) → Challenge / Micro Build →
+Later unannounced retrieval
 ```
 
-## SUPPORTING
+## SUPPORTING (reduced)
 
 ```text
 Concept → Basic implementation → 1–3 practical exercises →
 Integration exercise → Assessment
 ```
 
-## AWARENESS
+## AWARENESS (collapsed)
 
 ```text
 Concept → Mental model → Example → Small implementation or code reading
@@ -75,6 +79,27 @@ Apply → Review
 - Challenge / Micro Build: current + multiple previous topics + a
   realistic requirement, no step-by-step plan — a small real engineering
   task.
+
+Label contract: exercise ID prefix == Difficulty field ==
+practice-table tier == notebook Type. E=Easy, M=Medium, H=Hard,
+Challenge separate. Allowed tags: `[REAL-WORLD]` / `[INTERVIEW]` /
+`[DEBUG]` (planted-bug drills only, RULES.md R13).
+
+---
+
+# Coverage Contract (build gate — mandatory)
+
+Every construct, API, or tool an exercise requires must be taught in the
+lesson (concept + implementation + ≥1 worked example) **or** explicitly
+declared PROVIDED (given code, usage shown in-lesson).
+
+New tool needed? First resort: **teach it in the lesson**, framed as
+the industry/real-work best approach for such cases. Second resort:
+declare it PROVIDED. Never silently require a tool the learner has not
+been taught — check `LEARNER.md` → Tool Sync, not history.
+
+The review file records a one-line coverage check per exercise →
+lesson section (or PROVIDED flag).
 
 ---
 

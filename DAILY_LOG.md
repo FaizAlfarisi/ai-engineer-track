@@ -1616,3 +1616,23 @@ same time, from two sorted-by-minute `(minute, city)` logs; return
   earliest-correctness, complexity — all four hit.
 - Logged: `PROGRESS.md` DSA Log Row 2; average score moved to 91.3.
 - Next: Lesson 19 — Requests (CORE). Week 3 DSA due next week.
+
+### Coach Feedback — Session 23 review (learner → mentor, 2026-09-22)
+
+Recorded verbatim-append; no existing record altered. Standing
+calibration for L19 and all future targets (executes as V3 instruction).
+
+1. Exercise intent not showing: specs must carry the real intent
+   up front — clearer information, highlighted important info and main
+   intent, personalized to the learner's skimming + English struggle.
+   → V3: Intent-first specs (`exercise-template.md`, Spec Language).
+2. Unsynced knowledge: `--refresh` flag handling required in the L18
+   Challenge though `argparse`/flag parsing was never taught (zero
+   repo hits — Stage 1 only touched raw `sys.argv`).
+   → V3: Coverage Contract, teach-first (industry-framed) → PROVIDED →
+   never silent; `LEARNER.md` Tool Sync is the check-list.
+3. Lesson-pattern grounding: the builder must repeat L18's proven shape
+   (full-form CORE table, blank H1 write-ins, bucket review), since md
+   instruction alone was not followed.
+   → V3: `LEARNER.md` Proven Lesson Shape; CORE full form, other tiers
+   flexible per `CURRICULUM.md` pipelines.

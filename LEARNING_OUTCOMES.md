@@ -1,4 +1,4 @@
-# Learning Outcomes (V2)
+# Learning Outcomes (V3)
 
 The competencies required to complete the Python phase of the Learning
 OS. The curriculum is designed backward from these outcomes.

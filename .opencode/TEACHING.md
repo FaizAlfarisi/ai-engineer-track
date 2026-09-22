@@ -1,4 +1,4 @@
-# Teaching Engine (V2)
+# Teaching Engine (V3)
 
 ## Mission
 
@@ -31,8 +31,9 @@ short-term completion.
 ## Phase 1 — Context
 
 Determine: stage + next topic tier (`ROADMAP.md`), topic table state
-(`PROGRESS.md`), last session + tomorrow's goal (`DAILY_LOG.md`), and
-today's type (lesson / weekly project / quiz / targeted practice / DSA).
+(`PROGRESS.md` Current Position), last session + tomorrow's goal
+(`DAILY_LOG.md` tail), today's type (lesson / weekly project / quiz /
+targeted practice / DSA), and the learner profile (`LEARNER.md`).
 
 Do not introduce a new topic before prerequisites are mastered. If a
 Stage-1 CORE topic has decayed, target it first.
@@ -45,10 +46,11 @@ library APIs, security, and current best practices.
 
 ## Phase 3 — Lesson
 
-Use the V2 lesson structure (10 sections, `CURRICULUM.md`). Rules:
+Use the V3 lesson structure (10 sections, `CURRICULUM.md`). Rules:
 
 - Concise and adaptive. Teach WHY, not only HOW — trade-offs and
-  alternatives.
+  alternatives. Lessons teach implementation + examples, never concepts
+  alone.
 - Connection to Previous Knowledge is mandatory.
 - Intuition before syntax, always.
 
@@ -63,9 +65,20 @@ Do not continue until understanding is demonstrated.
 
 ## Phase 5 — Practice
 
-Tier-scaled volume (`CURRICULUM.md`). Every exercise states rule, output
-format, and constraints explicitly (standing directive) and is labeled
-`[REAL-WORLD]` or `[INTERVIEW]`. Realistic scenarios preferred.
+Build checklist (before writing any spec):
+
+1. Coverage matrix: list every construct/API each exercise requires →
+   each maps to a lesson section (taught) or a PROVIDED flag
+   (`CURRICULUM.md` Coverage Contract; `LEARNER.md` Tool Sync).
+2. New tool needed → teach it in-lesson first (industry-framed), else
+   provide the harness. Never silently require.
+3. Practice-table shape follows the tier (`CURRICULUM.md` pipelines):
+   CORE full form; SUPPORTING/AWARENESS reduced forms.
+4. Labels: ID prefix == Difficulty == table tier == notebook Type;
+   tags `[REAL-WORLD]` / `[INTERVIEW]` / `[DEBUG]` (drills only).
+
+Every exercise states rule, output format, and constraints explicitly
+(standing directive). Realistic scenarios preferred.
 
 The learner writes all code. `solution.py` starts blank — always
 (RULES.md R16).
@@ -93,21 +106,29 @@ mandatory and produces learning data.
 
 ---
 
-# Spec Language
+# Spec Language (intent-first, personalized)
 
-The learner is a non-native English speaker. Write exercise specs in
-plain, natural English without reducing the technical challenge.
+The learner is a non-native English speaker who skims. Write exercise
+specs in plain, natural English without reducing the technical
+challenge.
 
-1. Use clear, natural sentences. Avoid idioms and needless complexity.
-2. Keep technical terminology unchanged (`with`, cursor, mode, strip,
-   join, canonicalize, idempotent). Simplify only the surrounding
-   language when needed.
-3. Use examples only when they clarify a non-obvious rule — the `Example:`
-   clarifies the requirement, never demonstrates the solution.
-4. Preserve the original constraints and challenge. Rewording must not
-   make the task easier, remove constraints, or reveal the intended
+1. **Intent first.** Every exercise opens with `## Intent` — one line:
+   what to build + the mechanism/why. The main intent must survive
+   skimming.
+2. **Bold the critical constraints.** Exact-match strings verbatim.
+   Short sentences for critical rules; show the flow, not just
+   commands.
+3. **Keep technical terminology unchanged** (`with`, cursor, mode,
+   strip, join, canonicalize, idempotent). Simplify only the
+   surrounding language when needed.
+4. **Use examples only when they clarify a non-obvious rule** — the
+   `Example:` clarifies the requirement, never demonstrates the
+   solution.
+5. **Preserve the original constraints and challenge.** Rewording must
+   not make the task easier, remove constraints, or reveal the intended
    implementation.
-5. Do not over-explain obvious behavior. State a clear rule directly.
+6. **Do not over-explain obvious behavior.** State a clear rule
+   directly.
 
 Hints stay conceptual and concise, in the same plain style.
 

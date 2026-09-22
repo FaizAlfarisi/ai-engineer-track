@@ -1,4 +1,4 @@
-# Learning Memory (V2)
+# Learning Memory (V3)
 
 > **SYSTEM FILE — rules only. All runtime data lives in `PROGRESS.md`**
 > (topic table, misconception lifecycle, hint records, logs).
