@@ -1696,3 +1696,60 @@ Not reported (learner to confirm).
 
 Quiz 03 window OPEN (L17–L19: pytest + HTTP + Requests). WP3 window
 OPEN. DSA Week 3 due next week. L19 study time still owed.
+
+## Session 25 — 2026-09-24
+
+### Quiz build
+
+Quiz 03 (L17–L19) built per learner-approved plan: `quizzes/quiz-03-l17-l19.md`
+(18 pts — A concept ×3, B predict ×3, C debug ×2, D reading ×2, E offline
+apply with `tmp_path`, F T/F ×3; weak-concept report table included).
+
+### Validation
+
+Every executable claim verified live against `local_api` + `requests`
+2.x in staging before shipping: A1 both branches, B2 (`True False True
+True`, `or` never crashes), B3 exact dict, C1 parent-first swallows 404,
+C2 `IndexError` on `[]`, D1 both probes `"slow"` 5/5 (`ReadTimeout` vs
+`ConnectTimeout`, the latter subclassing both parents — captured as the
+deep question), E URL + merge ids `[1, 2, 3, 5]` fresh 2 kept 2.
+
+### Standing decision (learner-proposed, mentor-confirmed)
+
+WP3 deferred until after L20 (Project Structure) + L21 (Logging) as a
+half-stage integration (modules + logging + testing + HTTP). Quiz 03 +
+targeted practice covers retrieval meanwhile.
+
+### Tomorrow Goal
+
+Learner takes Quiz 03 in chat. Then grading → weak-concept report →
+targeted practice at L20 opening.
+
+## Session 26 — 2026-09-24
+
+### Quiz 03 taken + graded
+
+Scope L17–L19, answered in chat. **82.9% (14.92/18) — PASS (bar 80%).**
+E built in `quizzes/quiz-03-l17-l19/` (`report.py` + `test_report.py`) —
+verified green (1 passed, Summary block byte-exact).
+
+### Grading notes
+
+- Strong: A1/A2/A3 all correct; B3 + E merge/accumulate independent;
+  C1 handler order complete; byte-parity exact on B2/B3/E strings.
+- Deductions: B1 201 unnamed (−0.25); B2 crash instance backwards —
+  `"/a"` named, real crashers are `None`/`123` (−0.5, WP2 OPEN stays
+  OPEN); C2 exception unnamed + fix not shown (−0.5); D1 invented
+  `requests.NetworkError`, fact right explanation wrong (−1.0, new gap:
+  `ConnectTimeout` diamond); D2 revocation sub-question skipped (−0.5);
+  F3 wrong, contradicting own C1 (−0.33).
+- E placement question (answered): quiz work lives in
+  `quizzes/quiz-03-l17-l19/`, quiz files stay clean markdown.
+- Housekeeping: `__pycache__/` + `.pytest_cache/` removed from the quiz
+  work folder post-verification.
+
+### Tomorrow Goal
+
+L20 Project Structure (CORE) opens with the Quiz 03 targeted pair
+(guard-`and` crash inputs + handler-order/`ConnectTimeout`), then
+re-assess. DSA Week 3 due next week. L19 study time still owed.

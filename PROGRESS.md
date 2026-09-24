@@ -11,10 +11,10 @@ Completion ≠ mastery. This file tracks mastery.
 
 ```text
 Stage:        Stage 3 — Python Engineering (in progress)
-Current:      Lesson 19 — Requests DONE — 96/100 (bucket-scored)
-Next:         Quiz 03 (L17–L19 window OPEN) — then WP3 / Lesson 20 Project Structure (CORE)
-Weekly Proj.: WP1 85/100; WP2 88/100 — Stage 2 complete; WP3 window open (3 Stage-3 lessons done)
-Quizzes:      Quiz 02 done (84.7%); Quiz 03 window OPEN (L17–L19)
+Current:      Quiz 03 DONE — 82.9% (14.92/18, pass)
+Next:         Lesson 20 — Project Structure (CORE), opening with Quiz 03 targeted practice
+Weekly Proj.: WP1 85/100; WP2 88/100 — Stage 2 complete; WP3 deferred until after L20+L21 (half-stage integration, Session 25 decision)
+Quizzes:      Quiz 02 done (84.7%); Quiz 03 done (82.9%)
 DSA Track:    1 session/week, interleaved — Week 3 session due next week
 Git:          commit after every session from Stage 2 onward
 ```
@@ -333,6 +333,7 @@ Total Study Hours: ~34.5 hours + L19 (time not reported — learner to confirm)
 |---|-----------------|-------|--------------------------|------------------------|
 | 1 | L8–L10 | 96.4% | exception detail: chained traceback / `raise ... from None` intent, `str.partition` no-delimiter edge (D2) | weave one small exception-detail retrieval into L11 (JSON), then re-assess |
 | 2 | L8–L12 | 84.7% | loader default must stay data-shaped (`{}`/`[]` still crash `main`); `partition` no-`=` lines DO surface (not silent); byte-parity slips on case + output strings | 30-second retrieval pair at L14 opening (loader default + partition edge) — both CLOSED (2026-09-08) |
+| 3 | L17–L19 | 82.9% | guard-`and` crash instance backwards (outputs exact, mechanism wrong); handler order right in C1 but wrong in F3 (fragile); invented `requests.NetworkError` (ConnectTimeout diamond gap); C2 fix unnamed/unshown; skipped instances (201, revocation lines) | targeted guard-`and` + handler-order pair at L20 opening, then re-assess |
 
 ---
 
