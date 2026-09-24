@@ -11,10 +11,10 @@ Completion ≠ mastery. This file tracks mastery.
 
 ```text
 Stage:        Stage 3 — Python Engineering (in progress)
-Current:      Lesson 18 — HTTP & API concepts DONE — 93/100 (bucket-scored); DSA #2 (two pointers) DONE
-Next:         Lesson 19 — Requests (CORE)
-Weekly Proj.: WP1 85/100; WP2 88/100 — Stage 2 complete; next weekly project opens ~3 lessons into Stage 3
-Quizzes:      Quiz 02 done (84.7%); next quiz window ~3 lessons into Stage 3
+Current:      Lesson 19 — Requests DONE — 96/100 (bucket-scored)
+Next:         Quiz 03 (L17–L19 window OPEN) — then WP3 / Lesson 20 Project Structure (CORE)
+Weekly Proj.: WP1 85/100; WP2 88/100 — Stage 2 complete; WP3 window open (3 Stage-3 lessons done)
+Quizzes:      Quiz 02 done (84.7%); Quiz 03 window OPEN (L17–L19)
 DSA Track:    1 session/week, interleaved — Week 3 session due next week
 Git:          commit after every session from Stage 2 onward
 ```
@@ -56,6 +56,7 @@ Stage 1 values were migrated from V1 session evidence and are marked
 | Dataclass | SUPPORTING | 3 | High | H1: all 4 planted bugs caught (shared-mutable-default ValueError, amount:str lie, frozen mutation, `== "income"` never True); new-concept study required GenAI explanation for dataclass purpose / enum solving / frozen constraint (disclosed; wean target set); H1 write-up blank under duty → worked model in review | None | Challenge: L15 expense package refactored onto frozen dataclass + Kind model, interfaces preserved, byte-exact; `mypy` clean on both entry points | 2026-09-11 |
 | Testing with pytest (fixtures, parametrize, tmp_path/capsys/monkeypatch, vacuous-pass trap) | CORE | 3→4 | High | three "green for the wrong reason" tests (vacuous CSV loader test; `returns_float` asserting `== 0.0`; a `for` loop inside a test) — closed via the honest `isinstance` reframe, not coloring; `sum([])` is `int 0`. Carry-forward: `lambda`/`ids=`/built-ins pre-teach or declare | ~1–2 | L17 Challenge + WP2 regression tests; L18 tests spin the real local server in a fixture | 2026-09-22 |
 | HTTP & API concepts (urllib, status codes, error classes, client/server patterns) | CORE | 3→4 | High | H2 spec-literalness deviation kept BY DECISION: module exports `StoreAPI` class instead of `start(port=0)` — behavior correct, contract symbol absent; consequence stated (+ reference model delivered, deduction applied). Nits: bare `except Exception` in post/search clients retained | 0 (review loop level 1) | L18 Challenge caching CLI (network+disk merge); reference pair proves class-based vs factory server drop-in compatible | 2026-09-22 |
+| Requests (third-party install, params=/json=/timeout=/raise_for_status, RequestException family + handler order, Session headers-once, typed wraps, fetch→merge→dual-persist CLI) | CORE | 3→4 | High | first-draft contract drift on untested paths: truthiness guard instead of isinstance (M1), str-returns vs annotations + invented codes (post/search), derived CSV header (M3), dropped `from exc` (H2) — all 5 explained + fixed independently same session; E2 timeout=3 vs spec 5 retained-with-reason | 0 (review loop level 1) | Challenge sync_cli (own-server fetch + network-wins merge + sync.json/sync.csv + positional argv, missing-arg exits 1) | 2026-09-24 |
 | `match` beyond literal patterns | AWARENESS | 2 | — | deferred by design (JSON Stage 2, API Stage 4) | — | — | 2026-08-13 |
 
 ---
@@ -81,15 +82,15 @@ one retrieval pending) / CLOSED.
 
 | Misconception | Status | First Seen | Last Evidence |
 |---------------|--------|------------|---------------|
-| Spec-literalness (output-as-contract) | OPEN — watching | L3 | L9 re-baselined (self-identified RUSHING, habit: read Constraints as checklist). L11: 12/12 byte-exact, habit held; pending one unannounced retrieval |
-| Error handling under edge cases | CLOSING | L7 | L8 attack landed: degenerate guards everywhere; close after one unannounced retrieval survives |
+| Spec-literalness (output-as-contract) | OPEN — watching | L3 | L19 fresh evidence: first drafts follow habit over contract on untested paths (return-type lies, derived header, truthiness guard) — all fixed same session; Output blocks byte-exact throughout |
+| Error handling under edge cases | CLOSING | L7 | L8 attack landed: degenerate guards everywhere; close after one unannounced retrieval survives. L19: save_csv empty-list edge fixed via literal fieldnames (header-only write, no crash) — still CLOSING, needs one clean first-pass retrieval |
 | Loader return-type mixing | CLOSED | L9 | L10: typed loader returned clean data + raised on bad values; survived unannounced retrieval |
-| Latent bug — passes sample, misses requirement | OPEN | L11 | L11: `summarize` overwrite hardened to `.get(cat, 0.0)` accumulate |
+| Latent bug — passes sample, misses requirement | OPEN | L11 | L11: `summarize` overwrite hardened to `.get(cat, 0.0)` accumulate. L19 fresh evidence (over-handling variant): post/search except-branches passed every driver while breaking `tuple[int, dict]`/`dict` annotations — fixed by deleting the invented branches |
 | Per-iteration recomputation inside loops | OPEN | L6 | quiet since L9 |
 | Builtin shadowing (`min`, `max`) | OPEN | L5 | baked into REVIEW.md Naming checklist |
 | Collection choice by habit instead of guarantees | CLOSING | L6 | follow-up drill 8/8, guarantee-driven reasoning |
 | Computed-but-unread / band-aid patch (returned value never used; hardcoded count + `break`) | CLOSED | L12 | L12 re-review: dead `stats` return removed, hardcoded `i==3: break` replaced with true `len()` + sorted; avoids independently and survives unannounced retrieval |
-| Guard-condition operator logic (`and`/`or` under negation + truthiness) | OPEN | WP2 | `if not isinstance(cat, str) and not cat:` — `and` lets `""` AND non-str truthy values through validation; caught in round-2 read, fixed to `or ... .strip()` in the same fix round, verified live; watching for one more occurrence |
+| Guard-condition operator logic (`and`/`or` under negation + truthiness) | OPEN | WP2 | `if not isinstance(cat, str) and not cat:` — `and` lets `""` AND non-str truthy values through validation; caught in round-2 read, fixed to `or ... .strip()` in the same fix round, verified live. L19 fresh evidence: Q6 stated correctly, but M1 first draft tested truthiness (`not path`) instead of type — fixed to `not isinstance(path, str) or ...` same session; independent avoidance in new code still pending |
 
 ---
 
@@ -116,6 +117,7 @@ Diagnostic only — never punishment.
 | L13 | 0 | clue-free throughout; H1 three-bug drill fixed independently (chose `__init__.py` re-export over patching main only); Challenge fix round independent |
 | L17 | 1–2 | exercise solving level 0 (incl. H1 all four bugs); review-guided test-intent fixes were level 1–2 across three rounds |
 | L18 | 0 | Quick Recall 6/6 unaided; E1–M3, H1, H2, Challenge solved independently; review-fix loop level 1 (diagnostic findings → learner implements) |
+| L19 | 0 | Quick Recall 6/6 unaided (incl. guard-`or` retrieval); E1–M3, H1 (all four bugs + own-words report), H2, Challenge solved independently, no GenAI (translator + Google-syntax only); 5 review findings fixed independently same session (review loop level 1) |
 
 Repeated level-2+ dependency on a topic ⇒ that topic returns for targeted
 practice before moving forward.
@@ -142,6 +144,7 @@ practice before moving forward.
 - [x] Lesson 16 — Dataclass (92/100)
 - [x] Lesson 17 — Testing with pytest (98/100)
 - [x] Lesson 18 — HTTP & API Concepts (93/100)
+- [x] Lesson 19 — Requests (96/100)
 
 ---
 
@@ -307,11 +310,11 @@ practice before moving forward.
 
 ## Scores & Hours
 
-Average Review Score: 91.3 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90, L10: 92, L11: 93, WP1: 85, L12: 92, L13: 92, L14: 92, L15: 92, L16: 92, WP2: 88, L17: 98, L18: 93)
+Average Review Score: 91.5 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90, L10: 92, L11: 93, WP1: 85, L12: 92, L13: 92, L14: 92, L15: 92, L16: 92, WP2: 88, L17: 98, L18: 93, L19: 96)
 
 Overall Mastery: Level 4 — debugging/refactoring independently
 
-Total Study Hours: ~34.5 hours (L14 2.5h, L15 3h, L16 1.5h, DSA#1 1h, WP2 ~6h, L17 2h, L18 2.5h, DSA#2 ~1h added since the ~17.5h count)
+Total Study Hours: ~34.5 hours + L19 (time not reported — learner to confirm)
 
 ---
 

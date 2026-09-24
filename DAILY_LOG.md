@@ -1636,3 +1636,63 @@ calibration for L19 and all future targets (executes as V3 instruction).
    instruction alone was not followed.
    → V3: `LEARNER.md` Proven Lesson Shape; CORE full form, other tiers
    flexible per `CURRICULUM.md` pipelines.
+
+## Session 24 — 2026-09-24
+
+### Lesson
+
+Lesson 19 — Requests (CORE, Stage 3) — **96/100**, mastery 3→4, hint
+dependency 0. Mirror-transfer of L18's wire onto the `requests` library;
+no GenAI used (translator + Google-for-syntax only).
+
+### Session notes
+
+- Quick Recall 6/6 before the exercises, including the guard-`or`
+  retrieval (Q6: `and`-under-negation lets truthy non-strings through;
+  fix is `or`) — WP2 OPEN item stated correctly out loud.
+- Built E1–E5, M1–M3, H1, H2 + the Challenge. All 11 drivers byte-exact
+  and both suites green on first verification (read-only, caches off),
+  re-verified green after the fix round.
+- H1 debug drill: all four planted bugs fixed and attributed in the
+  learner's own notebook cell (`data=` vs `params=`, if/else vs
+  `raise_for_status()`, `temp` vs `temp_c`, `HTTPError`-first).
+- Review ran one round with 5 diagnostic findings, all explained
+  correctly then fixed independently same session: M1 truthiness guard
+  → `not isinstance(path, str) or ...`; `post_json`/`search` invented
+  except-branches (str-returns vs annotations) deleted back to spec;
+  `save_csv` header pinned literal (sync_cli already had it right);
+  `sess_client` regained `from exc` chaining. E2 `timeout=3` vs spec
+  `timeout=5` retained-with-reason (lesson-standard, unobservable).
+- Builder feedback from learner (logged for L20+): H-drill drivers
+  should print failing test names + short tracebacks, not just the
+  `N passed` count — during trials the cell output hid the real failure.
+- Housekeeping: `__pycache__/` removed post-verification. `.venv/`
+  (~99 MB) still inside the lesson folder — relocate before commit.
+- Review: `review/lesson-19-review.md` (bucket table 25/20/14/10/10/9/4/5).
+
+### Reflection — Lesson 19 (2026-09-24, learner's own words, condensed)
+
+- Decision: auto-drove exception handling from habit instead of the
+  spec — no fresh idea needed, the main concept is L18's with `requests`
+  swapped in. Fix instinct going forward: determine the required changes
+  first (e.g. Challenge with multiple routes would need a `match`
+  handler), then build.
+- Hardest to diagnose: nothing hard, but trials cost time because the
+  H-driver cell output didn't show the real test report — a builder gap,
+  not a knowledge gap.
+- Concepts reused: almost all of them (pathlib, json, csv, try/except,
+  `__main__` guard, match) — urllib replaced with requests throughout.
+- Process commitment: slow-paced reading without helpers — pushing to
+  understand spec English directly rather than routing through the
+  translator.
+- Hint dependency this session — exercises level 0; review-fix loop
+  level 1 (reviewer-assigned: diagnostic → learner implemented).
+
+### Time Studied
+
+Not reported (learner to confirm).
+
+### Tomorrow Goal
+
+Quiz 03 window OPEN (L17–L19: pytest + HTTP + Requests). WP3 window
+OPEN. DSA Week 3 due next week. L19 study time still owed.
