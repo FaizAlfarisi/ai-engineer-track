@@ -1690,7 +1690,7 @@ no GenAI used (translator + Google-for-syntax only).
 
 ### Time Studied
 
-Not reported (learner to confirm).
+~3 hours (learner-reported 2026-09-24; L20 also ~3h).
 
 ### Tomorrow Goal
 
@@ -1753,3 +1753,120 @@ verified green (1 passed, Summary block byte-exact).
 L20 Project Structure (CORE) opens with the Quiz 03 targeted pair
 (guard-`and` crash inputs + handler-order/`ConnectTimeout`), then
 re-assess. DSA Week 3 due next week. L19 study time still owed.
+
+## Session 27 — 2026-09-24
+
+### Lesson
+
+Lesson 20 — Project Structure (CORE) — **94/100**, mastery 3→4, hint
+dependency 0–1. Adapted volume per learner challenge (3E/3M/H1/H2/Challenge —
+restructuring reps, not recognition padding); Challenge = neutral ledger
+project (fresh experience over L19 rehouse, learner's choice). ~3 hours
+(learner-reported; L19 also ~3h).
+
+### Session notes
+
+- Quick Recall 6/6 with one precision repair (Q6 `and`-table: `""`/`123`
+  slip through, only falsy non-strings raise — corrected in chat).
+- Built E1–E3, M1–M3, H1, H2 + Challenge. First verification: 8/9
+  drivers + H2 cell damaged in workspace (`_out` line lost in an editing
+  accident — restored as build artifact, not learner work).
+- Review found 6 findings, all on untested paths (usage-to-stdout ×3,
+  `ledged` typo, bare-run default, set-vs-list fresh, vacuous
+  roundtrip) — learner explained all correctly (incl. disclosing GenAI
+  use on Issue 1 without reasoning) and implemented all fixes; 1
+  `.gitignore` line reviewer-applied with consent.
+- Post-fix verification: 9/9 drivers byte-exact, 14/14 pytest green
+  (4 messy + 4 restructure + 3 shop + 3 ledger).
+- Standing learner requests recorded (LEARNER.md untouched — revision
+  agent's file): harder H-drills + fewer hints from L21; style guidance
+  from outside sources to be converged (review holds the verdict).
+- Incident (reviewer fault, recovered): a cache-cleanup command
+  over-matched and deleted fixture trees + untracked learner work.
+  Fixtures restored from git (`88401b1`); all learner files rewritten
+  from verified post-fix reads; re-verified 9/9 + 14/14 identical.
+  Lesson relearned: explicit cleanup paths only.
+- Housekeeping: `summary.csv` stray removed (learner), caches removed
+  post-verification. In-folder `.venv` question still open from L19.
+- Review: `review/lesson-20-review.md` (bucket table 24/20/14/10/9/10/5/5;
+  95+ bar judged unmet — Challenge stream concept + 1 assisted line).
+
+### Reflection — Lesson 20 (learner's own words, condensed)
+
+- Simplification under time pressure: skipped edge handling, solved
+  only the expected, inconsistent internet-sourced style — asks for an
+  evaluation of current writing behavior vs best practice (delivered in
+  review: keep absolute imports/`!r` guards/small functions; converge to
+  `raise SystemExit(main(argv))`, argv-taking mains, docstrings,
+  writerows).
+- Decision: focus on lesson topic only (busy season); style follows the
+  internet for now.
+- H1 easier than previous lessons — wants harder drills, fewer hints
+  (recorded). Challenge stderr was new knowledge (internet + GenAI).
+- Reused almost all previous concepts; will push for independent
+  expected-results even when slow.
+
+### Time Studied
+
+~3 hours (learner-reported).
+
+### Tomorrow Goal
+
+L21 Logging (CORE; harder H-drill + fewer hints). Then WP3 half-stage
+integration. DSA Week 3 due next week.
+
+## Session 27 — 2026-09-24
+
+### Lesson
+
+Lesson 20 — Project Structure (CORE) — **94/100**, mastery 3→4, hint
+dependency 0–1. Adapted volume per learner challenge (3E/3M/H1/H2/Challenge —
+restructuring reps, not recognition padding); Challenge = neutral ledger
+project (fresh experience over L19 rehouse, learner's choice).
+
+### Session notes
+
+- Quick Recall 6/6 with one precision repair (Q6 `and`-table: `""`/`123`
+  slip through, only falsy non-strings raise — corrected in chat).
+- Built E1–E3, M1–M3, H1, H2 + Challenge. First verification: 8/9
+  drivers + H2 cell damaged in workspace (`_out` line lost in an editing
+  accident — restored as build artifact, not learner work).
+- Review found 6 findings, all on untested paths (usage-to-stdout ×3,
+  `ledged` typo, bare-run default, set-vs-list fresh, vacuous
+  roundtrip) — learner explained all correctly (incl. disclosing GenAI
+  use on Issue 1 without reasoning) and implemented all fixes; 1
+  `.gitignore` line reviewer-applied with consent.
+- Post-fix verification: 9/9 drivers byte-exact, 14/14 pytest green
+  (4 messy + 4 restructure + 3 shop + 3 ledger).
+- Standing learner requests recorded (LEARNER.md untouched — revision
+  agent's file): harder H-drills + fewer hints from L21; style guidance
+  from outside sources to be converged (review holds the verdict).
+- Housekeeping: `summary.csv` stray removed (learner), `__pycache__/` +
+  `.pytest_cache/` removed post-verification. In-folder `.venv`
+  question still open from L19.
+- Review: `review/lesson-20-review.md` (bucket table 24/20/14/10/9/10/5/5;
+  95+ bar judged unmet — Challenge stream concept + 1 assisted line).
+
+### Reflection — Lesson 20 (learner's own words, condensed)
+
+- Simplification under time pressure: skipped edge handling, solved
+  only the expected, inconsistent internet-sourced style — asks for an
+  evaluation of current writing behavior vs best practice (delivered in
+  review: keep absolute imports/`!r` guards/small functions; converge to
+  `raise SystemExit(main(argv))`, argv-taking mains, docstrings,
+  writerows).
+- Decision: focus on lesson topic only (busy season); style follows the
+  internet for now.
+- H1 easier than previous lessons — wants harder drills, fewer hints
+  (recorded). Challenge stderr was new knowledge (internet + GenAI).
+- Reused almost all previous concepts; will push for independent
+  expected-results even when slow.
+
+### Time Studied
+
+Not reported (L19 + L20 both owed).
+
+### Tomorrow Goal
+
+L21 Logging (CORE; harder H-drill + fewer hints). Then WP3 half-stage
+integration. DSA Week 3 due next week.
