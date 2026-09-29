@@ -1866,3 +1866,30 @@ bulleted Interface Contracts (house style from learner feedback).
 
 WP3 half-stage integration brief (testing + HTTP + structure + logging).
 DSA Week 3 due — interleaved at learner's call.
+
+## Session 29 — 2026-09-29
+
+### WP3 kickoff
+
+Brief written per approved plan: `projects/weekly-project-03-sync-service/`
+(`brief.md` + `decision_log.md` + blank `main.py` + PROVIDED `stub_api.py`,
+smoke-tested live: 4 items, ids 1–4).
+
+### Design notes (builder's record)
+
+- Feed Sync & Report Service: `sync [quiet|verbose]` + `report value` +
+  `report low N`; network-wins merge; readback discipline; three verbosity
+  modes + `service.log`; scoped errors (`bad request:` / `network error:`
+  / `corrupt data:`, stderr, exit 1); `SYNC_API_BASE` override for the
+  network-error row.
+- All pins hand-computed then verified by execution (Total 197.20, low-10
+  pair, restock-20 block); 17-row matrix (T1–T17) mirroring WP2 rigor.
+- Stretches: SG1 summary, SG2 restock, SG3 report.json export.
+- One mid-write editing scar caught and removed before shipping (a
+  self-correction left inside the brief — the exact confusing-statement
+  class the learner flagged in L21).
+
+### Tomorrow Goal
+
+Learner builds WP3 independently (multi-commit). Then formal review +
+acceptance matrix + reflection + PROGRESS update.
