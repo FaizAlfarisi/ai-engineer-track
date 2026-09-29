@@ -11,11 +11,11 @@ Completion ≠ mastery. This file tracks mastery.
 
 ```text
 Stage:        Stage 3 — Python Engineering (in progress)
-Current:      Lesson 20 — Project Structure DONE — 94/100 (bucket-scored, 95+ bar judged unmet)
-Next:         Lesson 21 — Logging (CORE; harder H-drill + fewer hints per standing learner request)
-Weekly Proj.: WP1 85/100; WP2 88/100 — Stage 2 complete; WP3 after L21 (half-stage integration, Session 25 decision)
+Current:      Lesson 21 — Logging DONE — 91/100 (bucket-scored, 95+ bar judged unmet)
+Next:         WP3 half-stage integration (brief → independent build → formal review); DSA Week 3 due
+Weekly Proj.: WP1 85/100; WP2 88/100 — Stage 2 complete; WP3 next (after L21 per Session 25 decision)
 Quizzes:      Quiz 02 done (84.7%); Quiz 03 done (82.9%)
-DSA Track:    1 session/week, interleaved — Week 3 session due next week
+DSA Track:    1 session/week, interleaved — Week 3 session due
 Git:          commit after every session from Stage 2 onward
 ```
 
@@ -58,7 +58,7 @@ Stage 1 values were migrated from V1 session evidence and are marked
 | HTTP & API concepts (urllib, status codes, error classes, client/server patterns) | CORE | 3→4 | High | H2 spec-literalness deviation kept BY DECISION: module exports `StoreAPI` class instead of `start(port=0)` — behavior correct, contract symbol absent; consequence stated (+ reference model delivered, deduction applied). Nits: bare `except Exception` in post/search clients retained | 0 (review loop level 1) | L18 Challenge caching CLI (network+disk merge); reference pair proves class-based vs factory server drop-in compatible | 2026-09-22 |
 | Requests (third-party install, params=/json=/timeout=/raise_for_status, RequestException family + handler order, Session headers-once, typed wraps, fetch→merge→dual-persist CLI) | CORE | 3→4 | High | first-draft contract drift on untested paths: truthiness guard instead of isinstance (M1), str-returns vs annotations + invented codes (post/search), derived CSV header (M3), dropped `from exc` (H2) — all 5 explained + fixed independently same session; E2 timeout=3 vs spec 5 retained-with-reason | 0 (review loop level 1) | Challenge sync_cli (own-server fetch + network-wins merge + sync.json/sync.csv + positional argv, missing-arg exits 1) | 2026-09-24 |
 | Project structure (launch contexts/sys.path[0], absolute-vs-relative, -m entries, silent init, __file__ data, minimal requirements, .gitignore, README, tests/+conftest) | CORE | 3→4 | High | first-draft drift on untested paths: usage-to-stdout ×3, `ledged` typo, bare-run default, set-vs-list fresh, vacuous roundtrip — all 6 explained + implemented independently; 1 `.gitignore` line reviewer-applied with consent; stderr reasoning GenAI-sourced (taught after, confirmed); no docstrings (4th lesson) | 0–1 (Challenge stream concept via internet/GenAI; review loop level 1) | Challenge ledger/ project (package + ledger/tests/ + requirements/gitignore/README, `sync <dir>` entry, exit-1 usage) | 2026-09-24 |
-| Project structure (launch contexts/sys.path[0], absolute-vs-relative, -m entries, silent init, __file__ data, minimal requirements, .gitignore, README, tests/+conftest) | CORE | 3→4 | High | first-draft drift on untested paths: usage-to-stdout ×3, `ledged` typo, bare-run default, set-vs-list fresh, vacuous roundtrip — all 6 explained + implemented independently; 1 `.gitignore` line reviewer-applied with consent; stderr reasoning GenAI-sourced (taught after, confirmed); no docstrings (4th lesson) | 0–1 (Challenge stream concept via internet/GenAI; review loop level 1) | Challenge ledger/ project (package + ledger/tests/ + requirements/gitignore/README, `sync <dir>` entry, exit-1 usage) | 2026-09-24 |
+| Logging (severity arithmetic, basicConfig+force, dual routing, two-gate model, formatters, exc_info, isEnabledFor laziness, hierarchy creation-order, caplog, verbosity modes, run journals) | CORE | 3 (held) | High | heaviest assistance on record: GenAI lesson explanation + exercise clues, internet real-project research (~6h, disclosed); H1 reconfig design + Challenge stream concept externally sourced — all implemented by learner; 2 micro-fixes reviewer-applied with consent (counter guard, sync strict); no docstrings (6th lesson) | 2 (solving; review loop level 1) | Challenge journal/ project (verbosity modes, both gates, handler hygiene, skip-loudly merge, project-local tests) | 2026-09-27 |
 | `match` beyond literal patterns | AWARENESS | 2 | — | deferred by design (JSON Stage 2, API Stage 4) | — | — | 2026-08-13 |
 
 ---
@@ -121,6 +121,7 @@ Diagnostic only — never punishment.
 | L18 | 0 | Quick Recall 6/6 unaided; E1–M3, H1, H2, Challenge solved independently; review-fix loop level 1 (diagnostic findings → learner implements) |
 | L19 | 0 | Quick Recall 6/6 unaided (incl. guard-`or` retrieval); E1–M3, H1 (all four bugs + own-words report), H2, Challenge solved independently, no GenAI (translator + Google-syntax only); 5 review findings fixed independently same session (review loop level 1) |
 | L20 | 0–1 | Quick Recall 6/6 (Q6 `and`-table imprecise, corrected in chat); E/M/H/Challenge solved independently; GenAI/internet consulted for Challenge stream concept + Issue-1 fix during fix loop (disclosed); 6/6 findings implemented independently + H1 report filled (review loop level 1) |
+| L21 | 2 | Quick Recall 6/6 (Q4 half, repaired in chat); GenAI lesson explanation + exercise clues, internet real-project research (~6h, disclosed); H1 reconfig + Challenge streams externally sourced, all implemented by learner; 2 micro-fixes reviewer-applied with consent; H1 report filled (review loop level 1) |
 
 Repeated level-2+ dependency on a topic ⇒ that topic returns for targeted
 practice before moving forward.
@@ -149,7 +150,7 @@ practice before moving forward.
 - [x] Lesson 18 — HTTP & API Concepts (93/100)
 - [x] Lesson 19 — Requests (96/100)
 - [x] Lesson 20 — Project Structure (94/100)
-- [x] Lesson 20 — Project Structure (94/100)
+- [x] Lesson 21 — Logging (91/100)
 
 ---
 
@@ -315,7 +316,7 @@ practice before moving forward.
 
 ## Scores & Hours
 
-Average Review Score: 91.6 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90, L10: 92, L11: 93, WP1: 85, L12: 92, L13: 92, L14: 92, L15: 92, L16: 92, WP2: 88, L17: 98, L18: 93, L19: 96, L20: 94)
+Average Review Score: 91.6 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90, L10: 92, L11: 93, WP1: 85, L12: 92, L13: 92, L14: 92, L15: 92, L16: 92, WP2: 88, L17: 98, L18: 93, L19: 96, L20: 94, L21: 91)
 
 Overall Mastery: Level 4 — debugging/refactoring independently
 

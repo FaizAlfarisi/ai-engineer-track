@@ -1815,58 +1815,54 @@ project (fresh experience over L19 rehouse, learner's choice). ~3 hours
 L21 Logging (CORE; harder H-drill + fewer hints). Then WP3 half-stage
 integration. DSA Week 3 due next week.
 
-## Session 27 — 2026-09-24
+## Session 28 — 2026-09-27
 
 ### Lesson
 
-Lesson 20 — Project Structure (CORE) — **94/100**, mastery 3→4, hint
-dependency 0–1. Adapted volume per learner challenge (3E/3M/H1/H2/Challenge —
-restructuring reps, not recognition padding); Challenge = neutral ledger
-project (fresh experience over L19 rehouse, learner's choice).
+Lesson 21 — Logging (CORE) — **91/100**, mastery held at 3, hint
+dependency 2. Harder H1 (5 bugs, single-hint per standing request);
+bulleted Interface Contracts (house style from learner feedback).
+~6 hours (learner-reported; heaviest single lesson on record).
 
 ### Session notes
 
-- Quick Recall 6/6 with one precision repair (Q6 `and`-table: `""`/`123`
-  slip through, only falsy non-strings raise — corrected in chat).
-- Built E1–E3, M1–M3, H1, H2 + Challenge. First verification: 8/9
-  drivers + H2 cell damaged in workspace (`_out` line lost in an editing
-  accident — restored as build artifact, not learner work).
-- Review found 6 findings, all on untested paths (usage-to-stdout ×3,
-  `ledged` typo, bare-run default, set-vs-list fresh, vacuous
-  roundtrip) — learner explained all correctly (incl. disclosing GenAI
-  use on Issue 1 without reasoning) and implemented all fixes; 1
-  `.gitignore` line reviewer-applied with consent.
-- Post-fix verification: 9/9 drivers byte-exact, 14/14 pytest green
-  (4 messy + 4 restructure + 3 shop + 3 ledger).
-- Standing learner requests recorded (LEARNER.md untouched — revision
-  agent's file): harder H-drills + fewer hints from L21; style guidance
-  from outside sources to be converged (review holds the verdict).
-- Housekeeping: `summary.csv` stray removed (learner), `__pycache__/` +
-  `.pytest_cache/` removed post-verification. In-folder `.venv`
-  question still open from L19.
-- Review: `review/lesson-20-review.md` (bucket table 24/20/14/10/9/10/5/5;
-  95+ bar judged unmet — Challenge stream concept + 1 assisted line).
+- Quick Recall 6/6 (Q4 half, repaired in chat: duplication needs two
+  stream handlers AND explains nothing about the file — zero FileHandler
+  or over-gated one does that half).
+- Built E1–E3, M1–M3, H1, H2 + Challenge. Staging caught 4 build defects
+  before shipping (non-lazy "lazy" fix → `isEnabledFor`; `-c` compound
+  statements; `NullHandler.handle` no-op vs filters; child-before-parent
+  loggers never link; named-logger gate starving the file).
+- Review found 5 findings; learner pushed back on Issue-2 framing
+  (accepted — restated plainly: corrupt feed yields confident zero with
+  zero forensics) and reported all fixes; 2 micro-fixes reviewer-applied
+  with consent (counter guard, sync strictness).
+- Post-fix verification: 9/9 drivers byte-exact, 15/15 pytest green
+  (5 logging + 4 tracked + 3 load + 3 journal).
+- Learner calibration (applied, LEARNER.md untouched): harder = H1 bug
+  analysis ONLY; lesson + exercise delivery stays fully legible;
+  H-specs name every suite-imported deliverable (setup_logging lesson).
+- Environment repaired mid-build (`idna` + `requests` reinstalled).
+- Review: `review/lesson-21-review.md` (bucket table 24/20/14/10/10/10/4/5;
+  95+ bar judged unmet — hint-2 solving).
 
-### Reflection — Lesson 20 (learner's own words, condensed)
+### Reflection — Lesson 21 (learner's own words, condensed)
 
-- Simplification under time pressure: skipped edge handling, solved
-  only the expected, inconsistent internet-sourced style — asks for an
-  evaluation of current writing behavior vs best practice (delivered in
-  review: keep absolute imports/`!r` guards/small functions; converge to
-  `raise SystemExit(main(argv))`, argv-taking mains, docstrings,
-  writerows).
-- Decision: focus on lesson topic only (busy season); style follows the
-  internet for now.
-- H1 easier than previous lessons — wants harder drills, fewer hints
-  (recorded). Challenge stderr was new knowledge (internet + GenAI).
-- Reused almost all previous concepts; will push for independent
+- Near-surrender lesson: confusing delivery (no clean usage guidance,
+  style-vs-use-cases; exercise statements + indirect expecteds) — led to
+  internet + GenAI for lesson explanation and exercise clues, not just
+  translating. Builder failures accepted (2, now standing rules).
+- Longest stuck point: H1 setup_logging ("idk if I'm supposed to create
+  that") — solved everything else first (correct triage).
+- Root problem named as lesson delivery (accepted in part, per above).
+- Style following the internet for now; will push for independent
   expected-results even when slow.
 
 ### Time Studied
 
-Not reported (L19 + L20 both owed).
+~6 hours (learner-reported).
 
 ### Tomorrow Goal
 
-L21 Logging (CORE; harder H-drill + fewer hints). Then WP3 half-stage
-integration. DSA Week 3 due next week.
+WP3 half-stage integration brief (testing + HTTP + structure + logging).
+DSA Week 3 due — interleaved at learner's call.
