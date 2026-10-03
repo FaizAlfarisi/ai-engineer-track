@@ -1,5 +1,6 @@
 import logging
 from pathlib import Path
+from src.tracker.config.config import LOG_PATH
 
 def setup_logging(mode: str = "normal") -> logging.Logger:
     logger = logging.getLogger()
@@ -24,7 +25,7 @@ def setup_logging(mode: str = "normal") -> logging.Logger:
     stream_handler.setFormatter(formatter)
     logger.addHandler(stream_handler)
     
-    file_path = Path(__file__).with_name("service.log")
+    file_path = LOG_PATH
     file_handler = logging.FileHandler(filename=file_path, mode="w", encoding="utf-8")
     file_handler.setLevel(logging.DEBUG)
     file_handler.setFormatter(formatter)

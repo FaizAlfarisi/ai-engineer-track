@@ -3,6 +3,7 @@ import csv
 from typing import Any
 from pathlib import Path
 from src.tracker.domain.entities import Item
+from dataclasses import asdict
 from src.shared.utils.exceptions import CorruptDataError
 import logging
 
@@ -47,17 +48,17 @@ def item_decoder(dtc: dict[str, Any]) -> Item | dict[str, Any]:
     return dtc
 
 def merge_data(network: list[Item], cached: list[Item]) -> tuple[list[Item], int, int]:
-    merged = {item["id"]: item for item in cached}
+    merged = {item.id: item for item in cached}
     
     network_ids = set()
     for item in network:
-        item_id = item["id"]
+        item_id = item.id
         merged[item_id] = item
         network_ids.add(item_id)
         
     fresh = len(network)
-    kept = sum(1 for item in cached if item["id"] not in network_ids)
-    clean_merged = sorted([item_decoder(item) for item in merged.values()], key=lambda x: x["id"])
+    kept = sum(1 for item in cached if item.id not in network_ids)
+    clean_merged = sorted(merged.values(), key=lambda x: x.id)
     logger.debug("merged fresh %s items and kept %s items successfully: %s", fresh, kept, clean_merged)
     
     return clean_merged, fresh, kept
@@ -101,18 +102,21 @@ def load_csv(path: str | Path) -> list[dict[str, Any]]:
         rows = csv.DictReader(f)
         return [item_decoder(r) for r in rows]
 
-def write_json(items: list[Item], path: str | Path) -> None:
+def write_json(path: str | Path, items: list[Item]) -> None:
     path = Path(path)
+    
+    content = [asdict(item) for item in items]
  
     path.write_text(
-        json.dumps({"items": items}, indent=2),
+        json.dumps({"items": content}, indent=2),
         encoding="utf-8"
     )
 
 def write_csv(path: str | Path, items: list[Item]) -> None:
     path = Path(path)
+    content = [asdict(item) for item in items]
     
     with path.open("w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=["id", "name", "price", "stock"], extrasaction="ignore")
         writer.writeheader()
-        writer.writerows(items)
+        writer.writerows(content)
