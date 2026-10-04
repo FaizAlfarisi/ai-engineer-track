@@ -83,12 +83,14 @@ def load_json(path: str | Path) -> list[Item]:
             if isinstance(records, list):
                 logger.info("loaded %d items from %s", len(records), path)
                 return records
+        
+        return []
             
     except json.JSONDecodeError as exc:
-        logger.error("failed to load json: %s", path, exc_info=True)
+        logger.error("failed to load json: %s", path)
         raise CorruptDataError(exc)
 
-def load_csv(path: str | Path) -> list[dict[str, Any]]:
+def load_csv(path: str | Path) -> list[Item]:
     if not isinstance(path, (str, Path)) or not path:
         return {}
         
@@ -102,13 +104,18 @@ def load_csv(path: str | Path) -> list[dict[str, Any]]:
         rows = csv.DictReader(f)
         return [item_decoder(r) for r in rows]
 
-def write_json(path: str | Path, items: list[Item]) -> None:
+def write_json(path: str | Path, items: list[Item], report: bool = False, total: int = 0) -> None:
     path = Path(path)
     
     content = [asdict(item) for item in items]
- 
+    
+    data = {"items": content}
+    
+    if report:
+        data["total"] = total
+        
     path.write_text(
-        json.dumps({"items": content}, indent=2),
+        json.dumps(data, indent=2),
         encoding="utf-8"
     )
 

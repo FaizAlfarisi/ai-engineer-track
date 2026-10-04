@@ -2,8 +2,9 @@ import sys
 from src.tracker.config.logger import setup_logging
 from src.tracker.services.cli import argv_parser
 from src.tracker.use_cases.sync_processor import sync
+from src.tracker.use_cases.report_generator import report_value, report_low, report_summary, report_restock
 from src.shared.utils.system_utils import fail
-from src.tracker.config.config import SYNC_CSV_PATH, SYNC_JSON_PATH
+from src.tracker.config.config import SYNC_CSV_PATH, SYNC_JSON_PATH, REPORT_JSON_PATH
 from src.shared.utils.exceptions import ApiError, BadRequestError, CorruptDataError
 
 def main(argv) -> None:
@@ -23,16 +24,13 @@ def main(argv) -> None:
         
     elif request.command == "report":
         if request.subcommand == "value":
-            # report_value()
-            pass
+            print(report_value(SYNC_CSV_PATH, REPORT_JSON_PATH))
         elif request.subcommand == "summary":
-            # report_summary()
-            pass
+            print(report_summary(SYNC_CSV_PATH))
         elif request.subcommand == "low":
-            # report_low(request.number)
-            pass
+            print(report_low(SYNC_CSV_PATH, request.number))
         elif request.subcommand == "restock":
-            # report_restock(request.number)
+            print(report_restock(SYNC_CSV_PATH, request.number))
             pass
         
 

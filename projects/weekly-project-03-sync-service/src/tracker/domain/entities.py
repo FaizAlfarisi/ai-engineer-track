@@ -13,3 +13,6 @@ class Item:
     name: str
     price: float
     stock: int
+    
+    def total_value(self) -> float:
+        return self.price * self.stock
