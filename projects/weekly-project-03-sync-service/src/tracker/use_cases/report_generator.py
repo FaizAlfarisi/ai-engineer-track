@@ -27,7 +27,7 @@ def report_low(cached_csv_path: str, threshold: int) -> str:
             lines.append(f"{item.name}: {item.stock} left")
             low_count += 1
     
-    lines.append(f"Low {low_count} items")
+    lines.append(f"Low: {low_count} items")
     
     return "\n".join(lines)
 

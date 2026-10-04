@@ -28,10 +28,10 @@ def main(argv) -> None:
         elif request.subcommand == "summary":
             print(report_summary(SYNC_CSV_PATH))
         elif request.subcommand == "low":
-            if request.number:
+            if request.number >= 0:
                 print(report_low(SYNC_CSV_PATH, request.number))
         elif request.subcommand == "restock":
-            if request.number:
+            if request.number >= 0:
                 print(report_restock(SYNC_CSV_PATH, request.number))
 
 if __name__ == "__main__":
