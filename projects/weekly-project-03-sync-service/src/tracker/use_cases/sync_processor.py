@@ -1,11 +1,16 @@
 from src.tracker.services.api import get_items
 from src.tracker.services.storage import load_json, write_json, write_csv, merge_data, item_decoder
-
+from src.tracker.domain.entities import Item
 
 def sync(cached_json_path: str, cached_csv_path: str) -> str:
     raw_network = get_items()
+    network: list[Item] = []
     
-    network = [item_decoder(item) for item in raw_network]
+    for n in raw_network:
+        decoded = item_decoder(n)
+        
+        if isinstance(decoded, Item):
+            network.append(decoded)
     
     cached = load_json(cached_json_path)
     

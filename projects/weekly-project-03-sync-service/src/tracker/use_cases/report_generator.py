@@ -4,7 +4,7 @@ def report_value(cached_csv_path: str, report_json_path: str) -> str:
     content = load_csv(cached_csv_path)
     
     lines = []
-    total_value = 0
+    total_value = 0.0
     
     for item in content:
         lines.append(f"{item.name}: {item.stock} x {item.price:.2f} = {item.total_value():.2f}")
@@ -35,7 +35,7 @@ def report_summary(cached_csv_path: str, threshold: int = 10) -> str:
     content = load_csv(cached_csv_path)
     
     lines = [f"Summary ({len(content)} items):"]
-    total_value = 0
+    total_value = 0.0
     low_count = 0
     
     for item in content:

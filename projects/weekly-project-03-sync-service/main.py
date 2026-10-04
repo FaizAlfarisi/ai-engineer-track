@@ -28,11 +28,11 @@ def main(argv) -> None:
         elif request.subcommand == "summary":
             print(report_summary(SYNC_CSV_PATH))
         elif request.subcommand == "low":
-            print(report_low(SYNC_CSV_PATH, request.number))
+            if request.number:
+                print(report_low(SYNC_CSV_PATH, request.number))
         elif request.subcommand == "restock":
-            print(report_restock(SYNC_CSV_PATH, request.number))
-            pass
-        
+            if request.number:
+                print(report_restock(SYNC_CSV_PATH, request.number))
 
 if __name__ == "__main__":
     main(sys.argv)

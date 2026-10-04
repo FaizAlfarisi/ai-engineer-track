@@ -11,32 +11,27 @@ logger = logging.getLogger(__name__)
 
 def item_decoder(dtc: dict[str, Any]) -> Item | dict[str, Any]:
     if "id" in dtc and "name" in dtc and "price" in dtc and "stock" in dtc:
-        
-        raw_id = dtc.get('id')
+ 
         try:
-            id = int(raw_id)
+            id = int(dtc["id"])
         except ValueError:
-            raise CorruptDataError(f"Invalid id: '{raw_id!r}'. Expected a number")
+            raise CorruptDataError(f"Invalid id: '{dtc["id"]!r}'. Expected a number")
         
-        raw_name = dtc.get('name')
-        name = raw_name.strip() if isinstance(raw_name, str) else ""
+        name = dtc["name"].strip() if isinstance(dtc["name"], str) else ""
         if not name:
-            raise CorruptDataError(f"Invalid name: '{raw_name!r}. Expected non empty string")
+            raise CorruptDataError(f"Invalid name: '{dtc["name"]!r}. Expected non empty string")
 
-        
-        raw_price = dtc.get("price")
         try:
-            price = float(raw_price)
+            price = float(dtc["price"])
         except (ValueError, TypeError):
-            raise CorruptDataError(f"Invalid price: '{raw_price!r}. Expected a positive number")
+            raise CorruptDataError(f"Invalid price: '{dtc["price"]!r}. Expected a positive number")
         if price < 0.0:
-            raise CorruptDataError(f"Invalid price: '{raw_price!r}. Expected a positive number")
+            raise CorruptDataError(f"Invalid price: '{dtc["price"]!r}. Expected a positive number")
         
-        raw_stock = dtc.get("stock")
         try:
-            stock = int(raw_stock)
+            stock = int(dtc["stock"])
         except ValueError:
-            raise CorruptDataError(f"Invalid stock: '{raw_stock}. Expected a number")
+            raise CorruptDataError(f"Invalid stock: '{dtc["stock"]}. Expected a number")
         
         return Item(
             id=id,
@@ -92,24 +87,31 @@ def load_json(path: str | Path) -> list[Item]:
 
 def load_csv(path: str | Path) -> list[Item]:
     if not isinstance(path, (str, Path)) or not path:
-        return {}
+        return []
         
     path = Path(path)
     
     if not path.is_file():
         logging.warning("file not found %s", path)
-        return {}
+        return []
+    
+    items: list[Item] = []
     
     with path.open(encoding="utf-8", newline="") as f:
         rows = csv.DictReader(f)
-        return [item_decoder(r) for r in rows]
+        for r in rows:
+            decoded = item_decoder(r)
+            if isinstance(decoded, Item):
+                items.append(decoded)
+                
+    return items
 
-def write_json(path: str | Path, items: list[Item], report: bool = False, total: int = 0) -> None:
+def write_json(path: str | Path, items: list[Item], report: bool = False, total: float = 0.0) -> None:
     path = Path(path)
     
     content = [asdict(item) for item in items]
     
-    data = {"items": content}
+    data: dict[str, Any] = {"items": content}
     
     if report:
         data["total"] = total
