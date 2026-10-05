@@ -1959,3 +1959,30 @@ Commit WP3. Then DSA Week 3 (due now) → remaining Stage-3 topics.
   in 332 — plus indirect expecteds). Answered by the Why-Chain doctrine
   (V3 patch).
 
+## DSA Session #3 (Week 3) — 2026-10-06
+
+### Problem
+
+Busiest K-minute window from a sorted-by-minute `(minute, amount)` log;
+return `(start_minute, total)`, earliest span wins ties, empty → `None`.
+Pattern: **sliding window** (first time derived + applied).
+
+### Session notes
+
+- Brute force designed on paper first (3 paper rounds: units fix
+  K-vs-span, shape fix tuple-vs-sum, stale-index fix, window-range fix,
+  empty guard), implemented green in an external playground ((2, 55)
+  seen in chat; remaining outputs learner-verified, taken on record).
+- K = 0 same-minute insight + tie-earliest via strict `>` self-derived.
+- Window derived Socratically (running total, shrink-while-violated,
+  start-not-end minute fix, running-best O(1) over list+max); guards
+  held throughout.
+- Complexity stated out loud before code: O(n³)/O(n) brute vs O(n)/O(1)
+  window, crossing argument given (each index enters once, leaves at
+  most once).
+- Verbal explanation passed (invariant sentence + tie + earliest +
+  bounds); one sharpening given (mechanism vs invariant distinction).
+- Scope note: DSA-only grant — no modifications outside DSA log +
+  this entry.
+- Logged: `PROGRESS.md` DSA Log Row 3.
+
