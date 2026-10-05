@@ -9,8 +9,10 @@ def setup_logging(mode: str = "normal") -> logging.Logger:
     
     if logger.handlers:
         logger.handlers.clear()
+
+    logging.getLogger("urllib3").setLevel(logging.WARNING)
         
-    formatter = logging.Formatter("%(filename)s %(name)s %(message)s")
+    formatter = logging.Formatter("%(levelname)s %(filename)s %(name)s %(message)s")
     
     match mode:
         case "quiet":

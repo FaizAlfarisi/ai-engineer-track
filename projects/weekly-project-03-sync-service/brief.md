@@ -160,10 +160,12 @@ the problem plainly.
 | T4 | `report low 10` (after T1) | The 2-line + `Low: 2 items` block above, byte-exact |
 | T5 | `report low abc` | stderr, exit 1: `bad request:` + non-negative-integer detail |
 | T6 | `report low -5` | stderr, exit 1: `bad request:` + non-negative-integer detail |
-| T7 | `report value` (no cache files at all) | stderr, exit 1: `corrupt data:`-family message (missing input, no crash) |
+| T7 | `report value` with no cache files at all | Graceful empty (WP2 precedent — reports never crash on missing input): stdout `Total: 0.00`, exit 0. (`report low 10` likewise prints `Low: 0 items`.) |
+| T7b | `report low 10` with no cache files at all | stdout `Low: 0 items`, exit 0 |
 | T8 | (no arguments) | stderr, exit 1: usage line |
 | T9 | `bananas` (unknown command) | stderr, exit 1: `bad request:` + unknown-command detail |
-| T10 | Overwrite `sync.json` with `{bad json`, then `report value` | stderr, exit 1: `corrupt data:` + parser detail, no traceback |
+| T10 | Overwrite `sync.json` with `{bad json`, then `sync` (reports read the CSV, so only `sync` exercises the JSON loader) | stderr, exit 1: `corrupt data:\nfailed to load existing data | Expecting property name enclosed in double quotes: line 1 column 2 (char 1)` (detail = the JSON parser message), no traceback |
+| T10b | Overwrite `sync.json` with `{"items": [{"foo": 1}]}` (valid JSON, wrong record shape), then `sync` | stderr, exit 1: `corrupt data:\nfailed to load existing data | bad record: {'foo': 1}`, no traceback (shape violations are corruption, never `AttributeError`) |
 | T11 | `SYNC_API_BASE=http://127.0.0.1:1 python main.py sync` | stderr, exit 1: `network error:` + detail, no traceback |
 | T12 | `sync quiet` (seed installed) | stdout pin exactly; stderr EMPTY |
 | T13 | `sync verbose` (seed installed) | stdout pin exactly; stderr contains `DEBUG` |
@@ -177,7 +179,7 @@ you deliberately change a message, update this matrix in the same commit.
 
 ## Acceptance Criteria
 
-- [ ] All of T1–T17 pass exactly as specified (run in a temp copy for
+- [ ] All of T1–T17 plus T7b/T10b pass exactly as specified (run in a temp copy for
       the file-mutating rows).
 - [ ] Reports are byte-exact outputs computed from files just read back.
 - [ ] `requests` + typed errors + timeouts end-to-end (no `urllib`

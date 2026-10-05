@@ -1,3 +1,5 @@
+import os
+
 import requests
 import logging
 import stub_api
@@ -5,12 +7,19 @@ from src.shared.utils.exceptions import ApiError
 logger = logging.getLogger(__name__)
 
 def get_items():
-    api = stub_api.StubAPI()
-    logger.info("server started: %s", api.base)
+    override = os.environ.get("SYNC_API_BASE")
+    api = None
+    if override:
+        base = override
+        logger.info("using API base from SYNC_API_BASE: %s", base)
+    else:
+        api = stub_api.StubAPI()
+        base = api.base
+        logger.info("server started: %s", base)
 
     try:
         response = requests.get(
-            f"{api.base}/items",
+            f"{base}/items",
             timeout=30,
         )
         response.raise_for_status()
@@ -20,7 +29,7 @@ def get_items():
         raise ApiError(message=f"http {code}", status=code) from exc
     except requests.ConnectionError as exc:
         logger.error("API error: network error: %s", exc)
-        raise ApiError(message=f"network error: {exc}") from exc
+        raise ApiError(message=f"{exc}") from exc
     except requests.Timeout as exc:
         logger.error("API error: timeout: %s", exc)
         raise ApiError(message=f"timeout: {exc}") from exc
@@ -28,7 +37,8 @@ def get_items():
         logger.error("API error: unexpected error")
         raise ApiError(message=f"unexpected error")
     finally:
-        api.stop()
+        if api is not None:
+            api.stop()
         
     network = response.json().get("items", [])
     logger.debug("fetched data from api: %s", network)

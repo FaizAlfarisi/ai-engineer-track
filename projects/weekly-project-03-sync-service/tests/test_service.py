@@ -66,8 +66,12 @@ def test_report_summary(tmp_path):
     assert "low stock: 1" in result
 
 
-def test_logging_caplog(caplog):
-    with caplog.at_level(logging.INFO):
-        logging.getLogger("test").info("sync completed")
+def test_logging_caplog(tmp_path, caplog):
+    missing_path = tmp_path / "missing.csv"
 
-    assert "sync completed" in caplog.text
+    with caplog.at_level(logging.WARNING, logger="src.tracker.services.storage"):
+        result = load_csv(str(missing_path))
+
+    assert result == []
+    assert "file not found" in caplog.text
+    assert str(missing_path) in caplog.text

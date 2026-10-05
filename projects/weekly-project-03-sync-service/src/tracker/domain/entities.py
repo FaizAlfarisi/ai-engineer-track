@@ -7,7 +7,7 @@ class Request:
     subcommand: str = ""
     number: int | None = None
     
-@dataclass
+@dataclass(frozen=True)
 class Item:
     id: int
     name: str

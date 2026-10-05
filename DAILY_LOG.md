@@ -1893,3 +1893,54 @@ smoke-tested live: 4 items, ids 1–4).
 
 Learner builds WP3 independently (multi-commit). Then formal review +
 acceptance matrix + reflection + PROGRESS update.
+
+## Session 30 — 2026-10-05
+
+### WP3 review round 1 (build mode, learner-consented corrections)
+
+Project finished after a sparse week. Full T1–T17(+T7b/T10b) matrix run
+in a temp copy; 9 reviewer-side corrections applied with explicit
+consent, then re-verified green (matrix + 5 tests + mypy clean).
+
+### Design answers given (learner's 3 confusions)
+
+- Q1 data flow: pros/cons of dict-at-api + decode-in-use-case analyzed;
+  rule = parse at the perimeter, trust inside; concrete move = decode in
+  `api.get_items` (left for learner's fix loop — architectural call).
+- Q2 conversion placement: ingestion owns parsing, use-cases orchestrate
+  typed values.
+- Q3 T11 simulation: PowerShell env-prefix form given; underlying gap
+  found (env unwired) and fixed in review.
+
+### Corrections applied (all re-verified)
+
+SYNC_API_BASE wiring · levelname formatter + urllib3 silence · corrupt
+two-line shape + wrong-shape guard · Optional narrowing (mypy clean) ·
+UTF-8 requirements · module-logger consistency · frozen Item · brief
+amendments T7/T7b/T10/T10b + acceptance (spec-ownership rule).
+
+### Still owed by learner
+
+README · decision rows 4–5 substance · technical reflection ·
+caplog-honesty rewrite (throwaway-logger test → own-logger test).
+
+### Tomorrow Goal
+
+WP3 close-out items from learner, then commit. DSA Week 3 still due.
+
+## Session 31 — 2026-10-06
+
+### WP3 close-out (round 2)
+
+Learner delivered README (run/verbosity/env/tests), decision rows 4–6
+(incl. timeout-30 rationale), honest caplog rewrite (own storage logger).
+Original-result disclosure given (round-1 reconstruction: ~87 buckets,
+5 red rows, unshippable as specced). Non-template reflection answered
+3/4 (Q2 detection-story left open, recorded). Final confirmation green
+(tests 5/5, mypy clean, in project folder). Score stands at **86/100**;
+review.md round-2 section written.
+
+### Tomorrow Goal
+
+Commit WP3. Then DSA Week 3 (due now) → remaining Stage-3 topics.
+

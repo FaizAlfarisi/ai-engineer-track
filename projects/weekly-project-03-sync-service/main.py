@@ -16,11 +16,11 @@ def main(argv) -> None:
         try:
             print(sync(SYNC_JSON_PATH, SYNC_CSV_PATH))
         except BadRequestError as exc:
-            fail(f"bad request: {exc}")
+            fail(f"bad request:\n{exc}")
         except CorruptDataError as exc:
-            fail(f"corrupt data: {exc}")
+            fail(f"corrupt data:\n{exc}")
         except ApiError as exc:
-            fail(f"network error: {exc}")
+            fail(f"network error:\n{exc}")
         
     elif request.command == "report":
         if request.subcommand == "value":
@@ -28,10 +28,10 @@ def main(argv) -> None:
         elif request.subcommand == "summary":
             print(report_summary(SYNC_CSV_PATH))
         elif request.subcommand == "low":
-            if request.number >= 0:
+            if request.number is not None:
                 print(report_low(SYNC_CSV_PATH, request.number))
         elif request.subcommand == "restock":
-            if request.number >= 0:
+            if request.number is not None:
                 print(report_restock(SYNC_CSV_PATH, request.number))
 
 if __name__ == "__main__":

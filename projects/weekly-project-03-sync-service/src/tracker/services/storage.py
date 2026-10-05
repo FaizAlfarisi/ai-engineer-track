@@ -76,14 +76,21 @@ def load_json(path: str | Path) -> list[Item]:
             records = root_data["items"]
             
             if isinstance(records, list):
-                logger.info("loaded %d items from %s", len(records), path)
-                return records
+                items = []
+                for record in records:
+                    if not isinstance(record, Item):
+                        raise CorruptDataError(
+                            f"failed to load existing data | bad record: {record!r}"
+                        )
+                    items.append(record)
+                logger.info("loaded %d items from %s", len(items), path)
+                return items
         
         return []
             
     except json.JSONDecodeError as exc:
         logger.error("failed to load json: %s", path)
-        raise CorruptDataError(exc)
+        raise CorruptDataError(f"failed to load existing data | {exc}")
 
 def load_csv(path: str | Path) -> list[Item]:
     if not isinstance(path, (str, Path)) or not path:
@@ -92,7 +99,7 @@ def load_csv(path: str | Path) -> list[Item]:
     path = Path(path)
     
     if not path.is_file():
-        logging.warning("file not found %s", path)
+        logger.warning("file not found: %s", path)
         return []
     
     items: list[Item] = []

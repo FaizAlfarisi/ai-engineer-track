@@ -11,11 +11,11 @@ Completion ≠ mastery. This file tracks mastery.
 
 ```text
 Stage:        Stage 3 — Python Engineering (in progress)
-Current:      Lesson 21 — Logging DONE — 91/100 (bucket-scored, 95+ bar judged unmet)
-Next:         WP3 half-stage integration (brief → independent build → formal review); DSA Week 3 due
-Weekly Proj.: WP1 85/100; WP2 88/100 — Stage 2 complete; WP3 next (after L21 per Session 25 decision)
+Current:      WP3 CLOSED — 86/100 (round 2: close-outs landed, score stands)
+Next:         DSA Week 3 (due) → L22 / remaining Stage-3 topics → Stage project planning
+Weekly Proj.: WP1 85/100; WP2 88/100; WP3 86/100 (closed)
 Quizzes:      Quiz 02 done (84.7%); Quiz 03 done (82.9%)
-DSA Track:    1 session/week, interleaved — Week 3 session due
+DSA Track:    1 session/week, interleaved — Week 3 session due now
 Git:          commit after every session from Stage 2 onward
 ```
 
@@ -330,6 +330,7 @@ Total Study Hours: ~40.5 hours (L14 2.5h, L15 3h, L16 1.5h, DSA#1 1h, WP2 ~6h, L
 |---|-----------------|---------|--------|------|
 | 1 | L8–L11 | Library Manager CLI (multi-module) | 85/100 | 2026-09-02 |
 | 2 | L12–L16 | Expense/Transaction Manager CLI (layered package, frozen model) | 88/100 | 2026-09-16 |
+| 3 | L17–L21 | Feed Sync & Report Service (layered src/, requests + typed errors, merge, verbosity journal, pytest) | 86/100 (round 1) | 2026-10-05 |
 
 ---
 
