@@ -14,8 +14,36 @@
 - Builder rules: Intent-first specs; **bold the main intent + critical
   constraints**; show the flow, not just commands; exact-match strings
   verbatim; short sentences for critical rules.
-- Lessons must teach implementation + examples, not concepts alone.
+- Lessons must teach implementation + examples, never concepts alone.
   Hard drilling is welcome; thin lessons are not.
+- Why-Chain delivery: every concept motivated before mechanized
+  (problem → insufficiency → capability → feature → consequence).
+  Difficulty without clarity is fog — harder means H1 analysis depth,
+  never thinner delivery.
+
+---
+
+# Difficulty Knobs (learner-settable, three separate dials)
+
+- Volume: tier-default (reduce only on request).
+- Hints: fewer by default; conceptual-first always.
+- Drill hardness: HARD — H1 bug-analysis depth maxed; lesson +
+  exercise delivery stays fully legible regardless.
+
+---
+
+# Translator Stance (explicit opt-in)
+
+Push unassisted reading first; translation/GenAI is the fallback, not
+the default. Weaning tracked, never punished.
+
+---
+
+# Sparse-Hours Preference
+
+Short sparse sittings: end every sitting at a small done-state (green
+pin, committed); re-ramp via git log + last green pin. Split builds
+across sittings.
 
 ---
 
@@ -23,20 +51,29 @@
 
 Strong — assume freely, combine aggressively:
 
-- Traceback-driven debugging (H1 sweeps L4–L11, L16–L18 independent)
+- Traceback-driven debugging (H1 sweeps L4–L11, L16–L21 independent)
 - pathlib / JSON / CSV; accumulate idioms (`.get(k, 0.0)`)
 - Contract-driven design (set/dict efficiency reasoning, DSA #2
   two-pointer via sorted-contract)
 - `match` mapping patterns; `raise ... from None` (closed — light
   retrieval only); `__main__` guard; type hints as documentation
+- `caplog`/`tmp_path` testing seams (L17); verbosity-gated logging
+  (L21)
 
 Fragile — weave unannounced retrieval, never assume:
 
-- Guard-condition operator logic (`and`/`or` under negation — WP2 OPEN)
+- Guard-condition operator logic (`and`/`or` under negation — WP2 OPEN,
+  CLOSING via four-session weave)
 - Latent sample-passing bugs (passes sample, misses requirement — OPEN)
 - Spec-literalness (OPEN, watching — Constraints-checklist habit holds
   since L11; 3-second output-compare after each driver run)
 - Error handling under edge cases (CLOSING — one retrieval pending)
+
+Style watch (converging to best practice):
+
+- Path-first I/O (`str | Path` in → `Path()` first → `path.open` /
+  `read_text` / `write_text`; no bare `open()` on paths)
+- `main(argv)` + `__main__` guard; no module-level executable code
 
 ---
 
@@ -45,12 +82,14 @@ Fragile — weave unannounced retrieval, never assume:
 May require (taught):
 
 - `sys.argv` raw (Stage 1) · `json` / `csv` / `pathlib` · `urllib` ·
-  `unittest` / `pytest` basics (L17) · `match` · anything taught inside
-  the current lesson
+  `unittest` / `pytest` basics + `caplog`/`tmp_path` (L17) · `match` ·
+  `logging` core (L21: levels, handlers, formatters, `exc_info`,
+  laziness, hierarchy) · anything taught inside the current lesson
 
 NEVER require unless taught in-lesson first:
 
-- `argparse` / `--flag` parsing · `re` · decorators · `asyncio` · any
+- `argparse` / `--flag` parsing · `re` · decorators · `asyncio` ·
+  `dictConfig` / `LoggerAdapter` / `Filter` (named but untaught) · any
   unseen stdlib
 
 New tool needed? First resort: **teach it in the lesson** — concept +
@@ -60,37 +99,44 @@ code + usage shown in-lesson). Never silently require.
 
 ---
 
-# Scoring Anchor (Bucket-score law)
+# Scoring Anchor (Bucket-score law + pricing)
 
-- Historical band ~90 (avg 91.3 across 20 entries; L18 bucket-93 is the
-  bar). L17-98 was loose — logged outlier, never the anchor.
-- 95+ needs the full bar: hint-0 solving, independent H-drills +
-  Challenge, all findings fixed independently or retained-with-reason,
-  spec-literal clean.
+- Historical band ~90 (avg 91.3; L18 bucket-93 is the bar; L19 96,
+  L20 94). L17-98 was loose — logged outlier, never the anchor.
+- Pricing: hint-0 → 95+ eligible; hint-1 → cap 94; hint-2 → cap 90;
+  reviewer-applied fixes cost bucket points. 95+ needs the full bar
+  (`SCORING.md`).
 
 ---
 
 # Proven Lesson Shape (repeat L18's pattern)
 
 - Lesson: Objective → Why → Mental Model → Core Concept (numbered
-  subsections) → Practical Examples → Engineering Notes → Common
-  Pitfalls → Connection → Quick Recall → Practice table.
+  subsections, Why-Chain per concept) → Practical Examples → Engineering
+  Notes → Common Pitfalls (numbered — specs reference by number) →
+  Connection → Quick Recall → Practice table.
 - Practice table is flexible by tier: **CORE = full form** (E1–E5 /
   M1–M3 / H1-`[DEBUG]` blank write-ins / H2 engineering build /
   Challenge CLI). SUPPORTING / AWARENESS = reduced forms per
   `CURRICULUM.md` pipelines. IDs always match their tier (label
   contract).
-- Notebook: spec + driver cells, all executed; H1 slots blank at build.
+- H-specs name every suite-imported symbol as an explicit deliverable.
+  Expected-states exact and direct.
+- Notebook: spec + driver cells, all executed, outputs stripped; H1
+  slots blank at build.
 - Review: Strengths → 8-bucket table (named deductions) → hint level +
   independent-fix ratio → spec-literalness → Reviewer notes → Verdict;
-  plus coverage-check + label-check lines.
+  plus coverage-check + label-check + style + suite-health lines.
 
 ---
 
-# Queued Targets (standing Coach Feedback — applies to L19+)
+# Queued Targets (standing Coach Feedback — applies to L22+)
 
 1. Coverage gate at build (teach-first → PROVIDED → never silent).
-2. Intent-first specs, bolded main intent.
+2. Intent-first specs, bolded main intent; Why-Chain lessons.
 3. Prereq sync via the Tool-sync lists above.
 4. Label check (ID == Difficulty == table tier == notebook Type).
-5. Bucket-derived scores + 95+ bar.
+5. Bucket-derived scores + pricing (hint caps, assisted-fix costing,
+   vacuous-test detection).
+6. Token discipline (tail-only appends, batched validation, split
+   sittings).

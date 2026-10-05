@@ -1636,3 +1636,326 @@ calibration for L19 and all future targets (executes as V3 instruction).
    instruction alone was not followed.
    → V3: `LEARNER.md` Proven Lesson Shape; CORE full form, other tiers
    flexible per `CURRICULUM.md` pipelines.
+
+## Session 24 — 2026-09-24
+
+### Lesson
+
+Lesson 19 — Requests (CORE, Stage 3) — **96/100**, mastery 3→4, hint
+dependency 0. Mirror-transfer of L18's wire onto the `requests` library;
+no GenAI used (translator + Google-for-syntax only).
+
+### Session notes
+
+- Quick Recall 6/6 before the exercises, including the guard-`or`
+  retrieval (Q6: `and`-under-negation lets truthy non-strings through;
+  fix is `or`) — WP2 OPEN item stated correctly out loud.
+- Built E1–E5, M1–M3, H1, H2 + the Challenge. All 11 drivers byte-exact
+  and both suites green on first verification (read-only, caches off),
+  re-verified green after the fix round.
+- H1 debug drill: all four planted bugs fixed and attributed in the
+  learner's own notebook cell (`data=` vs `params=`, if/else vs
+  `raise_for_status()`, `temp` vs `temp_c`, `HTTPError`-first).
+- Review ran one round with 5 diagnostic findings, all explained
+  correctly then fixed independently same session: M1 truthiness guard
+  → `not isinstance(path, str) or ...`; `post_json`/`search` invented
+  except-branches (str-returns vs annotations) deleted back to spec;
+  `save_csv` header pinned literal (sync_cli already had it right);
+  `sess_client` regained `from exc` chaining. E2 `timeout=3` vs spec
+  `timeout=5` retained-with-reason (lesson-standard, unobservable).
+- Builder feedback from learner (logged for L20+): H-drill drivers
+  should print failing test names + short tracebacks, not just the
+  `N passed` count — during trials the cell output hid the real failure.
+- Housekeeping: `__pycache__/` removed post-verification. `.venv/`
+  (~99 MB) still inside the lesson folder — relocate before commit.
+- Review: `review/lesson-19-review.md` (bucket table 25/20/14/10/10/9/4/5).
+
+### Reflection — Lesson 19 (2026-09-24, learner's own words, condensed)
+
+- Decision: auto-drove exception handling from habit instead of the
+  spec — no fresh idea needed, the main concept is L18's with `requests`
+  swapped in. Fix instinct going forward: determine the required changes
+  first (e.g. Challenge with multiple routes would need a `match`
+  handler), then build.
+- Hardest to diagnose: nothing hard, but trials cost time because the
+  H-driver cell output didn't show the real test report — a builder gap,
+  not a knowledge gap.
+- Concepts reused: almost all of them (pathlib, json, csv, try/except,
+  `__main__` guard, match) — urllib replaced with requests throughout.
+- Process commitment: slow-paced reading without helpers — pushing to
+  understand spec English directly rather than routing through the
+  translator.
+- Hint dependency this session — exercises level 0; review-fix loop
+  level 1 (reviewer-assigned: diagnostic → learner implemented).
+
+### Time Studied
+
+~3 hours (learner-reported 2026-09-24; L20 also ~3h).
+
+### Tomorrow Goal
+
+Quiz 03 window OPEN (L17–L19: pytest + HTTP + Requests). WP3 window
+OPEN. DSA Week 3 due next week. L19 study time still owed.
+
+## Session 25 — 2026-09-24
+
+### Quiz build
+
+Quiz 03 (L17–L19) built per learner-approved plan: `quizzes/quiz-03-l17-l19.md`
+(18 pts — A concept ×3, B predict ×3, C debug ×2, D reading ×2, E offline
+apply with `tmp_path`, F T/F ×3; weak-concept report table included).
+
+### Validation
+
+Every executable claim verified live against `local_api` + `requests`
+2.x in staging before shipping: A1 both branches, B2 (`True False True
+True`, `or` never crashes), B3 exact dict, C1 parent-first swallows 404,
+C2 `IndexError` on `[]`, D1 both probes `"slow"` 5/5 (`ReadTimeout` vs
+`ConnectTimeout`, the latter subclassing both parents — captured as the
+deep question), E URL + merge ids `[1, 2, 3, 5]` fresh 2 kept 2.
+
+### Standing decision (learner-proposed, mentor-confirmed)
+
+WP3 deferred until after L20 (Project Structure) + L21 (Logging) as a
+half-stage integration (modules + logging + testing + HTTP). Quiz 03 +
+targeted practice covers retrieval meanwhile.
+
+### Tomorrow Goal
+
+Learner takes Quiz 03 in chat. Then grading → weak-concept report →
+targeted practice at L20 opening.
+
+## Session 26 — 2026-09-24
+
+### Quiz 03 taken + graded
+
+Scope L17–L19, answered in chat. **82.9% (14.92/18) — PASS (bar 80%).**
+E built in `quizzes/quiz-03-l17-l19/` (`report.py` + `test_report.py`) —
+verified green (1 passed, Summary block byte-exact).
+
+### Grading notes
+
+- Strong: A1/A2/A3 all correct; B3 + E merge/accumulate independent;
+  C1 handler order complete; byte-parity exact on B2/B3/E strings.
+- Deductions: B1 201 unnamed (−0.25); B2 crash instance backwards —
+  `"/a"` named, real crashers are `None`/`123` (−0.5, WP2 OPEN stays
+  OPEN); C2 exception unnamed + fix not shown (−0.5); D1 invented
+  `requests.NetworkError`, fact right explanation wrong (−1.0, new gap:
+  `ConnectTimeout` diamond); D2 revocation sub-question skipped (−0.5);
+  F3 wrong, contradicting own C1 (−0.33).
+- E placement question (answered): quiz work lives in
+  `quizzes/quiz-03-l17-l19/`, quiz files stay clean markdown.
+- Housekeeping: `__pycache__/` + `.pytest_cache/` removed from the quiz
+  work folder post-verification.
+
+### Tomorrow Goal
+
+L20 Project Structure (CORE) opens with the Quiz 03 targeted pair
+(guard-`and` crash inputs + handler-order/`ConnectTimeout`), then
+re-assess. DSA Week 3 due next week. L19 study time still owed.
+
+## Session 27 — 2026-09-24
+
+### Lesson
+
+Lesson 20 — Project Structure (CORE) — **94/100**, mastery 3→4, hint
+dependency 0–1. Adapted volume per learner challenge (3E/3M/H1/H2/Challenge —
+restructuring reps, not recognition padding); Challenge = neutral ledger
+project (fresh experience over L19 rehouse, learner's choice). ~3 hours
+(learner-reported; L19 also ~3h).
+
+### Session notes
+
+- Quick Recall 6/6 with one precision repair (Q6 `and`-table: `""`/`123`
+  slip through, only falsy non-strings raise — corrected in chat).
+- Built E1–E3, M1–M3, H1, H2 + Challenge. First verification: 8/9
+  drivers + H2 cell damaged in workspace (`_out` line lost in an editing
+  accident — restored as build artifact, not learner work).
+- Review found 6 findings, all on untested paths (usage-to-stdout ×3,
+  `ledged` typo, bare-run default, set-vs-list fresh, vacuous
+  roundtrip) — learner explained all correctly (incl. disclosing GenAI
+  use on Issue 1 without reasoning) and implemented all fixes; 1
+  `.gitignore` line reviewer-applied with consent.
+- Post-fix verification: 9/9 drivers byte-exact, 14/14 pytest green
+  (4 messy + 4 restructure + 3 shop + 3 ledger).
+- Standing learner requests recorded (LEARNER.md untouched — revision
+  agent's file): harder H-drills + fewer hints from L21; style guidance
+  from outside sources to be converged (review holds the verdict).
+- Incident (reviewer fault, recovered): a cache-cleanup command
+  over-matched and deleted fixture trees + untracked learner work.
+  Fixtures restored from git (`88401b1`); all learner files rewritten
+  from verified post-fix reads; re-verified 9/9 + 14/14 identical.
+  Lesson relearned: explicit cleanup paths only.
+- Housekeeping: `summary.csv` stray removed (learner), caches removed
+  post-verification. In-folder `.venv` question still open from L19.
+- Review: `review/lesson-20-review.md` (bucket table 24/20/14/10/9/10/5/5;
+  95+ bar judged unmet — Challenge stream concept + 1 assisted line).
+
+### Reflection — Lesson 20 (learner's own words, condensed)
+
+- Simplification under time pressure: skipped edge handling, solved
+  only the expected, inconsistent internet-sourced style — asks for an
+  evaluation of current writing behavior vs best practice (delivered in
+  review: keep absolute imports/`!r` guards/small functions; converge to
+  `raise SystemExit(main(argv))`, argv-taking mains, docstrings,
+  writerows).
+- Decision: focus on lesson topic only (busy season); style follows the
+  internet for now.
+- H1 easier than previous lessons — wants harder drills, fewer hints
+  (recorded). Challenge stderr was new knowledge (internet + GenAI).
+- Reused almost all previous concepts; will push for independent
+  expected-results even when slow.
+
+### Time Studied
+
+~3 hours (learner-reported).
+
+### Tomorrow Goal
+
+L21 Logging (CORE; harder H-drill + fewer hints). Then WP3 half-stage
+integration. DSA Week 3 due next week.
+
+## Session 28 — 2026-09-27
+
+### Lesson
+
+Lesson 21 — Logging (CORE) — **91/100**, mastery held at 3, hint
+dependency 2. Harder H1 (5 bugs, single-hint per standing request);
+bulleted Interface Contracts (house style from learner feedback).
+~6 hours (learner-reported; heaviest single lesson on record).
+
+### Session notes
+
+- Quick Recall 6/6 (Q4 half, repaired in chat: duplication needs two
+  stream handlers AND explains nothing about the file — zero FileHandler
+  or over-gated one does that half).
+- Built E1–E3, M1–M3, H1, H2 + Challenge. Staging caught 4 build defects
+  before shipping (non-lazy "lazy" fix → `isEnabledFor`; `-c` compound
+  statements; `NullHandler.handle` no-op vs filters; child-before-parent
+  loggers never link; named-logger gate starving the file).
+- Review found 5 findings; learner pushed back on Issue-2 framing
+  (accepted — restated plainly: corrupt feed yields confident zero with
+  zero forensics) and reported all fixes; 2 micro-fixes reviewer-applied
+  with consent (counter guard, sync strictness).
+- Post-fix verification: 9/9 drivers byte-exact, 15/15 pytest green
+  (5 logging + 4 tracked + 3 load + 3 journal).
+- Learner calibration (applied, LEARNER.md untouched): harder = H1 bug
+  analysis ONLY; lesson + exercise delivery stays fully legible;
+  H-specs name every suite-imported deliverable (setup_logging lesson).
+- Environment repaired mid-build (`idna` + `requests` reinstalled).
+- Review: `review/lesson-21-review.md` (bucket table 24/20/14/10/10/10/4/5;
+  95+ bar judged unmet — hint-2 solving).
+
+### Reflection — Lesson 21 (learner's own words, condensed)
+
+- Near-surrender lesson: confusing delivery (no clean usage guidance,
+  style-vs-use-cases; exercise statements + indirect expecteds) — led to
+  internet + GenAI for lesson explanation and exercise clues, not just
+  translating. Builder failures accepted (2, now standing rules).
+- Longest stuck point: H1 setup_logging ("idk if I'm supposed to create
+  that") — solved everything else first (correct triage).
+- Root problem named as lesson delivery (accepted in part, per above).
+- Style following the internet for now; will push for independent
+  expected-results even when slow.
+
+### Time Studied
+
+~6 hours (learner-reported).
+
+### Tomorrow Goal
+
+WP3 half-stage integration brief (testing + HTTP + structure + logging).
+DSA Week 3 due — interleaved at learner's call.
+
+## Session 29 — 2026-09-29
+
+### WP3 kickoff
+
+Brief written per approved plan: `projects/weekly-project-03-sync-service/`
+(`brief.md` + `decision_log.md` + blank `main.py` + PROVIDED `stub_api.py`,
+smoke-tested live: 4 items, ids 1–4).
+
+### Design notes (builder's record)
+
+- Feed Sync & Report Service: `sync [quiet|verbose]` + `report value` +
+  `report low N`; network-wins merge; readback discipline; three verbosity
+  modes + `service.log`; scoped errors (`bad request:` / `network error:`
+  / `corrupt data:`, stderr, exit 1); `SYNC_API_BASE` override for the
+  network-error row.
+- All pins hand-computed then verified by execution (Total 197.20, low-10
+  pair, restock-20 block); 17-row matrix (T1–T17) mirroring WP2 rigor.
+- Stretches: SG1 summary, SG2 restock, SG3 report.json export.
+- One mid-write editing scar caught and removed before shipping (a
+  self-correction left inside the brief — the exact confusing-statement
+  class the learner flagged in L21).
+
+### Tomorrow Goal
+
+Learner builds WP3 independently (multi-commit). Then formal review +
+acceptance matrix + reflection + PROGRESS update.
+
+## Session 30 — 2026-10-05
+
+### WP3 review round 1 (build mode, learner-consented corrections)
+
+Project finished after a sparse week. Full T1–T17(+T7b/T10b) matrix run
+in a temp copy; 9 reviewer-side corrections applied with explicit
+consent, then re-verified green (matrix + 5 tests + mypy clean).
+
+### Design answers given (learner's 3 confusions)
+
+- Q1 data flow: pros/cons of dict-at-api + decode-in-use-case analyzed;
+  rule = parse at the perimeter, trust inside; concrete move = decode in
+  `api.get_items` (left for learner's fix loop — architectural call).
+- Q2 conversion placement: ingestion owns parsing, use-cases orchestrate
+  typed values.
+- Q3 T11 simulation: PowerShell env-prefix form given; underlying gap
+  found (env unwired) and fixed in review.
+
+### Corrections applied (all re-verified)
+
+SYNC_API_BASE wiring · levelname formatter + urllib3 silence · corrupt
+two-line shape + wrong-shape guard · Optional narrowing (mypy clean) ·
+UTF-8 requirements · module-logger consistency · frozen Item · brief
+amendments T7/T7b/T10/T10b + acceptance (spec-ownership rule).
+
+### Still owed by learner
+
+README · decision rows 4–5 substance · technical reflection ·
+caplog-honesty rewrite (throwaway-logger test → own-logger test).
+
+### Tomorrow Goal
+
+WP3 close-out items from learner, then commit. DSA Week 3 still due.
+
+## Session 31 — 2026-10-06
+
+### WP3 close-out (round 2)
+
+Learner delivered README (run/verbosity/env/tests), decision rows 4–6
+(incl. timeout-30 rationale), honest caplog rewrite (own storage logger).
+Original-result disclosure given (round-1 reconstruction: ~87 buckets,
+5 red rows, unshippable as specced). Non-template reflection answered
+3/4 (Q2 detection-story left open, recorded). Final confirmation green
+(tests 5/5, mypy clean, in project folder). Score stands at **86/100**;
+review.md round-2 section written.
+
+### Tomorrow Goal
+
+Commit WP3. Then DSA Week 3 (due now) → remaining Stage-3 topics.
+
+### Addendum — Session 28 reflection detail (learner, 2026-10-06, append-only)
+
+- Hours: ~6h wall for L21 (heaviest single lesson on record); focused
+  time lower — the bulk went to decoding delivery, not solving.
+- Internet + GenAI used for lesson explanation and exercise clues, not
+  just translating. L19 self-commitment now an explicit weaning target
+  (see `LEARNER.md` Translator Stance).
+- Longest stuck: H1 `setup_logging` ("idk if I'm supposed to create
+  that") — triaged correctly by solving everything else first; the
+  missing piece was an unnamed suite-imported deliverable (now P1 law:
+  name every suite-imported symbol).
+- Root cause named: lesson delivery (thin why-structure — 5 why-lines
+  in 332 — plus indirect expecteds). Answered by the Why-Chain doctrine
+  (V3 patch).
+

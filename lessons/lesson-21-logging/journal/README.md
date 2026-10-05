@@ -1,0 +1,1 @@
+usage = `python -m journal.main sync <dir> [quiet|verbose]`

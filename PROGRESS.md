@@ -11,11 +11,11 @@ Completion ≠ mastery. This file tracks mastery.
 
 ```text
 Stage:        Stage 3 — Python Engineering (in progress)
-Current:      Lesson 18 — HTTP & API concepts DONE — 93/100 (bucket-scored); DSA #2 (two pointers) DONE
-Next:         Lesson 19 — Requests (CORE)
-Weekly Proj.: WP1 85/100; WP2 88/100 — Stage 2 complete; next weekly project opens ~3 lessons into Stage 3
-Quizzes:      Quiz 02 done (84.7%); next quiz window ~3 lessons into Stage 3
-DSA Track:    1 session/week, interleaved — Week 3 session due next week
+Current:      WP3 CLOSED — 86/100 (round 2: close-outs landed, score stands)
+Next:         DSA Week 3 (due) → L22 / remaining Stage-3 topics → Stage project planning
+Weekly Proj.: WP1 85/100; WP2 88/100; WP3 86/100 (closed)
+Quizzes:      Quiz 02 done (84.7%); Quiz 03 done (82.9%)
+DSA Track:    1 session/week, interleaved — Week 3 session due now
 Git:          commit after every session from Stage 2 onward
 ```
 
@@ -56,6 +56,9 @@ Stage 1 values were migrated from V1 session evidence and are marked
 | Dataclass | SUPPORTING | 3 | High | H1: all 4 planted bugs caught (shared-mutable-default ValueError, amount:str lie, frozen mutation, `== "income"` never True); new-concept study required GenAI explanation for dataclass purpose / enum solving / frozen constraint (disclosed; wean target set); H1 write-up blank under duty → worked model in review | None | Challenge: L15 expense package refactored onto frozen dataclass + Kind model, interfaces preserved, byte-exact; `mypy` clean on both entry points | 2026-09-11 |
 | Testing with pytest (fixtures, parametrize, tmp_path/capsys/monkeypatch, vacuous-pass trap) | CORE | 3→4 | High | three "green for the wrong reason" tests (vacuous CSV loader test; `returns_float` asserting `== 0.0`; a `for` loop inside a test) — closed via the honest `isinstance` reframe, not coloring; `sum([])` is `int 0`. Carry-forward: `lambda`/`ids=`/built-ins pre-teach or declare | ~1–2 | L17 Challenge + WP2 regression tests; L18 tests spin the real local server in a fixture | 2026-09-22 |
 | HTTP & API concepts (urllib, status codes, error classes, client/server patterns) | CORE | 3→4 | High | H2 spec-literalness deviation kept BY DECISION: module exports `StoreAPI` class instead of `start(port=0)` — behavior correct, contract symbol absent; consequence stated (+ reference model delivered, deduction applied). Nits: bare `except Exception` in post/search clients retained | 0 (review loop level 1) | L18 Challenge caching CLI (network+disk merge); reference pair proves class-based vs factory server drop-in compatible | 2026-09-22 |
+| Requests (third-party install, params=/json=/timeout=/raise_for_status, RequestException family + handler order, Session headers-once, typed wraps, fetch→merge→dual-persist CLI) | CORE | 3→4 | High | first-draft contract drift on untested paths: truthiness guard instead of isinstance (M1), str-returns vs annotations + invented codes (post/search), derived CSV header (M3), dropped `from exc` (H2) — all 5 explained + fixed independently same session; E2 timeout=3 vs spec 5 retained-with-reason | 0 (review loop level 1) | Challenge sync_cli (own-server fetch + network-wins merge + sync.json/sync.csv + positional argv, missing-arg exits 1) | 2026-09-24 |
+| Project structure (launch contexts/sys.path[0], absolute-vs-relative, -m entries, silent init, __file__ data, minimal requirements, .gitignore, README, tests/+conftest) | CORE | 3→4 | High | first-draft drift on untested paths: usage-to-stdout ×3, `ledged` typo, bare-run default, set-vs-list fresh, vacuous roundtrip — all 6 explained + implemented independently; 1 `.gitignore` line reviewer-applied with consent; stderr reasoning GenAI-sourced (taught after, confirmed); no docstrings (4th lesson) | 0–1 (Challenge stream concept via internet/GenAI; review loop level 1) | Challenge ledger/ project (package + ledger/tests/ + requirements/gitignore/README, `sync <dir>` entry, exit-1 usage) | 2026-09-24 |
+| Logging (severity arithmetic, basicConfig+force, dual routing, two-gate model, formatters, exc_info, isEnabledFor laziness, hierarchy creation-order, caplog, verbosity modes, run journals) | CORE | 3 (held) | High | heaviest assistance on record: GenAI lesson explanation + exercise clues, internet real-project research (~6h, disclosed); H1 reconfig design + Challenge stream concept externally sourced — all implemented by learner; 2 micro-fixes reviewer-applied with consent (counter guard, sync strict); no docstrings (6th lesson) | 2 (solving; review loop level 1) | Challenge journal/ project (verbosity modes, both gates, handler hygiene, skip-loudly merge, project-local tests) | 2026-09-27 |
 | `match` beyond literal patterns | AWARENESS | 2 | — | deferred by design (JSON Stage 2, API Stage 4) | — | — | 2026-08-13 |
 
 ---
@@ -81,15 +84,15 @@ one retrieval pending) / CLOSED.
 
 | Misconception | Status | First Seen | Last Evidence |
 |---------------|--------|------------|---------------|
-| Spec-literalness (output-as-contract) | OPEN — watching | L3 | L9 re-baselined (self-identified RUSHING, habit: read Constraints as checklist). L11: 12/12 byte-exact, habit held; pending one unannounced retrieval |
-| Error handling under edge cases | CLOSING | L7 | L8 attack landed: degenerate guards everywhere; close after one unannounced retrieval survives |
+| Spec-literalness (output-as-contract) | OPEN — watching | L3 | L19 fresh evidence: first drafts follow habit over contract on untested paths (return-type lies, derived header, truthiness guard) — all fixed same session; Output blocks byte-exact throughout. L20 fresh evidence: usage-stream ×3, `ledged` typo, bare-run default — all green-driver invisible; learner self-described root cause as hand-writing strings instead of copying + time-pressure simplification |
+| Error handling under edge cases | CLOSING | L7 | L8 attack landed: degenerate guards everywhere; close after one unannounced retrieval survives. L19: save_csv empty-list edge fixed via literal fieldnames (header-only write, no crash) — still CLOSING, needs one clean first-pass retrieval |
 | Loader return-type mixing | CLOSED | L9 | L10: typed loader returned clean data + raised on bad values; survived unannounced retrieval |
-| Latent bug — passes sample, misses requirement | OPEN | L11 | L11: `summarize` overwrite hardened to `.get(cat, 0.0)` accumulate |
+| Latent bug — passes sample, misses requirement | OPEN | L11 | L11: `summarize` overwrite hardened to `.get(cat, 0.0)` accumulate. L19 fresh evidence (over-handling variant): post/search except-branches passed every driver while breaking `tuple[int, dict]`/`dict` annotations — fixed by deleting the invented branches. L20 fresh evidence: set-vs-list `fresh` + vacuous roundtrip, both driver-green contract breaks — fixed same session |
 | Per-iteration recomputation inside loops | OPEN | L6 | quiet since L9 |
 | Builtin shadowing (`min`, `max`) | OPEN | L5 | baked into REVIEW.md Naming checklist |
 | Collection choice by habit instead of guarantees | CLOSING | L6 | follow-up drill 8/8, guarantee-driven reasoning |
 | Computed-but-unread / band-aid patch (returned value never used; hardcoded count + `break`) | CLOSED | L12 | L12 re-review: dead `stats` return removed, hardcoded `i==3: break` replaced with true `len()` + sorted; avoids independently and survives unannounced retrieval |
-| Guard-condition operator logic (`and`/`or` under negation + truthiness) | OPEN | WP2 | `if not isinstance(cat, str) and not cat:` — `and` lets `""` AND non-str truthy values through validation; caught in round-2 read, fixed to `or ... .strip()` in the same fix round, verified live; watching for one more occurrence |
+| Guard-condition operator logic (`and`/`or` under negation + truthiness) | CLOSING | WP2 | `if not isinstance(cat, str) and not cat:` (WP2) → fixed to `or`. L19: Q6 stated right, M1 first-draft tested truthiness — fixed same session. L20: `load_basket` guard written cold in fresh code, unprompted — explained ✓ + avoided independently ✓; closes after one wild retrieval survives |
 
 ---
 
@@ -116,6 +119,9 @@ Diagnostic only — never punishment.
 | L13 | 0 | clue-free throughout; H1 three-bug drill fixed independently (chose `__init__.py` re-export over patching main only); Challenge fix round independent |
 | L17 | 1–2 | exercise solving level 0 (incl. H1 all four bugs); review-guided test-intent fixes were level 1–2 across three rounds |
 | L18 | 0 | Quick Recall 6/6 unaided; E1–M3, H1, H2, Challenge solved independently; review-fix loop level 1 (diagnostic findings → learner implements) |
+| L19 | 0 | Quick Recall 6/6 unaided (incl. guard-`or` retrieval); E1–M3, H1 (all four bugs + own-words report), H2, Challenge solved independently, no GenAI (translator + Google-syntax only); 5 review findings fixed independently same session (review loop level 1) |
+| L20 | 0–1 | Quick Recall 6/6 (Q6 `and`-table imprecise, corrected in chat); E/M/H/Challenge solved independently; GenAI/internet consulted for Challenge stream concept + Issue-1 fix during fix loop (disclosed); 6/6 findings implemented independently + H1 report filled (review loop level 1) |
+| L21 | 2 | Quick Recall 6/6 (Q4 half, repaired in chat); GenAI lesson explanation + exercise clues, internet real-project research (~6h, disclosed); H1 reconfig + Challenge streams externally sourced, all implemented by learner; 2 micro-fixes reviewer-applied with consent; H1 report filled (review loop level 1) |
 
 Repeated level-2+ dependency on a topic ⇒ that topic returns for targeted
 practice before moving forward.
@@ -142,6 +148,9 @@ practice before moving forward.
 - [x] Lesson 16 — Dataclass (92/100)
 - [x] Lesson 17 — Testing with pytest (98/100)
 - [x] Lesson 18 — HTTP & API Concepts (93/100)
+- [x] Lesson 19 — Requests (96/100)
+- [x] Lesson 20 — Project Structure (94/100)
+- [x] Lesson 21 — Logging (91/100)
 
 ---
 
@@ -307,11 +316,11 @@ practice before moving forward.
 
 ## Scores & Hours
 
-Average Review Score: 91.3 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90, L10: 92, L11: 93, WP1: 85, L12: 92, L13: 92, L14: 92, L15: 92, L16: 92, WP2: 88, L17: 98, L18: 93)
+Average Review Score: 91.6 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90, L10: 92, L11: 93, WP1: 85, L12: 92, L13: 92, L14: 92, L15: 92, L16: 92, WP2: 88, L17: 98, L18: 93, L19: 96, L20: 94, L21: 91)
 
 Overall Mastery: Level 4 — debugging/refactoring independently
 
-Total Study Hours: ~34.5 hours (L14 2.5h, L15 3h, L16 1.5h, DSA#1 1h, WP2 ~6h, L17 2h, L18 2.5h, DSA#2 ~1h added since the ~17.5h count)
+Total Study Hours: ~40.5 hours (L14 2.5h, L15 3h, L16 1.5h, DSA#1 1h, WP2 ~6h, L17 2h, L18 2.5h, DSA#2 ~1h, L19 ~3h, Quiz 03 session incl. in L19–L20 span, L20 ~3h added since the ~34.5h count)
 
 ---
 
@@ -321,6 +330,7 @@ Total Study Hours: ~34.5 hours (L14 2.5h, L15 3h, L16 1.5h, DSA#1 1h, WP2 ~6h, L
 |---|-----------------|---------|--------|------|
 | 1 | L8–L11 | Library Manager CLI (multi-module) | 85/100 | 2026-09-02 |
 | 2 | L12–L16 | Expense/Transaction Manager CLI (layered package, frozen model) | 88/100 | 2026-09-16 |
+| 3 | L17–L21 | Feed Sync & Report Service (layered src/, requests + typed errors, merge, verbosity journal, pytest) | 86/100 (round 1) | 2026-10-05 |
 
 ---
 
@@ -330,6 +340,7 @@ Total Study Hours: ~34.5 hours (L14 2.5h, L15 3h, L16 1.5h, DSA#1 1h, WP2 ~6h, L
 |---|-----------------|-------|--------------------------|------------------------|
 | 1 | L8–L10 | 96.4% | exception detail: chained traceback / `raise ... from None` intent, `str.partition` no-delimiter edge (D2) | weave one small exception-detail retrieval into L11 (JSON), then re-assess |
 | 2 | L8–L12 | 84.7% | loader default must stay data-shaped (`{}`/`[]` still crash `main`); `partition` no-`=` lines DO surface (not silent); byte-parity slips on case + output strings | 30-second retrieval pair at L14 opening (loader default + partition edge) — both CLOSED (2026-09-08) |
+| 3 | L17–L19 | 82.9% | guard-`and` crash instance backwards (outputs exact, mechanism wrong); handler order right in C1 but wrong in F3 (fragile); invented `requests.NetworkError` (ConnectTimeout diamond gap); C2 fix unnamed/unshown; skipped instances (201, revocation lines) | targeted guard-`and` + handler-order pair at L20 opening — guard moved to CLOSING (cold application in `load_basket`), ConnectTimeout CLOSING (named + refined in chat) |
 
 ---
 

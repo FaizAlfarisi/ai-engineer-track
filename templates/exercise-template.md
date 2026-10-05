@@ -47,7 +47,8 @@ critical constraints.** Short sentences for critical rules.)
 
 (Required constructs → lesson section each, or PROVIDED flag.
 Coverage Contract: `CURRICULUM.md`. Never silently require an untaught
-tool — check `LEARNER.md` Tool Sync.)
+tool — check `LEARNER.md` Tool Sync. Name every suite-imported symbol
+as an explicit deliverable. Expected-states exact and direct.)
 
 ---
 

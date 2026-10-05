@@ -141,3 +141,7 @@ during a lesson. Session data goes only into `PROGRESS.md` and
 with user approval — and only the system-revision agent revises them.
 (`notes/*` remain living reference documents — the AI may add
 clarifications there during a lesson.)
+
+Write integrity: every system-file write gets a read-back verification
+in the same turn. Destructive commands use explicit paths only —
+list-then-delete, never globs in cleanup.

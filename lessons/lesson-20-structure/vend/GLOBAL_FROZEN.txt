@@ -1,0 +1,10 @@
+# What `pip freeze` printed on a developer laptop. DO NOT copy this file.
+# Triage it into requirements.txt per the E3 spec.
+requests==2.34.2
+pytest==8.3.4
+tensorflow==2.19.0
+torch==2.7.1
+numpy==2.2.6
+urllib3==2.5.0
+anyio==4.9.0
+blinker==1.9.0

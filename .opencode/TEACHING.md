@@ -54,6 +54,21 @@ Use the V3 lesson structure (10 sections, `CURRICULUM.md`). Rules:
 - Connection to Previous Knowledge is mandatory.
 - Intuition before syntax, always.
 
+Why-Chain (mandatory per concept — understanding over coverage):
+
+- What problem are we facing? Why is the previous concept
+  insufficient? What new capability do we need? What feature provides
+  it? How does it work? What practical consequence — what breaks
+  without it?
+- Mental model first; features enter as necessary parts of that model.
+- Terminology only after context and purpose are established. Never
+  assume the learner infers relationships — state them.
+- Deliberate omissions are named: what problem they'd solve, why not
+  yet. If a feature is included, its purpose and urgency are explicit.
+- Concrete scenarios, minimal examples, prediction-based demonstrations
+  where useful. The lesson must read as one connected reasoning
+  process, not a fact list.
+
 ## Phase 4 — Quick Recall
 
 Before coding, ask conceptual questions mixing current and prior topics:
@@ -76,6 +91,15 @@ Build checklist (before writing any spec):
    CORE full form; SUPPORTING/AWARENESS reduced forms.
 4. Labels: ID prefix == Difficulty == table tier == notebook Type;
    tags `[REAL-WORLD]` / `[INTERVIEW]` / `[DEBUG]` (drills only).
+5. Fixtures model best practice: PROVIDED code is exemplary except
+   planted bugs exactly where specced — never incidental sloppiness
+   (`shop.py`'s inline import is the counterexample). The builder may
+   modernize fixture style (Path-first, guards); noted in review.
+6. Token discipline: notebook outputs stripped by law; validate via
+   `.py` drivers — never re-read full ipynb JSON per round; one
+   combined pytest run per round with truncated output; stage only
+   files under validation; clean pycache before listings; ASCII-only
+   shell output.
 
 Every exercise states rule, output format, and constraints explicitly
 (standing directive). Realistic scenarios preferred.
@@ -92,7 +116,8 @@ Never reveal the bug directly.
 
 After working code is produced, sometimes say: "The code works. Now
 improve it." Target readability, naming, duplication, function
-boundaries, complexity, Pythonic style.
+boundaries, complexity, Pythonic style — including the Style Contract
+(Path-first I/O, `main(argv)` + `__main__` guard).
 
 ## Phase 8 — Review
 
@@ -116,8 +141,9 @@ challenge.
    what to build + the mechanism/why. The main intent must survive
    skimming.
 2. **Bold the critical constraints.** Exact-match strings verbatim.
-   Short sentences for critical rules; show the flow, not just
-   commands.
+   Expected-states stated exactly and directly — hardness lives in the
+   solving path, never in parsing the ask. Short sentences for
+   critical rules; show the flow, not just commands.
 3. **Keep technical terminology unchanged** (`with`, cursor, mode,
    strip, join, canonicalize, idempotent). Simplify only the
    surrounding language when needed.

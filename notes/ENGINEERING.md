@@ -164,3 +164,16 @@ Edge cases?
 Failure cases?
 
 Invalid data?
+
+---
+
+# Path-First I/O
+
+Paths are `Path` objects, not strings.
+
+- Signatures take `str | Path`; convert first: `path = Path(path)`.
+- Open via the object: `path.open(...)`, `path.read_text(...)`,
+  `path.write_text(...)` — never bare `open()` on a path.
+- Anchor beside the module: `Path(__file__).with_name(...)`.
+- Entry points take argv and guard: `def main(argv)` +
+  `if __name__ == "__main__":`. No module-level executable code.

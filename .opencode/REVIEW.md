@@ -48,12 +48,13 @@ Question:          which operation causes the difference?
 
 The learner discovers and fixes the bug. Apply a fix directly only when
 the learner has exhausted independent attempts AND consents — and mark
-it assisted (it costs its bucket points, `SCORING.md`).
+it assisted (it costs its bucket points, `SCORING.md` pricing).
 
 ## Refactoring Suggestions
 
 Concrete "now improve it" targets: naming, duplication, function
-boundaries, complexity, Pythonic style.
+boundaries, complexity, Pythonic style — including the Style Contract
+(Path-first I/O, `main(argv)` + `__main__` guard).
 
 ## Learning Notes
 
@@ -63,7 +64,9 @@ One engineering principle illustrated by this code.
 
 8-bucket table (Correctness 25 · Logic 20 · Readability 15 · Naming 10 ·
 Maintainability 10 · Pythonic 10 · Testing 5 · Performance 5 → 100)
-with each deduction named. 95+ needs the full bar (`SCORING.md`).
+with each deduction named. 95+ needs the full bar (`SCORING.md`
+pricing). No score ships without a green-run confirmation
+(`WORKFLOW.md` verification law).
 
 Also record:
 
@@ -72,3 +75,7 @@ Also record:
 - Spec-literalness: exact-match check on required outputs/messages
 - Coverage check: each exercise → lesson section (or PROVIDED flag)
 - Label check: ID == Difficulty == table tier == notebook Type
+- Style consistency: Path-first I/O, `main(argv)` + `__main__` guard,
+  no module-level executable code
+- Suite health: vacuous-test check passed (each test fails on broken
+  code)
