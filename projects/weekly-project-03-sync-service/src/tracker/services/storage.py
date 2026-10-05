@@ -1,0 +1,138 @@
+import json
+import csv
+from typing import Any
+from pathlib import Path
+from src.tracker.domain.entities import Item
+from dataclasses import asdict
+from src.shared.utils.exceptions import CorruptDataError
+import logging
+
+logger = logging.getLogger(__name__)
+
+def item_decoder(dtc: dict[str, Any]) -> Item | dict[str, Any]:
+    if "id" in dtc and "name" in dtc and "price" in dtc and "stock" in dtc:
+ 
+        try:
+            id = int(dtc["id"])
+        except ValueError:
+            raise CorruptDataError(f"Invalid id: '{dtc["id"]!r}'. Expected a number")
+        
+        name = dtc["name"].strip() if isinstance(dtc["name"], str) else ""
+        if not name:
+            raise CorruptDataError(f"Invalid name: '{dtc["name"]!r}. Expected non empty string")
+
+        try:
+            price = float(dtc["price"])
+        except (ValueError, TypeError):
+            raise CorruptDataError(f"Invalid price: '{dtc["price"]!r}. Expected a positive number")
+        if price < 0.0:
+            raise CorruptDataError(f"Invalid price: '{dtc["price"]!r}. Expected a positive number")
+        
+        try:
+            stock = int(dtc["stock"])
+        except ValueError:
+            raise CorruptDataError(f"Invalid stock: '{dtc["stock"]}. Expected a number")
+        
+        return Item(
+            id=id,
+            name=name, 
+            price=price,
+            stock=stock
+        )
+    
+    return dtc
+
+def merge_data(network: list[Item], cached: list[Item]) -> tuple[list[Item], int, int]:
+    merged = {item.id: item for item in cached}
+    
+    network_ids = set()
+    for item in network:
+        item_id = item.id
+        merged[item_id] = item
+        network_ids.add(item_id)
+        
+    fresh = len(network)
+    kept = sum(1 for item in cached if item.id not in network_ids)
+    clean_merged = sorted(merged.values(), key=lambda x: x.id)
+    logger.debug("merged fresh %s items and kept %s items successfully: %s", fresh, kept, clean_merged)
+    
+    return clean_merged, fresh, kept
+
+
+def load_json(path: str | Path) -> list[Item]:
+    if not isinstance(path, (str, Path)) or not path:
+        return []
+    
+    path = Path(path)
+    
+    if not path.is_file():
+        logger.warning("file not found: %s", path)
+        return []
+    
+    try:
+        root_data = json.loads(path.read_text(encoding="utf-8"), object_hook=item_decoder)
+        
+        if isinstance(root_data, dict) and "items" in root_data:
+            records = root_data["items"]
+            
+            if isinstance(records, list):
+                items = []
+                for record in records:
+                    if not isinstance(record, Item):
+                        raise CorruptDataError(
+                            f"failed to load existing data | bad record: {record!r}"
+                        )
+                    items.append(record)
+                logger.info("loaded %d items from %s", len(items), path)
+                return items
+        
+        return []
+            
+    except json.JSONDecodeError as exc:
+        logger.error("failed to load json: %s", path)
+        raise CorruptDataError(f"failed to load existing data | {exc}")
+
+def load_csv(path: str | Path) -> list[Item]:
+    if not isinstance(path, (str, Path)) or not path:
+        return []
+        
+    path = Path(path)
+    
+    if not path.is_file():
+        logger.warning("file not found: %s", path)
+        return []
+    
+    items: list[Item] = []
+    
+    with path.open(encoding="utf-8", newline="") as f:
+        rows = csv.DictReader(f)
+        for r in rows:
+            decoded = item_decoder(r)
+            if isinstance(decoded, Item):
+                items.append(decoded)
+                
+    return items
+
+def write_json(path: str | Path, items: list[Item], report: bool = False, total: float = 0.0) -> None:
+    path = Path(path)
+    
+    content = [asdict(item) for item in items]
+    
+    data: dict[str, Any] = {"items": content}
+    
+    if report:
+        data["total"] = total
+        
+    path.write_text(
+        json.dumps(data, indent=2),
+        encoding="utf-8"
+    )
+
+def write_csv(path: str | Path, items: list[Item]) -> None:
+    path = Path(path)
+    content = [asdict(item) for item in items]
+    
+    with path.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=["id", "name", "price", "stock"], extrasaction="ignore")
+        writer.writeheader()
+        writer.writerows(content)

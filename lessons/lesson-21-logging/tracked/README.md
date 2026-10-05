@@ -1,0 +1,1 @@
+usage = `python -m tracked.main`
