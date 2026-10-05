@@ -16,6 +16,11 @@ Real engineering scenario where this topic is used. No abstract definitions.
 
 Intuition before syntax. Analogy if it genuinely helps.
 
+Why-Chain (mandatory per concept): What problem? Why is the previous
+concept insufficient? What capability is needed? What feature provides
+it? How does it work? What breaks without it? Name deliberate omissions
+(what problem they'd solve, why not yet).
+
 ---
 
 ## Core Concept

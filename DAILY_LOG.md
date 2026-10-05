@@ -1944,3 +1944,18 @@ review.md round-2 section written.
 
 Commit WP3. Then DSA Week 3 (due now) → remaining Stage-3 topics.
 
+### Addendum — Session 28 reflection detail (learner, 2026-10-06, append-only)
+
+- Hours: ~6h wall for L21 (heaviest single lesson on record); focused
+  time lower — the bulk went to decoding delivery, not solving.
+- Internet + GenAI used for lesson explanation and exercise clues, not
+  just translating. L19 self-commitment now an explicit weaning target
+  (see `LEARNER.md` Translator Stance).
+- Longest stuck: H1 `setup_logging` ("idk if I'm supposed to create
+  that") — triaged correctly by solving everything else first; the
+  missing piece was an unnamed suite-imported deliverable (now P1 law:
+  name every suite-imported symbol).
+- Root cause named: lesson delivery (thin why-structure — 5 why-lines
+  in 332 — plus indirect expecteds). Answered by the Why-Chain doctrine
+  (V3 patch).
+

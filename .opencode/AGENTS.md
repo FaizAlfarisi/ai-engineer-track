@@ -40,7 +40,10 @@ When starting a new session, always read and follow these documents in order:
 
 When building (lesson / quiz / project / DSA), read ONLY: `LEARNER.md`
 + `PROGRESS.md` Current Position block + the last `DAILY_LOG.md`
-session. Full-history mining for building is forbidden.
+session. Full-history mining for building is forbidden. Targeted
+single-pattern greps across history are allowed for cross-session
+patterns (cheap, read-only). Session-end log updates anchor on the last
+~10 lines (tail-only) — never re-read full logs to append.
 
 ---
 

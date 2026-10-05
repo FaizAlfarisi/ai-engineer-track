@@ -29,6 +29,9 @@ Rules:
 - Visualization, deeper theory, or an Applied-AI perspective appear ONLY
   when they genuinely help this topic.
 - No section exists merely because the template lists it.
+- Why-Chain per concept (`TEACHING.md` Phase 3): problem → why previous
+  is insufficient → capability needed → feature → mechanism →
+  consequence (what breaks without it). Deliberate omissions named.
 
 ---
 
@@ -98,6 +101,12 @@ the industry/real-work best approach for such cases. Second resort:
 declare it PROVIDED. Never silently require a tool the learner has not
 been taught — check `LEARNER.md` → Tool Sync, not history.
 
+H-specs name **every suite-imported symbol** as an explicit deliverable
+(the `setup_logging` lesson: a symbol the suite imports but the spec
+never names costs hours). Expected-states are stated exactly and
+directly — hardness lives in the solving path, never in parsing the
+ask.
+
 The review file records a one-line coverage check per exercise →
 lesson section (or PROVIDED flag).
 
@@ -142,7 +151,8 @@ Briefs (see `templates/project-template.md`): problem, requirements,
 constraints, acceptance criteria, optional stretch goals — never a full
 implementation or step-by-step plan. Stage projects: the learner designs
 substantial parts independently; the AI clarifies requirements and
-reviews.
+reviews. Verification runs in a temp copy; scores ship only on green
+(`WORKFLOW.md` verification law).
 
 ---
 
