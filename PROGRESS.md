@@ -11,11 +11,11 @@ Completion ≠ mastery. This file tracks mastery.
 
 ```text
 Stage:        Stage 3 — Python Engineering (in progress)
-Current:      WP3 CLOSED — 86/100 (round 2: close-outs landed, score stands)
-Next:         DSA Week 3 (due) → L22 / remaining Stage-3 topics → Stage project planning
+Current:      L22 CLOSED — 94/100 (decorators independent; H1b hunt + Challenge green)
+Next:         L23 (Iterators) / remaining Stage-3 topics → Stage project planning
 Weekly Proj.: WP1 85/100; WP2 88/100; WP3 86/100 (closed)
 Quizzes:      Quiz 02 done (84.7%); Quiz 03 done (82.9%)
-DSA Track:    1 session/week, interleaved — Week 3 session due now
+DSA Track:    1 session/week, interleaved — Week 3 done (sliding window); Week 4 due next
 Git:          commit after every session from Stage 2 onward
 ```
 
@@ -59,6 +59,7 @@ Stage 1 values were migrated from V1 session evidence and are marked
 | Requests (third-party install, params=/json=/timeout=/raise_for_status, RequestException family + handler order, Session headers-once, typed wraps, fetch→merge→dual-persist CLI) | CORE | 3→4 | High | first-draft contract drift on untested paths: truthiness guard instead of isinstance (M1), str-returns vs annotations + invented codes (post/search), derived CSV header (M3), dropped `from exc` (H2) — all 5 explained + fixed independently same session; E2 timeout=3 vs spec 5 retained-with-reason | 0 (review loop level 1) | Challenge sync_cli (own-server fetch + network-wins merge + sync.json/sync.csv + positional argv, missing-arg exits 1) | 2026-09-24 |
 | Project structure (launch contexts/sys.path[0], absolute-vs-relative, -m entries, silent init, __file__ data, minimal requirements, .gitignore, README, tests/+conftest) | CORE | 3→4 | High | first-draft drift on untested paths: usage-to-stdout ×3, `ledged` typo, bare-run default, set-vs-list fresh, vacuous roundtrip — all 6 explained + implemented independently; 1 `.gitignore` line reviewer-applied with consent; stderr reasoning GenAI-sourced (taught after, confirmed); no docstrings (4th lesson) | 0–1 (Challenge stream concept via internet/GenAI; review loop level 1) | Challenge ledger/ project (package + ledger/tests/ + requirements/gitignore/README, `sync <dir>` entry, exit-1 usage) | 2026-09-24 |
 | Logging (severity arithmetic, basicConfig+force, dual routing, two-gate model, formatters, exc_info, isEnabledFor laziness, hierarchy creation-order, caplog, verbosity modes, run journals) | CORE | 3 (held) | High | heaviest assistance on record: GenAI lesson explanation + exercise clues, internet real-project research (~6h, disclosed); H1 reconfig design + Challenge stream concept externally sourced — all implemented by learner; 2 micro-fixes reviewer-applied with consent (counter guard, sync strict); no docstrings (6th lesson) | 2 (solving; review loop level 1) | Challenge journal/ project (verbosity modes, both gates, handler hygiene, skip-loudly merge, project-local tests) | 2026-09-27 |
+| Decorators (plain + `*args`/`**kwargs` passthrough, `functools.wraps` identity, 3-layer factory, stacking order) | SUPPORTING | 3 | High | retry exhaustion returned the error instead of raising (driver-green, fixed); `last_elapsed` init on a misspelled attribute (driver-green, fixed both copies); stale BUG comments over fixed hunt code (fixed); single-use `@log_call` on pure formatter (removed per Pitfall 7) | 0 (solving; review loop level 1) | Challenge clinic pipeline (decorated confirm/send, Path I/O, byte-exact report) + H1b 4-bug hunt with own-words report | 2026-10-06 |
 | `match` beyond literal patterns | AWARENESS | 2 | — | deferred by design (JSON Stage 2, API Stage 4) | — | — | 2026-08-13 |
 
 ---
@@ -84,10 +85,10 @@ one retrieval pending) / CLOSED.
 
 | Misconception | Status | First Seen | Last Evidence |
 |---------------|--------|------------|---------------|
-| Spec-literalness (output-as-contract) | OPEN — watching | L3 | L19 fresh evidence: first drafts follow habit over contract on untested paths (return-type lies, derived header, truthiness guard) — all fixed same session; Output blocks byte-exact throughout. L20 fresh evidence: usage-stream ×3, `ledged` typo, bare-run default — all green-driver invisible; learner self-described root cause as hand-writing strings instead of copying + time-pressure simplification |
+| Spec-literalness (output-as-contract) | OPEN — watching | L3 | L19 fresh evidence: first drafts follow habit over contract on untested paths (return-type lies, derived header, truthiness guard) — all fixed same session; Output blocks byte-exact throughout. L20 fresh evidence: usage-stream ×3, `ledged` typo, bare-run default — all green-driver invisible; learner self-described root cause as hand-writing strings instead of copying + time-pressure simplification. L22: all Output blocks byte-exact incl. subprocess Challenge + exact error strings — no drift, habit held |
 | Error handling under edge cases | CLOSING | L7 | L8 attack landed: degenerate guards everywhere; close after one unannounced retrieval survives. L19: save_csv empty-list edge fixed via literal fieldnames (header-only write, no crash) — still CLOSING, needs one clean first-pass retrieval |
 | Loader return-type mixing | CLOSED | L9 | L10: typed loader returned clean data + raised on bad values; survived unannounced retrieval |
-| Latent bug — passes sample, misses requirement | OPEN | L11 | L11: `summarize` overwrite hardened to `.get(cat, 0.0)` accumulate. L19 fresh evidence (over-handling variant): post/search except-branches passed every driver while breaking `tuple[int, dict]`/`dict` annotations — fixed by deleting the invented branches. L20 fresh evidence: set-vs-list `fresh` + vacuous roundtrip, both driver-green contract breaks — fixed same session |
+| Latent bug — passes sample, misses requirement | OPEN | L11 | L11: `summarize` overwrite hardened to `.get(cat, 0.0)` accumulate. L19 fresh evidence (over-handling variant): post/search except-branches passed every driver while breaking `tuple[int, dict]`/`dict` annotations — fixed by deleting the invented branches. L20 fresh evidence: set-vs-list `fresh` + vacuous roundtrip, both driver-green contract breaks — fixed same session. L22 fresh evidence (both driver-green, both fixed same session): retry exhaustion returned the error object instead of raising; `last_elapsed` init written to a misspelled attribute |
 | Per-iteration recomputation inside loops | OPEN | L6 | quiet since L9 |
 | Builtin shadowing (`min`, `max`) | OPEN | L5 | baked into REVIEW.md Naming checklist |
 | Collection choice by habit instead of guarantees | CLOSING | L6 | follow-up drill 8/8, guarantee-driven reasoning |
@@ -122,6 +123,7 @@ Diagnostic only — never punishment.
 | L19 | 0 | Quick Recall 6/6 unaided (incl. guard-`or` retrieval); E1–M3, H1 (all four bugs + own-words report), H2, Challenge solved independently, no GenAI (translator + Google-syntax only); 5 review findings fixed independently same session (review loop level 1) |
 | L20 | 0–1 | Quick Recall 6/6 (Q6 `and`-table imprecise, corrected in chat); E/M/H/Challenge solved independently; GenAI/internet consulted for Challenge stream concept + Issue-1 fix during fix loop (disclosed); 6/6 findings implemented independently + H1 report filled (review loop level 1) |
 | L21 | 2 | Quick Recall 6/6 (Q4 half, repaired in chat); GenAI lesson explanation + exercise clues, internet real-project research (~6h, disclosed); H1 reconfig + Challenge streams externally sourced, all implemented by learner; 2 micro-fixes reviewer-applied with consent; H1 report filled (review loop level 1) |
+| L22 | 0 | Quick Recall 6/6 (Q6 completed on second pass: pitfall number + assert-the-return); E1–M2, H1-gate, H1b hunt (all 4 plants + own-words report), Challenge solved independently, no GenAI; 4 review findings fixed independently same session (review loop level 1) |
 
 Repeated level-2+ dependency on a topic ⇒ that topic returns for targeted
 practice before moving forward.
@@ -151,6 +153,7 @@ practice before moving forward.
 - [x] Lesson 19 — Requests (96/100)
 - [x] Lesson 20 — Project Structure (94/100)
 - [x] Lesson 21 — Logging (91/100)
+- [x] Lesson 22 — Decorators (94/100)
 
 ---
 
@@ -259,6 +262,9 @@ practice before moving forward.
 - Report prints re-read the file just written — printed values can never disagree with the CSV (WP2 readback)
 - Reject-don't-normalize dates: a canonical round-trip check in the date parser makes string sort + `date[:7]` month-slicing safe by construction (WP2)
 - Scoped CLI error contract: `bad request:` / `corrupt data:` / `unexpected error:` prefixes, detail line on the next line, stderr + exit 1, no embedded severity token (WP2)
+- Decorator transparency: `functools.wraps` on every wrapper (`__name__`/`__doc__` survive; logs + tracebacks stay honest) + `*args`/`**kwargs` passthrough (one wrapper fits all shapes)
+- 3-layer decorator factory: settings → decorator → wrapper; stacking applies bottom-up, runs top-down (validate innermost, closest to the body)
+- Header ownership: pure formatter derives counts from line prefixes and returns full text; `main` owns reading, writing, printing (computation/presentation split)
 
 ---
 
@@ -316,11 +322,11 @@ practice before moving forward.
 
 ## Scores & Hours
 
-Average Review Score: 91.6 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90, L10: 92, L11: 93, WP1: 85, L12: 92, L13: 92, L14: 92, L15: 92, L16: 92, WP2: 88, L17: 98, L18: 93, L19: 96, L20: 94, L21: 91)
+Average Review Score: 91.8 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90, L10: 92, L11: 93, WP1: 85, L12: 92, L13: 92, L14: 92, L15: 92, L16: 92, WP2: 88, L17: 98, L18: 93, L19: 96, L20: 94, L21: 91, L22: 94)
 
 Overall Mastery: Level 4 — debugging/refactoring independently
 
-Total Study Hours: ~40.5 hours (L14 2.5h, L15 3h, L16 1.5h, DSA#1 1h, WP2 ~6h, L17 2h, L18 2.5h, DSA#2 ~1h, L19 ~3h, Quiz 03 session incl. in L19–L20 span, L20 ~3h added since the ~34.5h count)
+Total Study Hours: ~46.5 hours (L21 ~6h + L22 ~3h wall added since the ~40.5h count; WP3 close-out + DSA#3 time folded into adjacent counts)
 
 ---
 

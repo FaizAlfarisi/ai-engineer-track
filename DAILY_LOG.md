@@ -1986,3 +1986,77 @@ Pattern: **sliding window** (first time derived + applied).
   this entry.
 - Logged: `PROGRESS.md` DSA Log Row 3.
 
+## Session 32 — 2026-10-06
+
+### Lesson
+
+Lesson 22 — Decorators (SUPPORTING, Stage 3) — **94/100**, mastery at 3,
+hint dependency 0. Fresh clinic domain (no expense reuse, learner's
+choice); single sitting. Notebook readability rewritten mid-build to the
+L19/L21 skeleton (title-first specs, Type/Coverage/Expected lines,
+driver duplication deleted).
+
+### Session notes
+
+- Quick Recall 6/6 (Q6 completed on second pass: Pitfall number +
+  assert-the-return, not just the log).
+- Built E1–E3, M1–M2, H1 + H1b hunt + Challenge. All 8 drivers green on
+  independent post-fix verification against the learner's own files.
+- H1 shipped as a gate, not a hunt (builder fault, admitted) — repaired
+  as H1b: real `buggy_clinic.py` (4 isolated plants, red-proven 4/4),
+  hunted via the DEBUGGING protocol, own-words report filed (accepted as
+  the single report of record; blank H1 slots retired, no manufactured
+  repetition).
+- Challenge brief repaired twice mid-session (both builder fault):
+  silent argv-shape break vs the L20/L21/WP3 house convention (verified
+  in the repos' own files — learner's L20-shaped code stood), "emit"
+  jargon, missing Flow, unstated inbox assumption, ambiguous "missing".
+  Closed as: Flow block + house entry stated + subprocess driver
+  (WP3 T-matrix style), CH driver red-proven on a header mutation.
+- M2 design correction (learner-set standing law): composition skill ⇒
+  the learner authors the composition; drivers only verify. Applies
+  from L23.
+- Review-delivery correction (learner-set standing rule): findings at
+  file + symptom + pattern granularity, never line-level — the hunt for
+  the exact location stays the learner's.
+- Review found 4 findings, all fixed independently same session:
+  retry-exhaustion returned instead of raised; timer init on a
+  misspelled attribute (both copies); stale BUG comments; single-use
+  decoration removed per Pitfall 7.
+- Review: `review/lesson-22-review.md` (bucket table 22/20/14/10/10/8/5/5;
+  95+ bar judged unmet — first pass left driver-invisible holes).
+
+### Reflection — Lesson 22 (learner's own words, condensed)
+
+- Exercise flow was bad this session, unlike previous sessions: the
+  Challenge brief was unclear and insufficient — hard to understand and
+  digest, with ambiguous statements and knowledge/expected gaps that
+  forced assuming instead of knowing.
+- Wants briefs that are easy to understand and digest: no ambiguity, no
+  gaps between what is stated and what is expected, so nothing must be
+  assumed.
+- Debugging (H1b) is where the understanding came from: stressful on
+  one side, training error-report reading + step-by-step solving on the
+  other — keep the real hunts.
+
+### Retro (3 questions)
+
+1. Fog or difficulty? Fog, on the builder's side (brief + gate) —
+   difficulty itself (decorators, hunt, wiring) was the productive kind.
+2. Rule preventing it? Coverage-gate + Flow/entry-shape laws in CLI
+   briefs; composition-by-learner; no line-level spoilers (all standing
+   from this session).
+3. Sittings + token line: not reported.
+
+### Time Studied
+
+~3 hours wall (learner-reported).
+
+### Tomorrow Goal
+
+L23 Iterators (SUPPORTING) → remaining Stage-3 topics → stage project
+planning. DSA Week 4 due next, interleaved at the learner's call.
+Proposed standing laws queued for the system-revision agent (LEARNER.md
+untouched): M2-composition-by-learner · no line-level spoilers ·
+Flow + entry-shape mandatory · testable-entry (return-int) future lesson.
+
