@@ -1,4 +1,4 @@
-# Learning Rules (V3)
+# Learning Rules (V4)
 
 The mandatory rules of the Learning OS. Where any other document repeats
 a rule, this file is authoritative.
@@ -125,10 +125,12 @@ identify weak concepts → targeted practice follows.
 
 # Rule 16 — Never Pre-Fill Solutions
 
-`solution.py` (or any key file) starts blank. The learner writes all
-code; answers appear only after completion. This includes "write-in"
-scaffolds (e.g. an H1 bug report): fill the slot labels, never the
-answers under them.
+Solutions live where the deliverable lives and start blank:
+single-module lessons → `solution.py`; multi-file exercises → the
+exercise files themselves, drivers import. Never double-write. The
+learner writes all code; answers appear only after completion. H1
+reports use the 7-row chain, filled as each bug is fixed — never
+pre-filled, never after-the-fact.
 
 ---
 

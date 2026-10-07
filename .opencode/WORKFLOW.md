@@ -1,4 +1,4 @@
-# Teaching Workflow (V3)
+# Teaching Workflow (V4)
 
 The workflow is a loop, not a conveyor belt. Steps may shorten when
 mastery evidence justifies it (RULES.md R6). What may never be skipped:

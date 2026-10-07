@@ -1,4 +1,4 @@
-# Learning Memory (V3)
+# Learning Memory (V4)
 
 > **SYSTEM FILE — rules only. All runtime data lives in `PROGRESS.md`**
 > (topic table, misconception lifecycle, hint records, logs).
@@ -81,11 +81,10 @@ Adaptation and pacing follow RULES.md R6.
 
 Learner-mandated rules. These are absolute; never violate them.
 
-- NEVER pre-fill `solution.py` (or any key file) with answers before the
-  learner has solved the exercises. Answers arrive only AFTER the
-  learner completes them. Pre-filled keys destroy natural practice.
-  This includes "write-in" scaffolds like an H1 bug report: fill the
-  slot labels, never the answers under them.
+- NEVER pre-fill solutions with answers before the learner has solved
+  the exercises. Answers arrive only AFTER the learner completes them.
+  Pre-filled keys destroy natural practice. H1 reports use the 7-row
+  chain, filled as each bug is fixed — never pre-filled.
 - Exercises must state rule, output format, and constraints explicitly.
 - Exercise specs stay LEAN: instruction, constraints, and expected
   result (Driver + Output). No step-by-step recipe sections and no
@@ -93,8 +92,9 @@ Learner-mandated rules. These are absolute; never violate them.
   when a bridge to the intended point is needed, never a specific clue
   (especially not for bugs or steps). Bug drills plant bugs and state
   how many + the expected result; the learner finds and fixes them.
-- Per-lesson folder structure `lessons/lesson-NN-topic/` with
-  md + ipynb + solution.py; Jupyter-notebook workflow approved.
+- Per-lesson folder structure `lessons/lesson-NN-topic/` with md +
+  ipynb + solution files per deliverable (`solution.py` only for
+  single-module lessons); Jupyter-notebook workflow approved.
 - Learner writes all code — always.
 
 ---

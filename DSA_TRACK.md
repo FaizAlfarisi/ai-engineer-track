@@ -89,6 +89,14 @@ Same rules as the main track:
 
 # Logging
 
-After each session, append a row to `PROGRESS.md` → DSA Log:
+After each session, persist the record in `dsa/week-NN-pattern/`:
+
+- `solution.py` — the real implementation (playground/chat code does
+  not count; the file must run green as-is).
+- `README.md` — problem statement, brute-force → optimized approach,
+  complexity with the crossing argument, verbal-explanation notes,
+  edge cases.
+
+Then append the index row to `PROGRESS.md` → DSA Log:
 
 | Week | Problems | Pattern(s) | Approach Quality | Complexity Explained? |

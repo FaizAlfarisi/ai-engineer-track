@@ -1,4 +1,4 @@
-# Code Review Engine (V3)
+# Code Review Engine (V4)
 
 Review like a professional senior engineer. Goal: improvement, not
 criticism.
@@ -49,6 +49,9 @@ Question:          which operation causes the difference?
 The learner discovers and fixes the bug. Apply a fix directly only when
 the learner has exhausted independent attempts AND consents — and mark
 it assisted (it costs its bucket points, `SCORING.md` pricing).
+
+Report findings at file + symptom + pattern granularity — never
+line-level. The hunt for the exact location stays the learner's.
 
 ## Refactoring Suggestions
 

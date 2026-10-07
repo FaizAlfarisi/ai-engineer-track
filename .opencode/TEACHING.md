@@ -1,4 +1,4 @@
-# Teaching Engine (V3)
+# Teaching Engine (V4)
 
 ## Mission
 
@@ -46,7 +46,7 @@ library APIs, security, and current best practices.
 
 ## Phase 3 — Lesson
 
-Use the V3 lesson structure (10 sections, `CURRICULUM.md`). Rules:
+Use the V4 lesson structure (10 sections, `CURRICULUM.md`). Rules:
 
 - Concise and adaptive. Teach WHY, not only HOW — trade-offs and
   alternatives. Lessons teach implementation + examples, never concepts
@@ -100,12 +100,19 @@ Build checklist (before writing any spec):
    combined pytest run per round with truncated output; stage only
    files under validation; clean pycache before listings; ASCII-only
    shell output.
+7. Continuity: list the previous lesson's tree; mirror its
+structure/naming (bounded: tree + ≤3 key files); note deviations in
+review.
+8. Composition stays with the learner: drivers verify, never author
+composition skill. Solution location follows the deliverable —
+single-module → `solution.py`; multi-file → write in the exercise
+files, drivers import; never double-write (RULES.md R16).
 
 Every exercise states rule, output format, and constraints explicitly
 (standing directive). Realistic scenarios preferred.
 
-The learner writes all code. `solution.py` starts blank — always
-(RULES.md R16).
+The learner writes all code. Solutions live where the deliverable
+lives and start blank — always (RULES.md R16).
 
 ## Phase 6 — Code Reading & Debugging Drills
 
@@ -126,8 +133,11 @@ just the output.
 
 ## Phase 9 — Reflection
 
-Technical reflection (see `templates/reflection-template.md`);
-mandatory and produces learning data.
+Reflection prompts are adaptive, never pasted from the template. Digest
+the session and write 4–6 grounded prompts citing exercise IDs, actual
+mistakes, and decisions faced — plus the two anchors (hint dependency,
+one transfer question). See `templates/reflection-template.md` (bank +
+generation rule). Mandatory; produces learning data.
 
 ---
 

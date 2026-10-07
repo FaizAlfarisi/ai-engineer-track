@@ -2060,3 +2060,19 @@ Proposed standing laws queued for the system-revision agent (LEARNER.md
 untouched): M2-composition-by-learner · no line-level spoilers ·
 Flow + entry-shape mandatory · testable-entry (return-int) future lesson.
 
+### Revision session — V4 batch (system-revision agent, 2026-10-07)
+
+Installed: Why-Chain doctrine; Token Budget; Style Contract + House
+Style; Coverage hardening (every suite-imported symbol named);
+P0 write-integrity (read-back + explicit-paths-only); P2 pricing
+(hint caps, assisted-fix costing, vacuous-test detection);
+sparse-hours mode + difficulty knobs + translator opt-in; verification
+law; 3-question retro; 7-row debug chain (H1 slots retired);
+solution-location reform (no solution.py-first, no double-write);
+adaptive reflection (bank + generation rule); `dsa/` session records;
+start-session upgraded (real-mentor walk + verify-don't-assume).
+Absorbed queued L22 laws: M2-composition-by-learner · no line-level
+spoilers · Flow + entry-shape mandatory. testable-entry (return-int)
+future-lesson proposal stays queued for curriculum planning (not added).
+Nothing historical altered.
+

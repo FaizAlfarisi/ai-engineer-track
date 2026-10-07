@@ -28,17 +28,20 @@ Follow all seven steps, in order. No skipping to the fix.
 
 ---
 
-# Expected vs Observed Framing
+# Debug Report Chain (fill as each bug is fixed)
 
-When stuck, write this before asking anything:
+When stuck, work this chain before asking anything. One job per row —
+symptom quotes, never explains; explanation lives only in Cause.
 
-```text
-Expected concept:  what the code SHOULD do
-Observed result:   what actually happens
-Question:          which operation causes the difference?
-```
-
-The answer is usually visible in the gap between the two.
+| Step | Content |
+|------|---------|
+| Symptom | what happened, quoted exactly |
+| Trigger | smallest reproduction (command/input) |
+| Hypothesis | what you believe, one sentence, labeled as guess |
+| Evidence | the probe/test result that confirmed or killed it |
+| Cause | the mechanism, one sentence |
+| Fix | what changed (diff summary) |
+| Proof | suite/test green that verifies it |
 
 ---
 

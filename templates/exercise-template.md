@@ -52,6 +52,20 @@ as an explicit deliverable. Expected-states exact and direct.)
 
 ---
 
+## Debug Report (H-drills — 7-row chain, filled as each bug is fixed)
+
+| Step | Content (one job per row) |
+|------|---------------------------|
+| Symptom | quote what happened exactly — never explain here |
+| Trigger | smallest reproduction (command/input) |
+| Hypothesis | what I believed, one sentence, labeled as guess |
+| Evidence | the probe/test result that confirmed or killed it |
+| Cause | the mechanism, one sentence — explanation lives only here |
+| Fix | what changed (diff summary) |
+| Proof | suite/test green that verifies it |
+
+---
+
 ## Expected Learning Outcome
 
 ---
