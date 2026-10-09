@@ -2076,3 +2076,74 @@ spoilers · Flow + entry-shape mandatory. testable-entry (return-int)
 future-lesson proposal stays queued for curriculum planning (not added).
 Nothing historical altered.
 
+## Session 33 — 2026-10-07
+
+### Lesson
+
+Lesson 23 — Iterators (SUPPORTING, Stage 3) — **94/100**, mastery at 3,
+hint dependency 0. Fresh server-log-triage domain (learner-delegated
+pick); single sitting. R16 reform honored structurally: no
+`solution.py`, deliverables in `stream.py`, Challenge imports it (no
+double-write). H1 ships as a true hunt with blank 7-row chains.
+
+### Session notes
+
+- Quick Recall 6/6 with 3 one-line repairs in chat (StopIteration
+  agency: author-raises/loop-catches; two passes need two readers or one
+  bottled list; assert the second pass).
+- Built E1–E3, M1 (batching class, ragged tail kept), M2 (own
+  validate-first composition with honesty comment), H1 hunt (4 plants
+  fixed in place + 4 genuine 7-row chains), Challenge (streaming handle
+  → windows → byte-exact incidents, subprocess driver).
+- Post-fix verification green 7/7 against the learner's own files; H1
+  driver red-proven 4/4 on the shipped buggy module; CH driver
+  red-proven on a header mutation.
+- Review preview found 8 observations; fix loop closed all load-bearing
+  ones (Bug-3 re-fix is a true single pass; substring→prefix counting;
+  honesty comment; dead guard removed). One withdrawn false positive,
+  owned: the missing-check disjunction was correct on all three cases —
+  no deduction. Annotation claim trimmed to what specs require (met).
+- Remaining nit: the dead guard's orphan comment (1 pt readability).
+- Review: `review/lesson-23-review.md` (bucket table 21/20/14/10/10/10/
+  5/5; 95+ bar judged unmet — two driver-invisible first-pass holes).
+- Housekeeping: manual `server.log` + `incidents.txt` scratch removed
+  (drivers tmp-self-contained); scaffold + `__pycache__` removed
+  post-verification.
+
+### Reflection — Lesson 23 (learner's own words, condensed)
+
+- Decision: validate-first + materialize (validate-inside risks
+  undersized windows; lazy filter costs complexity; materialization buys
+  the fixed-size guarantee).
+- Longest bug: StuckReader's `None`-trail — time went to result-checking;
+  Bug-3 wrong belief on record in the chain ("reuse the iterator
+  object").
+- Requirements change: `clean_windows` breaks first (materializes);
+  rebuild as lazy validating iterator.
+- Spec verdict: no misleaders — "easy to understand, i love this pace"
+  (Flow/entry-shape laws verified from the reader's side).
+- Withdrawal trust: "fine", no push.
+- Independence goal: solve next lesson independently at this pace.
+- Transfer: path/try-except/entry reused unprompted; `Iterable` vs
+  `Iterator` confusing — answered in the review's learning note against
+  the learner's own module.
+- Hint dependency this session — exercises level 0, no GenAI (Googling
+  for syntax only, declared); review-fix loop level 1.
+
+### Retro (3 questions)
+
+1. Fog or difficulty? Difficulty, productive kind — brief clean per Q4;
+   the hunt and wiring were the work.
+2. Rule preventing it? The standing laws held (Flow, entry shape,
+   composition-by-learner, no line spoilers).
+3. Sittings + token line: not reported.
+
+### Time Studied
+
+~4 hours wall (learner-reported).
+
+### Tomorrow Goal
+
+L24 Generators (SUPPORTING) — the `yield` twin; watch protocol transfer
+on day one. DSA Week 4 due next, interleaved at the learner's call.
+
