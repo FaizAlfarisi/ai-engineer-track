@@ -2147,3 +2147,77 @@ double-write). H1 ships as a true hunt with blank 7-row chains.
 L24 Generators (SUPPORTING) — the `yield` twin; watch protocol transfer
 on day one. DSA Week 4 due next, interleaved at the learner's call.
 
+## Session 34 — 2026-10-10
+
+### Lesson
+
+Lesson 24 — Generators (SUPPORTING, Stage 3) — **98/100**, mastery at 3,
+hint dependency 0. Fresh telemetry-harvest domain (mentor-picked,
+learner-delegated); single sitting. R16 reform honored structurally: no
+`solution.py`, deliverables in `sensors.py`, Challenge imports it. H1
+ships as a true hunt with blank 7-row chains.
+
+### Session notes
+
+- Quick Recall 6/6 with 2 one-line repairs in chat (single-pass remedy;
+  second-pass assertion) — plus one reversed call owned by the
+  reviewer: the pitfall-number dispute resolved pre-review against the
+  lesson text, which reads reuse as Pitfall 1. Check the file, never
+  the draft. Zero learner cost, no finding generated.
+- Built E1–E3, M1 (lazy validating stage, pull-count proven), M2 (own
+  alert-window composition, lazy end to end), H1 hunt (4 plants fixed
+  in place + 4 genuine 7-row chains), Challenge (streaming handle →
+  windows → byte-exact alerts, subprocess driver).
+- Post-fix verification green 7/7 against the learner's own files; H1
+  driver red-proven 4/4 on the shipped buggy module; CH driver
+  red-proven on a header mutation.
+- Review preview found 1 deduction class (annotation honesty, three
+  instances, silent by nature); fix loop closed all three after one
+  teaching answer on "annotate what flows". Two shape-notes recorded
+  without deductions (float-vs-raw text, negative-limit input, dropped
+  accumulator param — all unspecified shapes, same doctrine as the L23
+  withdrawals).
+- Review: `review/lesson-24-review.md` (bucket table 25/20/13/10/10/10/
+  5/5; 95+ bar judged MET on verified evidence — top of the band on
+  merit, receipted line by line).
+- Housekeeping: verification scaffold + `__pycache__` removed
+  post-run; no scratch files found in the lesson folder.
+
+### Reflection — Lesson 24 (learner's own words, condensed)
+
+- Decision: generator over class for batching — simpler, lazy,
+  memory-efficient; classes kept for explicit iterator control.
+- Longest bug: Bug 4 (shared default) — assumed an exotic
+  generator/`yield` cause, overlooked the mundane mutable default.
+  Meta-finding recorded: exotic-first bias; the L5 trap catches
+  precisely because attention looks past it.
+- Requirements change: one-shot pipeline can't serve two reports;
+  rebuild over a re-callable source (`clean_windows`-class casualty
+  named first).
+- Spec verdict: no misleaders — easy to understand at this pace (third
+  straight clean brief; Flow/entry-shape laws confirmed again).
+- Sting: annotation-hint confusion + focus lapse — fog, owned, no push.
+- Independence goal: solve next lesson independently at this pace.
+- Transfer: path/try-except/entry reused unprompted; `Iterable` vs
+  `Iterator` clarified in-review against the learner's own module.
+- Hint dependency this session — exercises level 0, no GenAI (Google
+  for confusion only, declared); review-fix loop level 1.
+
+### Retro (3 questions)
+
+1. Fog or difficulty? Difficulty, productive kind — brief clean per Q4;
+   the twin rebuild and hunt were the work.
+2. Rule preventing it? The standing laws held again (Flow, entry shape,
+   composition-by-learner, 7-row chains, no line spoilers).
+3. Sittings + token line: not reported.
+
+### Time Studied
+
+~2.5 hours wall (learner-reported).
+
+### Tomorrow Goal
+
+L25 Context managers (SUPPORTING) — generator-held resources meet their
+owners. DSA Week 4 due (three sessions running), interleaved at the
+learner's call.
+
