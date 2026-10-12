@@ -359,6 +359,7 @@ Total Study Hours: ~53 hours (L24 ~2.5h wall added since the ~50.5h count)
 | 1 | L8–L10 | 96.4% | exception detail: chained traceback / `raise ... from None` intent, `str.partition` no-delimiter edge (D2) | weave one small exception-detail retrieval into L11 (JSON), then re-assess |
 | 2 | L8–L12 | 84.7% | loader default must stay data-shaped (`{}`/`[]` still crash `main`); `partition` no-`=` lines DO surface (not silent); byte-parity slips on case + output strings | 30-second retrieval pair at L14 opening (loader default + partition edge) — both CLOSED (2026-09-08) |
 | 3 | L17–L19 | 82.9% | guard-`and` crash instance backwards (outputs exact, mechanism wrong); handler order right in C1 but wrong in F3 (fragile); invented `requests.NetworkError` (ConnectTimeout diamond gap); C2 fix unnamed/unshown; skipped instances (201, revocation lines) | targeted guard-`and` + handler-order pair at L20 opening — guard moved to CLOSING (cold application in `load_basket`), ConnectTimeout CLOSING (named + refined in chat) |
+| 4 | L20–L24 | 86.1% | A3 subject slipped (`NetworkError` named; parents + mechanism right); B1 kind-ID gap; D1 invariant + entry-gap missing; E signatures unannotated (−1) | T1–T3 revision round passed same session (diamond naming, kind probe, stacking re-derivation) — all threads closed except annotation discipline (stays OPEN); no debt carried |
 
 ---
 

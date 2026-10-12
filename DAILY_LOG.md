@@ -2221,3 +2221,41 @@ L25 Context managers (SUPPORTING) — generator-held resources meet their
 owners. DSA Week 4 due (three sessions running), interleaved at the
 learner's call.
 
+## Session 35 — 2026-10-11
+
+### Quiz build + taken + graded
+
+Quiz 04 (L20–L24) built per approved plan: `quizzes/quiz-04-l20-l24.md`
+(A concept ×3, B predict ×3, C debug ×2, D reading ×2, E offline apply
+with `tmp_path`-free exact driver, F T/F ×3; weak-concept report table
+included) + `quizzes/quiz-04-l20-l24/` (`qharvest.py` blank, `check_q.py`
+read-only driver). Two build defects caught pre-ship (B3 `and`-form
+crashed nothing → rebuilt on the `or`-form; B1 "which input exposes"
+unanswerable on identical lines → rebuilt around mechanism + twin).
+Every executable claim verified live before shipping (B/C/D snippets
+exact, C1 hierarchy + routing in-process, E reference green vs the
+shipped driver).
+
+### Grading notes — 15.5/18 (86.1%), PASS (bar 80%)
+
+- Strong: B2 best on sheet (pull clock + brackets error); B3 closed
+  with interest (crashers + semantic bonus on the "safe" form); C1, D2,
+  F all exact; twin/laziness/house threads clean.
+- Deductions: A3 subject slipped (parents right, −0.5); B1
+  kind-identification gap (−0.25); D1 invariant + entry-gap missing
+  (−0.5); C2 fix via deferred `yield from` (−0.25, valid but
+  past-the-lesson); E signatures unannotated (−1, spec-named).
+- E verified green at grading (`check_q.py`, exact `E-Q4 OK`).
+- Revision round T1–T3 (diamond naming, kind probe, stacking
+  re-derivation) passed same session — learner-requested, zero debt
+  carried. Only open thread: annotation discipline (fresh L24-class
+  evidence: dropped when not driver-enforced).
+
+### Tomorrow Goal
+
+L25 Context managers (SUPPORTING). Learner-created
+`exploration.ipynb` in the quiz folder left for the self-commit
+decision (scratch, not reviewed). DSA Week 4 due, interleaved at the
+learner's call. WP4-merge proposal still queued for the
+system-revision agent.
+
