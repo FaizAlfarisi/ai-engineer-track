@@ -2259,3 +2259,72 @@ decision (scratch, not reviewed). DSA Week 4 due, interleaved at the
 learner's call. WP4-merge proposal still queued for the
 system-revision agent.
 
+## Session 36 — 2026-10-12
+
+### Lesson
+
+Lesson 25 — Context Managers (SUPPORTING, Stage 3) — **97/100**,
+mastery at 3, hint dependency 0. Fresh dawn-publisher domain
+(mentor-picked, learner-delegated); single sitting. R16 reform
+honored: no `solution.py`, deliverables in `guards.py`, Challenge
+imports it. H1 ships as a true hunt with blank 7-row chains.
+
+### Session notes
+
+- Quick Recall 6/6 with 1 repair in chat (exception-triple values) +
+  2 sharpenings stated (today-nobody leak; yield-vocabulary untangle).
+- Built E1–E3, M1 (temp+replace-or-discard), M2 (own timed publish),
+  H1 hunt (4 plants fixed in place + 4 genuine 7-row chains),
+  Challenge (guard-wrapped write post-fix, abort-before-write, byte-exact).
+- Post-fix verification green 7/7 against the learner's own files; H1
+  driver red-proven 4/4 on the shipped buggy module; CH driver
+  red-proven on a header mutation.
+- Review preview found 3 deduction items + 1 conceded ambiguity
+  (poison substring-vs-exact — spec never pinned equality, L12
+  precedent; fixed to exact, no deduction; future sentinel specs state
+  equality). All fixed independently same session.
+- Focus report (learner-declared, lower than prior sessions): every
+  miss caught by drivers green + review preview — machinery working
+  under low focus; sparse-hours corollary (shorter sittings at done
+  states) recorded.
+- Review: `review/lesson-25-review.md` (bucket table 25/20/14/10/9/9/
+  5/5; 95+ bar judged MET on verified evidence).
+- Housekeeping: verification scaffold + `__pycache__` removed
+  post-run; empty scratch cell flagged pre-removal (no objection).
+
+### Reflection — Lesson 25 (learner's own words, condensed)
+
+- Decision: atomicity at the replacement boundary, not preparation
+  (early entry buys exception cleanup, costs held-open files; not all
+  actions need atomic concern).
+- Longest bug: none stood out — lesson read carefully made all four
+  tractable; H1 ease noted against the HARD drill dial.
+- Requirements change: read-modify-write whole file for appends
+  (temp + replace retained; alternatives briefed: O_APPEND
+  per-write-only, locking for multi-writer, journals overkill here).
+- Spec verdict: no misleaders — focus lapse owned, not brief fault.
+- Sting: contract miss on the core prohibition, self-owned.
+- Independence goal: hold this pace; single blocking gap unnamed.
+- Transfer: pathlib, OOP, generators reused unprompted; honesty-comment
+  anatomy taught on request (what + why + witness, learner's sentence).
+- Hint dependency this session — exercises level 0, no GenAI (Google/
+  websites for examples only, declared); review-fix loop level 1.
+
+### Retro (3 questions)
+
+1. Fog or difficulty? Difficulty, productive kind — brief clean;
+   protocol + hunt were the work, focus lapse aside.
+2. Rule preventing it? The standing laws held (Flow, entry shape,
+   composition-by-learner, 7-row chains, no line spoilers).
+3. Sittings + token line: not reported.
+
+### Time Studied
+
+~3.5 hours wall (learner-reported).
+
+### Tomorrow Goal
+
+L26 Regex (SUPPORTING) — the triage/harvest logs are waiting for
+patterns. DSA Week 4 due, interleaved at the learner's call.
+WP4-merge proposal still queued for the system-revision agent.
+
