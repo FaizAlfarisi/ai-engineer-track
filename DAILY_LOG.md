@@ -2328,3 +2328,27 @@ L26 Regex (SUPPORTING) — the triage/harvest logs are waiting for
 patterns. DSA Week 4 due, interleaved at the learner's call.
 WP4-merge proposal still queued for the system-revision agent.
 
+## DSA Session #4 (Week 4) — 2026-10-14
+
+### Problem
+
+First-offending bracket index in a nested `()[]{}` config string;
+`None` when balanced, empty → `None`. Pattern: **stack** (first contact).
+
+### Session notes
+
+- Stack-first by instinct (brute force stated, not built: repeated
+  adjacent-pair erasure O(n²) — accepted per Week-2 precedent).
+- First attempt used outside-in two-pointers (Week-2 hammer); diagnosed
+  via `()()` counterexample, then rebuilt as single-pass stack.
+- Spec challenge by learner: `([)]` gloss corrected to nearest-opener
+  mismatch (builder-fault line fix, rule text stood).
+- Implementation green: README 6/6 + 12/12 edge probes (lone
+  opener/closer, interleaved, deep nesting, content ignored).
+- Complexity stated: O(n) time single pass, O(n) space worst-case
+  all-openers, shallow in practice.
+- Records: `dsa/week-04-stack/solution.py` runs green as-is;
+  `dsa/week-04-stack/README.md` filled (brute → optimized →
+  complexity → verbal → edge checklist).
+- Logged: `PROGRESS.md` DSA Log Row 4.
+
