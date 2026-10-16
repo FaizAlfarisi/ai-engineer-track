@@ -2352,3 +2352,70 @@ First-offending bracket index in a nested `()[]{}` config string;
   complexity → verbal → edge checklist).
 - Logged: `PROGRESS.md` DSA Log Row 4.
 
+## Session 37 — 2026-10-17
+
+### Lesson
+
+Lesson 26 — Regex (SUPPORTING, Stage 3) — **97/100**, mastery at 3,
+hint dependency 0. Fresh log-pattern-extractor domain
+(mentor-picked, learner-delegated); single sitting. R16 reform
+honored: no `solution.py`, deliverables in `patterns.py`, Challenge
+imports it. H1 ships as a true hunt with blank 7-row chains.
+
+### Session notes
+
+- Quick Recall 6/6 clean ahead of code (three-questions split,
+  validator indictment of `.+`, escape fix from memory, flag
+  preservation, offset-retirement, Pitfall 5 named).
+- Built E1–E3, M1 (typed classifier with conversions), M2 (own
+  summarize composition), H1 hunt (4 plants fixed in place + 4
+  genuine 7-row chains), Challenge (shape-routed lines, prefix
+  header, byte-exact).
+- Post-fix verification green 7/7 against the learner's own files; H1
+  driver red-proven 4/4 on the shipped buggy module; CH driver
+  red-proven on a header mutation.
+- Review preview found 4 items (1 load-bearing annotation class +
+  1 half-diagnosis + 2 nits); fix loop closed all four (anchor
+  restored with flag, dead arm removed, shadow renamed, annotation
+  broadened). No builder faults this session.
+- Review: `review/lesson-26-review.md` (bucket table 25/20/14/10/9/9/
+  5/5; 95+ bar judged MET on verified evidence).
+- Housekeeping: verification scaffold + `__pycache__` removed
+  post-run; no scratch files found in the lesson folder.
+
+### Reflection — Lesson 26 (learner's own words, condensed)
+
+- Decision: lazy `finditer` by default (no upfront memory); list wins
+  when matches are few.
+- Longest bug: Bug 1 (greed) — beaten by re-reading the lesson;
+  tractable once the overcapture mechanism was seen.
+- Requirements change: harvest ids as `int` — annotations plus
+  conversion move first.
+- Spec verdict: no misleaders — experimenting without reading the
+  rule owned as own fault.
+- Sting: fog — forgot the float in the annotation.
+- Independence goal: hold this pace; metacharacters still need a
+  lookup first (named gap).
+- Transfer: iterators, generators, and metacharacters reused; the
+  lookup-first need stated honestly.
+- Hint dependency this session — exercises level 0, independent with
+  Googling, no GenAI; review-fix loop level 1.
+
+### Retro (3 questions)
+
+1. Fog or difficulty? Difficulty, productive kind — brief clean;
+   patterns + hunt were the work.
+2. Rule preventing it? The standing laws held (Flow, entry shape,
+   composition-by-learner, 7-row chains, no line spoilers).
+3. Sittings + token line: not reported.
+
+### Time Studied
+
+~3 hours wall (learner-reported).
+
+### Tomorrow Goal
+
+L27 Datetime (SUPPORTING) — every stringly-typed timestamp so far
+meets its parser. DSA Week 5 due, interleaved at the learner's call.
+WP4-merge proposal still queued for the system-revision agent.
+

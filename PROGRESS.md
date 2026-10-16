@@ -11,8 +11,8 @@ Completion ≠ mastery. This file tracks mastery.
 
 ```text
 Stage:        Stage 3 — Python Engineering (in progress)
-Current:      L25 CLOSED — 97/100 (protocol both ways; atomic publish + hunt green)
-Next:         L26 (Regex) / remaining Stage-3 topics → Stage project planning
+Current:      L26 CLOSED — 97/100 (patterns independent; hunt + Challenge green)
+Next:         L27 (Datetime) / remaining Stage-3 topics → Stage project planning
 Weekly Proj.: WP1 85/100; WP2 88/100; WP3 86/100 (closed)
 Quizzes:      Quiz 02 done (84.7%); Quiz 03 done (82.9%)
 DSA Track:    1 session/week, interleaved — Week 3 done (sliding window); Week 4 due next
@@ -63,6 +63,7 @@ Stage 1 values were migrated from V1 session evidence and are marked
 | Iterators (`iter`/`next`/`StopIteration`, iterable-vs-iterator identity, one-shot exhaustion, truthiness trap, custom batching class, validate-then-batch composition) | SUPPORTING | 3 | High | first Bug-3 repair assumed re-iterable input (list-green, one-shot-red — corrected to true single pass); incident counts matched substrings not prefixes (fixture-green, fixed); dead-guard orphan comment (fixed); one withdrawn false positive (reviewer-side, no deduction) | 0 (solving; review loop level 1) | Challenge log-triage CLI (streaming handle → windows → byte-exact incidents) + 4-bug hunt with 7-row chains | 2026-10-07 |
 | Generators (`yield` suspension, pull-clock laziness, genexps, bounding infinity, lazy pipeline composition, return-vs-yield termination) | SUPPORTING | 3 | High | three annotations narrower than reality, silent by nature (list-return promised as cursor, int-only threshold fed floats, str-only source fed ints/tuples — all corrected); no other findings | 0 (solving; review loop level 1) | Challenge telemetry harvest CLI (streaming handle → windows → byte-exact alerts) + 4-bug hunt with 7-row chains | 2026-10-10 |
 | Context managers (`__enter__`/`__exit__` protocol, exit-on-every-path, suppress-vs-propagate, `@contextmanager` twin, atomic temp+replace publish, `as`-target contract) | SUPPORTING | 3 | High | Challenge bypassed own guard with raw target write (driver-green, fixed to wrap); bare `open()` twice vs Path-first house style (fixed); missing honesty comment + misspelled variable + loop naming (fixed); poison-substring ambiguous-spec (conceded builder-fault, fixed to exact, no deduction) | 0 (solving; review loop level 1) | Challenge atomic publish CLI (guard-wrapped write, abort-before-write, byte-exact + absent-partial proof) + 4-bug hunt with 7-row chains | 2026-10-12 |
+| Regex (compile + three questions, groups and harvest loops, flags, greed and anchors, anchored validation gates, converted captures) | SUPPORTING | 3 | High | numeric annotation admitted only `int` while temperatures return `float` (silent, third appearance — corrected); flag fix added casings by dropping the anchor instead of adding the flag (no stated contract broken — corrected to anchored-with-flag, no deduction); dead routing arm (removed); loop variable shadowed a builtin (renamed) | 0 (solving; review loop level 1) | Challenge pattern-extract CLI (shape-routed lines, prefix header, byte-exact) + 4-bug hunt with 7-row chains | 2026-10-17 |
 | `match` beyond literal patterns | AWARENESS | 2 | — | deferred by design (JSON Stage 2, API Stage 4) | — | — | 2026-08-13 |
 
 ---
@@ -88,10 +89,10 @@ one retrieval pending) / CLOSED.
 
 | Misconception | Status | First Seen | Last Evidence |
 |---------------|--------|------------|---------------|
-| Spec-literalness (output-as-contract) | OPEN — watching | L3 | L19 fresh evidence: first drafts follow habit over contract on untested paths (return-type lies, derived header, truthiness guard) — all fixed same session; Output blocks byte-exact throughout. L20 fresh evidence: usage-stream ×3, `ledged` typo, bare-run default — all green-driver invisible; learner self-described root cause as hand-writing strings instead of copying + time-pressure simplification. L22: all Output blocks byte-exact incl. subprocess Challenge + exact error strings — no drift, habit held. L23: second straight clean lesson (all byte-exact incl. subprocess Challenge); learner verdict — brief easy to understand at this pace. L24: third straight clean lesson (all byte-exact incl. subprocess Challenge); brief holds at this pace per learner. L25: fourth straight clean lesson (all byte-exact incl. subprocess Challenge) |
+| Spec-literalness (output-as-contract) | OPEN — watching | L3 | L19 fresh evidence: first drafts follow habit over contract on untested paths (return-type lies, derived header, truthiness guard) — all fixed same session; Output blocks byte-exact throughout. L20 fresh evidence: usage-stream ×3, `ledged` typo, bare-run default — all green-driver invisible; learner self-described root cause as hand-writing strings instead of copying + time-pressure simplification. L22: all Output blocks byte-exact incl. subprocess Challenge + exact error strings — no drift, habit held. L23: second straight clean lesson (all byte-exact incl. subprocess Challenge); learner verdict — brief easy to understand at this pace. L24: third straight clean lesson (all byte-exact incl. subprocess Challenge); brief holds at this pace per learner. L25: fourth straight clean lesson (all byte-exact incl. subprocess Challenge). L26: fifth straight clean lesson (all byte-exact incl. subprocess Challenge) |
 | Error handling under edge cases | CLOSING | L7 | L8 attack landed: degenerate guards everywhere; close after one unannounced retrieval survives. L19: save_csv empty-list edge fixed via literal fieldnames (header-only write, no crash) — still CLOSING, needs one clean first-pass retrieval |
 | Loader return-type mixing | CLOSED | L9 | L10: typed loader returned clean data + raised on bad values; survived unannounced retrieval |
-| Latent bug — passes sample, misses requirement | OPEN | L11 | L11: `summarize` overwrite hardened to `.get(cat, 0.0)` accumulate. L19 fresh evidence (over-handling variant): post/search except-branches passed every driver while breaking `tuple[int, dict]`/`dict` annotations — fixed by deleting the invented branches. L20 fresh evidence: set-vs-list `fresh` + vacuous roundtrip, both driver-green contract breaks — fixed same session. L22 fresh evidence (both driver-green, both fixed same session): retry exhaustion returned the error object instead of raising; `last_elapsed` init written to a misspelled attribute. L23 fresh evidence (both driver-green, both fixed same session): count-and-errors re-fix assumed re-iterable input (list-green, one-shot-red — corrected to single pass); incident counts matched substrings not prefixes. L24: no fresh specimen — fixture-fragile shapes (float-vs-raw text, negative-limit input) caught pre-green by doctrine, not by luck. L25 fresh evidence (driver-green, fixed same session): Challenge bypassed own guard with raw target write — the lesson's core prohibition, found by reading |
+| Latent bug — passes sample, misses requirement | OPEN | L11 | L11: `summarize` overwrite hardened to `.get(cat, 0.0)` accumulate. L19 fresh evidence (over-handling variant): post/search except-branches passed every driver while breaking `tuple[int, dict]`/`dict` annotations — fixed by deleting the invented branches. L20 fresh evidence: set-vs-list `fresh` + vacuous roundtrip, both driver-green contract breaks — fixed same session. L22 fresh evidence (both driver-green, both fixed same session): retry exhaustion returned the error object instead of raising; `last_elapsed` init written to a misspelled attribute. L23 fresh evidence (both driver-green, both fixed same session): count-and-errors re-fix assumed re-iterable input (list-green, one-shot-red — corrected to single pass); incident counts matched substrings not prefixes. L24: no fresh specimen — fixture-fragile shapes (float-vs-raw text, negative-limit input) caught pre-green by doctrine, not by luck. L25 fresh evidence (driver-green, fixed same session): Challenge bypassed own guard with raw target write — the lesson's core prohibition, found by reading. L26: no fresh specimen fifth session running — fixture-fragile shapes caught pre-green by doctrine |
 | Per-iteration recomputation inside loops | OPEN | L6 | quiet since L9 |
 | Builtin shadowing (`min`, `max`) | OPEN | L5 | baked into REVIEW.md Naming checklist |
 | Collection choice by habit instead of guarantees | CLOSING | L6 | follow-up drill 8/8, guarantee-driven reasoning |
@@ -130,6 +131,7 @@ Diagnostic only — never punishment.
 | L23 | 0 | Quick Recall 6/6 (3 one-line repairs in chat: StopIteration agency, two-pass options, second-pass assertion); E1–M2 (incl. learner-composed pipeline), H1 hunt (4 plants + 7-row chains), Challenge solved independently, no GenAI (Googling only, declared); all review findings fixed independently same session (review loop level 1) |
 | L24 | 0 | Quick Recall 6/6 (2 one-line repairs in chat: single-pass remedy, second-pass assertion; pitfall-number dispute resolved pre-review in learner's favor); E1–M2 (incl. learner-composed alert windows), H1 hunt (4 plants + 7-row chains), Challenge solved independently, no GenAI (Google-for-confusion only, declared); all review findings fixed independently same session (review loop level 1) |
 | L25 | 0 | Quick Recall 6/6 (1 repair in chat: exception-triple values; 2 sharpenings stated); E1–M2 (incl. learner-composed timed publish), H1 hunt (4 plants + 7-row chains), Challenge solved independently, no GenAI (Google/websites for examples only, declared); all review findings fixed independently same session (review loop level 1) |
+| L26 | 0 | Quick Recall 6/6 clean ahead of code (validator indictment of `.+`, escape fix from memory); E1–M2 (incl. learner-composed summarize), H1 hunt (4 plants + 7-row chains), Challenge solved independently, no GenAI (Googling for metacharacters only, declared); all review findings fixed independently same session (review loop level 1) |
 
 Repeated level-2+ dependency on a topic ⇒ that topic returns for targeted
 practice before moving forward.
@@ -163,6 +165,7 @@ practice before moving forward.
 - [x] Lesson 23 — Iterators (94/100)
 - [x] Lesson 24 — Generators (98/100)
 - [x] Lesson 25 — Context Managers (97/100)
+- [x] Lesson 26 — Regex (97/100)
 
 ---
 
@@ -282,6 +285,8 @@ practice before moving forward.
 - Lazy pipeline composition (generator in, generator out, pulls flow end to end); `return`-with-value inside generators treated as a bug until proven otherwise
 - Context protocol: `__enter__` acquires (return binds `as`), `__exit__` settles every path; falsy return propagates, truthy suppresses — propagate by default, suppress named + justified only
 - Atomic temp+replace publish (whole-or-absent, discard + propagate on error); `@contextmanager` twin (setup/`yield`/`finally`) composing decorator + generator + protocol
+- Regex as stencil: compile once at module scope, ask `search`/`match`/`fullmatch` deliberately, raw strings always
+- Anchored `fullmatch` gates with converted captures at entry; flags at compile time; precise atoms over greedy `.+`
 
 ---
 
@@ -339,11 +344,11 @@ practice before moving forward.
 
 ## Scores & Hours
 
-Average Review Score: 92.2 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90, L10: 92, L11: 93, WP1: 85, L12: 92, L13: 92, L14: 92, L15: 92, L16: 92, WP2: 88, L17: 98, L18: 93, L19: 96, L20: 94, L21: 91, L22: 94, L23: 94, L24: 98, L25: 97)
+Average Review Score: 92.4 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90, L10: 92, L11: 93, WP1: 85, L12: 92, L13: 92, L14: 92, L15: 92, L16: 92, WP2: 88, L17: 98, L18: 93, L19: 96, L20: 94, L21: 91, L22: 94, L23: 94, L24: 98, L25: 97, L26: 97)
 
 Overall Mastery: Level 4 — debugging/refactoring independently
 
-Total Study Hours: ~56.5 hours (L25 ~3.5h wall added since the ~53h count)
+Total Study Hours: ~59.5 hours (L26 ~3h wall added since the ~56.5h count)
 
 ---
 
