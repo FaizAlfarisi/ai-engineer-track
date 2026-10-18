@@ -2419,3 +2419,79 @@ L27 Datetime (SUPPORTING) â€” every stringly-typed timestamp so far
 meets its parser. DSA Week 5 due, interleaved at the learner's call.
 WP4-merge proposal still queued for the system-revision agent.
 
+
+---
+
+## Session 38 (2026-10-18) — L27 Datetime (SUPPORTING) closed, 94/100
+
+### What happened
+
+- L27 built (plan-approved: subscription-tenure domain, tight scope,
+  single sitting): `lessons/lesson-27-datetime/` — lesson.md,
+  exercises.ipynb (16 cells, 7 drivers, blank 7-row chains),
+  buggy_tenure.py (4 plants). Builder proofs: green 7/7 on temp
+  references; H1 red 4/4 (incl. 1900 century probe added after the
+  naive `% 4` rule passed 2024/2026); CH red on header mutation.
+  Stripped at build.
+- Quick Recall 5.5/6 ahead of code; Q4 half (day-13+ clause
+  unstated), Q5 dodged to `zoneinfo` — mentor answered the naive/aware
+  failure modes + zoneinfo practical use on request.
+- Full practice cycle: E1–E3, M1, M2, H1 (4 plants fixed in place +
+  4 chains), Challenge (tenure CLI, byte-exact).
+- Review-fix loop level 1: mentor found `< 364` boundary (spec says
+  "30–364, boundaries exact") — driver never probed 364, so green;
+  learner had planted it himself (first driver-invisible self-plant
+  on record). Fixed in BOTH copies (`tenure.py` + `report.py`);
+  364/365 probed directly, exact. Copy-paste nouns
+  (`service_path`/`incident_path`, L24 vocabulary) noted, no action.
+- Reflection Q1–Q8: Q5 miss #2 ("default is UTC") ? corrected retry
+  from memory: both failure modes + convention-not-default — PASS.
+  Q8 "none" flagged as contradicted by Q5 evidence, owned by learner.
+- Review: `review/lesson-27-review.md` (bucket table 25/20/14/8/8/
+  9/5/5; 95+ bar judged NOT MET — two load-bearing deductions:
+  self-planted boundary bug + double-written bucket logic).
+- PROGRESS: L27 row + archive + hint table + average ? 92.5
+  (recomputed, 29 entries) + hours ? ~62.5. Spec-literalness note:
+  first miss in six lessons — new habit: one probe at each stated
+  boundary edge. Naive-UTC misconception ledgered CLOSING (one
+  unannounced retrieval pending). Latent-bug class: first
+  doctrinal catch of a learner-planted specimen.
+- Housekeeping: notebook outputs stripped; temp references never
+  shipped; no scratch files in lesson folder.
+
+### Reflection — Lesson 27 (learner's own words, condensed)
+
+- Decision: datetime over manual/regex validation — "complex
+  behavior handled easily with datetime."
+- Round trip: checks realness AND shape (regex: shape only).
+- Month-slice fix recalled from own M2 (parse first, slice parser
+  output) — applied but not self-identified as "the solution" until
+  prompted.
+- Spec lesson: "should've tested more or read the spec more
+  carefully" (the `< 364` bug).
+- H1 process: hypothesis-before-evidence, self-rated — "bugs kinda
+  obvious."
+- Independence goal: none — "none" shaky-answer on Q8 owned after
+  push-back.
+- Time: ~3h; no GenAI, internet search only, declared.
+
+### Retro (3 questions)
+
+1. Fog or difficulty? Difficulty, productive — boundary bug was the
+   session's real teacher (learner-planted, mentor-caught,
+   learner-fixed both copies).
+2. Rule preventing it? Boundary-edge probes: one assertion at each
+   stated edge (30, 364/365), not just sample data.
+3. Sittings + token line: 1 sitting, ~3h; tokens not reported.
+
+### Time Studied
+
+~3 hours wall (learner-reported).
+
+### Tomorrow Goal
+
+Asyncio collapse lesson (AWARENESS tier) ? THEN the WP4-merge
+discussion with the learner (their standing request: "after this
+last lesson we talk about the wp4-merge"). DSA Week 5 due,
+interleaved at learner's call. Quiz 05 window (L25–L27) opens after
+the collapse lesson.
