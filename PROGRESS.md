@@ -11,9 +11,9 @@ Completion ≠ mastery. This file tracks mastery.
 
 ```text
 Stage:        Stage 3 — Python Engineering (in progress)
-Current:      L27 CLOSED — 94/100 (dates independent; own boundary bug planted + fixed; Q5 misconception closed)
-Next:         Asyncio collapse lesson (AWARENESS) → WP4-merge discussion → Stage project planning
-Weekly Proj.: WP1 85/100; WP2 88/100; WP3 86/100 (closed); WP4-merge proposal queued (user discussion after L27)
+Current:      L28 CLOSED — AWARENESS (asyncio collapsed; QR 4/4 w/ 2 sharpenings, E1 pre-run predictions correct, E2 gather green + timing pin)
+Next:         WP4-merged-with-capstone discussion (the deal) → Stage project planning → Quiz 05 window (L25–L27)
+Weekly Proj.: WP1 85/100; WP2 88/100; WP3 86/100 (closed); WP4-merge proposal queued (user discussion after L28)
 Quizzes:      Quiz 02 done (84.7%); Quiz 03 done (82.9%); Quiz 04 done (86.1%)
 DSA Track:    1 session/week, interleaved — Week 4 done (stack); Week 5 due next
 Git:          commit after every session from Stage 2 onward
@@ -65,6 +65,7 @@ Stage 1 values were migrated from V1 session evidence and are marked
 | Context managers (`__enter__`/`__exit__` protocol, exit-on-every-path, suppress-vs-propagate, `@contextmanager` twin, atomic temp+replace publish, `as`-target contract) | SUPPORTING | 3 | High | Challenge bypassed own guard with raw target write (driver-green, fixed to wrap); bare `open()` twice vs Path-first house style (fixed); missing honesty comment + misspelled variable + loop naming (fixed); poison-substring ambiguous-spec (conceded builder-fault, fixed to exact, no deduction) | 0 (solving; review loop level 1) | Challenge atomic publish CLI (guard-wrapped write, abort-before-write, byte-exact + absent-partial proof) + 4-bug hunt with 7-row chains | 2026-10-12 |
 | Regex (compile + three questions, groups and harvest loops, flags, greed and anchors, anchored validation gates, converted captures) | SUPPORTING | 3 | High | numeric annotation admitted only `int` while temperatures return `float` (silent, third appearance — corrected); flag fix added casings by dropping the anchor instead of adding the flag (no stated contract broken — corrected to anchored-with-flag, no deduction); dead routing arm (removed); loop variable shadowed a builtin (renamed) | 0 (solving; review loop level 1) | Challenge pattern-extract CLI (shape-routed lines, prefix header, byte-exact) + 4-bug hunt with 7-row chains | 2026-10-17 |
 | Datetime (strptime parse-as-validation, round-trip canon check, date/timedelta arithmetic, isoformat-vs-strftime edge formatting, format-swap trap, naive-UTC posture) | SUPPORTING | 3 | High | driver-invisible boundary bug PLANTED BY LEARNER (`< 364` vs spec "30–364, boundaries exact" — green in own suite, caught at review, fixed in both copies); bucket logic double-written (tenure.py + report.py) instead of imported — made the bug a double bug; copy-paste nouns (`service_path`/`incident_path` from L24); naive-UTC misconception (Q5 dodged twice, "default is UTC" misstatement — corrected on retry, closed third retrieval) | 0 (solving; review loop level 1) | Challenge tenure-report CLI (first-comma split, loud skips, byte-exact) + 4-bug hunt with 7-row chains (incl. 1900 century probe) | 2026-10-18 |
+| Asyncio (async def/await/gather/asyncio.run, event-loop relay model, forgotten-await = created-not-run, sync-blocking stalls the whole loop, when-not-to-use) | AWARENESS | 2 | — | none at exercise level (E1 both snippets predicted correct pre-run; E2 gather green, concurrency shape pinned by timing); 2 QR sharpenings ledgered (switch point is `await`, event loop is the conductor — not "the switch"; FastAPI named as Stage-4 payoff); builder concession: E2 in-kernel driver failed under Jupyter (`asyncio.run` cannot nest a running loop) — learner correctly re-ran in terminal | — | — | 2026-10-20 |
 | `match` beyond literal patterns | AWARENESS | 2 | — | deferred by design (JSON Stage 2, API Stage 4) | — | — | 2026-08-13 |
 
 ---
@@ -170,6 +171,7 @@ practice before moving forward.
 - [x] Lesson 25 — Context Managers (97/100)
 - [x] Lesson 26 — Regex (97/100)
 - [x] Lesson 27 — Datetime (94/100)
+- [x] Lesson 28 — Asyncio (AWARENESS, collapsed — no bucket sum)
 
 ---
 
@@ -352,7 +354,7 @@ Average Review Score: 92.5 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 
 
 Overall Mastery: Level 4 — debugging/refactoring independently
 
-Total Study Hours: ~62.5 hours (L27 ~3h wall added since the ~59.5h count)
+Total Study Hours: ~64.5 hours (L28 ~2h wall added since the ~62.5h count)
 
 ---
 

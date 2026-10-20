@@ -2422,62 +2422,62 @@ WP4-merge proposal still queued for the system-revision agent.
 
 ---
 
-## Session 38 (2026-10-18) — L27 Datetime (SUPPORTING) closed, 94/100
+## Session 38 (2026-10-18) ï¿½ L27 Datetime (SUPPORTING) closed, 94/100
 
 ### What happened
 
 - L27 built (plan-approved: subscription-tenure domain, tight scope,
-  single sitting): `lessons/lesson-27-datetime/` — lesson.md,
+  single sitting): `lessons/lesson-27-datetime/` ï¿½ lesson.md,
   exercises.ipynb (16 cells, 7 drivers, blank 7-row chains),
   buggy_tenure.py (4 plants). Builder proofs: green 7/7 on temp
   references; H1 red 4/4 (incl. 1900 century probe added after the
   naive `% 4` rule passed 2024/2026); CH red on header mutation.
   Stripped at build.
 - Quick Recall 5.5/6 ahead of code; Q4 half (day-13+ clause
-  unstated), Q5 dodged to `zoneinfo` — mentor answered the naive/aware
+  unstated), Q5 dodged to `zoneinfo` ï¿½ mentor answered the naive/aware
   failure modes + zoneinfo practical use on request.
-- Full practice cycle: E1–E3, M1, M2, H1 (4 plants fixed in place +
+- Full practice cycle: E1ï¿½E3, M1, M2, H1 (4 plants fixed in place +
   4 chains), Challenge (tenure CLI, byte-exact).
 - Review-fix loop level 1: mentor found `< 364` boundary (spec says
-  "30–364, boundaries exact") — driver never probed 364, so green;
+  "30ï¿½364, boundaries exact") ï¿½ driver never probed 364, so green;
   learner had planted it himself (first driver-invisible self-plant
   on record). Fixed in BOTH copies (`tenure.py` + `report.py`);
   364/365 probed directly, exact. Copy-paste nouns
   (`service_path`/`incident_path`, L24 vocabulary) noted, no action.
-- Reflection Q1–Q8: Q5 miss #2 ("default is UTC") ? corrected retry
-  from memory: both failure modes + convention-not-default — PASS.
+- Reflection Q1ï¿½Q8: Q5 miss #2 ("default is UTC") ? corrected retry
+  from memory: both failure modes + convention-not-default ï¿½ PASS.
   Q8 "none" flagged as contradicted by Q5 evidence, owned by learner.
 - Review: `review/lesson-27-review.md` (bucket table 25/20/14/8/8/
-  9/5/5; 95+ bar judged NOT MET — two load-bearing deductions:
+  9/5/5; 95+ bar judged NOT MET ï¿½ two load-bearing deductions:
   self-planted boundary bug + double-written bucket logic).
 - PROGRESS: L27 row + archive + hint table + average ? 92.5
   (recomputed, 29 entries) + hours ? ~62.5. Spec-literalness note:
-  first miss in six lessons — new habit: one probe at each stated
+  first miss in six lessons ï¿½ new habit: one probe at each stated
   boundary edge. Naive-UTC misconception ledgered CLOSING (one
   unannounced retrieval pending). Latent-bug class: first
   doctrinal catch of a learner-planted specimen.
 - Housekeeping: notebook outputs stripped; temp references never
   shipped; no scratch files in lesson folder.
 
-### Reflection — Lesson 27 (learner's own words, condensed)
+### Reflection ï¿½ Lesson 27 (learner's own words, condensed)
 
-- Decision: datetime over manual/regex validation — "complex
+- Decision: datetime over manual/regex validation ï¿½ "complex
   behavior handled easily with datetime."
 - Round trip: checks realness AND shape (regex: shape only).
 - Month-slice fix recalled from own M2 (parse first, slice parser
-  output) — applied but not self-identified as "the solution" until
+  output) ï¿½ applied but not self-identified as "the solution" until
   prompted.
 - Spec lesson: "should've tested more or read the spec more
   carefully" (the `< 364` bug).
-- H1 process: hypothesis-before-evidence, self-rated — "bugs kinda
+- H1 process: hypothesis-before-evidence, self-rated ï¿½ "bugs kinda
   obvious."
-- Independence goal: none — "none" shaky-answer on Q8 owned after
+- Independence goal: none ï¿½ "none" shaky-answer on Q8 owned after
   push-back.
 - Time: ~3h; no GenAI, internet search only, declared.
 
 ### Retro (3 questions)
 
-1. Fog or difficulty? Difficulty, productive — boundary bug was the
+1. Fog or difficulty? Difficulty, productive ï¿½ boundary bug was the
    session's real teacher (learner-planted, mentor-caught,
    learner-fixed both copies).
 2. Rule preventing it? Boundary-edge probes: one assertion at each
@@ -2493,5 +2493,71 @@ WP4-merge proposal still queued for the system-revision agent.
 Asyncio collapse lesson (AWARENESS tier) ? THEN the WP4-merge
 discussion with the learner (their standing request: "after this
 last lesson we talk about the wp4-merge"). DSA Week 5 due,
-interleaved at learner's call. Quiz 05 window (L25–L27) opens after
+interleaved at learner's call. Quiz 05 window (L25-L27) opens after
 the collapse lesson.
+
+---
+
+## Session 39 â€” 2026-10-20
+
+### Lesson
+
+Lesson 28 â€” Asyncio (AWARENESS, collapsed). Stage 3's last
+concept-shaped lesson; closes on recognition evidence, not a bucket
+sum. `lessons/lesson-28-asyncio/` (lesson.md + exercises.ipynb +
+fanout.py). First lesson with no hunt and no Challenge â€” the tier
+sets that.
+
+### Session notes
+
+- Continuity after the mid-build session loss: artifacts were
+  recovered (WIP push), Observed + cell-4 question both restored
+  intact, verification re-run clean.
+- Quick Recall 4/4, 2 sharpenings ledgered post-answer (switch point
+  is `await` â€” the event loop is the conductor, not "the switch";
+  FastAPI named as the Stage-4 payoff).
+- E1: both snippets predicted before running, both correct
+  (coroutine/HELLO created-not-run; ~1.5s serial because `time.sleep`
+  blocks the thread).
+- E2: `fanout.py` gather green â€” argument-order results + concurrency
+  timing pin both held.
+- Builder concession: E2 in-kernel driver failed under Jupyter
+  (`asyncio.run` cannot nest a running loop); learner correctly
+  re-ran in a terminal (`E2 OK`). My E1 driver used `subprocess`
+  (portable); E2 should have too â€” filed for next build pass.
+- Reflection Q2 (blocking rule) was the session's best answer:
+  "not a magic script," overengineering flagged, blocking rule
+  independently reached.
+- Review: `review/lesson-28-review.md` â€” bar MET on recognition
+  evidence; no bucket sum, no 95+ claim (collapsed tier).
+- Housekeeping: notebook stripped; `script.py` + `__pycache__`
+  removed as scratch; temp references never shipped.
+
+### Reflection â€” Lesson 28 (learner's own words, condensed)
+
+- When-not: small CLIs + CPU-bound (honestly notes no lived
+  CPU-bound experience yet). When-right: API fan-out I/O.
+- Blocking rule: "not a magic script that will run all of the script
+  faster"; adds complexity, risk of overengineering; every link in
+  the chain must be properly `await`ed.
+- Confidence: 4/4, backed by both E1 predictions being correct
+  pre-run.
+- Time: ~2h wall (learner-reported); GenAI not reported this session.
+
+### Retro (3 questions)
+
+1. Fog or difficulty? Light â€” AWARENESS tier; the one real snag was
+   the Jupyter event-loop error, solved by moving to a terminal.
+2. Rule preventing it? None needed at exercise level; the builder
+   concession is a build-fix (portable drivers), not a learner rule.
+3. Sittings + token line: 1 sitting, ~2h; tokens not reported.
+
+### Time Studied
+
+~2 hours wall (learner-reported).
+
+### Tomorrow Goal
+
+WP4-merged-with-capstone discussion (the deal â€” standing request).
+Quiz 05 window (L25-L27) opens. DSA Week 5 (Binary search) due,
+interleaved at the learner's call.
