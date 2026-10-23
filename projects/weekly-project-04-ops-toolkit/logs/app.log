@@ -1,0 +1,14 @@
+2026-10-19 09:14:05 WARN service=worker latency=890 status=200 path=/jobs
+2026-10-19 09:14:02 INFO service=api latency=142 status=200 path=/health
+2026-10-19 09:14:09 ERROR service=db latency=1500 status=500 path=/query
+2026-10-19 09:14:03 INFO service=api latency=118 status=200 path=/health
+2026-10-19 09:14:12 INFO service=db latency=95 status=200 path=/query
+not a log line at all
+2026-10-19 09:14:07 INFO service=worker latency=430 status=200 path=/jobs
+2026-10-19 09:14:15 WARN service=api latency=760 status=429 path=/report
+2026-10-19 09:14:04 ERROR service=api latency=940 status=503 path=/report
+2026-10-19 09:14:11 INFO service=worker latency=512 status=200 path=/jobs
+2026-10-19 09:14:06 INFO service=db latency=88 status=200 path=/query
+2026-10-19 09:14:14 INFO service=api latency=201 status=200 path=/health
+2026-10-19 09:14:08 WARN service=db latency=660 status=200 path=/query
+2026-10-19 09:14:13 INFO service=worker latency=377 status=200 path=/jobs
