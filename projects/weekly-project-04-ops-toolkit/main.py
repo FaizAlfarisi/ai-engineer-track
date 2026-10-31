@@ -1,18 +1,19 @@
 import sys
 
+from src.log_toolkit.config.config import APP_LOG_PATH, CLEAN_JSON_PATH
 from src.utils.system_utils import fail
 from src.log_toolkit.services.cli import argv_parser
 from src.log_toolkit.config.logging import setup_logging
+from src.log_toolkit.use_cases.ingestion import ingest
 
 def main(argv) -> None:
     request = argv_parser(argv)
     
     if request.command in ["ingest", "fetch"]:
         setup_logging(request.mode)
-        print(request.mode)
         
         if request.command == "ingest":
-            print("do ingest")
+            print(ingest(APP_LOG_PATH, CLEAN_JSON_PATH))
             pass
         else:
             print("do fetch")

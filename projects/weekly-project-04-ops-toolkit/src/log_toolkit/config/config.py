@@ -1,1 +1,5 @@
-OPS_LOG_PATH  = "ops.log"
+from pathlib import Path
+
+OPS_LOG_PATH  = Path("ops.log")
+APP_LOG_PATH = Path("logs") / "app.log"
+CLEAN_JSON_PATH = Path("clean.json")

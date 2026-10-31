@@ -23,7 +23,7 @@ def _get_valid_path(path: str | Path) -> Path | None:
     
     return path
 
-def _is_valid_line(line: str) -> bool:
+def is_valid_line(line: str) -> bool:
     pattern = re.compile(r"(?P<timestamp>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}) (?:INFO|WARN|ERROR) service=\w+ latency=\d+ status=\d+ path=\S+")
     
     m = pattern.fullmatch(line)
@@ -65,3 +65,7 @@ def load_log(file_path: str | Path) -> str:
         return ""
         
     return path.read_text(encoding="utf-8")
+
+def write_json(file_path: str | Path, data: list[dict[str, str]]) -> None: 
+    path = Path(file_path)
+    path.write_text(json.dumps(data, separators=(',', ':')), encoding="utf-8")
