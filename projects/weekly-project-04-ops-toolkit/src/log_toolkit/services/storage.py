@@ -4,6 +4,8 @@ import re
 from datetime import datetime
 from pathlib import Path
 from src.utils.exceptions import CorruptDataError
+from src.log_toolkit.domain.entities import ServiceLog
+from typing import Any
 
 
 logger = logging.getLogger(__name__)
@@ -44,7 +46,49 @@ def is_valid_line(line: str) -> bool:
     
     return True
 
-def load_json(file_path: str | Path) -> list[str]:
+def log_decoder(dtc: dict[str, str]) -> ServiceLog | dict[str, Any]:
+    if "date" in dtc and "time" in dtc and "level" in dtc and "service" in dtc and "latency" in dtc and "status" in dtc and "path" in dtc:
+        try:
+            date = datetime.strptime(dtc["date"], "%Y-%m-%d").date()
+        except ValueError:
+            raise CorruptDataError(f"invalid date: {dtc["date"]!r}. Expected YYYY-MM-DD date format")
+        
+        try:
+            time = datetime.strptime(dtc["time"], "%H:%M:%S").time()
+        except ValueError:
+            raise CorruptDataError(f"invalid time: {dtc["time"]!r}. Expected HH:MM:SS time format")
+        
+        try:
+            latency = int(dtc["latency"])
+        except ValueError:
+            raise CorruptDataError(f"invalid latency: {dtc["latency"]!r}. Expected a positive number")
+        if latency < 0:
+            raise CorruptDataError(f"invalid latency: {dtc["latency"]!r}. Expected a positive number")
+            
+        try:
+            status = int(dtc["status"])
+        except ValueError:
+            raise CorruptDataError(f"invalid status: {dtc["status"]!r}. Expected a positive number")
+        if status < 0:
+            raise CorruptDataError(f"invalid status: {dtc["status"]!r}. Expected a positive number")
+        
+        level = dtc["level"]
+        service = dtc["service"]
+        path = dtc["path"]
+        
+        return ServiceLog(
+            date=date,
+            time=time,
+            latency=latency,
+            status=status,
+            level=level,
+            service=service,
+            path=path,
+        )
+    
+    return dtc
+
+def load_json(file_path: str | Path) -> list[ServiceLog]:
     path = _get_valid_path(file_path)
     
     if path is None:
@@ -52,7 +96,7 @@ def load_json(file_path: str | Path) -> list[str]:
         return []
     
     try:
-        return json.loads(path.read_text(encoding="utf-8"))
+        return json.loads(path.read_text(encoding="utf-8"), object_hook=log_decoder)
     except json.JSONDecodeError as exc:
         raise CorruptDataError(f"failed to load existing data | {exc}")
     
