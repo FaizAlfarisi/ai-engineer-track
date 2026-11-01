@@ -6,6 +6,7 @@ from src.log_toolkit.services.cli import argv_parser
 from src.log_toolkit.config.logging import setup_logging
 from src.log_toolkit.use_cases.ingestion import ingest
 from src.log_toolkit.use_cases.window import window
+from src.log_toolkit.use_cases.report import report_slow
 
 def main(argv) -> None:
     request = argv_parser(argv)
@@ -24,8 +25,8 @@ def main(argv) -> None:
         print(window(CLEAN_JSON_PATH, request.start, request.end))
         pass
 
-    elif request.command == "report":
-        print("do report slow")
+    elif request.command == "report" and request.number is not None:
+        print(report_slow(CLEAN_JSON_PATH, request.number))
         pass
 
 if __name__ == "__main__":
