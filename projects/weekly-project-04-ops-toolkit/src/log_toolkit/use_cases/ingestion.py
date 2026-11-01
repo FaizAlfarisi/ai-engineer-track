@@ -34,8 +34,8 @@ def ingest(log_path: Path, target_path: Path) -> str:
             "time": time,
             "level": level,
             "service": service.split("=")[1],
-            "latency": latency.split("=")[1],
-            "status": status.split("=")[1],
+            "latency": int(latency.split("=")[1]),
+            "status": int(status.split("=")[1]),
             "path": path.split("=")[1],
         }
         

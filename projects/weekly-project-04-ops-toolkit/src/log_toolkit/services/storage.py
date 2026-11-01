@@ -110,6 +110,6 @@ def load_log(file_path: str | Path) -> str:
         
     return path.read_text(encoding="utf-8")
 
-def write_json(file_path: str | Path, data: list[dict[str, str]]) -> None: 
+def write_json(file_path: str | Path, data: list[dict[str, Any]]) -> None: 
     path = Path(file_path)
     path.write_text(json.dumps(data, separators=(',', ':')), encoding="utf-8")
