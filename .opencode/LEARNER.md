@@ -1,6 +1,6 @@
 # Learner Profile — Stage 3, second half (L19 → stage end)
 
-> SYSTEM FILE (V3-native). Author: the system-revision agent ONLY —
+> SYSTEM FILE (V4). Author: the system-revision agent ONLY —
 > rewritten per stage/half-stage from `PROGRESS.md` + `DAILY_LOG.md` +
 > latest lesson review. Consumer: the Mentor + Lesson Builder,
 > strictly read-only (RULES.md R17: you NEVER edit this file).
@@ -69,11 +69,22 @@ Fragile — weave unannounced retrieval, never assume:
   since L11; 3-second output-compare after each driver run)
 - Error handling under edge cases (CLOSING — one retrieval pending)
 
-Style watch (converging to best practice):
+House style is binding — see # House Style below.
+
+---
+
+# House Style (binding — check every build and review)
 
 - Path-first I/O (`str | Path` in → `Path()` first → `path.open` /
   `read_text` / `write_text`; no bare `open()` on paths)
 - `main(argv)` + `__main__` guard; no module-level executable code
+- Absolute imports; `!r` guards on user-facing messages; small
+  functions; docstrings
+- Composition skill stays with the learner — drivers verify, never
+  author composition (M2 law, from L23)
+- Review findings at file + symptom + pattern granularity, never
+  line-level
+- CLI briefs carry a Flow block + house entry shape
 
 ---
 
@@ -84,11 +95,12 @@ May require (taught):
 - `sys.argv` raw (Stage 1) · `json` / `csv` / `pathlib` · `urllib` ·
   `unittest` / `pytest` basics + `caplog`/`tmp_path` (L17) · `match` ·
   `logging` core (L21: levels, handlers, formatters, `exc_info`,
-  laziness, hierarchy) · anything taught inside the current lesson
+  laziness, hierarchy) · `decorators` (L22) · anything taught inside
+  the current lesson
 
 NEVER require unless taught in-lesson first:
 
-- `argparse` / `--flag` parsing · `re` · decorators · `asyncio` ·
+- `argparse` / `--flag` parsing · `re` · `asyncio` ·
   `dictConfig` / `LoggerAdapter` / `Filter` (named but untaught) · any
   unseen stdlib
 
@@ -102,7 +114,7 @@ code + usage shown in-lesson). Never silently require.
 # Scoring Anchor (Bucket-score law + pricing)
 
 - Historical band ~90 (avg 91.3; L18 bucket-93 is the bar; L19 96,
-  L20 94). L17-98 was loose — logged outlier, never the anchor.
+  L20 94, L22 94). L17-98 was loose — logged outlier, never the anchor.
 - Pricing: hint-0 → 95+ eligible; hint-1 → cap 94; hint-2 → cap 90;
   reviewer-applied fixes cost bucket points. 95+ needs the full bar
   (`SCORING.md`).
@@ -116,21 +128,22 @@ code + usage shown in-lesson). Never silently require.
   Notes → Common Pitfalls (numbered — specs reference by number) →
   Connection → Quick Recall → Practice table.
 - Practice table is flexible by tier: **CORE = full form** (E1–E5 /
-  M1–M3 / H1-`[DEBUG]` blank write-ins / H2 engineering build /
+  M1–M3 / H1-`[DEBUG]` 7-row chain reports / H2 engineering build /
   Challenge CLI). SUPPORTING / AWARENESS = reduced forms per
   `CURRICULUM.md` pipelines. IDs always match their tier (label
   contract).
 - H-specs name every suite-imported symbol as an explicit deliverable.
   Expected-states exact and direct.
-- Notebook: spec + driver cells, all executed, outputs stripped; H1
-  slots blank at build.
+- Notebook: title-first specs with Type/Coverage/Expected lines;
+  spec + driver cells, all executed, outputs stripped; no driver
+  duplication.
 - Review: Strengths → 8-bucket table (named deductions) → hint level +
   independent-fix ratio → spec-literalness → Reviewer notes → Verdict;
   plus coverage-check + label-check + style + suite-health lines.
 
 ---
 
-# Queued Targets (standing Coach Feedback — applies to L22+)
+# Queued Targets (standing Coach Feedback — applies to L23+)
 
 1. Coverage gate at build (teach-first → PROVIDED → never silent).
 2. Intent-first specs, bolded main intent; Why-Chain lessons.
@@ -140,3 +153,5 @@ code + usage shown in-lesson). Never silently require.
    vacuous-test detection).
 6. Token discipline (tail-only appends, batched validation, split
    sittings).
+7. Solution location follows deliverable (no solution.py-first, no
+   double-write).

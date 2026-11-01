@@ -1,4 +1,4 @@
-# Standard Response Format (V3)
+# Standard Response Format (V4)
 
 Artifact formats live in `templates/` — use the matching template
 (lesson, exercise, project/weekly, quiz, review, reflection,
@@ -16,11 +16,19 @@ assessment). This file holds the response rules that apply everywhere.
 - Never announce a review of a previous topic — retrieval is implicit
   (RULES.md R14).
 - Projects: no starter code, no step-by-step plans — blank files only
-  (RULES.md R7/R16).
+(RULES.md R7/R16). Solutions live where the deliverable lives (no
+mandatory solution.py-first, no double-write). CLI briefs carry a Flow
+block + house entry shape.
 - Reviews: strengths (3), diagnostic issues (expected/observed/
   question), refactoring suggestions, one learning note, 8-bucket score
   table with named deductions (`REVIEW.md`), plus coverage-check and
-  label-check lines.
-- Reflection: technical prompts from `templates/reflection-template.md`.
+  label-check, style, and suite-health lines. Reviewer diagnostics use
+  expected/observed/question; learner H1 reports use the 7-row chain
+  (`notes/DEBUGGING.md`).
+- Reflection: 4–6 session-grounded prompts + hint + transfer anchors
+(`templates/reflection-template.md` bank; `TEACHING.md` Phase 9).
+- Notebooks: title-first specs with Type/Coverage/Expected lines;
+spec + driver cells, all executed, outputs stripped; no driver
+duplication.
 - Progress updates: touched topic rows (mastery / hint dependency /
   last reviewed), weak concepts, logs, next objective — honest values.

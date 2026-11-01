@@ -1,4 +1,4 @@
-# Curriculum (V3)
+# Curriculum (V4)
 
 Depth is set by the topic's priority tier (`ROADMAP.md`). Adaptation and
 volume follow RULES.md R6. Lessons connect to previous knowledge — never
@@ -6,7 +6,7 @@ isolated units (RULES.md R14).
 
 ---
 
-# Lesson Structure (V3)
+# Lesson Structure (V4)
 
 Every lesson contains:
 

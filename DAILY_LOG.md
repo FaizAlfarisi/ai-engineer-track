@@ -1959,3 +1959,605 @@ Commit WP3. Then DSA Week 3 (due now) → remaining Stage-3 topics.
   in 332 — plus indirect expecteds). Answered by the Why-Chain doctrine
   (V3 patch).
 
+## DSA Session #3 (Week 3) — 2026-10-06
+
+### Problem
+
+Busiest K-minute window from a sorted-by-minute `(minute, amount)` log;
+return `(start_minute, total)`, earliest span wins ties, empty → `None`.
+Pattern: **sliding window** (first time derived + applied).
+
+### Session notes
+
+- Brute force designed on paper first (3 paper rounds: units fix
+  K-vs-span, shape fix tuple-vs-sum, stale-index fix, window-range fix,
+  empty guard), implemented green in an external playground ((2, 55)
+  seen in chat; remaining outputs learner-verified, taken on record).
+- K = 0 same-minute insight + tie-earliest via strict `>` self-derived.
+- Window derived Socratically (running total, shrink-while-violated,
+  start-not-end minute fix, running-best O(1) over list+max); guards
+  held throughout.
+- Complexity stated out loud before code: O(n³)/O(n) brute vs O(n)/O(1)
+  window, crossing argument given (each index enters once, leaves at
+  most once).
+- Verbal explanation passed (invariant sentence + tie + earliest +
+  bounds); one sharpening given (mechanism vs invariant distinction).
+- Scope note: DSA-only grant — no modifications outside DSA log +
+  this entry.
+- Logged: `PROGRESS.md` DSA Log Row 3.
+
+## Session 32 — 2026-10-06
+
+### Lesson
+
+Lesson 22 — Decorators (SUPPORTING, Stage 3) — **94/100**, mastery at 3,
+hint dependency 0. Fresh clinic domain (no expense reuse, learner's
+choice); single sitting. Notebook readability rewritten mid-build to the
+L19/L21 skeleton (title-first specs, Type/Coverage/Expected lines,
+driver duplication deleted).
+
+### Session notes
+
+- Quick Recall 6/6 (Q6 completed on second pass: Pitfall number +
+  assert-the-return, not just the log).
+- Built E1–E3, M1–M2, H1 + H1b hunt + Challenge. All 8 drivers green on
+  independent post-fix verification against the learner's own files.
+- H1 shipped as a gate, not a hunt (builder fault, admitted) — repaired
+  as H1b: real `buggy_clinic.py` (4 isolated plants, red-proven 4/4),
+  hunted via the DEBUGGING protocol, own-words report filed (accepted as
+  the single report of record; blank H1 slots retired, no manufactured
+  repetition).
+- Challenge brief repaired twice mid-session (both builder fault):
+  silent argv-shape break vs the L20/L21/WP3 house convention (verified
+  in the repos' own files — learner's L20-shaped code stood), "emit"
+  jargon, missing Flow, unstated inbox assumption, ambiguous "missing".
+  Closed as: Flow block + house entry stated + subprocess driver
+  (WP3 T-matrix style), CH driver red-proven on a header mutation.
+- M2 design correction (learner-set standing law): composition skill ⇒
+  the learner authors the composition; drivers only verify. Applies
+  from L23.
+- Review-delivery correction (learner-set standing rule): findings at
+  file + symptom + pattern granularity, never line-level — the hunt for
+  the exact location stays the learner's.
+- Review found 4 findings, all fixed independently same session:
+  retry-exhaustion returned instead of raised; timer init on a
+  misspelled attribute (both copies); stale BUG comments; single-use
+  decoration removed per Pitfall 7.
+- Review: `review/lesson-22-review.md` (bucket table 22/20/14/10/10/8/5/5;
+  95+ bar judged unmet — first pass left driver-invisible holes).
+
+### Reflection — Lesson 22 (learner's own words, condensed)
+
+- Exercise flow was bad this session, unlike previous sessions: the
+  Challenge brief was unclear and insufficient — hard to understand and
+  digest, with ambiguous statements and knowledge/expected gaps that
+  forced assuming instead of knowing.
+- Wants briefs that are easy to understand and digest: no ambiguity, no
+  gaps between what is stated and what is expected, so nothing must be
+  assumed.
+- Debugging (H1b) is where the understanding came from: stressful on
+  one side, training error-report reading + step-by-step solving on the
+  other — keep the real hunts.
+
+### Retro (3 questions)
+
+1. Fog or difficulty? Fog, on the builder's side (brief + gate) —
+   difficulty itself (decorators, hunt, wiring) was the productive kind.
+2. Rule preventing it? Coverage-gate + Flow/entry-shape laws in CLI
+   briefs; composition-by-learner; no line-level spoilers (all standing
+   from this session).
+3. Sittings + token line: not reported.
+
+### Time Studied
+
+~3 hours wall (learner-reported).
+
+### Tomorrow Goal
+
+L23 Iterators (SUPPORTING) → remaining Stage-3 topics → stage project
+planning. DSA Week 4 due next, interleaved at the learner's call.
+Proposed standing laws queued for the system-revision agent (LEARNER.md
+untouched): M2-composition-by-learner · no line-level spoilers ·
+Flow + entry-shape mandatory · testable-entry (return-int) future lesson.
+
+### Revision session — V4 batch (system-revision agent, 2026-10-07)
+
+Installed: Why-Chain doctrine; Token Budget; Style Contract + House
+Style; Coverage hardening (every suite-imported symbol named);
+P0 write-integrity (read-back + explicit-paths-only); P2 pricing
+(hint caps, assisted-fix costing, vacuous-test detection);
+sparse-hours mode + difficulty knobs + translator opt-in; verification
+law; 3-question retro; 7-row debug chain (H1 slots retired);
+solution-location reform (no solution.py-first, no double-write);
+adaptive reflection (bank + generation rule); `dsa/` session records;
+start-session upgraded (real-mentor walk + verify-don't-assume).
+Absorbed queued L22 laws: M2-composition-by-learner · no line-level
+spoilers · Flow + entry-shape mandatory. testable-entry (return-int)
+future-lesson proposal stays queued for curriculum planning (not added).
+Nothing historical altered.
+
+## Session 33 — 2026-10-07
+
+### Lesson
+
+Lesson 23 — Iterators (SUPPORTING, Stage 3) — **94/100**, mastery at 3,
+hint dependency 0. Fresh server-log-triage domain (learner-delegated
+pick); single sitting. R16 reform honored structurally: no
+`solution.py`, deliverables in `stream.py`, Challenge imports it (no
+double-write). H1 ships as a true hunt with blank 7-row chains.
+
+### Session notes
+
+- Quick Recall 6/6 with 3 one-line repairs in chat (StopIteration
+  agency: author-raises/loop-catches; two passes need two readers or one
+  bottled list; assert the second pass).
+- Built E1–E3, M1 (batching class, ragged tail kept), M2 (own
+  validate-first composition with honesty comment), H1 hunt (4 plants
+  fixed in place + 4 genuine 7-row chains), Challenge (streaming handle
+  → windows → byte-exact incidents, subprocess driver).
+- Post-fix verification green 7/7 against the learner's own files; H1
+  driver red-proven 4/4 on the shipped buggy module; CH driver
+  red-proven on a header mutation.
+- Review preview found 8 observations; fix loop closed all load-bearing
+  ones (Bug-3 re-fix is a true single pass; substring→prefix counting;
+  honesty comment; dead guard removed). One withdrawn false positive,
+  owned: the missing-check disjunction was correct on all three cases —
+  no deduction. Annotation claim trimmed to what specs require (met).
+- Remaining nit: the dead guard's orphan comment (1 pt readability).
+- Review: `review/lesson-23-review.md` (bucket table 21/20/14/10/10/10/
+  5/5; 95+ bar judged unmet — two driver-invisible first-pass holes).
+- Housekeeping: manual `server.log` + `incidents.txt` scratch removed
+  (drivers tmp-self-contained); scaffold + `__pycache__` removed
+  post-verification.
+
+### Reflection — Lesson 23 (learner's own words, condensed)
+
+- Decision: validate-first + materialize (validate-inside risks
+  undersized windows; lazy filter costs complexity; materialization buys
+  the fixed-size guarantee).
+- Longest bug: StuckReader's `None`-trail — time went to result-checking;
+  Bug-3 wrong belief on record in the chain ("reuse the iterator
+  object").
+- Requirements change: `clean_windows` breaks first (materializes);
+  rebuild as lazy validating iterator.
+- Spec verdict: no misleaders — "easy to understand, i love this pace"
+  (Flow/entry-shape laws verified from the reader's side).
+- Withdrawal trust: "fine", no push.
+- Independence goal: solve next lesson independently at this pace.
+- Transfer: path/try-except/entry reused unprompted; `Iterable` vs
+  `Iterator` confusing — answered in the review's learning note against
+  the learner's own module.
+- Hint dependency this session — exercises level 0, no GenAI (Googling
+  for syntax only, declared); review-fix loop level 1.
+
+### Retro (3 questions)
+
+1. Fog or difficulty? Difficulty, productive kind — brief clean per Q4;
+   the hunt and wiring were the work.
+2. Rule preventing it? The standing laws held (Flow, entry shape,
+   composition-by-learner, no line spoilers).
+3. Sittings + token line: not reported.
+
+### Time Studied
+
+~4 hours wall (learner-reported).
+
+### Tomorrow Goal
+
+L24 Generators (SUPPORTING) — the `yield` twin; watch protocol transfer
+on day one. DSA Week 4 due next, interleaved at the learner's call.
+
+## Session 34 — 2026-10-10
+
+### Lesson
+
+Lesson 24 — Generators (SUPPORTING, Stage 3) — **98/100**, mastery at 3,
+hint dependency 0. Fresh telemetry-harvest domain (mentor-picked,
+learner-delegated); single sitting. R16 reform honored structurally: no
+`solution.py`, deliverables in `sensors.py`, Challenge imports it. H1
+ships as a true hunt with blank 7-row chains.
+
+### Session notes
+
+- Quick Recall 6/6 with 2 one-line repairs in chat (single-pass remedy;
+  second-pass assertion) — plus one reversed call owned by the
+  reviewer: the pitfall-number dispute resolved pre-review against the
+  lesson text, which reads reuse as Pitfall 1. Check the file, never
+  the draft. Zero learner cost, no finding generated.
+- Built E1–E3, M1 (lazy validating stage, pull-count proven), M2 (own
+  alert-window composition, lazy end to end), H1 hunt (4 plants fixed
+  in place + 4 genuine 7-row chains), Challenge (streaming handle →
+  windows → byte-exact alerts, subprocess driver).
+- Post-fix verification green 7/7 against the learner's own files; H1
+  driver red-proven 4/4 on the shipped buggy module; CH driver
+  red-proven on a header mutation.
+- Review preview found 1 deduction class (annotation honesty, three
+  instances, silent by nature); fix loop closed all three after one
+  teaching answer on "annotate what flows". Two shape-notes recorded
+  without deductions (float-vs-raw text, negative-limit input, dropped
+  accumulator param — all unspecified shapes, same doctrine as the L23
+  withdrawals).
+- Review: `review/lesson-24-review.md` (bucket table 25/20/13/10/10/10/
+  5/5; 95+ bar judged MET on verified evidence — top of the band on
+  merit, receipted line by line).
+- Housekeeping: verification scaffold + `__pycache__` removed
+  post-run; no scratch files found in the lesson folder.
+
+### Reflection — Lesson 24 (learner's own words, condensed)
+
+- Decision: generator over class for batching — simpler, lazy,
+  memory-efficient; classes kept for explicit iterator control.
+- Longest bug: Bug 4 (shared default) — assumed an exotic
+  generator/`yield` cause, overlooked the mundane mutable default.
+  Meta-finding recorded: exotic-first bias; the L5 trap catches
+  precisely because attention looks past it.
+- Requirements change: one-shot pipeline can't serve two reports;
+  rebuild over a re-callable source (`clean_windows`-class casualty
+  named first).
+- Spec verdict: no misleaders — easy to understand at this pace (third
+  straight clean brief; Flow/entry-shape laws confirmed again).
+- Sting: annotation-hint confusion + focus lapse — fog, owned, no push.
+- Independence goal: solve next lesson independently at this pace.
+- Transfer: path/try-except/entry reused unprompted; `Iterable` vs
+  `Iterator` clarified in-review against the learner's own module.
+- Hint dependency this session — exercises level 0, no GenAI (Google
+  for confusion only, declared); review-fix loop level 1.
+
+### Retro (3 questions)
+
+1. Fog or difficulty? Difficulty, productive kind — brief clean per Q4;
+   the twin rebuild and hunt were the work.
+2. Rule preventing it? The standing laws held again (Flow, entry shape,
+   composition-by-learner, 7-row chains, no line spoilers).
+3. Sittings + token line: not reported.
+
+### Time Studied
+
+~2.5 hours wall (learner-reported).
+
+### Tomorrow Goal
+
+L25 Context managers (SUPPORTING) — generator-held resources meet their
+owners. DSA Week 4 due (three sessions running), interleaved at the
+learner's call.
+
+## Session 35 — 2026-10-11
+
+### Quiz build + taken + graded
+
+Quiz 04 (L20–L24) built per approved plan: `quizzes/quiz-04-l20-l24.md`
+(A concept ×3, B predict ×3, C debug ×2, D reading ×2, E offline apply
+with `tmp_path`-free exact driver, F T/F ×3; weak-concept report table
+included) + `quizzes/quiz-04-l20-l24/` (`qharvest.py` blank, `check_q.py`
+read-only driver). Two build defects caught pre-ship (B3 `and`-form
+crashed nothing → rebuilt on the `or`-form; B1 "which input exposes"
+unanswerable on identical lines → rebuilt around mechanism + twin).
+Every executable claim verified live before shipping (B/C/D snippets
+exact, C1 hierarchy + routing in-process, E reference green vs the
+shipped driver).
+
+### Grading notes — 15.5/18 (86.1%), PASS (bar 80%)
+
+- Strong: B2 best on sheet (pull clock + brackets error); B3 closed
+  with interest (crashers + semantic bonus on the "safe" form); C1, D2,
+  F all exact; twin/laziness/house threads clean.
+- Deductions: A3 subject slipped (parents right, −0.5); B1
+  kind-identification gap (−0.25); D1 invariant + entry-gap missing
+  (−0.5); C2 fix via deferred `yield from` (−0.25, valid but
+  past-the-lesson); E signatures unannotated (−1, spec-named).
+- E verified green at grading (`check_q.py`, exact `E-Q4 OK`).
+- Revision round T1–T3 (diamond naming, kind probe, stacking
+  re-derivation) passed same session — learner-requested, zero debt
+  carried. Only open thread: annotation discipline (fresh L24-class
+  evidence: dropped when not driver-enforced).
+
+### Tomorrow Goal
+
+L25 Context managers (SUPPORTING). Learner-created
+`exploration.ipynb` in the quiz folder left for the self-commit
+decision (scratch, not reviewed). DSA Week 4 due, interleaved at the
+learner's call. WP4-merge proposal still queued for the
+system-revision agent.
+
+## Session 36 — 2026-10-12
+
+### Lesson
+
+Lesson 25 — Context Managers (SUPPORTING, Stage 3) — **97/100**,
+mastery at 3, hint dependency 0. Fresh dawn-publisher domain
+(mentor-picked, learner-delegated); single sitting. R16 reform
+honored: no `solution.py`, deliverables in `guards.py`, Challenge
+imports it. H1 ships as a true hunt with blank 7-row chains.
+
+### Session notes
+
+- Quick Recall 6/6 with 1 repair in chat (exception-triple values) +
+  2 sharpenings stated (today-nobody leak; yield-vocabulary untangle).
+- Built E1–E3, M1 (temp+replace-or-discard), M2 (own timed publish),
+  H1 hunt (4 plants fixed in place + 4 genuine 7-row chains),
+  Challenge (guard-wrapped write post-fix, abort-before-write, byte-exact).
+- Post-fix verification green 7/7 against the learner's own files; H1
+  driver red-proven 4/4 on the shipped buggy module; CH driver
+  red-proven on a header mutation.
+- Review preview found 3 deduction items + 1 conceded ambiguity
+  (poison substring-vs-exact — spec never pinned equality, L12
+  precedent; fixed to exact, no deduction; future sentinel specs state
+  equality). All fixed independently same session.
+- Focus report (learner-declared, lower than prior sessions): every
+  miss caught by drivers green + review preview — machinery working
+  under low focus; sparse-hours corollary (shorter sittings at done
+  states) recorded.
+- Review: `review/lesson-25-review.md` (bucket table 25/20/14/10/9/9/
+  5/5; 95+ bar judged MET on verified evidence).
+- Housekeeping: verification scaffold + `__pycache__` removed
+  post-run; empty scratch cell flagged pre-removal (no objection).
+
+### Reflection — Lesson 25 (learner's own words, condensed)
+
+- Decision: atomicity at the replacement boundary, not preparation
+  (early entry buys exception cleanup, costs held-open files; not all
+  actions need atomic concern).
+- Longest bug: none stood out — lesson read carefully made all four
+  tractable; H1 ease noted against the HARD drill dial.
+- Requirements change: read-modify-write whole file for appends
+  (temp + replace retained; alternatives briefed: O_APPEND
+  per-write-only, locking for multi-writer, journals overkill here).
+- Spec verdict: no misleaders — focus lapse owned, not brief fault.
+- Sting: contract miss on the core prohibition, self-owned.
+- Independence goal: hold this pace; single blocking gap unnamed.
+- Transfer: pathlib, OOP, generators reused unprompted; honesty-comment
+  anatomy taught on request (what + why + witness, learner's sentence).
+- Hint dependency this session — exercises level 0, no GenAI (Google/
+  websites for examples only, declared); review-fix loop level 1.
+
+### Retro (3 questions)
+
+1. Fog or difficulty? Difficulty, productive kind — brief clean;
+   protocol + hunt were the work, focus lapse aside.
+2. Rule preventing it? The standing laws held (Flow, entry shape,
+   composition-by-learner, 7-row chains, no line spoilers).
+3. Sittings + token line: not reported.
+
+### Time Studied
+
+~3.5 hours wall (learner-reported).
+
+### Tomorrow Goal
+
+L26 Regex (SUPPORTING) — the triage/harvest logs are waiting for
+patterns. DSA Week 4 due, interleaved at the learner's call.
+WP4-merge proposal still queued for the system-revision agent.
+
+## DSA Session #4 (Week 4) — 2026-10-14
+
+### Problem
+
+First-offending bracket index in a nested `()[]{}` config string;
+`None` when balanced, empty → `None`. Pattern: **stack** (first contact).
+
+### Session notes
+
+- Stack-first by instinct (brute force stated, not built: repeated
+  adjacent-pair erasure O(n²) — accepted per Week-2 precedent).
+- First attempt used outside-in two-pointers (Week-2 hammer); diagnosed
+  via `()()` counterexample, then rebuilt as single-pass stack.
+- Spec challenge by learner: `([)]` gloss corrected to nearest-opener
+  mismatch (builder-fault line fix, rule text stood).
+- Implementation green: README 6/6 + 12/12 edge probes (lone
+  opener/closer, interleaved, deep nesting, content ignored).
+- Complexity stated: O(n) time single pass, O(n) space worst-case
+  all-openers, shallow in practice.
+- Records: `dsa/week-04-stack/solution.py` runs green as-is;
+  `dsa/week-04-stack/README.md` filled (brute → optimized →
+  complexity → verbal → edge checklist).
+- Logged: `PROGRESS.md` DSA Log Row 4.
+
+## Session 37 — 2026-10-17
+
+### Lesson
+
+Lesson 26 — Regex (SUPPORTING, Stage 3) — **97/100**, mastery at 3,
+hint dependency 0. Fresh log-pattern-extractor domain
+(mentor-picked, learner-delegated); single sitting. R16 reform
+honored: no `solution.py`, deliverables in `patterns.py`, Challenge
+imports it. H1 ships as a true hunt with blank 7-row chains.
+
+### Session notes
+
+- Quick Recall 6/6 clean ahead of code (three-questions split,
+  validator indictment of `.+`, escape fix from memory, flag
+  preservation, offset-retirement, Pitfall 5 named).
+- Built E1–E3, M1 (typed classifier with conversions), M2 (own
+  summarize composition), H1 hunt (4 plants fixed in place + 4
+  genuine 7-row chains), Challenge (shape-routed lines, prefix
+  header, byte-exact).
+- Post-fix verification green 7/7 against the learner's own files; H1
+  driver red-proven 4/4 on the shipped buggy module; CH driver
+  red-proven on a header mutation.
+- Review preview found 4 items (1 load-bearing annotation class +
+  1 half-diagnosis + 2 nits); fix loop closed all four (anchor
+  restored with flag, dead arm removed, shadow renamed, annotation
+  broadened). No builder faults this session.
+- Review: `review/lesson-26-review.md` (bucket table 25/20/14/10/9/9/
+  5/5; 95+ bar judged MET on verified evidence).
+- Housekeeping: verification scaffold + `__pycache__` removed
+  post-run; no scratch files found in the lesson folder.
+
+### Reflection — Lesson 26 (learner's own words, condensed)
+
+- Decision: lazy `finditer` by default (no upfront memory); list wins
+  when matches are few.
+- Longest bug: Bug 1 (greed) — beaten by re-reading the lesson;
+  tractable once the overcapture mechanism was seen.
+- Requirements change: harvest ids as `int` — annotations plus
+  conversion move first.
+- Spec verdict: no misleaders — experimenting without reading the
+  rule owned as own fault.
+- Sting: fog — forgot the float in the annotation.
+- Independence goal: hold this pace; metacharacters still need a
+  lookup first (named gap).
+- Transfer: iterators, generators, and metacharacters reused; the
+  lookup-first need stated honestly.
+- Hint dependency this session — exercises level 0, independent with
+  Googling, no GenAI; review-fix loop level 1.
+
+### Retro (3 questions)
+
+1. Fog or difficulty? Difficulty, productive kind — brief clean;
+   patterns + hunt were the work.
+2. Rule preventing it? The standing laws held (Flow, entry shape,
+   composition-by-learner, 7-row chains, no line spoilers).
+3. Sittings + token line: not reported.
+
+### Time Studied
+
+~3 hours wall (learner-reported).
+
+### Tomorrow Goal
+
+L27 Datetime (SUPPORTING) — every stringly-typed timestamp so far
+meets its parser. DSA Week 5 due, interleaved at the learner's call.
+WP4-merge proposal still queued for the system-revision agent.
+
+
+---
+
+## Session 38 (2026-10-18) � L27 Datetime (SUPPORTING) closed, 94/100
+
+### What happened
+
+- L27 built (plan-approved: subscription-tenure domain, tight scope,
+  single sitting): `lessons/lesson-27-datetime/` � lesson.md,
+  exercises.ipynb (16 cells, 7 drivers, blank 7-row chains),
+  buggy_tenure.py (4 plants). Builder proofs: green 7/7 on temp
+  references; H1 red 4/4 (incl. 1900 century probe added after the
+  naive `% 4` rule passed 2024/2026); CH red on header mutation.
+  Stripped at build.
+- Quick Recall 5.5/6 ahead of code; Q4 half (day-13+ clause
+  unstated), Q5 dodged to `zoneinfo` � mentor answered the naive/aware
+  failure modes + zoneinfo practical use on request.
+- Full practice cycle: E1�E3, M1, M2, H1 (4 plants fixed in place +
+  4 chains), Challenge (tenure CLI, byte-exact).
+- Review-fix loop level 1: mentor found `< 364` boundary (spec says
+  "30�364, boundaries exact") � driver never probed 364, so green;
+  learner had planted it himself (first driver-invisible self-plant
+  on record). Fixed in BOTH copies (`tenure.py` + `report.py`);
+  364/365 probed directly, exact. Copy-paste nouns
+  (`service_path`/`incident_path`, L24 vocabulary) noted, no action.
+- Reflection Q1�Q8: Q5 miss #2 ("default is UTC") ? corrected retry
+  from memory: both failure modes + convention-not-default � PASS.
+  Q8 "none" flagged as contradicted by Q5 evidence, owned by learner.
+- Review: `review/lesson-27-review.md` (bucket table 25/20/14/8/8/
+  9/5/5; 95+ bar judged NOT MET � two load-bearing deductions:
+  self-planted boundary bug + double-written bucket logic).
+- PROGRESS: L27 row + archive + hint table + average ? 92.5
+  (recomputed, 29 entries) + hours ? ~62.5. Spec-literalness note:
+  first miss in six lessons � new habit: one probe at each stated
+  boundary edge. Naive-UTC misconception ledgered CLOSING (one
+  unannounced retrieval pending). Latent-bug class: first
+  doctrinal catch of a learner-planted specimen.
+- Housekeeping: notebook outputs stripped; temp references never
+  shipped; no scratch files in lesson folder.
+
+### Reflection � Lesson 27 (learner's own words, condensed)
+
+- Decision: datetime over manual/regex validation � "complex
+  behavior handled easily with datetime."
+- Round trip: checks realness AND shape (regex: shape only).
+- Month-slice fix recalled from own M2 (parse first, slice parser
+  output) � applied but not self-identified as "the solution" until
+  prompted.
+- Spec lesson: "should've tested more or read the spec more
+  carefully" (the `< 364` bug).
+- H1 process: hypothesis-before-evidence, self-rated � "bugs kinda
+  obvious."
+- Independence goal: none � "none" shaky-answer on Q8 owned after
+  push-back.
+- Time: ~3h; no GenAI, internet search only, declared.
+
+### Retro (3 questions)
+
+1. Fog or difficulty? Difficulty, productive � boundary bug was the
+   session's real teacher (learner-planted, mentor-caught,
+   learner-fixed both copies).
+2. Rule preventing it? Boundary-edge probes: one assertion at each
+   stated edge (30, 364/365), not just sample data.
+3. Sittings + token line: 1 sitting, ~3h; tokens not reported.
+
+### Time Studied
+
+~3 hours wall (learner-reported).
+
+### Tomorrow Goal
+
+Asyncio collapse lesson (AWARENESS tier) ? THEN the WP4-merge
+discussion with the learner (their standing request: "after this
+last lesson we talk about the wp4-merge"). DSA Week 5 due,
+interleaved at learner's call. Quiz 05 window (L25-L27) opens after
+the collapse lesson.
+
+---
+
+## Session 39 — 2026-10-20
+
+### Lesson
+
+Lesson 28 — Asyncio (AWARENESS, collapsed). Stage 3's last
+concept-shaped lesson; closes on recognition evidence, not a bucket
+sum. `lessons/lesson-28-asyncio/` (lesson.md + exercises.ipynb +
+fanout.py). First lesson with no hunt and no Challenge — the tier
+sets that.
+
+### Session notes
+
+- Continuity after the mid-build session loss: artifacts were
+  recovered (WIP push), Observed + cell-4 question both restored
+  intact, verification re-run clean.
+- Quick Recall 4/4, 2 sharpenings ledgered post-answer (switch point
+  is `await` — the event loop is the conductor, not "the switch";
+  FastAPI named as the Stage-4 payoff).
+- E1: both snippets predicted before running, both correct
+  (coroutine/HELLO created-not-run; ~1.5s serial because `time.sleep`
+  blocks the thread).
+- E2: `fanout.py` gather green — argument-order results + concurrency
+  timing pin both held.
+- Builder concession: E2 in-kernel driver failed under Jupyter
+  (`asyncio.run` cannot nest a running loop); learner correctly
+  re-ran in a terminal (`E2 OK`). My E1 driver used `subprocess`
+  (portable); E2 should have too — filed for next build pass.
+- Reflection Q2 (blocking rule) was the session's best answer:
+  "not a magic script," overengineering flagged, blocking rule
+  independently reached.
+- Review: `review/lesson-28-review.md` — bar MET on recognition
+  evidence; no bucket sum, no 95+ claim (collapsed tier).
+- Housekeeping: notebook stripped; `script.py` + `__pycache__`
+  removed as scratch; temp references never shipped.
+
+### Reflection — Lesson 28 (learner's own words, condensed)
+
+- When-not: small CLIs + CPU-bound (honestly notes no lived
+  CPU-bound experience yet). When-right: API fan-out I/O.
+- Blocking rule: "not a magic script that will run all of the script
+  faster"; adds complexity, risk of overengineering; every link in
+  the chain must be properly `await`ed.
+- Confidence: 4/4, backed by both E1 predictions being correct
+  pre-run.
+- Time: ~2h wall (learner-reported); GenAI not reported this session.
+
+### Retro (3 questions)
+
+1. Fog or difficulty? Light — AWARENESS tier; the one real snag was
+   the Jupyter event-loop error, solved by moving to a terminal.
+2. Rule preventing it? None needed at exercise level; the builder
+   concession is a build-fix (portable drivers), not a learner rule.
+3. Sittings + token line: 1 sitting, ~2h; tokens not reported.
+
+### Time Studied
+
+~2 hours wall (learner-reported).
+
+### Tomorrow Goal
+
+WP4-merged-with-capstone discussion (the deal — standing request).
+Quiz 05 window (L25-L27) opens. DSA Week 5 (Binary search) due,
+interleaved at the learner's call.

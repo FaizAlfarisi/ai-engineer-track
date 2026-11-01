@@ -11,11 +11,11 @@ Completion ≠ mastery. This file tracks mastery.
 
 ```text
 Stage:        Stage 3 — Python Engineering (in progress)
-Current:      WP3 CLOSED — 86/100 (round 2: close-outs landed, score stands)
-Next:         DSA Week 3 (due) → L22 / remaining Stage-3 topics → Stage project planning
-Weekly Proj.: WP1 85/100; WP2 88/100; WP3 86/100 (closed)
-Quizzes:      Quiz 02 done (84.7%); Quiz 03 done (82.9%)
-DSA Track:    1 session/week, interleaved — Week 3 session due now
+Current:      L28 CLOSED — AWARENESS (asyncio collapsed; QR 4/4 w/ 2 sharpenings, E1 pre-run predictions correct, E2 gather green + timing pin)
+Next:         WP4-merged-with-capstone discussion (the deal) → Stage project planning → Quiz 05 window (L25–L27)
+Weekly Proj.: WP1 85/100; WP2 88/100; WP3 86/100 (closed); WP4-merge proposal queued (user discussion after L28)
+Quizzes:      Quiz 02 done (84.7%); Quiz 03 done (82.9%); Quiz 04 done (86.1%)
+DSA Track:    1 session/week, interleaved — Week 4 done (stack); Week 5 due next
 Git:          commit after every session from Stage 2 onward
 ```
 
@@ -59,6 +59,13 @@ Stage 1 values were migrated from V1 session evidence and are marked
 | Requests (third-party install, params=/json=/timeout=/raise_for_status, RequestException family + handler order, Session headers-once, typed wraps, fetch→merge→dual-persist CLI) | CORE | 3→4 | High | first-draft contract drift on untested paths: truthiness guard instead of isinstance (M1), str-returns vs annotations + invented codes (post/search), derived CSV header (M3), dropped `from exc` (H2) — all 5 explained + fixed independently same session; E2 timeout=3 vs spec 5 retained-with-reason | 0 (review loop level 1) | Challenge sync_cli (own-server fetch + network-wins merge + sync.json/sync.csv + positional argv, missing-arg exits 1) | 2026-09-24 |
 | Project structure (launch contexts/sys.path[0], absolute-vs-relative, -m entries, silent init, __file__ data, minimal requirements, .gitignore, README, tests/+conftest) | CORE | 3→4 | High | first-draft drift on untested paths: usage-to-stdout ×3, `ledged` typo, bare-run default, set-vs-list fresh, vacuous roundtrip — all 6 explained + implemented independently; 1 `.gitignore` line reviewer-applied with consent; stderr reasoning GenAI-sourced (taught after, confirmed); no docstrings (4th lesson) | 0–1 (Challenge stream concept via internet/GenAI; review loop level 1) | Challenge ledger/ project (package + ledger/tests/ + requirements/gitignore/README, `sync <dir>` entry, exit-1 usage) | 2026-09-24 |
 | Logging (severity arithmetic, basicConfig+force, dual routing, two-gate model, formatters, exc_info, isEnabledFor laziness, hierarchy creation-order, caplog, verbosity modes, run journals) | CORE | 3 (held) | High | heaviest assistance on record: GenAI lesson explanation + exercise clues, internet real-project research (~6h, disclosed); H1 reconfig design + Challenge stream concept externally sourced — all implemented by learner; 2 micro-fixes reviewer-applied with consent (counter guard, sync strict); no docstrings (6th lesson) | 2 (solving; review loop level 1) | Challenge journal/ project (verbosity modes, both gates, handler hygiene, skip-loudly merge, project-local tests) | 2026-09-27 |
+| Decorators (plain + `*args`/`**kwargs` passthrough, `functools.wraps` identity, 3-layer factory, stacking order) | SUPPORTING | 3 | High | retry exhaustion returned the error instead of raising (driver-green, fixed); `last_elapsed` init on a misspelled attribute (driver-green, fixed both copies); stale BUG comments over fixed hunt code (fixed); single-use `@log_call` on pure formatter (removed per Pitfall 7) | 0 (solving; review loop level 1) | Challenge clinic pipeline (decorated confirm/send, Path I/O, byte-exact report) + H1b 4-bug hunt with own-words report | 2026-10-06 |
+| Iterators (`iter`/`next`/`StopIteration`, iterable-vs-iterator identity, one-shot exhaustion, truthiness trap, custom batching class, validate-then-batch composition) | SUPPORTING | 3 | High | first Bug-3 repair assumed re-iterable input (list-green, one-shot-red — corrected to true single pass); incident counts matched substrings not prefixes (fixture-green, fixed); dead-guard orphan comment (fixed); one withdrawn false positive (reviewer-side, no deduction) | 0 (solving; review loop level 1) | Challenge log-triage CLI (streaming handle → windows → byte-exact incidents) + 4-bug hunt with 7-row chains | 2026-10-07 |
+| Generators (`yield` suspension, pull-clock laziness, genexps, bounding infinity, lazy pipeline composition, return-vs-yield termination) | SUPPORTING | 3 | High | three annotations narrower than reality, silent by nature (list-return promised as cursor, int-only threshold fed floats, str-only source fed ints/tuples — all corrected); no other findings | 0 (solving; review loop level 1) | Challenge telemetry harvest CLI (streaming handle → windows → byte-exact alerts) + 4-bug hunt with 7-row chains | 2026-10-10 |
+| Context managers (`__enter__`/`__exit__` protocol, exit-on-every-path, suppress-vs-propagate, `@contextmanager` twin, atomic temp+replace publish, `as`-target contract) | SUPPORTING | 3 | High | Challenge bypassed own guard with raw target write (driver-green, fixed to wrap); bare `open()` twice vs Path-first house style (fixed); missing honesty comment + misspelled variable + loop naming (fixed); poison-substring ambiguous-spec (conceded builder-fault, fixed to exact, no deduction) | 0 (solving; review loop level 1) | Challenge atomic publish CLI (guard-wrapped write, abort-before-write, byte-exact + absent-partial proof) + 4-bug hunt with 7-row chains | 2026-10-12 |
+| Regex (compile + three questions, groups and harvest loops, flags, greed and anchors, anchored validation gates, converted captures) | SUPPORTING | 3 | High | numeric annotation admitted only `int` while temperatures return `float` (silent, third appearance — corrected); flag fix added casings by dropping the anchor instead of adding the flag (no stated contract broken — corrected to anchored-with-flag, no deduction); dead routing arm (removed); loop variable shadowed a builtin (renamed) | 0 (solving; review loop level 1) | Challenge pattern-extract CLI (shape-routed lines, prefix header, byte-exact) + 4-bug hunt with 7-row chains | 2026-10-17 |
+| Datetime (strptime parse-as-validation, round-trip canon check, date/timedelta arithmetic, isoformat-vs-strftime edge formatting, format-swap trap, naive-UTC posture) | SUPPORTING | 3 | High | driver-invisible boundary bug PLANTED BY LEARNER (`< 364` vs spec "30–364, boundaries exact" — green in own suite, caught at review, fixed in both copies); bucket logic double-written (tenure.py + report.py) instead of imported — made the bug a double bug; copy-paste nouns (`service_path`/`incident_path` from L24); naive-UTC misconception (Q5 dodged twice, "default is UTC" misstatement — corrected on retry, closed third retrieval) | 0 (solving; review loop level 1) | Challenge tenure-report CLI (first-comma split, loud skips, byte-exact) + 4-bug hunt with 7-row chains (incl. 1900 century probe) | 2026-10-18 |
+| Asyncio (async def/await/gather/asyncio.run, event-loop relay model, forgotten-await = created-not-run, sync-blocking stalls the whole loop, when-not-to-use) | AWARENESS | 2 | — | none at exercise level (E1 both snippets predicted correct pre-run; E2 gather green, concurrency shape pinned by timing); 2 QR sharpenings ledgered (switch point is `await`, event loop is the conductor — not "the switch"; FastAPI named as Stage-4 payoff); builder concession: E2 in-kernel driver failed under Jupyter (`asyncio.run` cannot nest a running loop) — learner correctly re-ran in terminal | — | — | 2026-10-20 |
 | `match` beyond literal patterns | AWARENESS | 2 | — | deferred by design (JSON Stage 2, API Stage 4) | — | — | 2026-08-13 |
 
 ---
@@ -84,13 +91,14 @@ one retrieval pending) / CLOSED.
 
 | Misconception | Status | First Seen | Last Evidence |
 |---------------|--------|------------|---------------|
-| Spec-literalness (output-as-contract) | OPEN — watching | L3 | L19 fresh evidence: first drafts follow habit over contract on untested paths (return-type lies, derived header, truthiness guard) — all fixed same session; Output blocks byte-exact throughout. L20 fresh evidence: usage-stream ×3, `ledged` typo, bare-run default — all green-driver invisible; learner self-described root cause as hand-writing strings instead of copying + time-pressure simplification |
+| Spec-literalness (output-as-contract) | OPEN — watching | L3 | L19 fresh evidence: first drafts follow habit over contract on untested paths (return-type lies, derived header, truthiness guard) — all fixed same session; Output blocks byte-exact throughout. L20 fresh evidence: usage-stream ×3, `ledged` typo, bare-run default — all green-driver invisible; learner self-described root cause as hand-writing strings instead of copying + time-pressure simplification. L22: all Output blocks byte-exact incl. subprocess Challenge + exact error strings — no drift, habit held. L23: second straight clean lesson (all byte-exact incl. subprocess Challenge); learner verdict — brief easy to understand at this pace. L24: third straight clean lesson (all byte-exact incl. subprocess Challenge); brief holds at this pace per learner. L25: fourth straight clean lesson (all byte-exact incl. subprocess Challenge). L26: fifth straight clean lesson (all byte-exact incl. subprocess Challenge). L27: FIRST MISS IN SIX — boundary sentence ("30–364, boundaries exact") violated by learner's own `< 364` draft (driver-green, fixture never probed 364); caught at review, fixed both copies, 364/365 probed directly. Habit target: one probe at each stated boundary edge |
 | Error handling under edge cases | CLOSING | L7 | L8 attack landed: degenerate guards everywhere; close after one unannounced retrieval survives. L19: save_csv empty-list edge fixed via literal fieldnames (header-only write, no crash) — still CLOSING, needs one clean first-pass retrieval |
 | Loader return-type mixing | CLOSED | L9 | L10: typed loader returned clean data + raised on bad values; survived unannounced retrieval |
-| Latent bug — passes sample, misses requirement | OPEN | L11 | L11: `summarize` overwrite hardened to `.get(cat, 0.0)` accumulate. L19 fresh evidence (over-handling variant): post/search except-branches passed every driver while breaking `tuple[int, dict]`/`dict` annotations — fixed by deleting the invented branches. L20 fresh evidence: set-vs-list `fresh` + vacuous roundtrip, both driver-green contract breaks — fixed same session |
+| Latent bug — passes sample, misses requirement | OPEN | L11 | L11: `summarize` overwrite hardened to `.get(cat, 0.0)` accumulate. L19 fresh evidence (over-handling variant): post/search except-branches passed every driver while breaking `tuple[int, dict]`/`dict` annotations — fixed by deleting the invented branches. L20 fresh evidence: set-vs-list `fresh` + vacuous roundtrip, both driver-green contract breaks — fixed same session. L22 fresh evidence (both driver-green, both fixed same session): retry exhaustion returned the error object instead of raising; `last_elapsed` init written to a misspelled attribute. L23 fresh evidence (both driver-green, both fixed same session): count-and-errors re-fix assumed re-iterable input (list-green, one-shot-red — corrected to single pass); incident counts matched substrings not prefixes. L24: no fresh specimen — fixture-fragile shapes (float-vs-raw text, negative-limit input) caught pre-green by doctrine, not by luck. L25 fresh evidence (driver-green, fixed same session): Challenge bypassed own guard with raw target write — the lesson's core prohibition, found by reading. L26: no fresh specimen fifth session running — fixture-fragile shapes caught pre-green by doctrine. L27: fresh specimen, first DOCTRINAL catch — learner's own `< 364` boundary (green in own suite, spec-red) caught by spec check at review, not by a lucky fixture; arguably the class evolving from luck-caught to doctrine-caught |
 | Per-iteration recomputation inside loops | OPEN | L6 | quiet since L9 |
 | Builtin shadowing (`min`, `max`) | OPEN | L5 | baked into REVIEW.md Naming checklist |
 | Collection choice by habit instead of guarantees | CLOSING | L6 | follow-up drill 8/8, guarantee-driven reasoning |
+| Datetime UTC-by-default belief (naive/aware confusion) | CLOSING | L27 | Q5 dodged twice (Quick Recall → zoneinfo pivot; reflection → "default is UTC" misstatement); corrected retry stated both failure modes (TypeError on naive/aware mix; silent wall-clock compare off by hours) + default-vs-convention distinction — explained ✓ + avoided independently in naive-only graded code ✓; one unannounced retrieval pending before CLOSED |
 | Computed-but-unread / band-aid patch (returned value never used; hardcoded count + `break`) | CLOSED | L12 | L12 re-review: dead `stats` return removed, hardcoded `i==3: break` replaced with true `len()` + sorted; avoids independently and survives unannounced retrieval |
 | Guard-condition operator logic (`and`/`or` under negation + truthiness) | CLOSING | WP2 | `if not isinstance(cat, str) and not cat:` (WP2) → fixed to `or`. L19: Q6 stated right, M1 first-draft tested truthiness — fixed same session. L20: `load_basket` guard written cold in fresh code, unprompted — explained ✓ + avoided independently ✓; closes after one wild retrieval survives |
 
@@ -122,6 +130,12 @@ Diagnostic only — never punishment.
 | L19 | 0 | Quick Recall 6/6 unaided (incl. guard-`or` retrieval); E1–M3, H1 (all four bugs + own-words report), H2, Challenge solved independently, no GenAI (translator + Google-syntax only); 5 review findings fixed independently same session (review loop level 1) |
 | L20 | 0–1 | Quick Recall 6/6 (Q6 `and`-table imprecise, corrected in chat); E/M/H/Challenge solved independently; GenAI/internet consulted for Challenge stream concept + Issue-1 fix during fix loop (disclosed); 6/6 findings implemented independently + H1 report filled (review loop level 1) |
 | L21 | 2 | Quick Recall 6/6 (Q4 half, repaired in chat); GenAI lesson explanation + exercise clues, internet real-project research (~6h, disclosed); H1 reconfig + Challenge streams externally sourced, all implemented by learner; 2 micro-fixes reviewer-applied with consent; H1 report filled (review loop level 1) |
+| L22 | 0 | Quick Recall 6/6 (Q6 completed on second pass: pitfall number + assert-the-return); E1–M2, H1-gate, H1b hunt (all 4 plants + own-words report), Challenge solved independently, no GenAI; 4 review findings fixed independently same session (review loop level 1) |
+| L23 | 0 | Quick Recall 6/6 (3 one-line repairs in chat: StopIteration agency, two-pass options, second-pass assertion); E1–M2 (incl. learner-composed pipeline), H1 hunt (4 plants + 7-row chains), Challenge solved independently, no GenAI (Googling only, declared); all review findings fixed independently same session (review loop level 1) |
+| L24 | 0 | Quick Recall 6/6 (2 one-line repairs in chat: single-pass remedy, second-pass assertion; pitfall-number dispute resolved pre-review in learner's favor); E1–M2 (incl. learner-composed alert windows), H1 hunt (4 plants + 7-row chains), Challenge solved independently, no GenAI (Google-for-confusion only, declared); all review findings fixed independently same session (review loop level 1) |
+| L25 | 0 | Quick Recall 6/6 (1 repair in chat: exception-triple values; 2 sharpenings stated); E1–M2 (incl. learner-composed timed publish), H1 hunt (4 plants + 7-row chains), Challenge solved independently, no GenAI (Google/websites for examples only, declared); all review findings fixed independently same session (review loop level 1) |
+| L26 | 0 | Quick Recall 6/6 clean ahead of code (validator indictment of `.+`, escape fix from memory); E1–M2 (incl. learner-composed summarize), H1 hunt (4 plants + 7-row chains), Challenge solved independently, no GenAI (Googling for metacharacters only, declared); all review findings fixed independently same session (review loop level 1) |
+| L27 | 0 | Quick Recall 5.5/6 (Q4 half, Q5 dodged to zoneinfo — repaired in chat); E1–M2 (incl. learner-composed aging), H1 hunt (4 plants + 7-row chains), Challenge solved independently, no GenAI (internet search only, declared); own planted boundary bug + 2 nits fixed independently same session (review loop level 1) |
 
 Repeated level-2+ dependency on a topic ⇒ that topic returns for targeted
 practice before moving forward.
@@ -151,6 +165,13 @@ practice before moving forward.
 - [x] Lesson 19 — Requests (96/100)
 - [x] Lesson 20 — Project Structure (94/100)
 - [x] Lesson 21 — Logging (91/100)
+- [x] Lesson 22 — Decorators (94/100)
+- [x] Lesson 23 — Iterators (94/100)
+- [x] Lesson 24 — Generators (98/100)
+- [x] Lesson 25 — Context Managers (97/100)
+- [x] Lesson 26 — Regex (97/100)
+- [x] Lesson 27 — Datetime (94/100)
+- [x] Lesson 28 — Asyncio (AWARENESS, collapsed — no bucket sum)
 
 ---
 
@@ -259,6 +280,19 @@ practice before moving forward.
 - Report prints re-read the file just written — printed values can never disagree with the CSV (WP2 readback)
 - Reject-don't-normalize dates: a canonical round-trip check in the date parser makes string sort + `date[:7]` month-slicing safe by construction (WP2)
 - Scoped CLI error contract: `bad request:` / `corrupt data:` / `unexpected error:` prefixes, detail line on the next line, stderr + exit 1, no embedded severity token (WP2)
+- Decorator transparency: `functools.wraps` on every wrapper (`__name__`/`__doc__` survive; logs + tracebacks stay honest) + `*args`/`**kwargs` passthrough (one wrapper fits all shapes)
+- 3-layer decorator factory: settings → decorator → wrapper; stacking applies bottom-up, runs top-down (validate innermost, closest to the body)
+- Header ownership: pure formatter derives counts from line prefixes and returns full text; `main` owns reading, writing, printing (computation/presentation split)
+- Iterator protocol: `iter()`/`next()` + `StopIteration` (incl. the `next(it, default)` polite form); `for` desugared as iter-once + next-until-Stop
+- Iterable vs iterator: the `iter(x) is x` identity check; one-shot discipline (consumed cursor never refills — re-iterate the source or bottle once with `list()`)
+- Validate-then-batch composition with order-observable windows; windowed file-handle streaming (`WindowReader(enumerate(handle), n)`) for constant-memory posture
+- Generator authoring: frozen-until-pulled calls, `yield` suspension with locals intact, pull-clock reasoning (which line runs on which pull)
+- Genexps for one-clause lazy transforms (`()` vs `[]` is the whole difference); bounding infinity with `for` + `break`, abandoned one-shots owed nothing
+- Lazy pipeline composition (generator in, generator out, pulls flow end to end); `return`-with-value inside generators treated as a bug until proven otherwise
+- Context protocol: `__enter__` acquires (return binds `as`), `__exit__` settles every path; falsy return propagates, truthy suppresses — propagate by default, suppress named + justified only
+- Atomic temp+replace publish (whole-or-absent, discard + propagate on error); `@contextmanager` twin (setup/`yield`/`finally`) composing decorator + generator + protocol
+- Regex as stencil: compile once at module scope, ask `search`/`match`/`fullmatch` deliberately, raw strings always
+- Anchored `fullmatch` gates with converted captures at entry; flags at compile time; precise atoms over greedy `.+`
 
 ---
 
@@ -316,11 +350,11 @@ practice before moving forward.
 
 ## Scores & Hours
 
-Average Review Score: 91.6 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90, L10: 92, L11: 93, WP1: 85, L12: 92, L13: 92, L14: 92, L15: 92, L16: 92, WP2: 88, L17: 98, L18: 93, L19: 96, L20: 94, L21: 91)
+Average Review Score: 92.5 (L1: 93, L2: 90, L3: 92, L4: 85, L5: 92, L6: 90, L7: 91, L8: 95, L9: 90, L10: 92, L11: 93, WP1: 85, L12: 92, L13: 92, L14: 92, L15: 92, L16: 92, WP2: 88, L17: 98, L18: 93, L19: 96, L20: 94, L21: 91, L22: 94, L23: 94, L24: 98, L25: 97, L26: 97, L27: 94)
 
 Overall Mastery: Level 4 — debugging/refactoring independently
 
-Total Study Hours: ~40.5 hours (L14 2.5h, L15 3h, L16 1.5h, DSA#1 1h, WP2 ~6h, L17 2h, L18 2.5h, DSA#2 ~1h, L19 ~3h, Quiz 03 session incl. in L19–L20 span, L20 ~3h added since the ~34.5h count)
+Total Study Hours: ~64.5 hours (L28 ~2h wall added since the ~62.5h count)
 
 ---
 
@@ -341,6 +375,7 @@ Total Study Hours: ~40.5 hours (L14 2.5h, L15 3h, L16 1.5h, DSA#1 1h, WP2 ~6h, L
 | 1 | L8–L10 | 96.4% | exception detail: chained traceback / `raise ... from None` intent, `str.partition` no-delimiter edge (D2) | weave one small exception-detail retrieval into L11 (JSON), then re-assess |
 | 2 | L8–L12 | 84.7% | loader default must stay data-shaped (`{}`/`[]` still crash `main`); `partition` no-`=` lines DO surface (not silent); byte-parity slips on case + output strings | 30-second retrieval pair at L14 opening (loader default + partition edge) — both CLOSED (2026-09-08) |
 | 3 | L17–L19 | 82.9% | guard-`and` crash instance backwards (outputs exact, mechanism wrong); handler order right in C1 but wrong in F3 (fragile); invented `requests.NetworkError` (ConnectTimeout diamond gap); C2 fix unnamed/unshown; skipped instances (201, revocation lines) | targeted guard-`and` + handler-order pair at L20 opening — guard moved to CLOSING (cold application in `load_basket`), ConnectTimeout CLOSING (named + refined in chat) |
+| 4 | L20–L24 | 86.1% | A3 subject slipped (`NetworkError` named; parents + mechanism right); B1 kind-ID gap; D1 invariant + entry-gap missing; E signatures unannotated (−1) | T1–T3 revision round passed same session (diamond naming, kind probe, stacking re-derivation) — all threads closed except annotation discipline (stays OPEN); no debt carried |
 
 ---
 
@@ -352,6 +387,8 @@ See `DSA_TRACK.md` for the track definition.
 |------|----------|------------|------------------|----------------------|
 | 1 | most-total spending category (payments log of (category, total) pairs) | hash map — single-pass accumulate + argmax | correct 2-phase plan (group in dict → `max(items(), key=...)`); first attempt compared single payments only — counterexample (8×15 food beats 100 salary) exposed "largest single amount ≠ highest total"; edge cases: empty→`None` contract (no error-string returns), single entry, first-seen ties; single-pass running-max optimization noted (strict `>` keeps first-seen) | yes — O(n) build + O(k) scan ≈ O(n); O(k) space; argued O(n) is a lower bound (must read every payment) at senior review |
 | 2 | earliest first-coincidence between two sorted (minute, city) logs | two pointers — merged walk, advance smaller minute; tie → compare city, advance both | skipped brute force (O(n·m)) leapfrog named and corrected at drill; set-comprehension first version (O(n+m)/O(n)) traded to two-pointer (O(n+m)/O(1)) *via sorted-contract reasoning* — learner independently chose two-pointer order of operations; correct tie-both-advance justified by strictly-ascending minutes; edge cases: empty either side → `None`, tie-different-city → `None`, same city twice in one log → unaffected | yes — O(n+m) time, O(1) space vs set O(n) space; interview explanation hit invariant + tie-case + first-found-is-earliest + complexity; IDE-absent NameError (`data[i]` for `data_a[i]`) caught by read-the-error discipline |
+| 3 | busiest K-minute window from a sorted (minute, amount) log | sliding window — expand right with running total, shrink left while span > K, running best with strict `>` | brute force designed on paper first (3 paper rounds: units fix K-vs-span, shape fix tuple-vs-sum, stale-index fix, window-range fix, empty guard), implemented green; derived the window Socratically (running total, shrink condition, start-not-end minute fix, running-best O(1) over list+max); K = 0 same-minute insight + tie-earliest via strict `>` self-derived; guards (`None` contracts) held throughout | yes — O(n³)/O(n) brute vs O(n)/O(1) window, crossing argument stated (each index enters once, leaves at most once); interview verbal passed (invariant sentence + tie + earliest + bounds); outputs learner-verified in external playground, (2, 55) seen in chat |
+| 4 | first-offending bracket index in a nested `()[]{}` config string (empty → `None`) | stack — single left-to-right pass, push openers with indexes, mismatch/extra-closer returns index, leftovers return first opener | stack-first by instinct (brute-force stated verbally: repeated adjacent-pair erasure O(n²)); outside-in two-pointer attempt diagnosed via `()()` counterexample; spec-gloss challenge on `([)]` resolved to nearest-opener rule; README record + edge checklist filled | yes — O(n²)/O(1)-ish brute vs O(n)/O(n) stack, all-openers worst case + shallow-practice clause stated |
 
 ---
 
