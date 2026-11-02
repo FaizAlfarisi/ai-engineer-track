@@ -11,10 +11,10 @@ Completion ≠ mastery. This file tracks mastery.
 
 ```text
 Stage:        Stage 3 — Python Engineering (in progress)
-Current:      L28 CLOSED — AWARENESS (asyncio collapsed; QR 4/4 w/ 2 sharpenings, E1 pre-run predictions correct, E2 gather green + timing pin)
-Next:         WP4-merged-with-capstone discussion (the deal) → Stage project planning → Quiz 05 window (L25–L27)
-Weekly Proj.: WP1 85/100; WP2 88/100; WP3 86/100 (closed); WP4-merge proposal queued (user discussion after L28)
-Quizzes:      Quiz 02 done (84.7%); Quiz 03 done (82.9%); Quiz 04 done (86.1%)
+Current:      STAGE 3 COMPLETE — 96/100 (WP4-merged capstone) | Next: Stage 4 planning
+Next:         Stage 4 planning
+Weekly Proj.: WP1 85/100; WP2 88/100; WP3 86/100 (closed); WP4-merged: 96/100 (closed)
+Quizzes:      Quiz 01 done (84.7%); Quiz 02 done (84.7%); Quiz 03 done (82.9%); Quiz 04 done (86.1%); Quiz 05 done (15/15 — 100%)
 DSA Track:    1 session/week, interleaved — Week 4 done (stack); Week 5 due next
 Git:          commit after every session from Stage 2 onward
 ```

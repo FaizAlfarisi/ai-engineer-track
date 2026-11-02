@@ -2561,3 +2561,97 @@ sets that.
 WP4-merged-with-capstone discussion (the deal — standing request).
 Quiz 05 window (L25-L27) opens. DSA Week 5 (Binary search) due,
 interleaved at the learner's call.
+
+---
+
+## Session 40 — 2026-10-21
+
+### Lesson
+
+Quiz 05 — L25 Context Managers, L26 Regex, L27 Datetime, L28 Asyncio
+(Awareness) — **15/15 (100%)**.
+
+### Session notes
+
+- Took the compact Quiz 05 memory-first.
+- All answers correct across Part 1 (Recall 8/8) and Part 2
+  (Application 7/7). No weak spots.
+- WP4-merged capstone already completed and graded **96/100**,
+  satisfying Rule 12.
+- **Stage 3 is now COMPLETE.** Moving to Stage 4 planning.
+
+### Time Studied
+
+~10-12 minutes wall (learner-reported).
+
+### Tomorrow Goal
+
+Stage 4 planning — focus on Python for AI Engineering (Pydantic,
+FastAPI, HTTP/API applied, NumPy, Pandas fundamentals). DSA Week 5
+(Binary search) interleaved at learner's call.
+
+---
+
+## Session 39 — 2026-10-20
+
+### Lesson
+
+Lesson 28 — Asyncio (AWARENESS, collapsed). Stage 3's last
+concept-shaped lesson; closes on recognition evidence, not a bucket
+sum. `lessons/lesson-28-asyncio/` (lesson.md + exercises.ipynb +
+fanout.py). First lesson with no hunt and no Challenge — the tier
+sets that.
+
+### Session notes
+
+- Continuity after the mid-build session loss: artifacts were
+  recovered (WIP push), Observed + cell-4 question both restored
+  intact, verification re-run clean.
+- Quick Recall 4/4, 2 sharpenings ledgered post-answer (switch point
+  is `await` — the event loop is the conductor, not "the switch";
+  FastAPI named as the Stage-4 payoff).
+- E1: both snippets predicted before running, both correct
+  (coroutine/HELLO created-not-run; ~1.5s serial because `time.sleep`
+  blocks the thread).
+- E2: `fanout.py` gather green — argument-order results + concurrency
+  timing pin both held.
+- Builder concession: E2 in-kernel driver failed under Jupyter
+  (`asyncio.run` cannot nest a running loop); learner correctly
+  re-ran in a terminal (`E2 OK`). My E1 driver used `subprocess`
+  (portable); E2 should have too — filed for next build pass.
+- Reflection Q2 (blocking rule) was the session's best answer:
+  "not a magic script," overengineering flagged, blocking rule
+  independently reached.
+- Review: `review/lesson-28-review.md` — bar MET on recognition
+  evidence; no bucket sum, no 95+ claim (collapsed tier).
+- Housekeeping: notebook stripped; `script.py` + `__pycache__`
+  removed as scratch; temp references never shipped.
+
+### Reflection — Lesson 28 (learner's own words, condensed)
+
+- When-not: small CLIs + CPU-bound (honestly notes no lived
+  CPU-bound experience yet). When-right: API fan-out I/O.
+- Blocking rule: "not a magic script that will run all of the script
+  faster"; adds complexity, risk of overengineering; every link in
+  the chain must be properly `await`ed.
+- Confidence: 4/4, backed by both E1 predictions being correct
+  pre-run.
+- Time: ~2h wall (learner-reported); GenAI not reported this session.
+
+### Retro (3 questions)
+
+1. Fog or difficulty? Light — AWARENESS tier; the one real snag was
+   the Jupyter event-loop error, solved by moving to a terminal.
+2. Rule preventing it? None needed at exercise level; the builder
+   concession is a build-fix (portable drivers), not a learner rule.
+3. Sittings + token line: 1 sitting, ~2h; tokens not reported.
+
+### Time Studied
+
+~2 hours wall (learner-reported).
+
+### Tomorrow Goal
+
+WP4-merged-with-capstone discussion (the deal — standing request).
+Quiz 05 window (L25-L27) opens. DSA Week 5 (Binary search) due,
+interleaved at the learner's call.
