@@ -1,7 +1,8 @@
 # Project / Challenge — [Name]
 
-(Micro build or lesson challenge. For weekly/stage projects use their
-dedicated templates.)
+(Micro build or lesson challenge. Weekly/stage projects use their
+dedicated templates. Stage 4 uses `templates/sprint-brief.md`; this
+template is for Stages 1–3 and in-lesson builds.)
 
 ---
 

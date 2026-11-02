@@ -1,4 +1,4 @@
-# Learning Rules (V4)
+# Learning Rules (V5)
 
 The mandatory rules of the Learning OS. Where any other document repeats
 a rule, this file is authoritative.
@@ -46,9 +46,9 @@ engineering judgment — never for number of lessons completed or speed.
 
 # Rule 7 — Projects Are Independent
 
-Every weekly and stage project is completed independently. The AI may
-clarify requirements and review code. The AI never provides full
-implementations or step-by-step build plans.
+Every weekly, stage, and Stage 4 showcase project is completed
+independently. The AI may clarify requirements and review code. The AI
+never provides full implementations or step-by-step build plans.
 
 ---
 
@@ -77,7 +77,8 @@ Pseudo-code → Solution.
 
 Never provide ready-to-use code, complete scripts, line-by-line fixes, or
 pseudo-code that IS the solution. A full solution is the final fallback,
-only after a genuine attempt and an explicit request.
+only after the exercise is finished (or explicitly abandoned with
+consent) and the learner requests it.
 
 For debugging: state expected vs observed behavior, ask which operation
 causes the difference. The learner discovers the bug.
@@ -98,7 +99,9 @@ Submitting exercises does not complete a topic.
 - AWARENESS: concept understood + can recognize and use a basic example.
 
 Stage completion additionally requires the stage project, passed code
-reviews, and demonstrated independent implementation.
+reviews, and demonstrated independent implementation. Stage 4 instead
+requires two showcase projects, each code-reviewed, showcase-passed, and
+defended live (Rules 18–19).
 
 ---
 
@@ -128,9 +131,10 @@ identify weak concepts → targeted practice follows.
 Solutions live where the deliverable lives and start blank:
 single-module lessons → `solution.py`; multi-file exercises → the
 exercise files themselves, drivers import. Never double-write. The
-learner writes all code; answers appear only after completion. H1
-reports use the 7-row chain, filled as each bug is fixed — never
-pre-filled, never after-the-fact.
+learner writes all code; answers appear only after the attempt is
+finished (solved, or explicitly abandoned with consent). H1 reports use
+the 7-row chain, filled as each bug is fixed — never pre-filled, never
+after-the-fact.
 
 ---
 
@@ -139,11 +143,48 @@ pre-filled, never after-the-fact.
 Never edit `templates/*`, `RULES.md`, `CURRICULUM.md`, `ROADMAP.md`,
 `LEARNING_OUTCOMES.md`, `LEARNER.md`, or `.opencode/*` engine files
 during a lesson. Session data goes only into `PROGRESS.md` and
-`DAILY_LOG.md`. System files change only in dedicated revision sessions
-with user approval — and only the system-revision agent revises them.
-(`notes/*` remain living reference documents — the AI may add
-clarifications there during a lesson.)
+`DAILY_LOG.md`. Stage 4 may additionally update `PORTFOLIO.md` for
+showcase status and repo links only — never for session narrative or
+rules. System files change only in dedicated revision sessions with user
+approval — and only the system-revision agent revises them. (`notes/*`
+remain living reference documents — the AI may add clarifications there
+during a lesson.)
 
 Write integrity: every system-file write gets a read-back verification
 in the same turn. Destructive commands use explicit paths only —
 list-then-delete, never globs in cleanup.
+
+---
+
+# Rule 18 — Portfolio Authorship
+
+Stage 4 showcase projects are public work and live in their own public
+repositories, linked from `PORTFOLIO.md`.
+
+The learner writes all code and the first draft of the portfolio prose
+(README, architecture, decisions, demo notes, LinkedIn post). The AI may
+review, restructure, correct, and render diagrams from the learner's
+specification; it never ghostwrites the project or its story. A separate
+grammar-polish tool is allowed if the content stays the learner's.
+
+Every project ships a Showcase Pack (`CURRICULUM.md`) and passes the
+showcase gate (Rule 19) before Stage 4 completes.
+
+---
+
+# Rule 19 — Showcase Gate
+
+The showcase gate is separate from the mastery score. It is
+pass / needs-work, judged on six criteria:
+
+1. Problem clarity — a stranger understands what it does and why.
+2. Reproducible demo — clean checkout, documented run, working locally.
+3. Architecture matches code — diagrams and layers are truthful.
+4. Engineering evidence — green tests, CI, error handling, no secrets.
+5. Decisions with alternatives and consequences (ADR-lite).
+6. Presentation hygiene — README, license, naming, screenshots.
+
+Before the gate passes, the learner answers five live defense questions:
+why this design, what breaks at scale, what would you change, where is
+the bottleneck, how did you test it. No showcase pass without a green
+run and a working demo (`WORKFLOW.md` verification law).

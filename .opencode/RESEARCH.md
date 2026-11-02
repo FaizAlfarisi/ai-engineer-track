@@ -35,6 +35,16 @@ professional usage · Applied-AI example.
 
 ---
 
+# Stage 4 Research
+
+For sprint work, research the library's current API (FastAPI, Pydantic,
+Pandas, NumPy, SQLAlchemy, SQLite FTS5) before teaching it — versions
+move. Also research the portfolio angle: how this feature is documented
+and demoed in real projects, and what a reviewer would ask about it.
+Do not over-research; the slice defines the scope.
+
+---
+
 # Rule
 
 Never teach obsolete practices if modern alternatives exist.

@@ -2655,3 +2655,17 @@ sets that.
 WP4-merged-with-capstone discussion (the deal — standing request).
 Quiz 05 window (L25-L27) opens. DSA Week 5 (Binary search) due,
 interleaved at the learner's call.
+
+## Revision — V5 install (2026-11-02)
+
+- Installed V5: Stage 4 is now two public portfolio projects (Dataset
+  Readiness API; Knowledge Base Ingest API), shipped in six sprints.
+- Added `PORTFOLIO.md` (showcase index) and `notes/VISUALIZATION.md`
+  (visual doctrine: ladder, selection matrix, anti-overuse).
+- New artifacts: Concept Kit, Sprint Brief, Showcase Pack, Showcase
+  Review. New laws: portfolio authorship (R18), showcase gate (R19).
+- Learner profile reset for Stage 4; start-session now boots sprint mode;
+  teaching review/scoring/output/memory updated for sprint delivery.
+- Next: Sprint A0 — create the two public repos, approve briefs, set up
+  the environment. Then A1.
+- System files only; no learner work this session. No commit.

@@ -1,5 +1,11 @@
 # Code Review — [Lesson / Project]
 
+> Rules live in `REVIEW.md`; this is the form. Weights: Correctness 25 ·
+> Logic 20 · Readability 15 · Naming 10 · Maintainability 10 · Pythonic 10
+> · Testing 5 · Performance 5. Stage 4 also checks API contract, layering,
+> and operations (`REVIEW.md` items 11–13). The showcase gate is separate
+> (`templates/showcase-review.md`).
+
 ## Reasoning Check (before scores)
 
 Can the learner explain WHY each major choice was made?

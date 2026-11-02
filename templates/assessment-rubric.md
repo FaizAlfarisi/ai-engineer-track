@@ -1,4 +1,4 @@
-# Assessment Rubric (V4)
+# Assessment Rubric (V5)
 
 ## Review Score Weights
 
@@ -75,4 +75,8 @@ updated honestly.
 - All CORE stage topics at target with transfer evidence
 - All SUPPORTING topics at Level 3
 - Weekly projects completed
-- Stage project completed independently + formal review passed
+- **Stages 1–3:** stage project completed independently + formal review
+  passed
+- **Stage 4:** two showcase projects, each code-reviewed, showcase-gated,
+  and defended live (RULES.md R12/R18/R19). The showcase gate is separate
+  from the 8-bucket score.

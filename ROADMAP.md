@@ -1,4 +1,4 @@
-# Python Roadmap (V4)
+# Python Roadmap (V5)
 
 This roadmap prioritizes depth where depth matters.
 
@@ -106,7 +106,7 @@ Weekly projects: one every 3–4 lessons (schedule-independent).
 
 ---
 
-# Stage 3 — Python Engineering ← NEXT
+# Stage 3 — Python Engineering
 
 Focus: engineering-grade Python — testing, logging, HTTP, structure,
 and the language machinery behind frameworks.
@@ -135,29 +135,77 @@ Stage project: **Automation / Data Processing Toolkit** — emphasizes reusable
 modules, error handling, logging, testing, HTTP/API interaction where relevant,
 and maintainability. Mandatory evidence for stage completion.
 
+Status: completed 2026-10-21 — Quiz 05 15/15 (100%); WP4-merged
+capstone 96/100. Stage 3 CLOSED; tracking continues in `PROGRESS.md`.
+
 ---
 
-# Stage 4 — Python for AI Engineering
+# Stage 4 — Python for AI Engineering (Portfolio Sprints) ← NEXT
 
-Focus: the Python skills that directly support Applied AI Engineering.
+Focus: turning Python engineering into two public, AI-adjacent services.
+Theory is just-in-time; the project is the spine. Every sprint ships a
+slice; every project ships a showcase.
 
-| Topic | Tier |
-|-------|------|
-| Pydantic | CORE |
-| FastAPI | CORE |
-| HTTP/API (applied) | CORE |
-| NumPy fundamentals | CORE |
-| Pandas fundamentals | CORE |
-| Project architecture | CORE |
-| Git workflow | CORE |
-| SQL fundamentals | CORE |
-| SQLite | SUPPORTING |
-| SQLAlchemy | SUPPORTING |
+Completion evidence: two showcase projects, each green-tested,
+demo-ready, documented, and defended live (RULES.md R12/R18/R19).
 
-The learner does not need to become a database engineer. Practical ability only.
+## Project A — Dataset Readiness API
 
-Stage project: **AI Dataset Manager / AI Service** — bridges Python into
-Applied AI Engineering. Mandatory evidence for stage completion.
+Upload LLM instruction/response datasets → validate (Pydantic) → clean
+(Pandas/NumPy) → export cleaned JSONL + quality report → persist runs
+(SQLite). AI angle: dataset quality gate before fine-tuning or eval.
+
+| Sprint | Slice | Topics |
+|--------|-------|--------|
+| A1 | Upload + validate vertical slice | HTTP/API applied · FastAPI · Pydantic · OpenAPI |
+| A2 | Quality engine + export | Pandas · NumPy · JSONL · data quality |
+| A3 | Persistence + polish | SQL · SQLite · project architecture · Git workflow |
+
+## Project B — Knowledge Base Ingest API
+
+Upload documents → chunk → store metadata → keyword search (FTS5) →
+paged results. AI angle: a RAG-ready document store.
+
+| Sprint | Slice | Topics |
+|--------|-------|--------|
+| B1 | Ingest + chunk vertical slice | FastAPI · Pydantic · file handling · SQLite |
+| B2 | Search + ORM | SQLAlchemy · SQL · FTS5 (`SearchBackend`) · Pandas stats |
+| B3 | Resilience + polish | asyncio applied · retries/timeouts · logging · auth-lite · Git workflow |
+
+## Topic map
+
+| Topic | Tier | Where |
+|-------|------|-------|
+| Pydantic | CORE | A1, B1 |
+| FastAPI | CORE | A1, A3, B1, B3 |
+| HTTP/API (applied) | CORE | A1, B3 |
+| NumPy fundamentals | CORE | A2 |
+| Pandas fundamentals | CORE | A2, B2 |
+| Project architecture | CORE | A3, B3 |
+| Git workflow | CORE | every sprint |
+| SQL fundamentals | CORE | A3 |
+| SQLite | SUPPORTING | A3, B1 |
+| SQLAlchemy | SUPPORTING | B2 |
+
+PROJECT-DEPENDENT — learned only when the sprint needs them: Docker, CI
+(GitHub Actions), OpenAPI docs, API-key auth, FTS5, retries/timeouts,
+deployment, environment/secrets, background tasks.
+
+Lambda/map/filter stay natural, not standalone. The learner does not
+need to become a database engineer — practical ability only. LLM APIs
+are deferred to Stage 5; Stage 4 builds the services those systems need.
+
+Project B's search is SQLite FTS5 behind a `SearchBackend` interface, so
+a vector backend can replace it later without touching the API layer.
+
+Docker and CI are part of the Showcase Pack but are taught or PROVIDED
+in the sprint that needs them (A3/B3) — never silently required
+(`LEARNER.md` Tool Sync).
+
+Sprint A0 is setup only (repos, briefs, environment), not a learning
+sprint. Stage 4 completion: both projects pass code review AND the
+showcase gate, and the learner defends each (5 questions). See
+`PORTFOLIO.md`.
 
 ---
 

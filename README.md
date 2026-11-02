@@ -88,11 +88,12 @@ Learning adapts continuously.
 
 ```text
 lessons/
-projects/
+projects/          (Stage 1–3)
 quizzes/
-notes/
+notes/             (living reference: DEBUGGING, PYTHONIC, VISUALIZATION)
 review/
 templates/
+dsa/               (per-week records)
 
 README.md
 ROADMAP.md
@@ -102,6 +103,7 @@ PROGRESS.md
 DAILY_LOG.md
 LEARNING_OUTCOMES.md
 DSA_TRACK.md
+PORTFOLIO.md       (Stage 4 showcase index + repo links)
 ```
 
 ---
@@ -118,6 +120,28 @@ Every topic carries a priority tier that sets its depth:
 Exercise volume adapts to tier and demonstrated mastery. New lessons
 always connect back to previous concepts, and old CORE concepts reappear
 unannounced in later work.
+
+---
+
+# Stage 4 — Portfolio Sprints
+
+Stages 1–3 build the engineering foundation through lessons and projects.
+Stage 4 turns it into public proof: two AI-adjacent services, shipped in
+six sprints, each ending green and demo-ready.
+
+| Project | What it does | AI angle |
+|---------|--------------|----------|
+| Dataset Readiness API | Validate/clean LLM instruction datasets, export JSONL + quality report | dataset quality gate before fine-tuning/eval |
+| Knowledge Base Ingest API | Ingest/chunk documents, keyword search (SQLite FTS5), paged results | RAG-ready document store |
+
+Each project ships a **Showcase Pack** — README, architecture, ADRs,
+demo, CI, Dockerfile, env example, license — and passes a **showcase
+gate** (six criteria + a five-question live defense) separate from the
+code score. The learner writes all code and the first-draft prose; the
+AI reviews and renders diagrams from the learner's specification.
+
+Index and repo links: `PORTFOLIO.md`. Sprint model: `CURRICULUM.md`.
+Gate rules: `RULES.md` R18–R19.
 
 ---
 
@@ -147,7 +171,7 @@ Debug / Diagnose
 
 ↓
 
-Build (Micro → Weekly Project → Stage Project)
+Build (Micro → Weekly Project → Stage Project → Showcase Project)
 
 ↓
 
@@ -186,6 +210,9 @@ By the end of this roadmap, the learner should be able to
 ✔ Build CLI applications and multi-module programs from scratch
 
 ✔ Solve interview-format problems and explain complexity trade-offs
+
+✔ Ship and defend two public AI-adjacent services — documented,
+  tested, demo-ready, with architecture and decision records
 
 ✔ Be fully prepared to study AI Engineering
 
