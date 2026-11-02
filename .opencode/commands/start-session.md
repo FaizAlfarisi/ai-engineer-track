@@ -17,8 +17,12 @@ BOOT WALK (this command IS the entry point, not a pointer):
 3. `PROGRESS.md` Current Position block + the last `DAILY_LOG.md`
    session + `LEARNER.md` Queued Targets. Recent commits for re-ramp:
    !`git log --oneline -5`
-4. Stage 4 only: `PORTFOLIO.md` status + the current sprint brief.
-   Read only the slice's project files — never the whole history.
+4. Stage 4 only: `PORTFOLIO.md` status + the `Current sprint` brief at
+   the path listed there. Read only the slice's project files — never
+   the whole history. If the current sprint is **A0**, follow the setup
+   brief and do NOT teach or build. If `gh auth status` fails, stop and
+   ask the learner to run `gh auth login` — never handle credentials.
+   After A0, update `PORTFOLIO.md` current sprint to A1.
 5. Environment health check: `python --version`, `pytest --version`,
    key imports for the upcoming topic (Stage 4 adds `uvicorn`,
    `fastapi`, `pydantic`, `pandas`, `numpy`, `sqlite3`). Repair before

@@ -64,7 +64,8 @@ concept → example → small implementation → move on.
 # Stage 4 Sprint Loop
 
 A sprint spans several sittings; each sitting is a session with a
-single clear objective.
+single clear objective. **A0 is setup only** — repos, briefs, and
+environment — and skips this loop entirely.
 
 ```text
 Brief → slice plan → Concept Kit → build → verify → code review →
