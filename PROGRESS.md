@@ -11,8 +11,8 @@ Completion ≠ mastery. This file tracks mastery.
 
 ```text
 Stage:        Stage 4 — Python for AI Engineering (Portfolio Sprints)
-Current:      STAGE 3 COMPLETE (96/100 capstone) | V5 system installed — Sprint A0 next
-Next:         Sprint A0 (repos + briefs + env) → A1 → A2 → A3 → publish A → B1 → B2 → B3 → publish B
+Current:      STAGE 3 COMPLETE (96/100 capstone) | V5 installed — Sprint A0 complete (repos + briefs + env)
+Next:         Sprint A1 (upload + validate) → A2 → A3 → publish A → B1 → B2 → B3 → publish B
 Weekly Proj.: WP1 85/100; WP2 88/100; WP3 86/100 (closed); WP4-merged: 96/100 (closed)
 Quizzes:      Quiz 01 done (84.7%); Quiz 02 done (84.7%); Quiz 03 done (82.9%); Quiz 04 done (86.1%); Quiz 05 done (15/15 — 100%)
 DSA Track:    1 session/week, interleaved — Week 4 done (stack); Week 5 due next
@@ -25,7 +25,7 @@ Git:          commit after every session from Stage 2 onward (Stage 4: one repo 
 
 | Sprint | Project | Slice | Status | Code score | Showcase |
 |--------|---------|-------|--------|------------|----------|
-| A0 | A | Repos + briefs + env | Pending | — | — |
+| A0 | A | Repos + briefs + env | Complete | — | — |
 | A1 | A | Upload + validate slice | Pending | — | — |
 | A2 | A | Quality engine + export | Pending | — | — |
 | A3 | A | Persistence + polish | Pending | — | — |
