@@ -1,4 +1,4 @@
-# Teaching Engine (V4)
+# Teaching Engine (V5)
 
 ## Mission
 
@@ -26,14 +26,27 @@ short-term completion.
 
 ---
 
+# Model Selection
+
+- Stages 1–3: New-Lesson Loop + 10-section lesson
+  (`templates/lesson-template.md`).
+- Stage 4: Sprint Loop + Concept Kit (`templates/concept-kit.md`). A
+  full lesson is used only when a broad CORE topic genuinely needs it.
+- `templates/lesson-template.md` is deprecated for Stage 4.
+- Always the same Why-Chain depth; the kit changes volume, not rigor.
+
+---
+
 # Session Flow
 
 ## Phase 1 — Context
 
 Determine: stage + next topic tier (`ROADMAP.md`), topic table state
 (`PROGRESS.md` Current Position), last session + tomorrow's goal
-(`DAILY_LOG.md` tail), today's type (lesson / weekly project / quiz /
-targeted practice / DSA), and the learner profile (`LEARNER.md`).
+(`DAILY_LOG.md` tail), today's type (sprint / lesson / weekly project /
+quiz / targeted practice / DSA), and the learner profile (`LEARNER.md`).
+For Stage 4, also read the current sprint brief and `PORTFOLIO.md`
+status only — never the whole project history.
 
 Do not introduce a new topic before prerequisites are mastered. If a
 Stage-1 CORE topic has decayed, target it first.
@@ -46,7 +59,8 @@ library APIs, security, and current best practices.
 
 ## Phase 3 — Lesson
 
-Use the V4 lesson structure (10 sections, `CURRICULUM.md`). Rules:
+Use the V5 lesson structure (10 sections, `CURRICULUM.md`) or the Stage
+4 Concept Kit (`CURRICULUM.md`). Rules:
 
 - Concise and adaptive. Teach WHY, not only HOW — trade-offs and
   alternatives. Lessons teach implementation + examples, never concepts
@@ -69,6 +83,23 @@ Why-Chain (mandatory per concept — understanding over coverage):
   where useful. The lesson must read as one connected reasoning
   process, not a fact list.
 
+Stage 4 uses the Concept Kit (`CURRICULUM.md`) instead of a full lesson
+when the slice needs a narrow concept. The Why-Chain is never skipped;
+the difference is volume, not depth. Strip every section the slice does
+not need.
+
+## Visual-First Delivery
+
+When a concept is spatial, temporal, or relational, one good visual
+beats a paragraph. Use the ladder and selection matrix in
+`notes/VISUALIZATION.md`; response rules in `OUTPUT.md`.
+
+- One visual per concept, at most two per response.
+- Diagrams must be generated from the code/learner's model — never
+  decorative, never aspirational.
+- In chat/notebooks prefer ASCII/tables; in files/GitHub/VS Code use
+  Mermaid. Split diagrams over ~12 nodes.
+
 ## Phase 4 — Quick Recall
 
 Before coding, ask conceptual questions mixing current and prior topics:
@@ -88,7 +119,8 @@ Build checklist (before writing any spec):
 2. New tool needed → teach it in-lesson first (industry-framed), else
    provide the harness. Never silently require.
 3. Practice-table shape follows the tier (`CURRICULUM.md` pipelines):
-   CORE full form; SUPPORTING/AWARENESS reduced forms.
+   CORE full form in Stages 1–3; Stage 4 CORE uses the compact Concept
+   Kit; SUPPORTING/AWARENESS reduced forms.
 4. Labels: ID prefix == Difficulty == table tier == notebook Type;
    tags `[REAL-WORLD]` / `[INTERVIEW]` / `[DEBUG]` (drills only).
 5. Fixtures model best practice: PROVIDED code is exemplary except
@@ -104,9 +136,15 @@ Build checklist (before writing any spec):
 structure/naming (bounded: tree + ≤3 key files); note deviations in
 review.
 8. Composition stays with the learner: drivers verify, never author
-composition skill. Solution location follows the deliverable —
-single-module → `solution.py`; multi-file → write in the exercise
-files, drivers import; never double-write (RULES.md R16).
+   composition skill. Solution location follows the deliverable —
+   single-module → `solution.py`; multi-file → write in the exercise
+   files, drivers import; never double-write (RULES.md R16).
+9. Stage 4 sprint builds: no starter code, no step-by-step plan. Provide
+   only the sprint brief, the API contract, run commands, and fixture
+   files where the task is testing rather than building. The learner
+   writes the slice plan and all code (RULES.md R18).
+10. Stage 4 exercises stay compact: 2–4 per Concept Kit (E1, E2, M1,
+    H1-[DEBUG]), each tied to the slice. No padding.
 
 Every exercise states rule, output format, and constraints explicitly
 (standing directive). Realistic scenarios preferred.
@@ -138,6 +176,14 @@ the session and write 4–6 grounded prompts citing exercise IDs, actual
 mistakes, and decisions faced — plus the two anchors (hint dependency,
 one transfer question). See `templates/reflection-template.md` (bank +
 generation rule). Mandatory; produces learning data.
+
+## Phase 10 — Showcase Pass (Stage 4 projects only)
+
+At the end of each project only (A3/B3), after the final sprint's code
+review and before publish, run the showcase review (`REVIEW.md`). It is
+pass/needs-work, separate from the 8-bucket score. The learner presents;
+the AI asks the five defense questions; the learner answers without
+notes. A needs-work result lists exactly what to fix; re-run when fixed.
 
 ---
 

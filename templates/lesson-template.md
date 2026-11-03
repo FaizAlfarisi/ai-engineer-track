@@ -1,5 +1,10 @@
 # Lesson — [Topic] (Tier: CORE / SUPPORTING / AWARENESS)
 
+> **DEPRECATED for Stage 4 — Stages 1–3 only.**
+> Stage 4 uses `templates/sprint-brief.md` + `templates/concept-kit.md`.
+> Use this template in Stage 4 only for a broad CORE topic that genuinely
+> needs a full lesson (`CURRICULUM.md` Model Selection).
+
 ## Objective
 
 What the learner will be able to do after this lesson.

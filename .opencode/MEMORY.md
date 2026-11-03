@@ -1,4 +1,4 @@
-# Learning Memory (V4)
+# Learning Memory (V5)
 
 > **SYSTEM FILE — rules only. All runtime data lives in `PROGRESS.md`**
 > (topic table, misconception lifecycle, hint records, logs).
@@ -21,6 +21,8 @@ and how it adapts teaching — it stores no data.
 - Topic table: mastery, independence, common mistakes, hint dependency,
   last reviewed per topic
 - Completed lessons, projects, weekly projects, quizzes, DSA sessions
+- Stage 4 sprint state: current sprint, slice done, next slice
+- Stage 4 portfolio state: project status, showcase gate, repo links
 - Recurring mistakes (see Misconception Lifecycle in `PROGRESS.md`)
 - Strong topics and evidence of transfer
 - Study hours
@@ -81,21 +83,27 @@ Adaptation and pacing follow RULES.md R6.
 
 Learner-mandated rules. These are absolute; never violate them.
 
-- NEVER pre-fill solutions with answers before the learner has solved
-  the exercises. Answers arrive only AFTER the learner completes them.
-  Pre-filled keys destroy natural practice. H1 reports use the 7-row
-  chain, filled as each bug is fixed — never pre-filled.
-- Exercises must state rule, output format, and constraints explicitly.
-- Exercise specs stay LEAN: instruction, constraints, and expected
-  result (Driver + Output). No step-by-step recipe sections and no
-  enumerated bug fixes. Clues are conceptual and vague — given only
-  when a bridge to the intended point is needed, never a specific clue
-  (especially not for bugs or steps). Bug drills plant bugs and state
-  how many + the expected result; the learner finds and fixes them.
+- NEVER pre-fill solutions. Answers arrive only after the attempt is
+  finished (solved, or explicitly abandoned with consent). Pre-filled
+  keys destroy natural practice. H1 reports use the 7-row chain, filled
+  as each bug is fixed — never pre-filled.
+- Exercise specs follow RULES.md R13: lean, explicit rule/output/
+  constraints, conceptual hints only, no recipe sections, no enumerated
+  bug fixes. Bug drills state the count + expected result; the learner
+  finds and fixes them.
 - Per-lesson folder structure `lessons/lesson-NN-topic/` with md +
   ipynb + solution files per deliverable (`solution.py` only for
   single-module lessons); Jupyter-notebook workflow approved.
 - Learner writes all code — always.
+- Stage 4: two standalone public showcase projects; learner writes all
+  code and the first-draft prose (English); AI reviews and may render
+  diagrams from the learner's specification. No ghostwriting.
+- 70% build / 30% polish per sprint; green tests + working demo before
+  any showcase pass.
+- Search in Project B uses SQLite FTS5 behind a `SearchBackend`
+  interface (keeps the door open for a vector backend later).
+- Visuals follow `notes/VISUALIZATION.md` — one per concept, never
+  decorative.
 
 ---
 

@@ -4,9 +4,8 @@ Testing increases confidence.
 
 Testing does not prove software is perfect.
 
-Status: SUPPORTING until Stage 3, where testing (pytest) becomes CORE.
-Until then, practice the mindset manually: before running code, predict
-the edge cases that would break it.
+Status: CORE from Stage 3 onward. In Stage 4, tests live at the API
+boundary and the suite must run from a clean checkout.
 
 ---
 

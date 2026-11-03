@@ -1,4 +1,4 @@
-# Code Review Engine (V4)
+# Code Review Engine (V5)
 
 Review like a professional senior engineer. Goal: improvement, not
 criticism.
@@ -24,9 +24,16 @@ in progress.
 8. Performance — optimization only if necessary; no premature
    optimization.
 9. Testing & edge cases — what should be tested? (weight grows from
-   Stage 3, when pytest is CORE.)
+   Stage 3 onward, where pytest is CORE.)
 10. Security (when relevant) — validate input, avoid unsafe execution,
     never leak secrets.
+11. API contract (Stage 4) — routes/schemas match the brief, status
+    codes are honest, validation sits at the boundary.
+12. Layering (Stage 4) — routes vs services vs data; no business logic
+    in handlers, no SQL in route bodies.
+13. Operations (Stage 4) — config via environment, structured logs,
+    timeouts/retries where the slice requires them, no secrets in code
+    or logs.
 
 ---
 
@@ -82,3 +89,39 @@ Also record:
   no module-level executable code
 - Suite health: vacuous-test check passed (each test fails on broken
   code)
+
+---
+
+# Showcase Review (Stage 4 projects)
+
+Runs at project end only (A3/B3), after the final sprint's code review,
+before a project is published. This is a gate, not a score:
+**PASS / NEEDS-WORK**. It never changes the 8-bucket code score, and a
+high code score never substitutes for it.
+
+Use `templates/showcase-review.md`. Judge six criteria:
+
+| # | Criterion | Pass means |
+|---|-----------|------------|
+| 1 | Problem clarity | A stranger understands the problem, the user, and the AI relevance from the README's first screen. |
+| 2 | Reproducible demo | Clean checkout → documented install → server boots → demo works locally and in Docker. |
+| 3 | Architecture truth | Diagrams match the code; layers are real, not drawn. |
+| 4 | Engineering evidence | Green tests, CI, error handling, config hygiene, no secrets. |
+| 5 | Decisions | ADR-lite entries state context, decision, alternative, consequence. |
+| 6 | Presentation hygiene | README, license, naming, screenshots/GIF, no broken links. |
+
+Each criterion gets PASS or NEEDS-WORK with one concrete fix. Any
+NEEDS-WORK blocks the showcase pass.
+
+## Defense (live, 5 questions)
+
+The learner answers without notes:
+
+1. Why this design — what did you reject and why?
+2. What breaks first at 10× the data or traffic?
+3. What would you change if you rebuilt it?
+4. Where is the bottleneck, and how do you know?
+5. How did you test it, and what is still untested?
+
+Answers are judged on reasoning, not polish. The AI records the result
+in `PROGRESS.md` and updates `PORTFOLIO.md` only after a green run.

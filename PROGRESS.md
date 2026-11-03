@@ -1,6 +1,6 @@
 # Progress
 
-V2 format: topics are tracked by priority tier with mastery evidence,
+V5 format: topics are tracked by priority tier with mastery evidence,
 independence, mistakes, and hint dependency.
 
 Completion ≠ mastery. This file tracks mastery.
@@ -10,14 +10,32 @@ Completion ≠ mastery. This file tracks mastery.
 ## Current Position
 
 ```text
-Stage:        Stage 3 — Python Engineering (in progress)
-Current:      STAGE 3 COMPLETE — 96/100 (WP4-merged capstone) | Next: Stage 4 planning
-Next:         Stage 4 planning
+Stage:        Stage 4 — Python for AI Engineering (Portfolio Sprints)
+Current:      STAGE 3 COMPLETE (96/100 capstone) | V5 system installed — Sprint A0 next
+Next:         Sprint A0 (repos + briefs + env) → A1 → A2 → A3 → publish A → B1 → B2 → B3 → publish B
 Weekly Proj.: WP1 85/100; WP2 88/100; WP3 86/100 (closed); WP4-merged: 96/100 (closed)
 Quizzes:      Quiz 01 done (84.7%); Quiz 02 done (84.7%); Quiz 03 done (82.9%); Quiz 04 done (86.1%); Quiz 05 done (15/15 — 100%)
 DSA Track:    1 session/week, interleaved — Week 4 done (stack); Week 5 due next
-Git:          commit after every session from Stage 2 onward
+Git:          commit after every session from Stage 2 onward (Stage 4: one repo per project)
 ```
+
+---
+
+## Stage 4 Sprint Tracker
+
+| Sprint | Project | Slice | Status | Code score | Showcase |
+|--------|---------|-------|--------|------------|----------|
+| A0 | A | Repos + briefs + env | Pending | — | — |
+| A1 | A | Upload + validate slice | Pending | — | — |
+| A2 | A | Quality engine + export | Pending | — | — |
+| A3 | A | Persistence + polish | Pending | — | — |
+| — | A | Publish Project A | Pending | — | — |
+| B1 | B | Ingest + chunk slice | Pending | — | — |
+| B2 | B | Search + ORM | Pending | — | — |
+| B3 | B | Resilience + polish | Pending | — | — |
+| — | B | Publish Project B | Pending | — | — |
+
+Portfolio status and repo links: `PORTFOLIO.md`.
 
 ---
 
@@ -29,7 +47,7 @@ Independence: High = implements without AI-generated code.
 Hint Dependency: see scale below.
 
 Stage 1 values were migrated from V1 session evidence and are marked
-**provisional** until confirmed through natural retrieval in Stage 2.
+**provisional** until natural retrieval confirms them in later work.
 
 | Topic | Tier | Mastery | Independence | Common Mistakes | Hint Dep. | Project Application | Last Reviewed |
 |-------|------|---------|--------------|-----------------|-----------|---------------------|---------------|
@@ -53,7 +71,6 @@ Stage 1 values were migrated from V1 session evidence and are marked
 | Strings & formatting | SUPPORTING | 3→4 | High | label drift / spec-literalness (trend improving) | None | L2, L6 | 2026-08-05 |
 | Operators & boolean logic | SUPPORTING | 4 (prov.) | High | none recent | None | L2, L3 | 2026-08-05 |
 | Console I/O | SUPPORTING | 3 | High | degenerate argv paths (`--seed` alone → IndexError, L7) | Specific ×1 (with consent) | L3, L7 | 2026-08-13 |
-| Dataclass | SUPPORTING | 3 | High | H1: all 4 planted bugs caught (shared-mutable-default ValueError, amount:str lie, frozen mutation, `== "income"` never True); new-concept study required GenAI explanation for dataclass purpose / enum solving / frozen constraint (disclosed; wean target set); H1 write-up blank under duty → worked model in review | None | Challenge: L15 expense package refactored onto frozen dataclass + Kind model, interfaces preserved, byte-exact; `mypy` clean on both entry points | 2026-09-11 |
 | Testing with pytest (fixtures, parametrize, tmp_path/capsys/monkeypatch, vacuous-pass trap) | CORE | 3→4 | High | three "green for the wrong reason" tests (vacuous CSV loader test; `returns_float` asserting `== 0.0`; a `for` loop inside a test) — closed via the honest `isinstance` reframe, not coloring; `sum([])` is `int 0`. Carry-forward: `lambda`/`ids=`/built-ins pre-teach or declare | ~1–2 | L17 Challenge + WP2 regression tests; L18 tests spin the real local server in a fixture | 2026-09-22 |
 | HTTP & API concepts (urllib, status codes, error classes, client/server patterns) | CORE | 3→4 | High | H2 spec-literalness deviation kept BY DECISION: module exports `StoreAPI` class instead of `start(port=0)` — behavior correct, contract symbol absent; consequence stated (+ reference model delivered, deduction applied). Nits: bare `except Exception` in post/search clients retained | 0 (review loop level 1) | L18 Challenge caching CLI (network+disk merge); reference pair proves class-based vs factory server drop-in compatible | 2026-09-22 |
 | Requests (third-party install, params=/json=/timeout=/raise_for_status, RequestException family + handler order, Session headers-once, typed wraps, fetch→merge→dual-persist CLI) | CORE | 3→4 | High | first-draft contract drift on untested paths: truthiness guard instead of isinstance (M1), str-returns vs annotations + invented codes (post/search), derived CSV header (M3), dropped `from exc` (H2) — all 5 explained + fixed independently same session; E2 timeout=3 vs spec 5 retained-with-reason | 0 (review loop level 1) | Challenge sync_cli (own-server fetch + network-wins merge + sync.json/sync.csv + positional argv, missing-arg exits 1) | 2026-09-24 |
@@ -66,6 +83,15 @@ Stage 1 values were migrated from V1 session evidence and are marked
 | Regex (compile + three questions, groups and harvest loops, flags, greed and anchors, anchored validation gates, converted captures) | SUPPORTING | 3 | High | numeric annotation admitted only `int` while temperatures return `float` (silent, third appearance — corrected); flag fix added casings by dropping the anchor instead of adding the flag (no stated contract broken — corrected to anchored-with-flag, no deduction); dead routing arm (removed); loop variable shadowed a builtin (renamed) | 0 (solving; review loop level 1) | Challenge pattern-extract CLI (shape-routed lines, prefix header, byte-exact) + 4-bug hunt with 7-row chains | 2026-10-17 |
 | Datetime (strptime parse-as-validation, round-trip canon check, date/timedelta arithmetic, isoformat-vs-strftime edge formatting, format-swap trap, naive-UTC posture) | SUPPORTING | 3 | High | driver-invisible boundary bug PLANTED BY LEARNER (`< 364` vs spec "30–364, boundaries exact" — green in own suite, caught at review, fixed in both copies); bucket logic double-written (tenure.py + report.py) instead of imported — made the bug a double bug; copy-paste nouns (`service_path`/`incident_path` from L24); naive-UTC misconception (Q5 dodged twice, "default is UTC" misstatement — corrected on retry, closed third retrieval) | 0 (solving; review loop level 1) | Challenge tenure-report CLI (first-comma split, loud skips, byte-exact) + 4-bug hunt with 7-row chains (incl. 1900 century probe) | 2026-10-18 |
 | Asyncio (async def/await/gather/asyncio.run, event-loop relay model, forgotten-await = created-not-run, sync-blocking stalls the whole loop, when-not-to-use) | AWARENESS | 2 | — | none at exercise level (E1 both snippets predicted correct pre-run; E2 gather green, concurrency shape pinned by timing); 2 QR sharpenings ledgered (switch point is `await`, event loop is the conductor — not "the switch"; FastAPI named as Stage-4 payoff); builder concession: E2 in-kernel driver failed under Jupyter (`asyncio.run` cannot nest a running loop) — learner correctly re-ran in terminal | — | — | 2026-10-20 |
+| Pydantic (models, validation, settings at the boundary) | CORE | 0 | — | — | — | Stage 4 A1/B1 | — |
+| FastAPI (routing, DI, status codes, OpenAPI) | CORE | 0 | — | — | — | Stage 4 A1/A3/B1/B3 | — |
+| NumPy fundamentals | CORE | 0 | — | — | — | Stage 4 A2 | — |
+| Pandas fundamentals (load, clean, dtypes, export) | CORE | 0 | — | — | — | Stage 4 A2/B2 | — |
+| SQL fundamentals | CORE | 0 | — | — | — | Stage 4 A3 | — |
+| SQLite (schema, parameterized queries, FTS5) | SUPPORTING | 0 | — | — | — | Stage 4 A3/B1/B2 | — |
+| SQLAlchemy (models, sessions, repository) | SUPPORTING | 0 | — | — | — | Stage 4 B2 | — |
+| Project architecture (layers, settings, dependency flow) | CORE | 0 | — | — | — | Stage 4 A3/B3 | — |
+| Git workflow (branch, PR, review) | CORE | 4 | High | — | 0 | Stage 3 WP4 via PR #10; Stage 4 one repo per project | 2026-10-21 |
 | `match` beyond literal patterns | AWARENESS | 2 | — | deferred by design (JSON Stage 2, API Stage 4) | — | — | 2026-08-13 |
 
 ---
