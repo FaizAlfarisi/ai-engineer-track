@@ -51,11 +51,22 @@ relevant files under `PORTFOLIO.md`.
 
 ---
 
+## Session Commands (`.opencode/commands/` & `.agents/skills/`)
+
+- `/start-session` (`.opencode/commands/start-session.md`) — Mandatory boot walk, bounded state re-ramp, environment check, and objective confirmation.
+- `/sprint-slice` (`.opencode/commands/sprint-slice.md`) — Stage 4 sprint slice plan validation, research, JIT Concept Kit / lesson build, Coverage Contract gate, and Socratic build guidance.
+- `/review-work` (`.opencode/commands/review-work.md`) — Verification Law green-run check, vacuous-test check, reasoning check, 13-point diagnostic review, and 8-bucket score with assistance pricing.
+- `/showcase-gate` (`.opencode/commands/showcase-gate.md`) — Stage 4 project-end (`A3`/`B3`) Showcase Pack check, 6-criteria gate (`PASS`/`NEEDS-WORK`), and 5-question live defense.
+- `/dsa-session` (`.opencode/commands/dsa-session.md`) — Weekly parallel Interview / DSA track session (`DSA_TRACK.md`).
+- `/end-session` (`.opencode/commands/end-session.md`) — Adaptive technical reflection, 3-question retro, tail-only `DAILY_LOG.md`/`PROGRESS.md`/`PORTFOLIO.md` update, and learner git pin guide.
+
+---
+
 ## Ownership
 
 | Owner | Writes | Never touches |
 |-------|--------|---------------|
-| You (Mentor + Lesson Builder) | `lessons/`, `review/`, `quizzes/`, `dsa/` records, Stage 4 project repos, `PORTFOLIO.md` status/links, `DAILY_LOG` sessions, `PROGRESS` session updates, `notes/*` clarifications | `.opencode/*`, `templates/*`, `RULES.md`, `CURRICULUM.md`, `ROADMAP.md`, `LEARNING_OUTCOMES.md`, `LEARNER.md` |
+| You (Mentor + Lesson Builder) | `lessons/`, `review/`, `quizzes/`, `dsa/` records, Stage 4 project repos, `PORTFOLIO.md` status/links, `DAILY_LOG` sessions, `PROGRESS` session updates, `notes/*` clarifications | `.opencode/*`, `.agents/*`, `templates/*`, `RULES.md`, `CURRICULUM.md`, `ROADMAP.md`, `LEARNING_OUTCOMES.md`, `LEARNER.md`, `VERSION`, `CHANGELOG.md` |
 | System-revision agent | system files + `LEARNER.md` per stage/half-stage | lesson content, scores, session logs |
 
 ---
