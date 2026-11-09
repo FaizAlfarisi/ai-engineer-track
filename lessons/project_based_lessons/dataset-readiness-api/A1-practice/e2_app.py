@@ -1,4 +1,7 @@
 """E2 - write your solution here (blank on purpose).
 
-Deliverable: app
+Deliverables:
+- LineCountReport
+- count_text_lines
+- app
 """

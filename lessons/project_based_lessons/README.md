@@ -16,21 +16,21 @@ Practice: [A1-practice](dataset-readiness-api/A1-practice)
 
 **What you learn**
 
-- How an uploaded file travels through a web request: client, route, service, validation, response.
-- Which layer should decide a status code, and why services should stay free of HTTP.
-- How FastAPI handles routes, `UploadFile`, response models, exception handlers and the generated `/docs` page.
-- What FastAPI checks for you (the shape of the request) and what it never checks (the file type).
-- How Pydantic v2 validates a record and reports every problem, through `ValidationError.errors()` with `type`, `loc` and `msg`.
-- Why strict typing matters: an `int` is not accepted as a `str`, and an empty string breaks `min_length`.
-- Why a binary upload crashes a handler that only catches `JSONDecodeError`.
-- How to write boundary tests with `TestClient`, and how tests import your app.
+- **Pydantic constraints:** `Field(min_length, max_length, gt, ge, lt, le, pattern, strict)`, `ConfigDict`, and the exact error type each one produces.
+- **Validators:** when to use `@field_validator` or `@model_validator` instead of a constraint, and why `"   "` passes `min_length=1`.
+- **Error reports:** how to flatten `ValidationError.errors()` into safe `row`, `field` and `message` items, and why raw `ctx` must never reach a response.
+- **Custom exceptions:** several domain exceptions with several handlers, plus overriding `RequestValidationError` and `StarletteHTTPException`, so errors share one JSON shape.
+- **Multipart uploads:** why files use `multipart/form-data`, how `UploadFile`, `File` and `Form` work, and the edge cases (empty file, binary file, `curl` content type, reading twice).
+- **Parsing files:** a JSON array versus JSONL, the BOM, blank lines, and decode errors.
+- **API contract:** `response_model` and `responses` so `/docs` shows 200, 400 and 415.
+- **Testing and running:** boundary tests with `TestClient` (`files=` and `data=`), `python -m pytest`, `uvicorn`, `curl -F`, and a small environment config pattern.
 
 **What you practice**
 
 | Exercise | You build |
 |---|---|
-| E1 | A function that turns Pydantic errors into a flat list of `field` and `message` |
-| E2 | A small FastAPI app with honest error codes and boundary tests |
+| E1 | A constrained Pydantic model with a whitespace validator, and a function that flattens Pydantic errors |
+| E2 | A multipart FastAPI app with form metadata, several exception handlers and boundary tests |
 | M1 | A lazy generator that yields only valid records |
 | H1 | A debugging drill with three planted bugs |
 

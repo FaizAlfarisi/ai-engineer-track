@@ -10,3 +10,11 @@ class Product(BaseModel):
 
 class BadUpload(Exception):
     """Raised when an uploaded file cannot be used at all."""
+
+
+class EmptyUploadError(Exception):
+    """Raised when an uploaded file is empty or whitespace-only."""
+
+
+class UnsupportedMediaError(Exception):
+    """Raised when an uploaded file has an unsupported extension or media type."""
