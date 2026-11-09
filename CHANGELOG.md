@@ -1,5 +1,38 @@
 # Changelog
 
+## [5.4.1] - 2026-11-09
+
+### Changed
+
+- Generalized the **Adaptive Mechanism Depth & Coverage Contract** globally across
+  all lessons and Stage 4 sprints (`CURRICULUM.md`, `ROADMAP.md` Sprints `A1–A3`
+  & `B1–B3`, `templates/lesson-template.md`, `templates/concept-kit.md`,
+  `templates/code-review-template.md`, `.opencode/TEACHING.md`,
+  `.opencode/REVIEW.md`, `.opencode/commands/start-session.md`,
+  `.opencode/commands/sprint-slice.md`, and `.opencode/commands/review-work.md`).
+- Every distinct mechanism, API, or configuration hook required by any exercise,
+  project, or Sprint Brief slice now globally requires its own Why-Chain,
+  "when to use vs when NOT to use" decision rule, parameter/constraint/config
+  semantics table, runnable worked example, and Coverage Matrix row checked at
+  both build time and review time.
+
+## [5.4.0] - 2026-11-09
+
+### Changed
+
+- Extended `CURRICULUM.md` (`## Concept Kit` & `# Coverage Contract`),
+  `templates/concept-kit.md`, `.opencode/TEACHING.md`, and
+  `.opencode/commands/sprint-slice.md` so Stage 4 Concept Kits enforce the
+  Coverage Contract across **both** kit exercises (`E1–H1`) **and** all Sprint
+  Brief slice requirements (requiring a Why-Chain, "when to use vs when NOT to
+  use" decision rule, parameter/constraint semantics, a runnable worked example
+  per distinct mechanism, and a mandatory Section 7 Sprint Slice & Exercise
+  Coverage Matrix).
+- Expanded `ROADMAP.md` Sprint `A1` topic specification to explicitly require
+  Pydantic `Field` constraints & parameter semantics vs custom validators,
+  FastAPI `UploadFile`/`File`/`Form` `multipart/form-data` endpoints, and
+  registering multiple custom `@app.exception_handler` handlers.
+
 ## [5.3.0] - 2026-11-05
 
 ### Added

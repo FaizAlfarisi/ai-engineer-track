@@ -47,6 +47,18 @@ Rules:
 - Why-Chain per concept (`TEACHING.md` Phase 3): problem → why previous
   is insufficient → capability needed → feature → mechanism →
   consequence (what breaks without it). Deliberate omissions named.
+- **Adaptive Mechanism Depth (global across all lessons & Concept Kits):**
+  Every distinct mechanism, API, or configuration pattern required by an
+  exercise, project, or sprint slice must include:
+  1. Its own 6-step **Why-Chain**
+  2. An explicit **Decision Rule** (*when to use it, when NOT to use it,
+     and which alternative to pick instead*)
+  3. **Parameter / Constraint / Configuration Semantics** (what key
+     options exist, whether they are optional or required, and how they
+     behave or fail)
+  4. **At least one complete, runnable worked example per mechanism**
+  5. A row in the **Coverage Matrix** mapping the requirement to the
+     section + worked example that teaches it.
 
 ---
 
@@ -73,16 +85,27 @@ Rules:
 ```text
 1. Objective + success check
 2. Mental model (one visual: Mermaid or ASCII)
-3. Why-Chain
-   (problem → insufficiency → capability → feature → mechanism → consequence)
-4. One worked example (small, complete, runnable)
+3. Why-Chain + Decision Rules (per mechanism required by the slice)
+   (problem → insufficiency → capability → feature → mechanism → consequence
+    + when to use / when NOT to use + key parameters/constraints)
+4. Worked examples (one small, complete, runnable example per distinct
+   mechanism required by the sprint slice)
 5. Three pitfalls (symptom → cause → fix)
 6. Practice: E1, E2, M1, H1-[DEBUG] + 5-question retrieval
+7. Sprint Slice & Exercise Coverage Matrix
 ```
 
 Rules:
 
 - 2–4 exercises per kit; no padding to fill a template.
+- **Multi-mechanism slices never collapse explanations:** Whenever a
+  lesson or sprint slice requires multiple distinct mechanisms (whether
+  schema constraints vs custom validators, multipart/streaming endpoints,
+  multi-handler exception configuration, vectorized DataFrame operations,
+  parameterized SQL/ORM transactions, FTS5 search backends, or async
+  retries/timeouts), each mechanism gets its own Why-Chain,
+  parameter/constraint/configuration breakdown, "when to use vs when NOT
+  to use" decision rule, and runnable worked example.
 - CORE topics still need all six evidence types: explain, implement,
   debug, combine, decide, read. The project supplies combine/decide; the
   kit supplies implement/debug; review supplies explain/read.
@@ -188,9 +211,19 @@ Challenge separate. Allowed tags: `[REAL-WORLD]` / `[INTERVIEW]` /
 
 # Coverage Contract (build gate — mandatory)
 
-Every construct, API, or tool an exercise requires must be taught in the
-lesson (concept + implementation + ≥1 worked example) **or** explicitly
-declared PROVIDED (given code, usage shown in-lesson).
+Every construct, API, configuration hook, or tool an exercise, project,
+**or Stage 4 Sprint Brief slice** requires must be taught in the lesson
+/ Concept Kit (concept + Why-Chain + when-to-use decision rule +
+parameter/constraint/configuration semantics + ≥1 runnable worked
+example per distinct mechanism) **or** explicitly declared PROVIDED
+(given code, usage shown in-lesson).
+
+Across all stages and especially in Stage 4, the Coverage Contract
+applies to **both** the practice exercises **and** every endpoint type,
+data transformation, query/persistence pattern, validation constraint,
+and error/configuration hook needed to complete the brief's acceptance
+criteria. Never leave any required mechanism untaught, implicit, or
+compressed into a passing mention.
 
 New tool needed? First resort: **teach it in the lesson**, framed as
 the industry/real-work best approach for such cases. Second resort:
@@ -203,8 +236,9 @@ never names costs hours). Expected-states are stated exactly and
 directly — hardness lives in the solving path, never in parsing the
 ask.
 
-The review file records a one-line coverage check per exercise →
-lesson section (or PROVIDED flag).
+The Concept Kit and review file record an explicit coverage matrix
+mapping each exercise **and each Sprint Brief deliverable** → lesson/kit
+section (or PROVIDED flag).
 
 ---
 

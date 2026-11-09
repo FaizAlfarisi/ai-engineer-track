@@ -83,7 +83,10 @@ Also record:
 - Hint dependency level used (0–4)
 - Which issues were fixed independently vs assisted
 - Spec-literalness: exact-match check on required outputs/messages
-- Coverage check: each exercise → lesson section (or PROVIDED flag)
+- Coverage check: each exercise **and each Sprint Brief / project
+  deliverable** → lesson/kit section (with Why-Chain + when-to-use
+  decision rule + parameter/config semantics + runnable worked example,
+  or `PROVIDED` flag per `CURRICULUM.md` Coverage Contract)
 - Label check: ID == Difficulty == table tier == notebook Type
 - Style consistency: Path-first I/O, `main(argv)` + `__main__` guard,
   no module-level executable code

@@ -21,10 +21,10 @@ Real engineering scenario where this topic is used. No abstract definitions.
 
 Intuition before syntax. Analogy if it genuinely helps.
 
-Why-Chain (mandatory per concept): What problem? Why is the previous
-concept insufficient? What capability is needed? What feature provides
-it? How does it work? What breaks without it? Name deliberate omissions
-(what problem they'd solve, why not yet).
+Why-Chain (mandatory per distinct mechanism): What problem? Why is the
+previous concept insufficient? What capability is needed? What feature
+provides it? How does it work? What breaks without it? Name deliberate
+omissions (what problem they'd solve, why not yet).
 
 ---
 
@@ -32,11 +32,23 @@ it? How does it work? What breaks without it? Name deliberate omissions
 
 The concept itself, built gradually. Syntax only after intuition.
 
+For **every distinct mechanism, API, or configuration hook** required by
+the lesson's exercises or project slice, explicitly explain:
+1. **Mechanism & Parameter / Constraint Semantics:** What key options or
+   parameters exist, whether each is optional or required, and what
+   happens or raises when violated.
+2. **Decision Rule (When to Use vs When NOT to Use):** When to choose
+   this mechanism vs its alternatives, and why.
+
 ---
 
 ## Practical Examples
 
 Worked examples grounded in realistic scenarios.
+
+Provide **at least one small, complete, runnable worked example per
+distinct mechanism** taught in the lesson — never collapse multiple
+mechanisms into a single incomplete snippet.
 
 ---
 
@@ -48,7 +60,7 @@ Best practice, trade-offs, alternatives, when NOT to use it.
 
 ## Common Pitfalls
 
-Frequent mistakes and WHY they happen.
+Frequent mistakes and WHY they happen (`Symptom → cause → fix`).
 
 ---
 
@@ -71,7 +83,7 @@ Questions only — the learner answers before coding.
 
 ## Practice
 
-Volume follows the tier pipeline (CURRICULUM.md), not a fixed count.
+Volume follows the tier pipeline (`CURRICULUM.md`), not a fixed count.
 
 ### Easy
 
@@ -84,6 +96,12 @@ Volume follows the tier pipeline (CURRICULUM.md), not a fixed count.
 [REAL-WORLD or INTERVIEW]
 Objective · Requirements · Constraints · Acceptance Criteria
 No step-by-step plan.
+
+### Coverage Matrix (mandatory build gate — `CURRICULUM.md`)
+
+| Requirement (Exercise or Project/Slice Deliverable) | Construct / API / Mechanism Needed | Taught in Section (or `PROVIDED`) |
+|-----------------------------------------------------|------------------------------------|-----------------------------------|
+| `E1` / `M1` / `H1` / Challenge                      | ...                                | Section + Worked Example          |
 
 ---
 

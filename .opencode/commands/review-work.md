@@ -47,7 +47,7 @@ VERIFICATION & CODE REVIEW WALK:
    - Record alongside the table:
      - `Hint dependency level (0–4)` and `Independent-fix ratio` (fixed independently vs assisted)
      - `Spec-literalness check` (exact-match on required outputs/messages)
-     - `Coverage check` (each exercise → lesson/kit section or `PROVIDED` flag)
+     - `Coverage check` (each exercise **and each Sprint Brief / project deliverable** → lesson/kit section with Why-Chain + decision rule + parameter/config semantics + worked example, or `PROVIDED` flag)
      - `Label check` (`ID == Difficulty == table tier == notebook Type`)
      - `Style consistency` (`Path`-first I/O, `main(argv)` + `__main__` guard)
      - `Suite health` (vacuous-test check passed)

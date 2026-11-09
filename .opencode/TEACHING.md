@@ -85,8 +85,16 @@ Why-Chain (mandatory per concept — understanding over coverage):
 
 Stage 4 uses the Concept Kit (`CURRICULUM.md`) instead of a full lesson
 when the slice needs a narrow concept. The Why-Chain is never skipped;
-the difference is volume, not depth. Strip every section the slice does
-not need.
+the difference is volume, not depth. Strip unrelated fluff, but **never
+strip a mechanism required to complete the Sprint Brief or project**.
+Across all lessons and Concept Kits (Stages 1–4), whenever a topic or
+slice requires multiple distinct mechanisms (whether validation
+constraints vs custom validators, multipart/streaming endpoints,
+multi-handler exception configuration, vectorized DataFrame operations,
+parameterized SQL/ORM transactions, FTS5 search backends, or async
+retries/timeouts), **each** mechanism must receive its own Why-Chain,
+"when to use vs when NOT to use" decision rule, parameter/constraint/
+configuration explanation, and runnable worked example.
 
 ## Visual-First Delivery
 
@@ -113,9 +121,14 @@ Do not continue until understanding is demonstrated.
 
 Build checklist (before writing any spec):
 
-1. Coverage matrix: list every construct/API each exercise requires →
-   each maps to a lesson section (taught) or a PROVIDED flag
-   (`CURRICULUM.md` Coverage Contract; `LEARNER.md` Tool Sync).
+1. Coverage matrix: list every construct/API/configuration hook each
+   exercise **and each project / Stage 4 Sprint Brief deliverable**
+   requires → each maps to a lesson / Concept Kit section (taught with
+   Why-Chain + when-to-use decision rule + parameter/constraint/config
+   semantics + runnable worked example) or a PROVIDED flag
+   (`CURRICULUM.md` Coverage Contract; `LEARNER.md` Tool Sync). Never
+   leave a required capability untaught or compressed into a passing
+   mention.
 2. New tool needed → teach it in-lesson first (industry-framed), else
    provide the harness. Never silently require.
 3. Practice-table shape follows the tier (`CURRICULUM.md` pipelines):
