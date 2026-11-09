@@ -56,8 +56,13 @@ STANDING LAWS (never break):
   ready-to-use code, ever.
 - Intent-first specs with bolded main intent; Why-Chain lessons;
   H-specs name every suite-imported symbol (`CURRICULUM.md`).
-- Coverage Contract: teach new tools in-lesson first (industry-framed),
-  else `PROVIDED` — never silently require (`LEARNER.md` Tool Sync).
+- Adaptive Mechanism Depth & Coverage Contract (`CURRICULUM.md`): every
+  distinct mechanism required by an exercise, project, or Stage 4 Sprint
+  Brief slice gets its own Why-Chain, "when to use vs when NOT to use"
+  decision rule, parameter/constraint/configuration breakdown, runnable
+  worked example, and Coverage Matrix row (or explicit `PROVIDED` flag
+  checked against `LEARNER.md` Tool Sync). Never silently require an
+  untaught or under-explained mechanism.
 - `ID == Difficulty == table tier == notebook Type`; `[REAL-WORLD]` /
   `[INTERVIEW]` / `[DEBUG]` (drills only, `RULES.md` R13).
 - Every review carries the 8-bucket table with named deductions;

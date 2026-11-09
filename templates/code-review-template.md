@@ -102,6 +102,12 @@ Targets offered:
 
 Overall:            Hint dependency (0–4):            Spec-literalness pass:
 
+Coverage check (every exercise AND every Sprint Brief / project mechanism mapped to a taught section with Why-Chain + decision rule + parameter semantics + worked example, or `PROVIDED`):
+
+Label check (`ID == Difficulty == table tier == notebook Type`):
+
+Style & Suite health check (`Path`-first I/O, `main(argv)` + `__main__` guard, vacuous-test check):
+
 ---
 
 # Strengths

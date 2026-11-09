@@ -157,9 +157,9 @@ Upload LLM instruction/response datasets → validate (Pydantic) → clean
 
 | Sprint | Slice | Topics |
 |--------|-------|--------|
-| A1 | Upload + validate vertical slice | HTTP/API applied · FastAPI · Pydantic · OpenAPI |
-| A2 | Quality engine + export | Pandas · NumPy · JSONL · data quality |
-| A3 | Persistence + polish | SQL · SQLite · project architecture · Git workflow |
+| A1 | Upload + validate vertical slice | HTTP/API applied · FastAPI (`UploadFile`/`File`/`Form` `multipart/form-data`, status codes, registering multiple `@app.exception_handler` handlers) · Pydantic (`BaseModel`, `Field` constraints & parameter semantics vs `@field_validator`/`@model_validator` decision rules) · OpenAPI |
+| A2 | Quality engine + export | Pandas (DataFrame/Series indexing, missing/duplicate handling, vectorized transforms vs row iteration trade-offs) · NumPy (array dtypes, broadcasting, summary stats/masks) · JSONL streaming/export · data quality metrics |
+| A3 | Persistence + polish | SQL & SQLite (schema design, parameterized queries, transactions/context managers, connection lifecycle) · project architecture (routes/services/repository layering, env settings) · CI & Docker · Git workflow |
 
 ## Project B — Knowledge Base Ingest API
 
@@ -168,9 +168,9 @@ paged results. AI angle: a RAG-ready document store.
 
 | Sprint | Slice | Topics |
 |--------|-------|--------|
-| B1 | Ingest + chunk vertical slice | FastAPI · Pydantic · file handling · SQLite |
-| B2 | Search + ORM | SQLAlchemy · SQL · FTS5 (`SearchBackend`) · Pandas stats |
-| B3 | Resilience + polish | asyncio applied · retries/timeouts · logging · auth-lite · Git workflow |
+| B1 | Ingest + chunk vertical slice | FastAPI (ingest endpoints, pagination contracts, error envelopes) · Pydantic (nested models, config/validation trade-offs) · file handling & deterministic text chunking (size/overlap trade-offs) · SQLite persistence |
+| B2 | Search + ORM | SQLAlchemy (models, session lifecycle, ORM vs raw SQL decision rules) · SQL & SQLite FTS5 (`MATCH`, ranking, `SearchBackend` protocol/interface boundary) · Pandas corpus stats |
+| B3 | Resilience + polish | asyncio applied (sync vs async route/I/O decision rules) · HTTP resilience (timeouts, exponential backoff retries, idempotency) · structured logging · API-key auth-lite dependency · CI & Docker · Git workflow |
 
 ## Topic map
 

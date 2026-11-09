@@ -2669,3 +2669,32 @@ interleaved at the learner's call.
 - Next: Sprint A0 — create the two public repos, approve briefs, set up
   the environment. Then A1.
 - System files only; no learner work this session. No commit.
+
+## Sprint A0 — Setup (2026-11-03)
+
+- Type: `[SETUP]` Stage 4 portfolio setup. No lesson, concept kit, or
+  project code.
+- Auth: `gh` active account `FaizAlfarisi` valid (repo/workflow/gist/
+  read:org). Stale `FzPrograms` keyring token still invalid — `gh auth
+  status` exits non-zero until the learner runs
+  `gh auth logout -h github.com -u FzPrograms`.
+- Repos created (public, `--add-readme`):
+  - https://github.com/FaizAlfarisi/dataset-readiness-api
+  - https://github.com/FaizAlfarisi/knowledge-base-ingest-api
+- Local clones (outside the OS repo): `D:\Code\RandomProjects\
+  dataset-readiness-api` and `...\knowledge-base-ingest-api`.
+- Scaffold written locally in both repos: `LICENSE` (MIT, 2026),
+  Python `.gitignore`, `.env.example` stub, README skeleton with
+  backlink + two learner TODO sentences. **Not committed/pushed —
+  learner runs the commit (Session End law).**
+- Environment: Python 3.12.4; pytest 9.1.1; `fastapi 0.162.0`
+  installed; `pydantic 2.13.4`; `uvicorn`/`pandas`/`numpy`/`sqlite3`
+  OK; import check prints `ok`.
+- Briefs drafted for learner approval: `projects/stage-4-setup/A1.md`,
+  `projects/stage-4-setup/B1.md`.
+- `PORTFOLIO.md`: repo links added, A0 milestone complete, current
+  sprint → A1. `PROGRESS.md`: A0 row complete, position → A1.
+- Green-run evidence: `python -c "import fastapi, pydantic, pandas,
+  numpy, sqlite3, uvicorn; print('ok')"` → `ok`.
+- Next: learner fills the two README TODO sentences, commits/pushes
+  the scaffolds, approves A1/B1 scope, then writes the A1 slice plan.
