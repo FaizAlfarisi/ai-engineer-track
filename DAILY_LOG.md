@@ -2698,3 +2698,20 @@ interleaved at the learner's call.
   numpy, sqlite3, uvicorn; print('ok')"` → `ok`.
 - Next: learner fills the two README TODO sentences, commits/pushes
   the scaffolds, approves A1/B1 scope, then writes the A1 slice plan.
+
+
+## Sprint A1 — Upload + Validate Vertical Slice (2026-11-18)
+
+- **Type:** `[REAL-WORLD]` Stage 4 Project A (`dataset-readiness-api`), commit `9a651b3 finalized A1`. **Review Score:** `91/100` (`review/dataset-readiness-api_A1-review.md`).
+- **Completed:**
+  - Audited, restructured, and cleared `dataset-readiness-api_A1_concept-kit.md` (8 paired mechanisms + Quick Recall 5/5 + 2 follow-ups) and `A1-practice/` (`E1`, `E2`, `M1`, `H1-[DEBUG]` with 3 seven-row chains in `debug_report.md` — `20 passed`).
+  - Built and pushed `dataset-readiness-api`: `app/main.py` (`POST /datasets/validate`, upload metadata validation, 4 `@app.exception_handler` hooks + `RequestValidationError` `400` override), `app/exceptions.py`, `app/schemas/model.py` (`DatasetRecord`, `RowErrorItem`, `DatasetSummarySchema`, `ErrorResponseSchema`), `app/services/data_processor.py` (UTF-8-sig decode, JSON array + JSONL parsing, per-row error collection), `tests/test_datasets_api.py` + `conftest.py` (`32 passed`), `README.md`, `DECISIONS.md`, `ARCHITECTURE.md` (with Mermaid flowchart polished from learner draft), `docs/demo.md`.
+- **Key Mistakes & Insights:**
+  - `e2_app.py` initially reused `bad_upload_handler` across all 4 handlers (passed via FastAPI decorator object capture, shadowing module-level names — fixed independently).
+  - `.jsonl` parser first omitted `continue` after `json.JSONDecodeError` (500 on line 1 / double-counting middle line), then added an `if not parsed:` shortcut that dropped `errors[]` for `{}`/`null`/`0` lines — root cause identified: assumed `except` skips loop rest, and copied count-only `H1` pattern over row-error-trail invariant.
+  - Self-correction on docs: learned difference between live `/docs` placeholder output vs actual `curl` verification (`docs/demo.md` 415 mismatch fixed pre-commit).
+- **Transfer:** Custom domain exceptions + `from exc` chaining, generators (`M1`), parametrized `pytest` fixtures, JSON/UTF-8 error boundaries reused unprompted.
+- **Hints Needed:** `0` on `A1-practice` (`E1`–`H1`); `1` overall on A1 sprint (conceptual/spec Q&A during build — self-rated `2` by learner — plus 2 diagnostic review rounds; 100% code fixes written independently; R18 prose/Mermaid layout polish only on `ARCHITECTURE.md` § 3 & `README.md` tree).
+- **Time Studied:** `~2 weeks wall / 5–6h focused / 1 sprint cycle` (learner-reported; token line not reported).
+- **Green-Run Evidence:** `python -m pytest -v` in temp clean-tree copy → `32 passed in 0.72s`; `5/5` vacuous mutations caught; `uvicorn app.main:app` + `curl -F "file=@sample.jsonl"` → `200` `{"total":1,"valid":1,"invalid":0,"errors":[]}`; `GET /docs` → `200`.
+- **Next Goal:** Draft and approve `projects/stage-4-setup/A2.md` sprint brief and prepare Sprint A2 (Pandas + NumPy quality engine & JSONL export).

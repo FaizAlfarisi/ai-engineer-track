@@ -551,8 +551,7 @@ Implement an HTTP multipart endpoint taking `file: UploadFile = File(...)` and o
 | `file: UploadFile = File(...)` | `from fastapi import File, UploadFile` | Required multipart file part named `"file"` | FastAPI raises `RequestValidationError` (`422`) before route runs | Calling `await file.read()` a second time returns `b""` unless you call `await file.seek(0)` first! |
 | `file.filename` | Attribute on `UploadFile` (`str \| None`) | Original filename sent in `Content-Disposition` (e.g. `"sample.jsonl"`) | Can be `None` or `""` in crafted requests | Always normalize with `(file.filename or "").lower()` |
 | `file.content_type` | Attribute on `UploadFile` (`str \| None`) | MIME type header of that part (e.g. `"application/json"`) | Can be `None` or `"application/octet-stream"` for `.jsonl` in `curl` | Rejecting `application/octet-stream` breaks `curl -F "file=@sample.jsonl"`! |
-| `await file.read()` | Async method on `UploadFile` (`-> bytes`) | Reads all bytes from the spooled file | Returns `b""` on a 0-byte upload | `b"   
-	  "` is non-empty `bytes`, so check `not raw_bytes.strip()` too! |
+| `await file.read()` | Async method on `UploadFile` (`-> bytes`) | Reads all bytes from the spooled file | Returns `b""` on a 0-byte upload | `b""` is non-empty `bytes`, so check `not raw_bytes.strip()` too! |
 | `tag: str = Form("default")` | `from fastapi import Form` | Optional form field sent in the same multipart request | Uses `"default"` (`Form(...)` makes it required) | In `TestClient`, pass form fields via `data={"tag": "v1"}` alongside `files={"file": ...}` |
 
 #### Worked Example 3.5: Multipart file upload with `UploadFile`, `File(...)`, and `Form(...)`
@@ -727,8 +726,7 @@ Parse raw bytes into numbered record tuples `(row_number, record_dict)`, handlin
 
 | Input shape | How to parse | When to raise `400` (`EmptyFileError` / `CorruptFileError`) | When to collect a per-row error (`200` summary) |
 |---|---|---|---|
-| `0` bytes or whitespace-only (`b"  
- "`) | Check `if not raw_bytes or not raw_bytes.strip():` first | Always raise `EmptyFileError` (`400`) | Never |
+| `0` bytes or whitespace-only (`b""`) | Check `if not raw_bytes or not raw_bytes.strip():` first | Always raise `EmptyFileError` (`400`) | Never |
 | Non-UTF-8 binary bytes (`b"PNG..."`) | `raw_bytes.decode("utf-8-sig")` | Catch `UnicodeDecodeError` -> raise `CorruptFileError` (`400`) | Never |
 | `.json` file | `data = json.loads(text)` | Syntax error (`JSONDecodeError`), top-level is not a `list` (`isinstance(data, list)` is False), or `len(data) == 0` | When `data` is a non-empty `list` and an element inside it fails `DatasetRecord.model_validate(elem)` |
 | `.jsonl` file | Loop `for row_num, line in enumerate(text.splitlines(), start=1):` | File has 0 non-blank lines (`EmptyFileError`). If a line has broken JSON syntax, either raise `CorruptFileError` (`400`) or record a row error (document your choice in `DECISIONS.md`!) | When a parsed line fails `DatasetRecord.model_validate(item)` |
