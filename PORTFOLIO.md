@@ -4,7 +4,7 @@ Showcase index for Stage 4. This file is runtime data: the builder keeps
 status and links current. Rules live in `CURRICULUM.md` (Stage 4),
 `RULES.md` (R18–R19), and `ROADMAP.md`.
 
-Current sprint: Sprint A2 — `projects/stage-4-setup/A2.md` (pending brief setup & approval)
+Current sprint: Sprint A2 — `projects/stage-4-setup/A2.md`
 
 ## Projects
 

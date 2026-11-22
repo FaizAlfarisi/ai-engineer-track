@@ -15,7 +15,7 @@ Current:      Sprint A1 complete (91/100, dataset-readiness-api @ 9a651b3); Spri
 Next:         Sprint A2 (quality engine + export) → A3 → publish A → B1 → B2 → B3 → publish B
 Weekly Proj.: WP1 85/100; WP2 88/100; WP3 86/100 (closed); WP4-merged: 96/100 (closed)
 Quizzes:      Quiz 01 done (84.7%); Quiz 02 done (84.7%); Quiz 03 done (82.9%); Quiz 04 done (86.1%); Quiz 05 done (15/15 — 100%)
-DSA Track:    1 session/week, interleaved — Week 4 done (stack); Week 5 due next
+DSA Track:    1 session/week, interleaved — Week 4 done (stack); Week 5 deferred until Project A finishes (learner request)
 Git:          commit after every session from Stage 2 onward (Stage 4: one repo per project)
 ```
 
